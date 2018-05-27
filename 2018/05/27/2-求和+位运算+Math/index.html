@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="leetcode总结,Math,位运算," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="求和问题k-sum问题虽然看起来hashmap的方法不需要排序的操作，但是一旦上升到k&amp;gt;=2的时候，就会让排序的nlogn的时间复杂度不明显。而且又不需要空间，其实更好的是带排序的，我觉得。。 1. 2-sum问题（1）先sort（比较好），然后two pointer（2）hashmap（当然前提不能重复数字）">
+<meta name="keywords" content="leetcode总结,Math,位运算">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2.求和+位运算+Math">
+<meta property="og:url" content="blog.lovelaolao.xin/2018/05/27/2-求和+位运算+Math/index.html">
+<meta property="og:site_name" content="HZ&#39;s Blog">
+<meta property="og:description" content="求和问题k-sum问题虽然看起来hashmap的方法不需要排序的操作，但是一旦上升到k&amp;gt;=2的时候，就会让排序的nlogn的时间复杂度不明显。而且又不需要空间，其实更好的是带排序的，我觉得。。 1. 2-sum问题（1）先sort（比较好），然后two pointer（2）hashmap（当然前提不能重复数字）">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-27T07:42:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2.求和+位运算+Math">
+<meta name="twitter:description" content="求和问题k-sum问题虽然看起来hashmap的方法不需要排序的操作，但是一旦上升到k&amp;gt;=2的时候，就会让排序的nlogn的时间复杂度不明显。而且又不需要空间，其实更好的是带排序的，我觉得。。 1. 2-sum问题（1）先sort（比较好），然后two pointer（2）hashmap（当然前提不能重复数字）">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'EQNFCFWZVQ',
+      apiKey: '19713fffa872ec9f90f6a8ade436f7e5',
+      indexName: 'HZBlog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="blog.lovelaolao.xin/2018/05/27/2-求和+位运算+Math/"/>
+
+
+
+
+
+  <title>2.求和+位运算+Math | HZ's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?40b71fb0e7bcadbfd695ea89064f5aa9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">HZ's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="blog.lovelaolao.xin/2018/05/27/2-求和+位运算+Math/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HZ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/handsomeme.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HZ's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">2.求和+位运算+Math</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-27T15:35:00+08:00">
+                2018-05-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode-Categories/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode Categories</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/27/2-求和+位运算+Math/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/05/27/2-求和+位运算+Math/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/05/27/2-求和+位运算+Math/" class="leancloud_visitors" data-flag-title="2.求和+位运算+Math">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,500 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="求和问题"><a href="#求和问题" class="headerlink" title="求和问题"></a>求和问题</h1><h2 id="k-sum问题"><a href="#k-sum问题" class="headerlink" title="k-sum问题"></a>k-sum问题</h2><p>虽然看起来hashmap的方法不需要排序的操作，但是一旦上升到k&gt;=2的时候，就会让排序的nlogn的时间复杂度不明显。而且又不需要空间，其实更好的是带排序的，我觉得。。</p>
+<h3 id="1-2-sum问题"><a href="#1-2-sum问题" class="headerlink" title="1. 2-sum问题"></a>1. 2-sum问题</h3><p>（1）先sort（比较好），然后two pointer<br>（2）hashmap（当然前提不能重复数字）</p>
+<a id="more"></a>
+<h3 id="2-3-sum问题"><a href="#2-3-sum问题" class="headerlink" title="2. 3-sum问题"></a>2. 3-sum问题</h3><p>先取出一个数，然后剩下的数做2-sum，sum为target-i。<br>而且不管是sort还是hashmap的方法，都是n^2的复杂度。<strong>（因为是先排序，然后顺序取，所以sort会好一些，不需要空间复杂度）</strong></p>
+<h3 id="3-k-sum问题"><a href="#3-k-sum问题" class="headerlink" title="3. k-sum问题"></a>3. k-sum问题</h3><p>同理，不断退化为2-sum问题。<br>时间复杂度为n^(k-1)。</p>
+<h1 id="位运算："><a href="#位运算：" class="headerlink" title="位运算："></a>位运算：</h1><h2 id="字符串-数字"><a href="#字符串-数字" class="headerlink" title="字符串-数字"></a>字符串-数字</h2><p>转化字符串用数字代替，反正顶多26种嘛，可以每个字符一个数字，可以一个数字代替一种字符出现次数。<br>这样可以方便统计交集等。<br>而且char可以直接转为int。</p>
+<h2 id="位运算-比较"><a href="#位运算-比较" class="headerlink" title="位运算-比较"></a>位运算-比较</h2><p>结合字符串-数字，可以直接把两个int做&amp;，这样相当于比较有没有交集了。  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">操作</th>
+<th style="text-align:center">效果</th>
+<th style="text-align:center">适用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>&amp; 相与</strong></td>
+<td style="text-align:center">相同为1 不同为0</td>
+<td style="text-align:center">加法的carry</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>^ 异或</strong></td>
+<td style="text-align:center">不同为1 相同为0</td>
+<td style="text-align:center">加法的各位数字求和</td>
+</tr>
+<tr>
+<td style="text-align:center">**\</td>
+<td style="text-align:center">或**</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>~ 取反</strong></td>
+<td style="text-align:center">（补码操作）</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>&lt;&lt; &gt;&gt; 位移</strong></td>
+<td style="text-align:center">快速</td>
+<td style="text-align:center">乘除</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>n&amp;(n-1)</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">得到n去掉二进制最后一个1后的本身</td>
+</tr>
+</tbody>
+</table>
+<h2 id="XOR"><a href="#XOR" class="headerlink" title="XOR ^"></a>XOR ^</h2><h3 id="Single-Number-I-II-III-IV（巧-难）"><a href="#Single-Number-I-II-III-IV（巧-难）" class="headerlink" title="Single Number I/II/III/IV（巧+难）"></a>Single Number I/II/III/IV（巧+难）</h3><p>一个数组，每个数都出现了x次，只有y个出现了z次，如何o(n)时间，o(1)空间找到这个。<br>用异或^一一操作所有的数。相当于把所有数的每个bit都一起做^。从而可以统计每个bit的出现次数。</p>
+<p>原理I（2，1，1）：只需一个int，借助位运算，计算int里每个bit的出现次数，如果有哪个bit出现了奇数次，那就是所求数字的。  </p>
+<p>原理II（3，1，1）：需要三个int，分别记录每个bit上，出现过1、2、3次的记录，当3次记录出现，1、2记录的对应bit清零。因为出现三、0次那么每个bit上%3必然为0. 出现1次%3位1. 最终找到的出现1次的bit就是所求。  </p>
+<p>原理III（2，2，1）：因为如果出现了两个数，就没办法用结果唯一表示了。所以可以全部^操作，这样得到的第一个为1的bit即两个只出现了一次的数里不一样的那个bit。</p>
+<p>原理IV（2，3，1）：同原理III，一定可以先找到一个只出现一次的，剩下那两个再用原理III做一次。</p>
+<h2 id="amp"><a href="#amp" class="headerlink" title="&amp;"></a>&amp;</h2><h3 id="Count-of-1-bits"><a href="#Count-of-1-bits" class="headerlink" title="Count of 1 bits"></a>Count of 1 bits</h3><p>统计一个数的二进制有多少个1.（如果规定在O(m)内完成呢）<br>最优思路：如110100，-1之后会变成110011，然后两个数做&amp;，得到110000，这样做可以去掉最右边的那个1.这样一直-m个1之后得到0，就数出来了多少个1.<br><strong>n&amp;(n-1)可以得到n去掉二进制的最后一个1的自己。</strong></p>
+<h3 id="Bitwise-AND-of-Numbers-Range"><a href="#Bitwise-AND-of-Numbers-Range" class="headerlink" title="Bitwise AND of Numbers Range"></a>Bitwise AND of Numbers Range</h3><p>统计一定范围内的所有数，左侧开始有多少个共同bit。<br>其实就是寻找二进制表示的这些数的共同点。即左侧所有一样的1。<br>可以不断所有数右移一位，知道所有数相等。<br>也可以用n&amp;(n-1)，不断去掉最低位的1，直到所有数相等。</p>
+<h2 id="shift"><a href="#shift" class="headerlink" title="shift"></a>shift</h2><h1 id="MATH问题"><a href="#MATH问题" class="headerlink" title="MATH问题"></a>MATH问题</h1><h2 id="0-问题类型"><a href="#0-问题类型" class="headerlink" title="0.问题类型"></a>0.问题类型</h2><p>（0）<strong>overflow总是要考虑。</strong>（根据int的位数等等）<br>（1）整数的逐位操作，如反转、比较。<br>（2）算数运算类。如乘除、阶乘、开方。<br>主要方法包括：<strong>二分法</strong>、<strong>牛顿法</strong>、<strong>位移法</strong>、<strong>递归</strong>。<br>（3）解析几何类。复杂而细节多。<br>（4）你还要考虑输入的数有没有正负影响结果。</p>
+<h2 id="1-基础题型"><a href="#1-基础题型" class="headerlink" title="1.基础题型"></a>1.基础题型</h2><p>乘除通过左右位移实现。  </p>
+<pre><code>a^b:相同为0，不同为1。  
+a&amp;b:相同为a/b，不同为0。  
+</code></pre><p>需要注意是否会<strong>overflow</strong>原数据类型。</p>
+<h3 id="Divide-Two-Integers"><a href="#Divide-Two-Integers" class="headerlink" title="Divide Two Integers"></a>Divide Two Integers</h3><p>将两个数做除法a/b。<br>相当于bottom up。b不断&lt;&lt;1，直到比a大，计为c。a=a-(c&gt;&gt;1).记录b增大了多少倍。然后继续操作直到b&gt;a。</p>
+<h3 id="A-Plus-B"><a href="#A-Plus-B" class="headerlink" title="A Plus B"></a>A Plus B</h3><p><strong>a = a^b得sum，b = (a&amp;b)&lt;&lt;1得进位位置。<br>过程循环直到没有进位。</strong></p>
+<h3 id="A-Minus-B"><a href="#A-Minus-B" class="headerlink" title="A Minus B"></a>A Minus B</h3><p>即：a+(-b)。<br><strong>PS：在底层机器指令的实现中，位运算全是通过补码的形式实现的。</strong>所以可以区分正负。</p>
+<pre><code>所以~10 -&gt; -11，因为要用32位编译器的运算来考察。
+</code></pre><h3 id="Ugly-Number-I-II"><a href="#Ugly-Number-I-II" class="headerlink" title="Ugly Number I/II"></a>Ugly Number I/II</h3><p>题目：ugly number指只能被2、3、5相乘得到的数。求第n个ugly number（1也算）。</p>
+<p><strong>DP</strong>。可以观察到，所有ugly number都是之前ugly number*2、3、5得到的。所以准备三个指针，分别向后移动，选出每个指针指向的已保存ugly number与2/3/5的乘积最小值，保留，被选出的数组指针移动。  </p>
+<p>（ps：这样的处理会有重复的三个指针求值，都要移动）</p>
+<h3 id="Integer-to-Roman"><a href="#Integer-to-Roman" class="headerlink" title="Integer to Roman"></a>Integer to Roman</h3><p>巧分情况，统计所有需要独立表示的roman及数字。然后一直减。</p>
+<h3 id="Multiply-Strings"><a href="#Multiply-Strings" class="headerlink" title="Multiply Strings"></a>Multiply Strings</h3><p>将写成string的数字做乘法。<br>将每一位保存到数组，然后做演算纸那种乘法计算，记得保存carry。</p>
+<h3 id="Sqrt-x"><a href="#Sqrt-x" class="headerlink" title="Sqrt(x)"></a>Sqrt(x)</h3><p>给一个int x，找到开方结果（开方取整后返回）。</p>
+<pre><code>法一：O(根号n)
+从1开始循环，比较k^2与x直到k^2&gt;=x.
+时间复杂度较高。
+
+法二：O(logn)
+二分查找，从k=n开始。
+标记low、high，用mid+1、mid-1更新。
+如果mid^2 &lt;= x 且 (mid+1)^2 &gt; x则返回mid.
+
+法三：O()
+long r = x;
+while (r*r &gt; x)
+    r = (r + x/r) / 2;
+return (int) r;
+</code></pre><p><strong>牛顿法</strong>：更新公式 =&gt; <code>r = (r + x/r) / 2</code><br>为什么这里是/2，因为y=x^2的公式斜率是2x呀。</p>
+<h2 id="2-字符串与数字转换"><a href="#2-字符串与数字转换" class="headerlink" title="2.字符串与数字转换"></a>2.字符串与数字转换</h2><h2 id="3-其他题型"><a href="#3-其他题型" class="headerlink" title="3.其他题型"></a>3.其他题型</h2>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="HZ 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="HZ 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    HZ
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="blog.lovelaolao.xin/2018/05/27/2-求和+位运算+Math/" title="2.求和+位运算+Math">blog.lovelaolao.xin/2018/05/27/2-求和+位运算+Math/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode总结/" rel="tag"># leetcode总结</a>
+          
+            <a href="/tags/Math/" rel="tag"># Math</a>
+          
+            <a href="/tags/位运算/" rel="tag"># 位运算</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/27/1-算法设计/" rel="next" title="1.算法设计（思想）">
+                <i class="fa fa-chevron-left"></i> 1.算法设计（思想）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/handsomeme.jpg"
+                alt="HZ" />
+            
+              <p class="site-author-name" itemprop="name">HZ</p>
+              <p class="site-description motion-element" itemprop="description">human learning, shallow leanring...</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/CC1993" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/3855613144" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://leetcode.com/houser/" target="_blank" title="LeetCode">
+                      
+                        <i class="fa fa-fw fa-globe"></i>LeetCode</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#求和问题"><span class="nav-number">1.</span> <span class="nav-text">求和问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#k-sum问题"><span class="nav-number">1.1.</span> <span class="nav-text">k-sum问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-sum问题"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 2-sum问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-sum问题"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 3-sum问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-k-sum问题"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. k-sum问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#位运算："><span class="nav-number">2.</span> <span class="nav-text">位运算：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串-数字"><span class="nav-number">2.1.</span> <span class="nav-text">字符串-数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位运算-比较"><span class="nav-number">2.2.</span> <span class="nav-text">位运算-比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XOR"><span class="nav-number">2.3.</span> <span class="nav-text">XOR ^</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Single-Number-I-II-III-IV（巧-难）"><span class="nav-number">2.3.1.</span> <span class="nav-text">Single Number I/II/III/IV（巧+难）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#amp"><span class="nav-number">2.4.</span> <span class="nav-text">&amp;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Count-of-1-bits"><span class="nav-number">2.4.1.</span> <span class="nav-text">Count of 1 bits</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bitwise-AND-of-Numbers-Range"><span class="nav-number">2.4.2.</span> <span class="nav-text">Bitwise AND of Numbers Range</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shift"><span class="nav-number">2.5.</span> <span class="nav-text">shift</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MATH问题"><span class="nav-number">3.</span> <span class="nav-text">MATH问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-问题类型"><span class="nav-number">3.1.</span> <span class="nav-text">0.问题类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-基础题型"><span class="nav-number">3.2.</span> <span class="nav-text">1.基础题型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Divide-Two-Integers"><span class="nav-number">3.2.1.</span> <span class="nav-text">Divide Two Integers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-Plus-B"><span class="nav-number">3.2.2.</span> <span class="nav-text">A Plus B</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-Minus-B"><span class="nav-number">3.2.3.</span> <span class="nav-text">A Minus B</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ugly-Number-I-II"><span class="nav-number">3.2.4.</span> <span class="nav-text">Ugly Number I/II</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Integer-to-Roman"><span class="nav-number">3.2.5.</span> <span class="nav-text">Integer to Roman</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multiply-Strings"><span class="nav-number">3.2.6.</span> <span class="nav-text">Multiply Strings</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sqrt-x"><span class="nav-number">3.2.7.</span> <span class="nav-text">Sqrt(x)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-字符串与数字转换"><span class="nav-number">3.3.</span> <span class="nav-text">2.字符串与数字转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-其他题型"><span class="nav-number">3.4.</span> <span class="nav-text">3.其他题型</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HZ</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">16.9k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      你是本站第
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位访问者
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65862436";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'CC1993',
+            repo: 'CC1993.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'dc6d091e130f79570e46d555eed19e556888eed4',
+            
+                client_id: '603f6e3d251801be8556'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      function showGitment(){
+        document.getElementById("gitment-display-button").style.display = "none";
+        document.getElementById("gitment-container").style.display = "block";
+        renderGitment();
+      }
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("AQluv9b2gHsQHXCoEPbYTLVQ-gzGzoHsz", "qEL5EpDtAcgdujB3rqUpopWe");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
