@@ -14,36 +14,8 @@
     </url>
 
     <url>
-        <loc>blog.lovelaolao.xin/categories/2017-%E7%A7%8B%E6%8B%9B%E5%AE%9E%E4%B9%A0-%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/</loc>
-        <lastmod>2018-05-28T07:34:24.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>blog.lovelaolao.xin/categories/Leetcode-Categories/</loc>
-        <lastmod>2018-05-28T07:34:44.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>blog.lovelaolao.xin/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
         <lastmod>2018-05-28T07:36:35.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>blog.lovelaolao.xin/categories/%E7%AE%97%E6%B3%95%E6%8A%80%E5%B7%A7/</loc>
-        <lastmod>2018-05-28T07:36:57.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>blog.lovelaolao.xin/categories/C/</loc>
-        <lastmod>2018-05-28T07:37:24.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -63,29 +35,78 @@
     </url>
 
     <url>
-        <loc>blog.lovelaolao.xin/categories/Java/</loc>
-        <lastmod>2018-05-28T07:38:31.000Z</lastmod>
+        <loc>blog.lovelaolao.xin/categories/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/2017-%E7%A7%8B%E6%8B%9B/</loc>
+        <lastmod>2018-05-28T07:52:10.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>blog.lovelaolao.xin/categories/LintCode/</loc>
-        <lastmod>2018-05-28T07:38:45.000Z</lastmod>
+        <loc>blog.lovelaolao.xin/categories/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/</loc>
+        <lastmod>2018-05-28T07:53:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>blog.lovelaolao.xin/categories/Python/</loc>
-        <lastmod>2018-05-28T07:38:58.000Z</lastmod>
+        <loc>blog.lovelaolao.xin/categories/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/2018-%E6%9A%91%E6%9C%9F/</loc>
+        <lastmod>2018-05-28T07:53:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>blog.lovelaolao.xin/categories/2018-%E6%9A%91%E6%9C%9F%E5%AE%9E%E4%B9%A0-%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/</loc>
-        <lastmod>2018-05-28T07:49:40.000Z</lastmod>
+        <loc>blog.lovelaolao.xin/categories/Language/C/</loc>
+        <lastmod>2018-05-28T07:55:40.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>blog.lovelaolao.xin/categories/Language/Java/</loc>
+        <lastmod>2018-05-28T07:55:45.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>blog.lovelaolao.xin/categories/Language/</loc>
+        <lastmod>2018-05-28T07:55:50.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>blog.lovelaolao.xin/categories/Language/Python/</loc>
+        <lastmod>2018-05-28T07:55:50.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>blog.lovelaolao.xin/categories/Algorithm/LintCode/</loc>
+        <lastmod>2018-05-28T07:56:36.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>blog.lovelaolao.xin/categories/Algorithm/%E7%AE%97%E6%B3%95%E6%8A%80%E5%B7%A7/</loc>
+        <lastmod>2018-05-28T07:56:48.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>blog.lovelaolao.xin/categories/Algorithm/</loc>
+        <lastmod>2018-05-28T07:56:58.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>blog.lovelaolao.xin/categories/Algorithm/Leetcode-Categories/</loc>
+        <lastmod>2018-05-28T07:56:58.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

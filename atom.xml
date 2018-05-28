@@ -74,7 +74,7 @@
     <link href="blog.lovelaolao.xin/2018/05/14/514-%E7%9F%A5%E4%B9%8E-%E6%8E%A8%E8%8D%90/"/>
     <id>blog.lovelaolao.xin/2018/05/14/514-知乎-推荐/</id>
     <published>2018-05-14T07:22:00.000Z</published>
-    <updated>2018-05-28T07:49:40.000Z</updated>
+    <updated>2018-05-28T07:52:30.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="20180514-知乎-推荐算法实习"><a href="#20180514-知乎-推荐算法实习" class="headerlink" title="20180514-知乎-推荐算法实习"></a>20180514-知乎-推荐算法实习</h1><p>可以说是目前面试了很多家表现最好的一次面试了，问的不算太简单，但是算法题也好，技术问题也好都答得很不错。<br>当下就过了，暂时没给答复。    </p><p>说下感受吧，知乎北京全在768一个创意园区里，一个鸟语花香像老干部退休养老的地方= =，知乎公司里也是非常的nice，很闲适很情怀很阳光，是一个像知乎一样的地方。总体感觉非常不错，而且公司里常能看到外面的树啊什么的，很舒服。里面的人也很nice，面试过程很舒服，感觉思路都是打开的。公司属于一种非常注重员工生活工作的感觉，大家比较融洽，还有带猫去公司、出去玩等的活动。总体感觉上是和自己的价值观比较类似的。<br><a id="more"></a><br>团队是知乎的推荐团队，是除主页之外的话题、用户等等多方面的推荐，用到的方法也比较全面。目前招的话也是招能留下的实习生。</p><p>我还是很喜欢知乎和这个公司的，可能唯一觉得不好的地方，就是一是薪资可能不能达到30以上？二是公司发展状态、规模不如滴滴以上的大厂的，所以技术、基础平台架构等等可能不完善。</p><p>但是二面面试官还是感觉很有水平的。应该还是能有收获的。目前的结论是，如果我过不了头条应该还是会去知乎吧。将来找工作如果真像hr说的能给到头条那么多，那我必须会留下的。恩。</p><h2 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h2><p>面试官蛮nice的，可是还是我更喜欢二面那个，主要问了项目和算法题，机器学习主要问了些传统的，没有太深太难的，全都答出来了。  </p><h3 id="算法题一"><a href="#算法题一" class="headerlink" title="算法题一"></a>算法题一</h3><blockquote><p>返回一个二叉树到任何一个结点的路径。</p></blockquote><p>DFS，用List记录路径即可。</p><blockquote><p>扩展：如何找到一棵二叉树中两个结点的最近公共父节点。</p></blockquote><pre><code>我的解法：由于在leetcode上做过这道题，就给出了这道题的解法。dfs找到要么一个子树的左右子树都含有目标结点，或者是一个在子树一个是子树根节点本身。</code></pre><blockquote><p>再扩展    ：找到一颗二叉树中m个结点的最近公共父节点。</p></blockquote><pre><code>我的解法：尽管延续扩展的解法可以解，但是需要两个两个组合解，需要解m-1次。时间复杂度O(logN ^ m-1)。指数级。提示：用原问题啊，找到所有目标的路径，头对齐，最后一个全都一样的就是父节点。时间复杂度线性级。</code></pre><h2 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h2><p>二面面试官明显来的就风风火火的，说话语速也比较快，问问题全是抢问和打断。基本上一张嘴就知道你会不会你的答案是不是他想要的了。<br>问了实习和项目，针对性问了些技术问题，基本上都答出来了。之前都总结过的，和一面不一样的是，问的稍有深度，且问了深度学习的项目。总体上问的不是特别细，可能觉得实习生够用了。</p><h3 id="算法题一："><a href="#算法题一：" class="headerlink" title="算法题一："></a>算法题一：</h3><blockquote><p>给出一个数组，数组中全是char，除了一个元素外其他元素全是成对出现，且相同元素相邻。最快速度返回这个只出现了一次的。</p></blockquote><pre><code>我的解法：二分查找既然相同元素相邻，那么二分查找先判断mid两侧有无相同元素。没有的话就是那个结果。有的话，判断这两个相同元素前后分成的两部分的长度。奇数长度的那部分必然是包含只出现一次的元素的。那么在这一侧继续二分查找。</code></pre><h3 id="列举一下shell中常用到的一些指令"><a href="#列举一下shell中常用到的一些指令" class="headerlink" title="列举一下shell中常用到的一些指令"></a>列举一下shell中常用到的一些指令</h3><p>netstat、ps、awk、sort。<br>问sed用过没，给一个简单问题能不能写出来。</p><h2 id="hr面"><a href="#hr面" class="headerlink" title="hr面"></a>hr面</h2><p>hr面的小姐姐可以说是非常nice的一个人，整个过程不像其他大厂的勾心斗角，各种考擦。虽然也算是考察，但是比较聊天，而且还表达了自己许多感受。总结下主要内容吧，还是有很多信息的。</p><ul><li>如果能给到头条的薪资，你会去头条还是知乎？（当然是知乎，产品我喜欢而且是诚心和有实际价值的）</li><li>对知乎的看法？（是一种非常纯粹，能学到很多内容的地方）</li><li>有什么爱好？有什么从小到大的爱好？（勾搭一下，表示知乎也有相应的兴趣小组）</li><li>薪资怎么样？（比bat高）</li><li>工作相关？（双休，管三餐，6000征个税，转正很高）</li><li>算法团队？（推荐八人，目前3实习生，在去年9月之前都属于数据团队，之后才分开的）</li><li>对一些公司的看法（以hr的圈子看，外企在中国的文化融合也好，业务技术也好都比较弱，尤其是freewheel，技术不太好，口碑也不行。。。）</li><li>已经有的offer</li><li>比较在意对知乎的看法，对头条对比的看法，和团队的融洽等</li><li>知乎在2017年才开始的校招，之前只有社招。    </li></ul>]]></content>
     
@@ -85,7 +85,9 @@
     
     </summary>
     
-      <category term="2018-暑期实习-面试经历" scheme="blog.lovelaolao.xin/categories/2018-%E6%9A%91%E6%9C%9F%E5%AE%9E%E4%B9%A0-%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
+      <category term="实习面试经历" scheme="blog.lovelaolao.xin/categories/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
+    
+      <category term="2018-暑期" scheme="blog.lovelaolao.xin/categories/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/2018-%E6%9A%91%E6%9C%9F/"/>
     
     
       <category term="面试经历" scheme="blog.lovelaolao.xin/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
@@ -125,7 +127,7 @@
     <link href="blog.lovelaolao.xin/2018/05/11/511-%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1-%E6%8A%96%E9%9F%B3%E6%8E%A8%E8%8D%90/"/>
     <id>blog.lovelaolao.xin/2018/05/11/511-今日头条-抖音推荐/</id>
     <published>2018-05-11T07:22:00.000Z</published>
-    <updated>2018-05-28T07:48:37.000Z</updated>
+    <updated>2018-05-28T07:52:34.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="511-今日头条-抖音组推荐"><a href="#511-今日头条-抖音组推荐" class="headerlink" title="511-今日头条-抖音组推荐"></a>511-今日头条-抖音组推荐</h1><p>过程简约痛快的面试过程，还是体验不错的，两个面试官人都蛮nice，面试过程我还是有不少进步的，跟面试官没有尬住，还是聊了几句，不错不错。<br>整体过程自己有不少小瑕疵，没有表现十全十美，但是该会的地方我还是都答得不错的。收获颇丰，找到了许多可以升级的地方。<br>觉得是很不错的组，但是根据想多些时间去准备秋招，也许去不成反而不用纠结了。<br><a id="more"></a></p><h2 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h2><h3 id="ML"><a href="#ML" class="headerlink" title="ML"></a>ML</h3><ul><li>介绍一下在滴滴的项目。<ul><li>如何确定动调项目的参数调整（没有用grid search是吗？）是正确的。（应该这么答：因为动调的参数和计算公式紧密联系，如果调参目标是比例和幅度的话，可以比较直接的表达。如阈值、系数）</li><li>供需预估：具体化自己的工作，遇到什么问题，怎么解决，比如成都这个城市的模型优化，是遇到了什么问题，怎么分析出来问题在哪，如何优化的（随便扯了一个，成都的表现不如平均的5%，发现对一些特征比较敏感，所以尝试了不同的特征组，简化了特征）</li><li>所谓开发工具是什么</li><li>自己工作负责部分</li></ul></li></ul><h3 id="算法题一—👍"><a href="#算法题一—👍" class="headerlink" title="算法题一—👍"></a>算法题一—👍</h3><blockquote><p>传入一个double n，小数点后精度k位，返回对n的开方结果，要求满足小数点后精度。</p></blockquote><ul><li>首先，我说做过这个题，最好的方式是<strong>牛顿法</strong><ul><li>要求我推导牛顿法的计算方式、原理等</li><li>我只能画个简单的图，然后原理知道是用切线方向逼近的，但是具体的记不得了。（需要再去好好看懂）</li></ul></li><li>让换个方法<ul><li>我说使用i=0，++直到i*i&gt;n，但是要求是double都可开方，切能达到精度k</li><li>这样的话，还可以这样做，不断的确定整数位、小数第一位等等。时间复杂度<code>O(10*k/2*根号n)</code>.</li><li>仍旧是不够好，我将++的方式优化为二分查找，且提示我可以直接不管每一位每一位的，用double精度直接二分查找就行了，用mid本身更新low、high即可。</li></ul></li><li>细节不周：我的初始化为low = 0, high = n.<ul><li>但是小数呢，如果是0.01，其实是在向大于n的方向更新，所以应该是low = n, high = 1. </li><li>时间复杂度是<code>O(logn*10^k)</code></li><li>如果k=8，你觉得大概要比较多少次？几十几百几千？（几十）</li></ul></li></ul><h3 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h3><p>LR的目标函数，及求导全过程，完美撸完。</p><h2 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h2><h3 id="ML-1"><a href="#ML-1" class="headerlink" title="ML"></a>ML</h3><ul><li>Allstate项目<ul><li>这是个什么的项目？</li><li>如何调参（没有用grid search是吗？）</li><li>数据预处理是什么？特征的不对称性是指？不是回归问题吗，为何是对应label的数据不平衡？特征的相关性是怎么计算的？有什么用？</li><li>效果怎么样？stacking是什么？为什么没有用？</li><li>工业级为什么不怎么用stacking？（因为roi，如果费劲心思模型融合才提升了0.几，那不值，但是比赛的话，提高多少都是值的）</li><li>xgb训练了那些参数，是什么含义。</li><li>xgb的特性，gbdt和rf的区别</li><li>bagging和boosting对应bias、variance的优化区别</li><li>证明bagging能降低variance</li><li>证明bagging每个弱分类器的正确率p，整体正确率会大于p</li></ul></li></ul><h3 id="算法证明题"><a href="#算法证明题" class="headerlink" title="算法证明题"></a>算法证明题</h3><blockquote><p>证明bagging的正确率与单个基模型相比提高了。<br>假设投票决定，每个基模型相互独立（如果不相互独立的话，计算总体概率需要考虑相关性大小），且正确率为p。</p></blockquote><pre><code>我没想出来= =。提示说是一个类似微积分的证明题。。。所以列了下式子。又提示说可以用单调性证明，只要最小值都满足，那就都满足呗。那么方程可列：f(p) = sum(i,n+1~2n)(C(i, 2*n)*p^i*q^(2*n-i)) - p，证明f(p)&gt;0.其中C()为组合数计算，2*n为所有基模型的数量。但是求个屁的导数啊。。。。。</code></pre><h3 id="算法题一"><a href="#算法题一" class="headerlink" title="算法题一"></a>算法题一</h3><blockquote><p>链表逆置。easy</p></blockquote><h3 id="算法题二"><a href="#算法题二" class="headerlink" title="算法题二"></a>算法题二</h3><blockquote><p>给一个已排序数组，从中间任意位置劈开，前面后面子序列相关位置对换，找到最小值。要求快于O(N)。<br>其实可以二分查找，只需要和low位置的元素比较来更新low、high就好了。<br>如：1 2 3 4 -&gt; 3 4 1 2</p></blockquote><pre><code>所谓劈开移位就是变成了两个不同的有序序列。后面的有序序列一定每一个元素都小于前面的有序序列。最小值一定是原数组第一个，也就是移位后的后面有序序列的第一个。如果arr[mid] &gt; arr[low]，说明目前mid和low都在同一个有序序列，全局最小一定在mid之后。如果arr[mid] &lt; arr[low]，说明目前mid和low在不同有序序列里，最小值一定在mid、low之间。</code></pre>]]></content>
     
@@ -135,7 +137,9 @@
     
     </summary>
     
-      <category term="2018-暑期实习-面试经历" scheme="blog.lovelaolao.xin/categories/2018-%E6%9A%91%E6%9C%9F%E5%AE%9E%E4%B9%A0-%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
+      <category term="实习面试经历" scheme="blog.lovelaolao.xin/categories/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
+    
+      <category term="2018-暑期" scheme="blog.lovelaolao.xin/categories/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/2018-%E6%9A%91%E6%9C%9F/"/>
     
     
       <category term="面试经历" scheme="blog.lovelaolao.xin/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
@@ -199,7 +203,7 @@
     <link href="blog.lovelaolao.xin/2018/04/23/423-%E5%BE%AE%E8%BD%AF%E5%B7%A5%E7%A8%8B%E9%99%A2-bing-%E8%A7%86%E9%A2%91%E5%9B%BE%E7%89%87%E5%9E%82%E7%9B%B4%E6%90%9C%E7%B4%A2/"/>
     <id>blog.lovelaolao.xin/2018/04/23/423-微软工程院-bing-视频图片垂直搜索/</id>
     <published>2018-04-23T07:22:00.000Z</published>
-    <updated>2018-05-28T07:47:37.000Z</updated>
+    <updated>2018-05-28T07:52:40.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="423-微软工程院-bing-视频图片垂直搜索"><a href="#423-微软工程院-bing-视频图片垂直搜索" class="headerlink" title="423-微软工程院-bing-视频图片垂直搜索"></a>423-微软工程院-bing-视频图片垂直搜索</h1><p>总结一下微软summer intern的面试流程吧。</p><p>招进去的实习生，会单独负责一个项目，经过三个月之后根据项目情况转正。转正几率每年不同，一般是在5成以上。</p><p>尽管三面都经历了，自我感觉良好，两周多后通知挂掉了。<br><a id="more"></a><br>面试中90%都是</p><h2 id="1-网申"><a href="#1-网申" class="headerlink" title="1. 网申"></a>1. 网申</h2><p>填写许多信息网申，也可以网申之后找学长内推，不知道会有什么用吗，反正都得做笔试</p><h2 id="2-笔试"><a href="#2-笔试" class="headerlink" title="2. 笔试"></a>2. 笔试</h2><p>笔试是在amcat平台写，题不难，应该四道都写出来。</p><h2 id="3-面试"><a href="#3-面试" class="headerlink" title="3. 面试"></a>3. 面试</h2><p>4月23号集中面试，应该一共在两天，我在23号上午11点那批，一面之后管了饭，一共三面（如果有的话），当天面完，等hr通知。</p><h2 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h2><p>一面少量问了几句项目，还问了遇到问题最多的项目是什么，具体遇到了什么样的问题，怎么解决的。</p><p>然后就是做题，第二题没有用最好的做法，但也写出来了。</p><h3 id="算法题1："><a href="#算法题1：" class="headerlink" title="算法题1："></a>算法题1：</h3><blockquote><p>将一个数组的0都移到最后。</p></blockquote><p>easy，要么用交换，要么用两次循环。</p><h3 id="算法题2"><a href="#算法题2" class="headerlink" title="算法题2"></a>算法题2</h3><blockquote><p>给定正整数n，那么排列n对小括号，有多少种合理的解释。</p></blockquote><pre><code>我的解法：我先是想找到一个规律性比较好的解法，而且我也注意到了n和n-1的子问题有一些关联，但是没想好。面试官让我直接用比较蠢的方法先写。我用bfs，因为顺序从第一个单小括号开始，填够n个(和n个)就是目标情况。假设目前填了l个(和r个)。那么下次填只会是(、)其中一个。并且l、r要满足r&lt;=l&lt;=n。所以不断递归到l=n,r=n，count+1就行。显然有冗余计算。正答：卡特兰树。n的情况确实可以分。n对括号一定是第一个是(，最后一个是)。那么将一个(...)认作一个大的块。那么n情况里面可以分成两部分，左右两部分分别可能是0~n-1个括号对组成，也就是子问题。具体的去看一下卡特兰树吧~</code></pre><h2 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h2><p>二面是leader，是个很健谈人很nice的人，有夸我算法写的蛮快的，需要注意下细节。告诉我东西也比较多。代码要在白板上写。</p><p>给了一道算法题，但是比较要求细节，而且水平很棒，可以看懂我每一行代码。</p><p>代码要求我优化了两次，第二次要求二重循环，不能三重循环。第二次循环没有很好的写完。也算是写出来了。</p><p>面试官夸我代码写的挺快的，就是细节需要再注重。</p><h3 id="算法题3"><a href="#算法题3" class="headerlink" title="算法题3"></a>算法题3</h3><blockquote><p>用桶排序实现对数组的排序。要求时间复杂度O(N)。<br>写起来不容易。</p></blockquote><pre><code>我的做法：正经桶排序，n个桶，间隔为(max - min)/n。每个桶内部我用的Arrays.sort.优化要求一：面试官指出还要实现一个arrays.sort方法，所以不如用基数排序。这样就不用排序了，因为每一位数只会是0~9.中间为了获得一个数的每一位，用了老鼻子劲。但是有简单的写法：我用了bucket[最大位数][10] + index[len]。直接按顺序插入10个bucket。优化要求二：面试官指出因为bucket是二维数组，用了三重循环，可以简化到两重。因为其实bucket[最大位数]每一个数组都存了所有的数，其实用一个中间数组就好了。</code></pre><h2 id="三面"><a href="#三面" class="headerlink" title="三面"></a>三面</h2><p>三面面试官应该是总监、主管了，一个大叔，感觉得快50了= =，但是语速得是前两个面试官之和，而且问问题贼刁钻、难、奇怪= =。。。水平贼高，不知道这都是哪来的题。<br>一句项目没聊，全看逻辑思维、洞察力。。。后两道题不用写代码，只需要给出解题思路。<br>后两道题都是边聊边写的，大叔给了不少提示。至于最后一道题干脆一开始就找不到关键，降低难度后找到了一个很low的规律。</p><h3 id="算法题4"><a href="#算法题4" class="headerlink" title="算法题4"></a>算法题4</h3><p>写个二分查找热热手</p><h3 id="算法-智力题5"><a href="#算法-智力题5" class="headerlink" title="算法/智力题5"></a>算法/智力题5</h3><blockquote><p>输入为两个，第一个是一个给定魔方，每一面都是排好的同一颜色，这算是初始状态。第二个是一个打乱颜色可能是任何情况的魔方。<br>问题1：能不能从第二个魔方还原为第一个魔方。<br>问题2：魔方你觉得应该用什么数据结构来存。<br>（被面试官夸了我的洞察力蛮不错的）</p></blockquote><pre><code>题一：我的做法：首先画一个魔方。我观察到组成魔方的格子有三种。一共有顶点上的格子8个，每一面中心的格子6个，每条边中间的格子12个。顶点上的格子，与三个面连接，存在一个三种颜色的固定位置。每一面中心的格子，只有当前这面的颜色。每个顶点上的一个格子，与两个面相连，存在两个颜色间的固定位位置。凡是有多个颜色相邻的情况，无论怎么旋转魔方都不会改变其相邻颜色。注意：初始状态是给定的，也就意味着将初始状态看做一个筛子，数与数之间是存在一个固定的位置、顺序关系的。所以：    首先要判定每个面中心那个格子，相互之间是否满足原始状态的位置关系。    再判断是否存在这个颜色位置关系中，边上格子数、顶点颜色数是否数量完全一致。    都满足应该就能还原。题二：我的做法：既然有六面颜色之间的固定位置关系，那我必须定义一个正方形。满足复原条件的魔方，必然可以根据每一面中心格子旋转之后得到正方向的摆放条件。那么我就可以定义一个面的编号、面里面一定顺序（比如左上到右下）的格子编号。然后用一个二维数组cube[6][9]代表每一个面，每一个编号的颜色。其实这些编号内部会有规则联系，即可。大叔做法：我的做法相当于忘记了魔方只有三种格子的前提。还是要预订一个正方向，然后所有的中心格子、边上格子、顶点格子都自定义一种编号顺序。用三种保存1、2、3种颜色的数据结构构成三种格子，分别有6、12、8个这样的格子，即可。</code></pre><h3 id="算法-智力题6"><a href="#算法-智力题6" class="headerlink" title="算法/智力题6"></a>算法/智力题6</h3><blockquote><p>类似于华容道的题，123 456 78_，通过借助最后一个空白位置，可以让数的顺序改变。<br>问题：能不能从给定的一个打乱顺序还原会原始状态。</p></blockquote><pre><code>我的做法：我没有做法，麻蛋想不到= =。我特别想根据一个随机的例子，看什么时候是可以从打乱顺序移回原顺序的。但是一个例子就要试好久= =，移不回去的话又找不到规律。。有点懵。提醒一：想一下2*3情况，还是想不好。提醒二：想一下2*2的情况，首先发现如果只是旋转的话，会省去一下判断情况。所以1230就可以，1320就无论如何都不可以。所以我觉得2*3的时候是四个四个考虑，如果顺时针内是递增的，那就是可以复原的。以此扩展到3*3.算是糊弄过去了 = =。大叔做法：法一：不断排除竖着两个，剩下四个判断。法二：判断经历偶数、奇数次变换可以复原，如果是偶数就可以复原，奇数不可以。说的是个嘛！！！！？</code></pre><h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>挂了。。。</p><p>说实话其实觉得还是可以过的。。。最可怕的是，根本不知道自己是为什么没过，我真不觉得是因为第三面最后一道题没有答好挂掉了。。。除非做过这个题，怎么会知道怎么做啊= =。。。</p><p>那么难道是因为背景、经验的不足？唉。真的和微软没有缘分，我还真的是一个暑期实习的offer没有拿到哎。。。蓝瘦。    </p>]]></content>
     
@@ -211,7 +215,9 @@
     
     </summary>
     
-      <category term="2018-暑期实习-面试经历" scheme="blog.lovelaolao.xin/categories/2018-%E6%9A%91%E6%9C%9F%E5%AE%9E%E4%B9%A0-%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
+      <category term="实习面试经历" scheme="blog.lovelaolao.xin/categories/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
+    
+      <category term="2018-暑期" scheme="blog.lovelaolao.xin/categories/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/2018-%E6%9A%91%E6%9C%9F/"/>
     
     
       <category term="面试经历" scheme="blog.lovelaolao.xin/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
@@ -225,7 +231,7 @@
     <link href="blog.lovelaolao.xin/2018/04/21/python/"/>
     <id>blog.lovelaolao.xin/2018/04/21/python/</id>
     <published>2018-04-20T16:00:00.000Z</published>
-    <updated>2018-05-28T07:38:58.000Z</updated>
+    <updated>2018-05-28T07:55:50.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="什么是PEP8"><a href="#什么是PEP8" class="headerlink" title="什么是PEP8"></a>什么是PEP8</h2><p>PEP8是一个编程规范，内容是一些关于如何让你的程序更具可读性的建议。</p><h2 id="Python是如何被解释的？"><a href="#Python是如何被解释的？" class="headerlink" title="Python是如何被解释的？"></a>Python是如何被解释的？</h2><p>Python是一种解释性语言，它的源代码可以直接运行。Python解释器会将源代码转换成中间语言，之后再翻译成机器码再执行。</p><a id="more"></a><h2 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h2><p>Python的内存管理是由私有heap空间管理的。所有的Python对象和数据结构都在一个私有heap中。程序员没有访问该heap的权限，只有解释器才能对它进行操作。为Python的heap空间分配内存是由Python的内存管理模块进行的，其核心API会提供一些访问该模块的方法供程序员使用。Python有自带的垃圾回收系统，它回收并释放没有被使用的内存，让它们能够被其他程序使用。</p><h2 id="数组和元组之间的区别是什么？"><a href="#数组和元组之间的区别是什么？" class="headerlink" title="数组和元组之间的区别是什么？"></a>数组和元组之间的区别是什么？</h2><p>数组和元组之间的区别：数组内容是可以被修改的，而元组内容是只读的。另外，元组可以被哈希，比如作为字典的关键字。</p><h2 id="参数按值传递和引用传递"><a href="#参数按值传递和引用传递" class="headerlink" title="参数按值传递和引用传递"></a>参数按值传递和引用传递</h2><p>python中的函数值传递，首先python传递参数都是传递对象的形式。<strong>如果是可以修改的对象，就是引用传递，修改的是对象本身</strong>，<strong>如果是不可以修改的对象，就是按值传递，不能修改对象本身，修改的是对象的复制。</strong><br>比如传int，int就是不可改变的对象，10是不能变成2的。如果是传递数组，就可以改变。</p><h2 id="Python都有哪些自带的数据结构？"><a href="#Python都有哪些自带的数据结构？" class="headerlink" title="Python都有哪些自带的数据结构？"></a>Python都有哪些自带的数据结构？</h2><p>Python自带的数据结构分为可变的和不可变的。<br>可变的有：数组、集合、字典；<br>不可变的有：字符串、元组、数。</p><h2 id="什么是Python的命名空间？"><a href="#什么是Python的命名空间？" class="headerlink" title="什么是Python的命名空间？"></a>什么是Python的命名空间？</h2><p>在Python中，所有的名字都存在于一个空间中，它们在该空间中存在和被操作——这就是命名空间。它就好像一个盒子，每一个变量名字都对应装着一个对象。当查询变量的时候，会从该盒子里面寻找相应的对象。</p><h2 id="在Python中什么是slicing？"><a href="#在Python中什么是slicing？" class="headerlink" title="在Python中什么是slicing？"></a>在Python中什么是slicing？</h2><p>Slicing是一种在有序的对象类型中（数组，元组，字符串）节选某一段的语法。</p><h2 id="如何在Python中拷贝一个对象？"><a href="#如何在Python中拷贝一个对象？" class="headerlink" title="如何在Python中拷贝一个对象？"></a>如何在Python中拷贝一个对象？</h2><p>如果要在Python中拷贝一个对象，大多时候你可以用copy.copy()（这样会让新的对象的内容都是旧对象内容的引用，会被动修改）或者copy.deepcopy()。但并不是所有的对象都可以被拷贝。</p><h2 id="Python中的负索引是什么？"><a href="#Python中的负索引是什么？" class="headerlink" title="Python中的负索引是什么？"></a>Python中的负索引是什么？</h2><p>倒数第几个的索引</p><h2 id="Python中的模块和包是什么？"><a href="#Python中的模块和包是什么？" class="headerlink" title="Python中的模块和包是什么？"></a>Python中的模块和包是什么？</h2><p>在Python中，模块是搭建程序的一种方式。每一个Python代码文件都是一个模块，并可以引用其他的模块，比如对象和属性。<br>一个包含许多Python代码的文件夹是一个包。一个包可以包含模块和子文件夹。</p><h2 id="简要描述Python的垃圾回收机制（garbage-collection）。"><a href="#简要描述Python的垃圾回收机制（garbage-collection）。" class="headerlink" title="简要描述Python的垃圾回收机制（garbage collection）。"></a>简要描述Python的垃圾回收机制（garbage collection）。</h2><p>类似于java</p><p>Python在内存中存储了每个对象的引用计数（reference count）。如果计数值变成0，那么相应的对象就会小时，分配给该对象的内存就会释放出来用作他用。 （偶尔也会出现引用循环（reference cycle）。垃圾回收器会定时寻找这个循环，并将其回收。举个例子，假设有两个对象o1和o2，而且符合o1.x == o2和o2.x == o1这两个条件。如果o1和o2没有其他代码引用，那么它们就不应该继续存在。但它们的引用计数都是1。）<br>Python中使用了某些启发式算法（heuristics）来加速垃圾回收。例如，越晚创建的对象更有可能被回收。对象被创建之后，垃圾回收器会分配它们所属的代（generation）。每个对象都会被分配一个代，而被分配更年轻代的对象是优先被处理的。</p><h2 id="什么是lambda函数？它有什么好处"><a href="#什么是lambda函数？它有什么好处" class="headerlink" title="什么是lambda函数？它有什么好处?"></a>什么是lambda函数？它有什么好处?</h2><p>lambda 表达式，通常是在需要一个函数，但是又不想费神去命名一个函数的场合下使用，也就是指匿名函数<br>lambda函数：首要用途是指点短小的回调函数</p><h2 id="如何在一个function里面设置一个全局的变量？"><a href="#如何在一个function里面设置一个全局的变量？" class="headerlink" title="如何在一个function里面设置一个全局的变量？"></a>如何在一个function里面设置一个全局的变量？</h2><p>global修饰</p><h2 id="整数、浮点数的除法运算"><a href="#整数、浮点数的除法运算" class="headerlink" title="整数、浮点数的除法运算"></a>整数、浮点数的除法运算</h2><pre><code>5/2 = 2.55.0/2 = 2.55//2 = 25.0//2.0 = 2.0</code></pre>]]></content>
     
@@ -236,7 +242,9 @@
     
     </summary>
     
-      <category term="Python" scheme="blog.lovelaolao.xin/categories/Python/"/>
+      <category term="Language" scheme="blog.lovelaolao.xin/categories/Language/"/>
+    
+      <category term="Python" scheme="blog.lovelaolao.xin/categories/Language/Python/"/>
     
     
       <category term="面试必考" scheme="blog.lovelaolao.xin/tags/%E9%9D%A2%E8%AF%95%E5%BF%85%E8%80%83/"/>
@@ -246,32 +254,11 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="blog.lovelaolao.xin/2018/04/19/419-%E9%98%BF%E9%87%8C%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE-%E7%AE%97%E6%B3%95%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
-    <id>blog.lovelaolao.xin/2018/04/19/419-阿里高德地图-算法实习生/</id>
-    <published>2018-04-19T12:59:43.000Z</published>
-    <updated>2018-04-21T10:06:32.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="419-阿里高德地图-算法实习"><a href="#419-阿里高德地图-算法实习" class="headerlink" title="419-阿里高德地图-算法实习"></a>419-阿里高德地图-算法实习</h1><p>到那里之后头一回遇到hr欠费，没任何联系方式的问题。。。结果等了半小时hr，又等了接近半小时面试官，蓝瘦。。。</p><p>面试的算法组算是核心组，负责对路况红黄绿的判断。比较结合实际实现。</p><p>面试中也透露了阿里这边的照招聘，阿里实习生招聘很难，每一轮都按照流程进行，前后轮的面试评价有很大影响。而且第一轮就是leader面，后面全是高管面，一次比一次高，你想想把。但是阿里的转正名额也主要给实习了。</p><p>所以对于阿里实习，如果是很好的组，那可以去，毕竟可以留下，如果是一般的组，跟不去然后等校招捡漏好像没区别呢= =。</p><h2 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h2><p>面试官是算法团队leader，挺有魅力的哥哥，蛮亲切有人情味的。就是问问题追本溯源= =，一定问到你不会为止，疯狂探底。直接问到数学原理。</p><h3 id="专业知识"><a href="#专业知识" class="headerlink" title="专业知识"></a>专业知识</h3><p>老样子，总结一下比较有难度的吧。</p><ul><li>xgb-泰勒二阶展开式，泰勒展开式的实现条件是什么？（必要条件是在目标点附近可导，而且是需要多少阶导数就得多少阶可导，充分条件是余项为趋近于零）（泰勒展开式就是用导数和取值接近一个函数，拟合出函数在一个目标点附近的变化形态）</li><li>svm对偶问题是可优化的关键，对偶问题的解是什么（对偶问题的解不是smo得出来的吗？）</li><li>LR 的loss中为何是+正则项不是-（额莫名其妙，我没有查到比较好的解释呢）</li><li>python的成员变量和对象变量是什么（self是指向自己类对象的指针，类变量是所有对象共有的，对象变量是属于对象自己的）</li><li>java的线程的wait和notify是什么（将获得该对象锁的线程做阻塞、唤醒）</li><li>boosting和bagging关于bias、variance有什么区别（bagging高偏差，低方差，boosting高方差，低偏差）</li></ul><h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>问了俩，第二题有点细节，都简单。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;419-阿里高德地图-算法实习&quot;&gt;&lt;a href=&quot;#419-阿里高德地图-算法实习&quot; class=&quot;headerlink&quot; title=&quot;419-阿里高德地图-算法实习&quot;&gt;&lt;/a&gt;419-阿里高德地图-算法实习&lt;/h1&gt;&lt;p&gt;到那里之后头一回遇到hr欠费，没任何
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>一些需要记的题</title>
     <link href="blog.lovelaolao.xin/2018/04/17/%E4%B8%80%E4%BA%9B%E9%9C%80%E8%A6%81%E8%AE%B0%E7%9A%84%E9%A2%98/"/>
     <id>blog.lovelaolao.xin/2018/04/17/一些需要记的题/</id>
     <published>2018-04-17T11:05:00.000Z</published>
-    <updated>2018-05-28T07:36:47.000Z</updated>
+    <updated>2018-05-28T07:56:42.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="寻找连续子数组、子矩阵的和为精确值的情况"><a href="#寻找连续子数组、子矩阵的和为精确值的情况" class="headerlink" title="寻找连续子数组、子矩阵的和为精确值的情况"></a>寻找连续子数组、子矩阵的和为精确值的情况</h2><p>数组、矩阵是无序的，就没办法用窗口类的O(N、N^2)时间复杂度方法。<br>最简单的思考方式就是用二、三维的动态规划，计算所有i到j的情况。但是算的时候就发现了，有很多的冗余计算。</p><h3 id="DP降维—问题转化"><a href="#DP降维—问题转化" class="headerlink" title="DP降维—问题转化"></a>DP降维—问题转化</h3><a id="more"></a><p>由于是连续的子数组、子矩阵。必然存在一下关系：<br>(数组的话是第i到第j元素的子数组，矩阵的话是左上角在i坐标，右下角在j坐标的子矩阵。)：<strong><code>sum(i,j) = sum(0,j) - sum(0,i)</code></strong><br>那么<strong>所有从起点到终点的问题都变成了从0点到终点的问题之间的差</strong>。<br>从而动态规划的问题维数就变成了<code>二 =&gt; 一</code>，<code>三 =&gt; 二</code>。</p><h3 id="O-N-的精确找答案—Map"><a href="#O-N-的精确找答案—Map" class="headerlink" title="O(N)的精确找答案—Map"></a>O(N)的精确找答案—Map</h3><p>虽然用更高效的形式得到了所有子数组、子矩阵的<code>sum(i,j)</code>。但是查找还是要遍历所有起终点之间的差。<br>可以讲所有的<code>sum(0,i)</code>全都保存到map里，key为和的值，这样在<strong>找所有满足<code>k = sum(0,j) - sum(0,i)</code>的情况时，直接<code>map.find(sum(0,i) - k)</code></strong>就好了，类似于two sum的问题。</p><h2 id="快速选择-VS-堆排序-得到第k个结果"><a href="#快速选择-VS-堆排序-得到第k个结果" class="headerlink" title="快速选择 VS 堆排序 得到第k个结果"></a>快速选择 VS 堆排序 得到第k个结果</h2><p><strong>有可以达到O(N)比堆排序更优秀的算法：快速选择算法。</strong></p><table><thead><tr><th style="text-align:center">得到第k小的元素</th><th style="text-align:center">时间复杂度</th><th style="text-align:center">优点</th><th style="text-align:center">缺点</th></tr></thead><tbody><tr><td style="text-align:center">堆排序（大顶堆找k小，小顶堆找k大）</td><td style="text-align:center">O(klogn)</td><td style="text-align:center">可以动态更新，添加、删除堆元素后很快得到新结果</td><td style="text-align:center">单纯从固定数组得到第k元素的话时间复杂度不如快速选择</td></tr><tr><td style="text-align:center">快速选择算法</td><td style="text-align:center">平均O(N)（最差O(N^2)）</td><td style="text-align:center">从固定数组得到第k元素可以达到O(N)的完美时间复杂度</td><td style="text-align:center">必须是固定数组</td></tr></tbody></table><h3 id="快速选择算法"><a href="#快速选择算法" class="headerlink" title="快速选择算法"></a>快速选择算法</h3><p>（原理上类似二分查找，但是二分查找只能寻找有序集合）<br>借助快速排序的partition方法，不断地用pivot得到其最终位置，然后和k比，然后在k应该在的那一侧继续重复，直到精准的找到pivot位置为k。  </p><p>为什么时间复杂度是O(N)不是快排的O(NlogN)：<br>因为快排需要得到pivot之后两侧递归继续partition。但是快速选择得知k位置所在一侧之后，会舍弃另一侧不考虑。<br>这样总的比较次数就是<code>n+n/2+n/4+...+1 = 2*n</code>时间复杂度也就是O(N)。<br>这里n/2^m是指平局情况的比较次数。</p><h2 id="二叉树两个结点最近公共父节点"><a href="#二叉树两个结点最近公共父节点" class="headerlink" title="二叉树两个结点最近公共父节点"></a>二叉树两个结点最近公共父节点</h2><h3 id="法一：DFS"><a href="#法一：DFS" class="headerlink" title="法一：DFS"></a>法一：DFS</h3><p>没有重复val的结点。这个题非常好理解，但是不太好写，因为有一点要理解，<strong>如果在遍历中能找到其中一个目标，那就不用继续遍历了（不管它下面还有没有另一个结点，这一点可以后验得知）</strong>，直接返回这个目标作为候选的公共父。因为如果一个结点发现左右子树中只有一个能找到目标，那么这个目标一定是公共父节点了。</p><pre><code>代码及其简洁public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {    if(root == null || root == p || root == q) return root;    TreeNode left = lowestCommonAncestor(root.left, p, q);    TreeNode right = lowestCommonAncestor(root.right, p, q);    if(left != null &amp;&amp; right != null) return root;    return left == null ? right : left;}</code></pre><h3 id="法二：根到结点路径"><a href="#法二：根到结点路径" class="headerlink" title="法二：根到结点路径"></a>法二：根到结点路径</h3><p>可以<strong>借助dfs寻找root到两个目标结点的路径</strong>，返回一个List，头对齐之后用并行遍历的方式，一个个比对，直到不一样，那么就找到了最近公共父节点。<br>虽然不如法一直接，但是也是O(logN)的时间复杂度。</p><h3 id="扩展：找到m个结点的最近公共父节点"><a href="#扩展：找到m个结点的最近公共父节点" class="headerlink" title="扩展：找到m个结点的最近公共父节点"></a>扩展：找到m个结点的最近公共父节点</h3><p>如果用法一，那就需要两个合成一个，两个合成一个来寻找，需要O(logN^m)指数级增长的时间复杂度！<br>但是用<strong>法二</strong>的话，可以用线性时间复杂度，找到m个结点的路径，一起比对寻找最近公共父节点O(m*logN)。</p><h2 id="sqrt-牛顿法"><a href="#sqrt-牛顿法" class="headerlink" title="sqrt-牛顿法"></a>sqrt-牛顿法</h2><p>不断通过切线逼近结果的方式（二次方程）。    </p><pre><code>数学理解：输入为n，找到开方结果也就是x^2 - n = 0的解。在图像上也就是图像在x轴正向上交点。为了寻找这个交点，需要从一个起始点x1开始。（假设x1 = n）那么xi处的切线为f(xi) + f&apos;(xi)(x - xi) = y。解出xi切线与x轴交点横坐标：xi+1 = xi - f(xi) / f&apos;(xi)xi+1也就是下一个候选点横坐标，继续这一从切线接近解的方式直到x^2 - n = 0。因为此时xn的切线与x交点本身就是自己。更新方程：xi+1 = xi - f(xi) / f&apos;(xi)也就是：xi+1 = xi - (xi^2 - n) / 2*xi也就是：xi+1 = xi / 2 +  n / 2*xi</code></pre><p>数学解释：就是用开方方程<code>x^2 - n = 0</code>不断从一个起始点取切线交于x轴，与x轴的交点xi就是下一个候选点（横坐标）。这样可以不断接近实际方程的解。当点满足了<code>x^2 - n = 0</code>（或者说此时该点切线与x轴交点就是本身），那么就是答案。（从图上很好理解）</p><pre><code>long r = x;while (r*r &gt; x)    r = (r + x/r) / 2;return (int) r;   </code></pre><h3 id="扩展：限定输入输出为double，输出精度在小数点后k位"><a href="#扩展：限定输入输出为double，输出精度在小数点后k位" class="headerlink" title="扩展：限定输入输出为double，输出精度在小数点后k位"></a>扩展：限定输入输出为double，输出精度在小数点后k位</h3><p>这样的话还是可以用牛顿法。<br>如果不用牛顿法的话：二分查找，直接用mid顶替low/high。<br><strong>退出循环标志</strong>（由于精度的引入，牛顿法也要考察精度）：<code>double res*res &lt;= n + 10^-k</code> &amp;&amp; <code>double res*res &gt;= n - 10^-k</code><br>时间复杂度：<code>O(log(n*10^k))</code></p><h2 id="Moore’s-voting-Algorithm"><a href="#Moore’s-voting-Algorithm" class="headerlink" title="Moore’s voting Algorithm"></a>Moore’s voting Algorithm</h2><blockquote><p>找到一个数组中出现比例在1/k以上的所有数。（已知：最多可以有k-1个）<br>要搞懂怎么做，也要搞懂为什么可以这么做。</p></blockquote><p><a href="http://www.cs.utexas.edu/~moore/best-ideas/mjrty/example.html#step01" target="_blank" rel="noopener">图解例子：k=2的时候</a></p><pre><code>具体做法：1. 准备k-1个counter，初始值为0（分别对应候选的k-1个可能元素）（建议用List或int[]记录，方便查）（建议再用一个List tmp保存所有为0的counter编号，变相记录了有多少个候选元素）2. 准备一个数组来保存k-1个候选元素（建议使用map记录所有候选元素，key为元素，value为其对应counter编号，方便增删查）--------------------3. 遍历数组的每个元素i（以下所有情况都可以并行为一组if else）判断 i 是否在候选元素map中    a. 在的话：令其对应counter++    b. 不在的话：判断为tmp的size是否为0.（是否存在为0的counter）        （1）tmp.size() == 0：所有候选元素的counter--，若counter变为0，就删除对应map候选元素，并把这个counter加入到tmp。        注意：当出现某个counter变成0，除了删除不做其他操作，添加新的候选是下次才做。        （2）tmp.size() != 0：用tmp中最后一个counter对应这个元素并在tmp中删除（这样可以节省删除时间），保存元素到候选数组map，设置该counter为1.------------------------4. 所有map中的元素都是可能满足的候选元素。5. 再遍历一遍所有元素，统计所有map元素的出现次数，验证是否出现比例大于1/k，通过的计入结果。</code></pre><h3 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h3><blockquote><p>不断凑出来k个不一样的数从数组中排除。<br>剩下的元素（应该）全是满足条件的元素。<br>因为所有出现比例大于1/k次的数一定满足每次都在删除的k个元素里，最后还能剩下它。</p></blockquote><p>首先要知道，<strong>Moore’s voting Algorithm是得到一个数组中出现比例在1/k以上的所有数的<code>必要不充分条件</code></strong>。<br>也就是说，通过Moore’s voting Algorithm得到的结果不一定是满足出现1/k的数。但是满足出现比例大于1/k的数一定可以用Moore’s voting Algorithm得到。</p><h3 id="关键及必须做的事—验证结果正确性！"><a href="#关键及必须做的事—验证结果正确性！" class="headerlink" title="关键及必须做的事—验证结果正确性！"></a>关键及必须做的事—验证结果正确性！</h3><p>由于Moore’s voting Algorithm是一个必要不充分条件，结果不一定满足出现比例大于1/k，所以要再遍历一遍统计其是否满足条件。<br>很可能筛选掉不满足的哟。</p><h2 id="Catalan数"><a href="#Catalan数" class="headerlink" title="Catalan数"></a>Catalan数</h2><p><strong>适用题型1</strong>：每一步有两种走法，但是限制此步前的a走法数&gt;=b走法数，答案是所有可能走法-所有不满足走法。即<strong><code>h(n) = C(n,2n) - C(n+1, 2n)</code></strong>。<br><strong>适用题型2</strong>：类似于动态规划、分治。<code>h(n)</code>的父问题可以由确定一个位置，剩下的分为<code>h(0)*h(n-1)</code>、<code>h(1)*h(n-2)</code>、<code>h(3)*h(n-3)</code>…、<code>h(n-1)*h(0)</code>的子问题。<strong><code>h(n) = h(0)*h(n-1) + h(1)*h(n-2) + h(2)*h(n-3) + ... + h(n-1)*h(0)</code></strong>  </p><p>（trick，如果用例子测出来，f(0)=1 f(1)=1 f(2)=2 f(3)=5 f(4)=14就一定可以用这个方法）</p><pre><code>解法公式：类似于h(n) = h(0)*h(n-1) + h(1)*h(n-2) + h(2)*h(n-3) + ... + h(n-1)*h(0)结果可以表达：h(n) = C(n,2n)/(n+1)或：C(n,2n) - C(n+1, 2n)具体问题具体分析，不一定是h(i)*h(n-1-i)由于不断地将h(i)更换为h(i-1)可以将公式总结为一个直接结果。但是计算公式会变，我就不记了。</code></pre><p>（<strong>比较好理解且适用性最高的解释：详见n对括号问题。</strong>）</p><p>适用场景：</p><h3 id="问题1：出栈顺序问题"><a href="#问题1：出栈顺序问题" class="headerlink" title="问题1：出栈顺序问题"></a>问题1：出栈顺序问题</h3><blockquote><p>进栈顺序是1~n，有多少种出栈顺序。  </p></blockquote><h3 id="问题2：n对括号，有多少种合理的组合方式"><a href="#问题2：n对括号，有多少种合理的组合方式" class="headerlink" title="问题2：n对括号，有多少种合理的组合方式"></a>问题2：n对括号，有多少种合理的组合方式</h3><p>说实话在这个问题上，不是很好理解Catalan组合方式的解释。</p><p>因为不管怎么组合，第一个括号一定是(，最后一个括号一定是)。所以就占用了一对括号。<br>所以就变成了(….)的问题。括号里是n-1个括号。<br>用严格意义的catalan就可以。</p><pre><code>PS：需要解释一下。为什么可以用严格的catalan。公式里出现了h(0)*h(n-1)、h(n-1)*h(0)，这两个实际就是一个情况呀。所以并不能用展开式来理解这个问题。实际解释：首先n对括号的全排列问题一定是C(n, 2n)，但是其中包含不满足的情况。查看所有不满足的情况，如果把(当做1，把)当做-1.那么每一种全排列都是一个数列，如果每个元素相加。那么以一种不满足的排列情况，一定存在一个位置（第一个）k，使前k个数的和&lt;0。也就是a1+a2+...+ak &lt; 0.比如：1, -1,1, -1，-1, 1，在k=5的时候和小于0.如果把前5个元素1与-1对换，就变成了：-1, 1,-1, 1，1, 1。此时相当于变成了n+1个(，n-1个)的情况。所以每一个不合法的情况都对应一个n+1个(，n-1个)的情况。其实每一个n+1个(，n-1个)的情况，都可以找到一个位置k使前k个数的和&gt;0，也就是可以返回之前不合理的情况。这样下来就相当于是一一对应关系。所以结果就是C(n,2n) - C(n+1, 2n)。也刚好是卡特兰数的公式结果。</code></pre><h3 id="问题3：矩阵连乘，用括号改变运算顺序，有多少种不同计算方式"><a href="#问题3：矩阵连乘，用括号改变运算顺序，有多少种不同计算方式" class="headerlink" title="问题3：矩阵连乘，用括号改变运算顺序，有多少种不同计算方式"></a>问题3：矩阵连乘，用括号改变运算顺序，有多少种不同计算方式</h3><blockquote><p>类似于<code>a1*a2*a3*...*an</code></p></blockquote><h3 id="问题4：n个结点构成二叉树有多少种可能"><a href="#问题4：n个结点构成二叉树有多少种可能" class="headerlink" title="问题4：n个结点构成二叉树有多少种可能"></a>问题4：n个结点构成二叉树有多少种可能</h3><p>这个问题用原始叠加公式更容易看懂。</p><h3 id="问题5：一个圆上2-n个点，多少种连接n条线段的方式，让这n个线段不相交"><a href="#问题5：一个圆上2-n个点，多少种连接n条线段的方式，让这n个线段不相交" class="headerlink" title="问题5：一个圆上2*n个点，多少种连接n条线段的方式，让这n个线段不相交"></a>问题5：一个圆上2*n个点，多少种连接n条线段的方式，让这n个线段不相交</h3><p>用原始叠加公式很好理解，相当于随便取一条线段，然后线段左右所有的点都找连接全部线段的所有方式（当然左右需要满足都是偶数个点）。当然第一条线段是后验的，只要左右各自连好，最后两个点自然是一条线段。</p><h3 id="问题6：一个凸多边形，有多少种划分方式可以将图形划分成全是三角形"><a href="#问题6：一个凸多边形，有多少种划分方式可以将图形划分成全是三角形" class="headerlink" title="问题6：一个凸多边形，有多少种划分方式可以将图形划分成全是三角形"></a>问题6：一个凸多边形，有多少种划分方式可以将图形划分成全是三角形</h3><p>同上，其实就是连接n条不相交的线段。</p><h2 id="merge-interval-meeting-room-II"><a href="#merge-interval-meeting-room-II" class="headerlink" title="merge interval    /meeting room II"></a>merge interval    /meeting room II</h2><blockquote><p><strong>题型：两个int组合成时间段，找到所有带/不带合并的时间段。</strong>  </p></blockquote><p>其实就是总结出来了一个定理：<br><strong>什么样的连续时间段是可合并的？将连续时间段的start、end去掉组合关系分别排序，一定有start[i+1]&lt;=end[i]</strong></p><blockquote><p>对象Interval包括start、end两个int，可以理解为时间段。给出一个Interval的数组，合并所有带交叉的时间段，返回合并之后的数组。<br>Given a collection of intervals, merge all overlapping intervals.<br>Input: [[1,3],[2,6],[8,15],[15,18]]<br>Output: [[1,6],[8,18]]  </p></blockquote><pre><code>先排序再遍历组合判断是否合并的方法比较容易想到和理解，就不解释了。最快正答：放弃两两一组的组合关系，取出所有的start、end分别构成两个int[]。用Arrays.sort排序两个int[].对start[i]做循环遍历，用j标记已合并结果数。每找到一个start[i+1]&gt;end[i]就代表，从j+1到i为合并对象。</code></pre><p>解释：</p><ul><li>每找到一个start[i+1]&gt;end[i]：<ul><li>由于start、end是已排序的，那么第i+1前的所有end都不可能是i+1的end，因为都比start[i+1]小。那么可以确定 j 到 i 的所有start、end元素必然是打乱前互相组合的所有元素。</li><li>由于是第一个找到的，那么可以确定 j 到 i 的所有原时间段组合，任何可行的交换，都会有前者后者时间上的交叉。</li><li>所以就代表了从 j 到 i 的所有原时间段都是可以合并的，之前取start[j]、end[i]即可。</li></ul></li></ul><h2 id="实现ArrayList的O-1-增删"><a href="#实现ArrayList的O-1-增删" class="headerlink" title="实现ArrayList的O(1)增删"></a>实现ArrayList的O(1)增删</h2><p>如果要保留数组元素顺序，那就实现不了。必须得是<strong>双向链表+map</strong>。<br>如果不用保留顺序，就用<strong>ArrayList+map</strong>实现，直接最后一个元素和被删除元素交换，删除最后一个元素就是O(1)。  </p><blockquote><p>也就是LRU+O(1)、单纯O(1)的增删 的实现区别。</p></blockquote><h3 id="PS-ArrayList的修改"><a href="#PS-ArrayList的修改" class="headerlink" title="PS ArrayList的修改"></a>PS ArrayList的修改</h3><p>java中ArrayList没有replace方法，但是有<strong>set(index, value)</strong></p><h2 id="实现一个二叉搜索-排序树"><a href="#实现一个二叉搜索-排序树" class="headerlink" title="实现一个二叉搜索/排序树"></a>实现一个二叉搜索/排序树</h2><p>首先，二叉排序树BST并不是平衡二叉树AVL，所以删除、增加没那么麻烦。</p><h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><p>O(h)，类似于二分查找的过程。</p><h3 id="增加"><a href="#增加" class="headerlink" title="增加"></a>增加</h3><p>如果是已经存在的数，不需要增加。<br>如果是不存在的数，一定是增加在叶节点。先不断查询到不存在相应左/右节点。（并不一定是在叶节点，可能是一个节点不存在左子树，最后插到了其左孩子。）插到缺失位置。</p><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>稍微复杂一些。</p><table><thead><tr><th style="text-align:center">删除节点类型</th><th style="text-align:center">删除方式</th></tr></thead><tbody><tr><td style="text-align:center"><strong>叶节点</strong></td><td style="text-align:center">直接删除</td></tr><tr><td style="text-align:center">左/右子树只存在一侧的<strong>非叶节点</strong></td><td style="text-align:center">直接用存在的右/左子树代替被删除节点</td></tr><tr><td style="text-align:center">左右子树都存在的<strong>非叶节点</strong></td><td style="text-align:center">1. 用左子树的最大节点（一定会是叶节点）替换到本节点；2. 用右子树的最小节点（一定会是叶节点）替换到本节点。</td></tr></tbody></table>]]></content>
     
@@ -282,7 +269,9 @@
     
     </summary>
     
-      <category term="算法技巧" scheme="blog.lovelaolao.xin/categories/%E7%AE%97%E6%B3%95%E6%8A%80%E5%B7%A7/"/>
+      <category term="Algorithm" scheme="blog.lovelaolao.xin/categories/Algorithm/"/>
+    
+      <category term="算法技巧" scheme="blog.lovelaolao.xin/categories/Algorithm/%E7%AE%97%E6%B3%95%E6%8A%80%E5%B7%A7/"/>
     
     
       <category term="技巧" scheme="blog.lovelaolao.xin/tags/%E6%8A%80%E5%B7%A7/"/>
@@ -300,7 +289,7 @@
     <link href="blog.lovelaolao.xin/2018/04/17/417-%E6%90%9C%E7%8B%90%E5%AA%92%E4%BD%93-%E6%8E%A8%E8%8D%90%E7%AE%97%E6%B3%95/"/>
     <id>blog.lovelaolao.xin/2018/04/17/417-搜狐媒体-推荐算法/</id>
     <published>2018-04-17T07:22:00.000Z</published>
-    <updated>2018-05-28T07:45:44.000Z</updated>
+    <updated>2018-05-28T07:53:09.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="417-搜狐媒体-推荐算法"><a href="#417-搜狐媒体-推荐算法" class="headerlink" title="417-搜狐媒体-推荐算法"></a>417-搜狐媒体-推荐算法</h1><p>这边面的倒也不难，表现还可以，但是可能是不够满意，也可能是他们的算法已经招满了，反正是挂了= =。<br><a id="more"></a></p><h2 id="一面-算法面"><a href="#一面-算法面" class="headerlink" title="一面-算法面"></a>一面-算法面</h2><p>算法小组的leader吧，比较关注深度学习水平。比较浅的都答出来了，比较深的一些没答出来。大概总结：</p><ul><li>BN的原理意义，之后的shift有什么作用，GN（Group normalization）会吗</li><li>SVM推导，由拉格朗日子乘如何解决对偶问题</li><li>xgb的特点，比gbdt的优点，目标函数</li><li>AdaBoost的时间复杂度（这算是什么问题啊= =，（m个特征，n个样本）时间：排序O(M*N*logN）+ 每次迭代O(M*N)。空间：O(M*N)</li></ul><h3 id="算法题"><a href="#算法题" class="headerlink" title="算法题"></a>算法题</h3><h5 id="1-一颗二叉树的每个节点都有权值（无重复），如何得到最大权值节点、最小权值节点的距离。"><a href="#1-一颗二叉树的每个节点都有权值（无重复），如何得到最大权值节点、最小权值节点的距离。" class="headerlink" title="1. 一颗二叉树的每个节点都有权值（无重复），如何得到最大权值节点、最小权值节点的距离。"></a>1. 一颗二叉树的每个节点都有权值（无重复），如何得到最大权值节点、最小权值节点的距离。</h5><pre><code>我的想法：距离肯定是两个节点到最近公共父节点的距离和。那么就变成了两个问题，找到最大最小权值节点，找到最近公共父节点。复杂一点可以一次遍历完成，但是好难写。简单一点，可以两、三次遍历，一次找到两个节点，再找距离。但是不好写= =，写的好慢。。</code></pre><h4 id="2-两个数组的中位数"><a href="#2-两个数组的中位数" class="headerlink" title="2. 两个数组的中位数"></a>2. 两个数组的中位数</h4><p>easy，二分查找。</p><p>时间复杂度：min(loga, logb)    </p><h2 id="二面-大数据面"><a href="#二面-大数据面" class="headerlink" title="二面-大数据面"></a>二面-大数据面</h2><p>主要了解了技能栈，实习意向，目前项目的阶段处于开始阶段，算法岗基本上差不多了，然而我笃定的不想做大数据或者开发。哎。</p>]]></content>
     
@@ -310,7 +299,9 @@
     
     </summary>
     
-      <category term="2018-暑期实习-面试经历" scheme="blog.lovelaolao.xin/categories/2018-%E6%9A%91%E6%9C%9F%E5%AE%9E%E4%B9%A0-%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
+      <category term="实习面试经历" scheme="blog.lovelaolao.xin/categories/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
+    
+      <category term="2018-暑期" scheme="blog.lovelaolao.xin/categories/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/2018-%E6%9A%91%E6%9C%9F/"/>
     
     
       <category term="面试经历" scheme="blog.lovelaolao.xin/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
@@ -324,7 +315,7 @@
     <link href="blog.lovelaolao.xin/2018/04/16/416-%E9%98%BF%E9%87%8C%E6%96%87%E5%A8%B1-%E6%99%BA%E8%83%BD%E8%90%A5%E9%94%80%E5%B9%B3%E5%8F%B0/"/>
     <id>blog.lovelaolao.xin/2018/04/16/416-阿里文娱-智能营销平台/</id>
     <published>2018-04-16T07:22:00.000Z</published>
-    <updated>2018-05-28T07:46:34.000Z</updated>
+    <updated>2018-05-28T07:52:42.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="416-阿里文娱-智能营销平台"><a href="#416-阿里文娱-智能营销平台" class="headerlink" title="416-阿里文娱-智能营销平台"></a>416-阿里文娱-智能营销平台</h1><p>跑一趟望京不容易啊。。。面了两个面试官，还特么算是一轮面试，面了两个半小时多，蓝瘦，最大的感觉就是细，问的细到头发丝。我的天爷。感觉我答完了第二天他可以去滴滴上班了，我有点不高兴了都，这是在打探情况一样。。。<br><a id="more"></a><br>我问部门也答得支支吾吾的= =，阿里文娱的非电商流量的广告，可以理解为是百度谷歌那种，但是感觉面试官有点神秘还是不自信呢= =。自己都说了移动端阿里的流量是第二，第一百度，那我为啥不去百度喔= =，但是面试难度和专业程度确实还是更高吧。。但是面试官明显不怎么看重深度学习呢？</p><p>之后有面试还会再去。。至少还有一二轮吧。。靠</p><h2 id="一面（1）"><a href="#一面（1）" class="headerlink" title="一面（1）"></a>一面（1）</h2><h3 id="1-项目-知识"><a href="#1-项目-知识" class="headerlink" title="1. 项目+知识"></a>1. 项目+知识</h3><ul><li>问了超细超细的动调项目，调什么，为什么要调，调到什么程度算是好，怎么定义这个好，没有指标吗，公式是什么，pid是滴滴发明的？这里的参数是怎么得到的，怎么确定这些参数是好的，指标是什么，每天更新参数吗，参数保存多久，你做了什么，国内的你做了什么，国际的你做了什么，怎么做的。。。。。（解释了整整一张a4纸）</li><li>应答率预估，做了什么，特征怎么得到的，有哪些，如何选择特征，如何确定不同来源的数据选哪个（难道都做实验吗，你试了多少个），模型是什么，训练要多久，单机版的吗。。。。</li><li>人脸分类，TensorFlow怎么变成分布式的，要做什么改变。</li></ul><h3 id="2-算法题"><a href="#2-算法题" class="headerlink" title="2. 算法题"></a>2. 算法题</h3><p>如何从矩阵的a走到b，最快的走法有多少种。（要求C++）</p><p>dp，简单。<br>优化：组合计算的方式，时间复杂度更高，但是不要用A/A的计算。</p><h2 id="一面（2）"><a href="#一面（2）" class="headerlink" title="一面（2）"></a>一面（2）</h2><h3 id="1-项目-知识-1"><a href="#1-项目-知识-1" class="headerlink" title="1. 项目+知识"></a>1. 项目+知识</h3><ul><li>又问了超细的动调，调什么，指标是什么，含义是什么，具体具体再具体，国际化调什么，什么情况要调，怎么调。。。。</li><li>应答率预估，预估什么。。。</li><li>人脸分类，如何提升，数据集增强怎么做的。。。</li></ul><h3 id="2-算法题-1"><a href="#2-算法题-1" class="headerlink" title="2. 算法题"></a>2. 算法题</h3><p>拿出了一个奇妙的考题纸，全是机器学习相关的，我算是答出来了7成吧，两成没答满意，一成不会。记了下没答好的。</p><ul><li>AdaBoost的时间复杂度。</li><li>不用训练的方式，如何特征选择</li><li>为什么特征离散化在某些场景可以提升模型效果</li><li>SGB的结束标志（梯度下降的距离低于预期，容易停在局部最优）</li><li>elastic net是什么样的正则化</li></ul>]]></content>
     
@@ -334,7 +325,9 @@
     
     </summary>
     
-      <category term="2018-暑期实习-面试经历" scheme="blog.lovelaolao.xin/categories/2018-%E6%9A%91%E6%9C%9F%E5%AE%9E%E4%B9%A0-%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
+      <category term="实习面试经历" scheme="blog.lovelaolao.xin/categories/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
+    
+      <category term="2018-暑期" scheme="blog.lovelaolao.xin/categories/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/2018-%E6%9A%91%E6%9C%9F/"/>
     
     
       <category term="面试经历" scheme="blog.lovelaolao.xin/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
@@ -344,32 +337,11 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="blog.lovelaolao.xin/2018/04/15/415-%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1-%E4%BA%8C%E6%AC%A1%E7%AC%94%E8%AF%95/"/>
-    <id>blog.lovelaolao.xin/2018/04/15/415-今日头条-二次笔试/</id>
-    <published>2018-04-15T15:12:39.000Z</published>
-    <updated>2018-04-15T16:38:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="415-今日头条-二次笔试"><a href="#415-今日头条-二次笔试" class="headerlink" title="415-今日头条-二次笔试"></a>415-今日头条-二次笔试</h1><p>首先不懂为毛要做两次笔试，好难啊，第五题直接怀疑人生了，这种脑筋急转弯式的题，要怎么想啊，到底做题量变能不能质变到这里啊。。。</p><p>问了下昆昆，这道题人家直接就秒杀除了解法，说明是我的功夫还不到家，人家思路清晰，然而我却想偏了。。。说明还是值得努力的嘛~~~所以例外的总结一下笔试题。</p><p>说实话一开始只做出来了3、4两道题，总结解题思考角度之后，将另外三道题理论角度全都做了出来！！！！说实话两小时= =，就算是我最好的状态，最多也就写出三道来，更不要说还要考虑通过率。。。</p><h2 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h2><p>给出一个递增数列（全是质数），找到数列最小的“周期”k。周期必须满足任意ai + k要么比a1小或比an大，要么也在数列内。<br>如：2 4 6 = 2<br>3 4 6 = 3</p><pre><code>一开始我想找到一个规律、公式，非要找到一个统一的解决方案，简洁的处理，例子也总结的比较全，然而就是找不到解决规律。想了很久，换了一种思考方式，所谓周期，必须对所有ai使用，也就是说，隔一定的间隔（最大是an - a1），要么超过数列范围，要么一定有数列元素存在。也就是存在每隔m个的所有数列一定是一个等差数列，而且一定是所有元素都是每隔m个都是。（如果不是的话，那么连续的两个元素，加上间隔不可能都存在数列元素）那其实就是寻找最短间隔了。蠢一点，从1到n-1个间隔，求是否所有相邻同间隔元素的差是一样的。</code></pre><h2 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h2><p>有n1种可多数量硬币，n2种只有一个的硬币。提供k，问有多少种硬币组成方式，凑齐k的面值。</p><pre><code>没想到呢。想用回溯，但是真的好蠢，怕不是要网页编译器内存爆炸。马后炮：动态规划吗？对金额做规划目标，dp[i]即所有凑齐k面值的硬币组成方式数（只用n1种硬币，不用n2种），dp[i]就是sum(dp[i-每个n1硬币面值])。当i = k的时候，dp[i] = sum(dp[k-每一个n1硬币面值]) + sum(dp[k-每一个n2硬币面值])因为n2硬币只能用一次，所以动态规划中先不考虑，最后一起考虑。妈个鸡，顿悟一种很棒的解法。</code></pre><h2 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h2><p>懒得总结。不难。</p><h2 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h2><p>给一个递增数列，找到数列中m、n（m&lt;n）组成的m/n，第k小的是几。</p><pre><code>小顶堆 + 每个元素一个指针 可解。还有很多优化的细节。    </code></pre><h2 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h2><p>给三个数m、n、k，分别是水瓶a的容量，水瓶b的容量，想要通过三个操作：灌满一个水瓶、倒掉一个水瓶、讲一个水瓶的水加到另一个水瓶，得到k的量的谁。能否做到，最少的操作数是？</p><pre><code>问题 =&gt; BFS =&gt; queue + set出循环</code></pre><p><a href="../../../1.算法/Leetcode算法总结/1.算法设计.md">详见例子</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;415-今日头条-二次笔试&quot;&gt;&lt;a href=&quot;#415-今日头条-二次笔试&quot; class=&quot;headerlink&quot; title=&quot;415-今日头条-二次笔试&quot;&gt;&lt;/a&gt;415-今日头条-二次笔试&lt;/h1&gt;&lt;p&gt;首先不懂为毛要做两次笔试，好难啊，第五题直接怀疑人生
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>0413-腾讯自动驾驶-目标识别跟踪-激光感知</title>
     <link href="blog.lovelaolao.xin/2018/04/13/413-%E8%85%BE%E8%AE%AF%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6-%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86-%E7%9B%AE%E6%A0%87%E8%AF%86%E5%88%AB%E8%B7%9F%E8%B8%AA/"/>
     <id>blog.lovelaolao.xin/2018/04/13/413-腾讯自动驾驶-数据预处理-目标识别跟踪/</id>
     <published>2018-04-13T07:22:00.000Z</published>
-    <updated>2018-05-28T07:45:11.000Z</updated>
+    <updated>2018-05-28T07:53:12.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="413-腾讯自动驾驶-数据预处理-目标识别跟踪"><a href="#413-腾讯自动驾驶-数据预处理-目标识别跟踪" class="headerlink" title="413-腾讯自动驾驶-数据预处理-目标识别跟踪"></a>413-腾讯自动驾驶-数据预处理-目标识别跟踪</h1><p>拒了offer。<br><a id="more"></a><br>一开始还以为是腾讯地图，在中国技术交易大厦。原来腾讯自动驾驶、地图、游戏都有。<br>先说一下情况：本来应该是腾讯提前批结束，正式批集中面试，但是因为里的近，也可能觉得北大生源还可以，值得提前面一下。节省集中面试时间。感觉应该是一次性面完了的意思。</p><p>总之觉得这一趟感觉超级狗血= =，特别不按套路出牌。。。很蓝瘦，总体表现不尽人意，主管面的比较难，多半是跪了。。</p><p>我全程等着交流= =，然而有个屁交流，就给你闷头做题。。</p><h2 id="一面（两个半小时）"><a href="#一面（两个半小时）" class="headerlink" title="一面（两个半小时）"></a>一面（两个半小时）</h2><p>上来居然就给我主管面。。。刚来的时候主管还不在，把我领到工位等了10分钟后，另一个人跟我聊了一下实习、学校的事情，然后找了再另一个人= =，在纸上，写了两道算法题，一开始那个人又加了一道= =，然后，俩人就走了。。。。。让我写完短信联系。。。。</p><p>感觉他们都挺客气的。因为北大么（然而失望了/(ㄒoㄒ)/~~）</p><h4 id="题一"><a href="#题一" class="headerlink" title="题一"></a>题一</h4><p>设计一个算法，一个数据结构中带有x、y坐标、夹角θ，输入算法中两个数据结构对象，一个矩阵，求解3*3的矩阵使第一个坐标变成第二个坐标。</p><p>提示了有一个global坐标系。。。θ是针对这个坐标系的。。。。那又能怎样！莫名奇妙的！谁看得懂！</p><h4 id="题二"><a href="#题二" class="headerlink" title="题二"></a>题二</h4><p>冒泡排序，easy</p><h4 id="题三"><a href="#题三" class="headerlink" title="题三"></a>题三</h4><p>判断坐标系中两个三角形是否相交。</p><pre><code>我的做法：对两个三角形每个边做延长线为直线，两个三角形之间边的交点，如果交点同时在两个三角形线段上，就相交。很难计算。正答：用向量解，如果相交，一个顶点必定在另一个三角形上，这个顶点到另一个三角形每个顶点的连线向量间有一定关系，就可以判断出来了。也即是叉乘，向量之间的叉乘满足右手旋转定理，手指指向第一个向量，手心方向为第二个向量方向。大拇指方向就是叉乘结果方向。所以只要沿着一定的判定顺序，如果顶点在三角形里，那两两叉乘的向量都是一个方向的、否则就不全是。</code></pre><hr><h3 id="主管来了"><a href="#主管来了" class="headerlink" title="主管来了"></a>主管来了</h3><p>写了第二道，第三道用了比较麻烦不优秀的方法，第一道看不懂= =，然而主管来了看都没看= =，估计是前面的评价不好吧。。编码能力，主管哦，感觉很厉害，基本上听我说个两三句话就有感觉需不需要继续听了，而且问的问题都很接地气。。。是想让我好好干活吧= =。。。</p><p>最气的是，不听我解释下我题做的原因啊 = =生气。</p><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4><ul><li>多态</li><li>智慧教室编码格式</li><li>qt如何前后端交互</li></ul><h4 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h4><ul><li>TensorFlow和caffe用过没</li><li>区别和联系</li><li>optimazer之间的区别及为什么</li></ul><h4 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h4><ul><li>svm的支持向量、几何间隔、函数间隔</li><li>vgg的模型架构</li><li>数据倾斜怎么办</li><li>对于kaggle的问题，如何预处理能有比较好的效果</li></ul><h4 id="实习"><a href="#实习" class="headerlink" title="实习"></a>实习</h4><ul><li>滴滴研究院这里的情况（看来是叶老师认识的人哦）</li><li>动态调价的原理和贡献</li><li>供需预估的理解</li><li>模型是否是时序上的，模型选用的什么</li><li>特征实时的历史的如何区分</li></ul><h4 id="补一道题四（难！）"><a href="#补一道题四（难！）" class="headerlink" title="补一道题四（难！）"></a>补一道题四（难！）</h4><p>（看来前面对我的编码评价一般，蓝瘦，出的破题！）<br>找到一个字符串中最长的重复出现的连续子串的长度</p><p>没有思路交流= =，不听解释，只要结果，迷醉。</p><pre><code>我的解法：暴力，n^3，但是预计用KMP来做字符匹配，能得到n^2.正答：？？</code></pre><h2 id="复试（0419）"><a href="#复试（0419）" class="headerlink" title="复试（0419）"></a>复试（0419）</h2><p>感觉应该是一面的评价比较优，二面就面了20分钟，简单聊了聊项目、实习就ok了。然后当天面试状态更新到了hr面。</p><h2 id="HR面"><a href="#HR面" class="headerlink" title="HR面"></a>HR面</h2><p>也聊得比较好，半小时，具体的已经总结道HR面试经验里了，还好我前一天晚上准备的比较充分全面，还预测到了会问什么，答得比较得体。</p><h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>4月24日，接到了一面主管陈仁的电话，confirm我的来意。如果接到了offer，是否回来。如果拿不定主意的话或者反悔，可能会比较麻烦人家。另外他也比较想收一个未来长期培养留在团队的候选。</p><p>顺便聊了十几分钟，给我讲了下他们在做的事。他那边是激光雷达部分的感知部分，实习生可能先做和点云坐标相关的工作。激光雷达属于自动驾驶技术里不可或缺的一部分，比图像更容易达到顶尖的水平，他的目标也是达到顶尖水准，这样未来会对自己的发展有很大帮助。</p><p>听起来蛮诱人的，再加上我也没什么offer，我就答应了先。</p><p>然后了解了下相关知识，所谓激光雷达的感知技术，原始用于比较高级的航天、航洋等的测绘。自动驾驶主要有两种感知技术，图像、激光雷达。图像的话比较直观，但是不够准确，受限于图像的信息获取技术水平，无法得到距离等信息，并且容易受到天气等影响。激光波场小的多，可以穿过树叶、雨水等不容易受影响。根据激光的反射间隔，可以描绘出车附近几米的非常精确的三维建模。</p><p>但是，目前一台精确的激光要几十万，并且一直不断发射激光扫描的方式既不安全也不科学。而且主要难点在于硬件上的性价比的降低，算法方面可能不是很有水平？很多业界内大佬都判定这个东西是自动驾驶目前必要，但是未来会被淘汰的东西。</p><p>对于我而言，也透露了主要负责点云坐标的工作（也就是激光感知的数据处理），激光感知可能就算法技术水平不够。相比微软会给单独项目的培养方式，还是不如吧= =。不如行驶规划等，所以。。。</p><p>我当天反悔啦，尽管没有offer在手，我还是决定不去了，对不起啦，感觉主管哥哥还是满照顾的。</p><p>ps：复试的胖大叔居然就是自动驾驶实验室的真正大boss，苏奎峰。。。</p>]]></content>
     
@@ -379,7 +351,9 @@
     
     </summary>
     
-      <category term="2018-暑期实习-面试经历" scheme="blog.lovelaolao.xin/categories/2018-%E6%9A%91%E6%9C%9F%E5%AE%9E%E4%B9%A0-%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
+      <category term="实习面试经历" scheme="blog.lovelaolao.xin/categories/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
+    
+      <category term="2018-暑期" scheme="blog.lovelaolao.xin/categories/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/2018-%E6%9A%91%E6%9C%9F/"/>
     
     
       <category term="面试经历" scheme="blog.lovelaolao.xin/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
@@ -393,7 +367,7 @@
     <link href="blog.lovelaolao.xin/2018/04/11/%E9%AB%98%E7%BA%A7%E5%86%99%E6%B3%95/"/>
     <id>blog.lovelaolao.xin/2018/04/11/高级写法/</id>
     <published>2018-04-11T12:30:00.000Z</published>
-    <updated>2018-05-28T07:35:06.000Z</updated>
+    <updated>2018-05-28T07:56:44.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="矩阵四个相邻元素的高效比较–👍必用-常见"><a href="#矩阵四个相邻元素的高效比较–👍必用-常见" class="headerlink" title="矩阵四个相邻元素的高效比较–👍必用+常见"></a>矩阵四个相邻元素的高效比较–👍必用+常见</h2><p>一般和矩阵相关的BFS、DFS，都是需要对一个元素的上下左右四个元素做比较，需要每个方向上加一个限制条件是否超出了边界。一般我的做法是：（平均比较4次）</p><pre><code>if(i-1 &gt;= 0) then;if(j-1 &gt;= 0) then;if(i+1 &lt; xlen) then;if(j+1 &lt; ylen) then;也就是四个方向都判断了一次，每次做这个操作都要做四次判断。</code></pre><p>但是存在一种更加优秀的比较方式（针对矩阵）：（平均比较2.5次）<br><a id="more"></a></p><pre><code>public static final int[][] dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};for(int[] dir: dirs) {    int x = i + dir[0], y = j + dir[1];    if(x &lt; 0 || x &gt;= xlen || y &lt; 0 || y &gt;= ylen) continue;}相当于把四个边界判断以循环的方式放到了一个比较条件里。根据短路原则，会依次判断四个条件，那么四个方向分别需要1、2、3、4次比较，也就是平均2.5次。</code></pre><p>在计算量很大的测试用例里，如果主要时间在比较，那么会节省一半时间。<br><strong>这个trick适合在网上笔试时使用，如果超时了。</strong></p><h2 id="递归方法设计（DFS）"><a href="#递归方法设计（DFS）" class="headerlink" title="递归方法设计（DFS）"></a>递归方法设计（DFS）</h2><p>最思路清晰且容易写的方式就是：（写的时候你就知道好处了）</p><ul><li>在方法的不断向深处递归时，不设置判断，尽情的DFS递归。</li><li>在方法的入口，进行所有的可行性判断、返回判断。</li></ul><h3 id="将DFS的结果path加入List-lt-List-lt-gt-gt"><a href="#将DFS的结果path加入List-lt-List-lt-gt-gt" class="headerlink" title="将DFS的结果path加入List\&lt;List\&lt;&gt;&gt;"></a>将DFS的结果path加入List\&lt;List\&lt;&gt;&gt;</h3><p><strong><code>res.add(new ArrayList&lt;&gt;(path));</code></strong><br>因为List类型的path在递归传递中是实参，大家共享，必须new一个新的List装有path的所有元素再加入结果集合。<br>这个过程不能是简单的<code>new ArrayList&lt;&gt;() = path;</code>，还会得到path这个对象实体。<br>但是也不用遍历path元素加入到新的List里，直接用第一行的代码就可以实现只把path中所有内容加入到新的List。<br>而且从时间角度上快得多得多。</p><h2 id="自定义Arrays-sort"><a href="#自定义Arrays-sort" class="headerlink" title="自定义Arrays.sort()"></a>自定义Arrays.sort()</h2><pre><code>Arrays.sort(arr, (a, b) -&gt; a.v1 - b.v1);或Arrays.sort(arr, (a, b) -&gt; a.v1 == b.v1 ? a.v2 - b.v2 : a.v1 - b.v1);//Arrays.sort()默认按升序排序，这里相当于用了自定义的Comparator：//式2意思是：令arr的元素升序排序，如果元素的v1相等，按v2升序排序//arr, (a, b) -&gt; a.v1 - b.v1是lambda表达式//这里a、b是连续的arr中的对象//Comparator返回前者元素的value - 后者元素的value//如果把表达式相减顺序反过来就是降序了//注意a、b必须是对象，int不算是对象，Integer可以</code></pre><h2 id="Collections-sort"><a href="#Collections-sort" class="headerlink" title="Collections.sort()"></a>Collections.sort()</h2><pre><code>基本同上，不过支持对对象的排序，需要自定义comparator。</code></pre><h2 id="PriorityQueue小顶堆"><a href="#PriorityQueue小顶堆" class="headerlink" title="PriorityQueue小顶堆"></a>PriorityQueue小顶堆</h2><pre><code>//实现了queue的接口，自带一些基础方法PriorityQueue&lt;Integer&gt; minHeap = new PriorityQueue&lt;&gt;();//PriorityQueue默认小顶堆minHeap.offer(x);//添加元素（并且排序）int min = minHeap.peek();//得到堆顶元素（最小值）minHeap.poll();//出堆堆顶元素（最小值）</code></pre><h2 id="a-b-gt-c-还是-a-gt-c-b"><a href="#a-b-gt-c-还是-a-gt-c-b" class="headerlink" title="a*b &gt; c 还是 a &gt; c/b"></a>a*b &gt; c 还是 a &gt; c/b</h2><p><strong>a &gt; c/b</strong><br>（假设a b c大于0）<br>实时证明。后者比前者节省时间。<br>而且a*b容易溢出</p><h2 id="从低往高-从高往低-取int每一位"><a href="#从低往高-从高往低-取int每一位" class="headerlink" title="从低往高 从高往低 取int每一位"></a>从低往高 从高往低 取int每一位</h2><h3 id="完美写法"><a href="#完美写法" class="headerlink" title="完美写法"></a>完美写法</h3><pre><code>char[] digits = Integer.toString(num).toCharArray();而且注意，转化回原数字也快得多：Integer.valueOf(new String(digits));</code></pre><h3 id="从低往高"><a href="#从低往高" class="headerlink" title="从低往高"></a>从低往高</h3><pre><code>我总是陷在这里= =。%10就好了！！while(n &gt; 0){    int now = n % 10;    n /= 10;}</code></pre><h3 id="从高往低"><a href="#从高往低" class="headerlink" title="从高往低"></a>从高往低</h3><pre><code>int len = 0;while(n &gt; 0){    n /= 10;    len ++;}    while(len &gt; 0){    int now = n / Math.pow(10, len);    n -= now * Math.pow(10, len);    len--;}</code></pre>]]></content>
     
@@ -409,7 +383,9 @@ if(j+1 &amp;lt; ylen) then;
     
     </summary>
     
-      <category term="算法技巧" scheme="blog.lovelaolao.xin/categories/%E7%AE%97%E6%B3%95%E6%8A%80%E5%B7%A7/"/>
+      <category term="Algorithm" scheme="blog.lovelaolao.xin/categories/Algorithm/"/>
+    
+      <category term="算法技巧" scheme="blog.lovelaolao.xin/categories/Algorithm/%E7%AE%97%E6%B3%95%E6%8A%80%E5%B7%A7/"/>
     
     
       <category term="代码书写" scheme="blog.lovelaolao.xin/tags/%E4%BB%A3%E7%A0%81%E4%B9%A6%E5%86%99/"/>
@@ -423,32 +399,11 @@ if(j+1 &amp;lt; ylen) then;
   </entry>
   
   <entry>
-    <title></title>
-    <link href="blog.lovelaolao.xin/2018/04/02/402-%E5%BE%AE%E8%BD%AFsummerIntern/"/>
-    <id>blog.lovelaolao.xin/2018/04/02/402-微软summerIntern/</id>
-    <published>2018-04-02T13:00:20.000Z</published>
-    <updated>2018-04-22T13:50:17.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="20180402-笔试"><a href="#20180402-笔试" class="headerlink" title="20180402-笔试"></a>20180402-笔试</h1><p>amcat平台，不再是辣鸡的hihocoder，题难平台烂。这个平台的题都不难，基本上写写就能过。四道都写出来了，但是需要注意不要着急下笔，想清楚再写，容易想岔路，而且要注意优化时间复杂度。测试用例都是给定的十多个，所以能全部满足就是100%。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;20180402-笔试&quot;&gt;&lt;a href=&quot;#20180402-笔试&quot; class=&quot;headerlink&quot; title=&quot;20180402-笔试&quot;&gt;&lt;/a&gt;20180402-笔试&lt;/h1&gt;&lt;p&gt;amcat平台，不再是辣鸡的hihocoder，题难平台烂。这个平台
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>智力题</title>
     <link href="blog.lovelaolao.xin/2018/03/30/%E6%99%BA%E5%8A%9B%E9%A2%98/"/>
     <id>blog.lovelaolao.xin/2018/03/30/智力题/</id>
     <published>2018-03-29T16:00:00.000Z</published>
-    <updated>2018-05-28T07:36:57.000Z</updated>
+    <updated>2018-05-28T07:56:38.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="用m中颜色涂分成n个扇形的圆形，保证相邻扇形颜色不同，有多少种涂法"><a href="#用m中颜色涂分成n个扇形的圆形，保证相邻扇形颜色不同，有多少种涂法" class="headerlink" title="用m中颜色涂分成n个扇形的圆形，保证相邻扇形颜色不同，有多少种涂法"></a>用m中颜色涂分成n个扇形的圆形，保证相邻扇形颜色不同，有多少种涂法</h3><p>首先，这个问题用a(n)表示，那么第一个扇形可以有m种选择，以后每个相邻的扇形都有和前一个扇形不同颜色的m-1种选择。<br>但是有一种例外情况，就是最后一个扇形和第一个扇形是相同的颜色。<br>但是这个时候，如果想计算例外情况，就是第一个最后一个绑定成一个扇形，一共有n-1个扇形，m中颜色，有多少种涂法。也就是问题a(n-1)。<br><a id="more"></a><br>也就可以变成一个数学问题：<br><img src="http://p9f9koofz.bkt.clouddn.com//扇形涂色问题推到.jpeg" alt="avatar"></p><h3 id="1000瓶水，10只老鼠，1瓶是有毒的，喝了毒水一周后死掉，如何找出这瓶水"><a href="#1000瓶水，10只老鼠，1瓶是有毒的，喝了毒水一周后死掉，如何找出这瓶水" class="headerlink" title="1000瓶水，10只老鼠，1瓶是有毒的，喝了毒水一周后死掉，如何找出这瓶水"></a>1000瓶水，10只老鼠，1瓶是有毒的，喝了毒水一周后死掉，如何找出这瓶水</h3><pre><code>很巧妙，10个老鼠可以理解为10bit，而2^10=1024 &gt; 1000，所以每个老鼠代表二进制的一位时，1000瓶水可以唯一的用10位二进制来表示，每当一只老鼠所代表的bit为1，那这只老鼠就喝这瓶水。一周之后，根据10只老鼠中死掉的几只，组成一个10位二进制数得到是第几瓶水。</code></pre><h3 id="100颗糖果，两个人轮流可以拿1-8颗糖果，我先拿，如何保证最后一颗是我拿到。"><a href="#100颗糖果，两个人轮流可以拿1-8颗糖果，我先拿，如何保证最后一颗是我拿到。" class="headerlink" title="100颗糖果，两个人轮流可以拿1~8颗糖果，我先拿，如何保证最后一颗是我拿到。"></a>100颗糖果，两个人轮流可以拿1~8颗糖果，我先拿，如何保证最后一颗是我拿到。</h3><p>这道题的关键在于，最后一颗糖的理解，我要拿到最后一颗糖，也就意味着除了这一颗的99颗两个人两个人拿正好拿完（或者剩下7颗以内）。  </p><pre><code>其实不考虑括号内的可能，理解起来更加单纯。既然每个人能拿1~8颗，那么99的因数里有3、9、11，9正好是1+8，两个人作为一组拿糖，最起码要拿9颗。  所以如果我保证不管另一个人怎么拿，我一定要拿加上他所拿的糖数位9的糖数。这样经过11轮，一定剩下一颗。  </code></pre><p>同理每个人拿1~k颗也是可以实现的。</p>]]></content>
     
@@ -458,7 +413,9 @@ if(j+1 &amp;lt; ylen) then;
     
     </summary>
     
-      <category term="算法技巧" scheme="blog.lovelaolao.xin/categories/%E7%AE%97%E6%B3%95%E6%8A%80%E5%B7%A7/"/>
+      <category term="Algorithm" scheme="blog.lovelaolao.xin/categories/Algorithm/"/>
+    
+      <category term="算法技巧" scheme="blog.lovelaolao.xin/categories/Algorithm/%E7%AE%97%E6%B3%95%E6%8A%80%E5%B7%A7/"/>
     
     
       <category term="技巧" scheme="blog.lovelaolao.xin/tags/%E6%8A%80%E5%B7%A7/"/>
@@ -476,7 +433,7 @@ if(j+1 &amp;lt; ylen) then;
     <link href="blog.lovelaolao.xin/2018/03/29/329-%E8%85%BE%E8%AE%AF-%E5%A4%A9%E5%A4%A9%E5%BF%AB%E6%8A%A5/"/>
     <id>blog.lovelaolao.xin/2018/03/29/329-腾讯-天天快报/</id>
     <published>2018-03-29T07:22:00.000Z</published>
-    <updated>2018-05-28T07:44:25.000Z</updated>
+    <updated>2018-05-28T07:53:14.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="20180329-腾讯-天天快报"><a href="#20180329-腾讯-天天快报" class="headerlink" title="20180329-腾讯-天天快报"></a>20180329-腾讯-天天快报</h1><a id="more"></a><p>啊呀呀，一面面试官临时开会换了一个面试官，应该算是比较幸运吧，而且还是本科的学长，但是并没什么卵用= =，面完才告诉我，看来是本来没打算相认的。前面技术的题答得还可以，算法题的题意理解总是偏差，可能表现扣分了。<br>但是哦天天快报又不好= =，那个地方也有点破，有点不情愿哎= =，😔。。。<br>面试过程还是很好的，面试官问问题很有耐心，而且循循善诱。就是有点面无表情。。。</p><h1 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h1><h2 id="技术题"><a href="#技术题" class="headerlink" title="技术题"></a>技术题</h2><p>技术提总体上问的很细，非常结合实践和模型建立上的重点。问问题的角度还是揭示了我很多缺点的。</p><ul><li>pid算法是怎样的，公式是怎样的，写一下。如何保证系统平衡的调节</li><li>xgboost的原理是什么？优点是什么？</li><li>为什么xgboost用到了二阶导数，有什么用吗？</li><li>供需预估，为什么不用传统的LR、svm？</li><li>LR、xgboost、svm之间有什么区别？</li><li>LR、xgboost、svm针对不同的数据集，应该选用哪个？</li><li>LR和softmax的区别是什么？</li><li>svm的原理是什么？给我推一下svm的公式吧？</li><li>有哪些特征选择的方法？</li><li>供需预估项目中，时间的特征是怎么处理的？不能说是时间戳吧？（时间片，每分钟一个）</li><li>供需预估项目中的特征工程是怎么做的？（14组，不断丰富实验）</li><li>CNN的原理给讲一下，vgg的模型给我画一下？</li><li>全连接层的效果是什么？</li></ul><h2 id="算法题"><a href="#算法题" class="headerlink" title="算法题"></a>算法题</h2><p>还是蛮不错的一道题，<strong>一个字符串比如“abc”，如何将所有的’b’删掉，所有的’a’换成’AA’，要求时间复杂度O(N)，空间复杂度O(1)。提示：b的数量大于a。</strong>   </p><p>理解：b的数量大于a，就能空出足够多的地方给a替换给的AA，所以暂时不需要额外空间。</p><pre><code>我的理解：一开始哦，理解的差好多，用list的remove、add方法遍历来删除增加，但是哦，没有想到remove、add也是O(N)的复杂度啊。。    发现这个问题后，我换成了用substring来实现remove和add，但是你怎么保证底层不是O(N)。到这里，面试官给出了硬性规定不能使用现成方法，也是帮我理解题吧，怕我跑偏。正确方法：首先遍历删除b是没问题的，但是操作的过程和删除数字里的所有0一样的原理，遍历过程中用两个指针，一个顺序遍历，一个指向非b元素的位置，这样将所有的非b元素放到数组的最后，前面全是b就行。然后实现a的替换，还是两个指针，一个在前，一个在后，把后面所有非b元素放到前面，遇到a换成AA就行了。</code></pre><p><strong>所以理解题意很重要！</strong>    </p>]]></content>
     
@@ -486,7 +443,9 @@ if(j+1 &amp;lt; ylen) then;
     
     </summary>
     
-      <category term="2018-暑期实习-面试经历" scheme="blog.lovelaolao.xin/categories/2018-%E6%9A%91%E6%9C%9F%E5%AE%9E%E4%B9%A0-%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
+      <category term="实习面试经历" scheme="blog.lovelaolao.xin/categories/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
+    
+      <category term="2018-暑期" scheme="blog.lovelaolao.xin/categories/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/2018-%E6%9A%91%E6%9C%9F/"/>
     
     
       <category term="面试经历" scheme="blog.lovelaolao.xin/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
@@ -500,7 +459,7 @@ if(j+1 &amp;lt; ylen) then;
     <link href="blog.lovelaolao.xin/2018/03/24/%E7%AC%94%E8%AF%95%E6%8A%80%E5%B7%A7/"/>
     <id>blog.lovelaolao.xin/2018/03/24/笔试技巧/</id>
     <published>2018-03-24T05:03:00.000Z</published>
-    <updated>2018-05-28T07:34:33.000Z</updated>
+    <updated>2018-05-28T07:56:48.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="提升成功率的技巧"><a href="#提升成功率的技巧" class="headerlink" title="提升成功率的技巧"></a>提升成功率的技巧</h2><h3 id="使用语言"><a href="#使用语言" class="headerlink" title="使用语言"></a>使用语言</h3><p>尽管C++效率高，python好写，还是写java吧。</p><h3 id="代码编写"><a href="#代码编写" class="headerlink" title="代码编写"></a>代码编写</h3><p>函数参数中太多递归复制的数据结构用全局变量代替，节省空间。<br>如果允许使用ide的话，必然要去用ide，要事先准备好一些基础的输入、输出、字符串处理等基本方法的书写。<br><strong>准备好一些常用的代码块。比如：输入输出的处理、</strong><br><a id="more"></a></p><h4 id="输入输出："><a href="#输入输出：" class="headerlink" title="输入输出："></a>输入输出：</h4><pre><code>import java.util.Scanner;public class Main {    public static void main(String[] args) {        Scanner sc = new Scanner(System.in);        int n = sc.nextInt();        for(int i = 0; i &lt; n; i++){            int now = sc.nextInt();        }        System.out.println(;    }}</code></pre><h4 id="查看矩阵输出对不对（检查）"><a href="#查看矩阵输出对不对（检查）" class="headerlink" title="查看矩阵输出对不对（检查）"></a>查看矩阵输出对不对（检查）</h4><pre><code>for (int i = 0; i &lt; n; i++) {        for (int j = 0; j &lt; m; j++) {            System.out.print(0 + &quot; &quot;);        }        System.out.println();    }    </code></pre><h4 id="保留几位小数的方法"><a href="#保留几位小数的方法" class="headerlink" title="保留几位小数的方法"></a>保留几位小数的方法</h4><pre><code>public static double round(double value, int places) {    if (places &lt; 0) throw new IllegalArgumentException();    long factor = (long) Math.pow(10, places);    value = value * factor;    long tmp = Math.round(value);    return (double) tmp / factor;}</code></pre><h4 id="map-put-k-v"><a href="#map-put-k-v" class="headerlink" title="map.put(k, v)"></a>map.put(k, v)</h4><pre><code>java的map的put(k,v)方法可以用于放入新元素，也可以用于更新key值所对应的value，put方法本身就会先去看value是否存在。</code></pre><h3 id="不同题型的读取方法"><a href="#不同题型的读取方法" class="headerlink" title="不同题型的读取方法"></a>不同题型的读取方法</h3><p>首先是允许一行一行读的，如果题目没给出明确要读的行数，测试的时候用一个标志结束读的情况，提交的时候用while(sc.hasNext()) 。（因为测试的时候这么写没法停止）</p><h3 id="超时"><a href="#超时" class="headerlink" title="超时"></a>超时</h3><p>超时的优化方法很多。比如：</p><ul><li>排除一些循环中没有意义的部分</li><li>排除不需要的数据结构，实际上不用也行，能用一个局部变量就别用list</li><li>找到比较费时的处理方法，换成高效的方式。如：</li></ul><h3 id="未通过所有用例"><a href="#未通过所有用例" class="headerlink" title="未通过所有用例"></a>未通过所有用例</h3><p>这个说实话可以选择性放弃，优化这个有点得不偿失，除非通过率比较低如低于40%。</p><h3 id="注意边界条件"><a href="#注意边界条件" class="headerlink" title="注意边界条件"></a>注意边界条件</h3><pre><code>int : -2^32 ~ 2^32-1即-2147483648 ~ 2147483647 大概二十多亿的大小。</code></pre><h2 id="平台区别"><a href="#平台区别" class="headerlink" title="平台区别"></a>平台区别</h2><h3 id="牛客网"><a href="#牛客网" class="headerlink" title="牛客网"></a>牛客网</h3><p>以java为例，需要自己写好main函数、main类、引用等。允许使用ide，</p><h3 id="amcat"><a href="#amcat" class="headerlink" title="amcat"></a>amcat</h3><p>微软目前使用的，其线上编译器不允许切屏，但是很好用，会自动提示方法。</p>]]></content>
     
@@ -511,12 +470,92 @@ if(j+1 &amp;lt; ylen) then;
     
     </summary>
     
-      <category term="算法技巧" scheme="blog.lovelaolao.xin/categories/%E7%AE%97%E6%B3%95%E6%8A%80%E5%B7%A7/"/>
+      <category term="Algorithm" scheme="blog.lovelaolao.xin/categories/Algorithm/"/>
+    
+      <category term="算法技巧" scheme="blog.lovelaolao.xin/categories/Algorithm/%E7%AE%97%E6%B3%95%E6%8A%80%E5%B7%A7/"/>
     
     
       <category term="技巧" scheme="blog.lovelaolao.xin/tags/%E6%8A%80%E5%B7%A7/"/>
     
       <category term="算法" scheme="blog.lovelaolao.xin/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>0320-陌陌-推荐算法工程师</title>
+    <link href="blog.lovelaolao.xin/2018/03/20/320-%E9%99%8C%E9%99%8C-%E6%8E%A8%E8%8D%90%E7%AE%97%E6%B3%95%E5%B7%A5%E7%A8%8B%E5%B8%88/"/>
+    <id>blog.lovelaolao.xin/2018/03/20/320-陌陌-推荐算法工程师/</id>
+    <published>2018-03-20T07:22:00.000Z</published>
+    <updated>2018-05-28T07:53:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="20180320-陌陌-推荐算法工程师"><a href="#20180320-陌陌-推荐算法工程师" class="headerlink" title="20180320-陌陌-推荐算法工程师"></a>20180320-陌陌-推荐算法工程师</h1><p>陌陌-视频、朋友圈各种内容的推荐-rank部门。<br>二面中一度表现很差，被吊打，最终还是给了软微以前同学、同时相识之情可能的面子，三面和leader聊了聊需求相关的想法吧，结果是过了，又聊了四面hr。<br>总体来说机器学习面的比较easy，没有深度学习的内容，问的方向也是数据相关的特征工程比如的内容。算法在二面问了两个对我来说有点难以理解的但其实需求很简单的题= =，很头疼。。。其他都比较顺溜吧。<br><a id="more"></a></p><h2 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h2><p>以项目为主。</p><ul><li>动调项目介绍，嘲笑了我对经济原理的提价说法。。。</li><li>有关推荐算法有什么了解？</li><li>LR给推导一下。</li><li>数据预处理做过哪些。</li></ul><h2 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h2><p>二面面试官面软微同届其他学生，然后还任务滴滴研究院、百度很多人。是从百度凤巢model组出来的大佬= =，问问题的套路感觉有点acm= =。（好像你知道acm是什么样的意义。。）<br>一度get不到题的点，结果第一题没想出来，第二题用了更低的时间复杂度做了出来。题所针对的需求都不难，但是第一题限制最好用两次mapreduce解出来，第二题最好用O(1)解出来。</p><h4 id="第一题："><a href="#第一题：" class="headerlink" title="第一题："></a>第一题：</h4><p>题：用hive/mapreduce/scala（分布式）写出来：如何将一个表user1、user2两个字段（每条代表user1关注了user2），如果互相关注了，就是好友。那么如何找到所有每个user的不是一度好友的二度好友。要求用两层MapReduce写出来。</p><p>说实话= =，我听不懂什么叫用mapreduce实现。。后来才想到，不就相当于用一个map函数一个reduce函数写咯。。其实还是挺简单的。。至于用sql的话我就有点搞不懂了= =。。。最终我还是没现场写出来。</p><h4 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h4><p>题：LRU的策略，给一个无限长（或不断增加的）数组，假设空间只有五，当空间满了会把最久未使用的那个数顶替掉。最终会是什么样的。要求时间复杂度是O(1).<br>这个题哦，我很困惑，所谓O(1)是什么，肯定不是判断完整个数组的复杂度吧= =，难道是没增加一个需要的复杂度？那我的实现方式也不是O(N)吧= =，蛋疼，什么烂题。  </p><p>考证之后发现是特么leetcode hard的题。翘李来来。</p><p>我的解法：用一个list保存5个最多的数，用一个map，key为数，value为该数的位置。分成三种情况处理并更新list和map。</p><p>面试官的解法：用双向<strong>链表</strong>+map。没搞懂哪来的O(1)，难道是不需要每个map都做更新？<br>降低操作的时间复杂度：首先双向链表的移动节点、删除、添加节点都是O(1)。<br>降低查找的时间复杂度：用map存储目前已经缓存了的内容。重点来了：这里<strong>map里的key是数字，value是链表节点本身</strong>（或是地址），这样的话当map有了变化，不需要更新其他的map键值对，只需要更新一个，当查找的时候，也不用按位置查询，直接去访问这个链表元素就好了呀。这才是链表的优势！  </p><h2 id="三面"><a href="#三面" class="headerlink" title="三面"></a>三面</h2><p>三面面试官就比较洋气了，没有问任何技术层面的东西，主要考察了对业务的理解，结合滴滴的实习和陌陌的场景，做了对比和联想。我觉得我答的还是可以的，和这样的人就很交流= =，最起码不会笑话你动态调价的做法。。。简直搞笑。。。</p><h2 id="四面"><a href="#四面" class="headerlink" title="四面"></a>四面</h2><p>hr面，被问了好多hr的套路问题。。。有的问题真的没有想到过。。至于薪酬嘛，这么远，给的也少，我应该是不会去的。。。还不如回滴滴。。或者去百度。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;20180320-陌陌-推荐算法工程师&quot;&gt;&lt;a href=&quot;#20180320-陌陌-推荐算法工程师&quot; class=&quot;headerlink&quot; title=&quot;20180320-陌陌-推荐算法工程师&quot;&gt;&lt;/a&gt;20180320-陌陌-推荐算法工程师&lt;/h1&gt;&lt;p&gt;陌陌-视频、朋友圈各种内容的推荐-rank部门。&lt;br&gt;二面中一度表现很差，被吊打，最终还是给了软微以前同学、同时相识之情可能的面子，三面和leader聊了聊需求相关的想法吧，结果是过了，又聊了四面hr。&lt;br&gt;总体来说机器学习面的比较easy，没有深度学习的内容，问的方向也是数据相关的特征工程比如的内容。算法在二面问了两个对我来说有点难以理解的但其实需求很简单的题= =，很头疼。。。其他都比较顺溜吧。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="实习面试经历" scheme="blog.lovelaolao.xin/categories/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
+    
+      <category term="2018-暑期" scheme="blog.lovelaolao.xin/categories/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/2018-%E6%9A%91%E6%9C%9F/"/>
+    
+    
+      <category term="面试经历" scheme="blog.lovelaolao.xin/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
+    
+      <category term="2018面试经历" scheme="blog.lovelaolao.xin/tags/2018%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>0315-阿里金服多媒体创新组-图像算法</title>
+    <link href="blog.lovelaolao.xin/2018/03/15/315-%E9%98%BF%E9%87%8C%E9%87%91%E6%9C%8D%E5%A4%9A%E5%AA%92%E4%BD%93%E5%88%9B%E6%96%B0%E7%BB%84-%E5%9B%BE%E5%83%8F%E7%AE%97%E6%B3%95/"/>
+    <id>blog.lovelaolao.xin/2018/03/15/315-阿里金服多媒体创新组-图像算法/</id>
+    <published>2018-03-15T07:22:00.000Z</published>
+    <updated>2018-05-28T07:53:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="阿里巴巴-蚂蚁金服-多媒体创新组（也许叫这个）-0315一面电面随便聊聊"><a href="#阿里巴巴-蚂蚁金服-多媒体创新组（也许叫这个）-0315一面电面随便聊聊" class="headerlink" title="阿里巴巴-蚂蚁金服-多媒体创新组（也许叫这个）-0315一面电面随便聊聊"></a>阿里巴巴-蚂蚁金服-多媒体创新组（也许叫这个）-0315一面电面随便聊聊</h2><p>神奇的6面挂之旅。<br><a id="more"></a><br>组的话是北京蚂蚁金服的一个做视觉的+多媒体+创新组的一个转过来的组。介绍的话说组里作过一些如扫福字的应用，肯定是要有应用落地的。听起来还蛮不错的。</p><p>问我都是简历上的东西，问了些细节，聊得蛮轻松的，有问意向：做算法研究还是开发，我说开发= =，他还夸我算法和开发都有经验的话比较有优势。。有点慌的是问我做过什么端上的开发，我说android以及服务端。。。。不会让我搞开发吧= =。</p><p>聊得比较简单，结果上应该还行吧。</p><h3 id="具体问题"><a href="#具体问题" class="headerlink" title="具体问题"></a>具体问题</h3><ul><li>在滴滴做了什么内容，内容有什么难点，有什么比较大的贡献</li><li>中日韩这个项目是分类还是人脸识别？用什么做的？效果上有什么结果吗？</li><li>allstate这个项目介绍下</li><li>智慧教室这个是课程项目还是投入使用了？你做了什么？流媒体服务器遇到过哪些问题？</li><li>车牌识别这个项目如果你现在做，打算怎么做。</li><li>你打算做研究还是工程。</li></ul><h2 id="0316二面-电话面"><a href="#0316二面-电话面" class="headerlink" title="0316二面-电话面"></a>0316二面-电话面</h2><p>大概是一面的时候看我的简历吧= =，有点犹豫，又问问我的背景，考察下我到底适合做什么，适不适合他们组。。。。</p><p>哎好吃亏啊，没有一个明确的方向去努力。。。又有什么办法呢，就是没有啊。。。</p><h2 id="0319三面-电话面"><a href="#0319三面-电话面" class="headerlink" title="0319三面-电话面"></a>0319三面-电话面</h2><p>一个面试电话面三次，我也是醉了。。这次以图像算法工程师的title面的我= =，难道是前两次之后给我归到了这？主要问了我的人脸分类、图像处理、滴滴实习的内容。<br>组也知道了：蚂蚁金服-支付宝-多媒体技术部</p><p>人脸分类：</p><ol><li>结果是怎样的，怎么算出来的？</li><li>结果是不是太好了？</li><li>考虑到中国人民族、地域可能有很大差别吗？</li><li>学长给了那些优化手段？</li><li>你觉得空间上的旋转有效吗？应该有效吗？</li></ol><p>车牌识别：</p><ol><li>遇到了什么难点吗？</li><li>图像处理上有过那些经验？</li><li>能不能识别比较特殊的车牌？</li></ol><p>滴滴实习：</p><ol><li>总结一下在滴滴的实习？</li><li>你收获最大的地方在哪里？</li></ol><h2 id="0330四面-hr面"><a href="#0330四面-hr面" class="headerlink" title="0330四面-hr面"></a>0330四面-hr面</h2><p>还以为一共是五面= =，这一面会着重问我算法题。。。到头来居然一道算法题没问。。。就到了hr面，而且也不知道结果暂时，hr面试面试流程的最后一步，也是走正常流程。问了一些比较普通的题，但是环环相扣，有点心理学的意思= =，还比较轻松。但是我觉得自己答得不是很有逻辑。</p><ol><li>说一下你对我们这边公司、部门的理解。</li><li>说一下在滴滴的实习经历，做了什么，有哪些收获，有哪些比较大的贡献</li><li>在获得的收获里遇到了那些困难，如何解决的，应该怎么解决比较好</li><li>如果别人用三个词形容你，会是哪三个词。为什么</li><li>如果你觉得你爱玩，为什么呢？</li><li>如果说到兴趣的话，你觉得对我们部门有什么兴趣</li><li>如果你觉得自己聪明，为什么呢？</li><li>你说自己对自己会有比较明确的认知和长期的计划，你对毕业之后的3-5年是怎么计划的？</li></ol><h2 id="0402五面-交叉面"><a href="#0402五面-交叉面" class="headerlink" title="0402五面-交叉面"></a>0402五面-交叉面</h2><p>终究还是要五面啊喂= =，什么第四面试终面，这一面是交叉面，别的部门的人面我，然而还是只问了项目，问了一些细节，面了20分钟吧也就= =，为毛这么轻松嘞。。。</p><p>有一点没表现好，既然这份实习都是图像相关的了，人家问你印象比较深的项目，干嘛说动态调价啊，都不算是算法相关的项目啊！！！最起码扯一下供需预估啊！！！！傻了傻了。。</p><ul><li>既然人脸分类的项目没有达到100，有没有去看测试数据，是为什么吗。—-应该答机器学习的优化原则呀，看哪部分优化的性价比最高就做什么。</li></ul><h2 id="0403六面-技术交叉面"><a href="#0403六面-技术交叉面" class="headerlink" title="0403六面-技术交叉面"></a>0403六面-技术交叉面</h2><p>尼玛！！！怎么六面都出来了，还是跳出流程微信联系。。。其实联系我主要也是为了查看我适不适合来，说白了就是既没有图像的实验室背景，也没有相关的实习经验，只有一个小项目，说实话有点虚对吧。但是考虑到你的学习能力和潜力，我还是再考察一下。😔我还是很想去的，只能听天由命啦。。突然有一种过不了的味道。。。</p><ul><li>人脸分类项目介绍。</li><li>我自己觉得我能分对中日韩，所以你这个项目的实际意义是啥？有没有资金支持还是自己做着玩的？（所以这里也能解答这个项目未来没有继续在做）</li><li>实验室方向</li><li>结果正确性质疑</li><li>动态调价介绍一下</li></ul><p>说完之后，感觉自己有点虚虚的好可怜。。。找不到自己的方向，也没能力确定自己的方向。说实话现在就是在能做什么在做什么，别人问我你想做什么。。。对不起，除了算法两个字，我说不出来一个方向。好蠢。</p><h2 id="0403-结果-挂"><a href="#0403-结果-挂" class="headerlink" title="0403-结果-挂"></a>0403-结果-挂</h2><p>😔。。。。。。。。。。。。。<br>有点沉重，果然如我所料，不断的面下去，发现最终还是一样，还是缺乏针对一个领域的专一能力、背景等。其实还是觉得自己表现的不够好，没有从人家想要的出发，没有尽量满足别人的需求，尽管很多事情不是我能决定的，但是还是有不少事情是可以我努力的。恩。。。让我悲伤一会。。。</p><p>哎，调整心态调整心态，尽管最后这个随意的结果让我很无法释怀，理由这么简单，然而在我这里的流程却这么久这么费我时间。锅还是自己背吧，事实还是证明，在图像方面实在是没什么竞争力。如果暑期实习找不到相关的，那我干脆就放弃图像这一路了。实在是竞争不过呀。<br>另外，说实话六面下来，一道算法题没做，也没有聊很久，并没给我很靠谱的印象，挂了说不定也是有好处的。<br>但是，其实自己在技术面、hr面里都有表现不好的部分，还是可以更好地，嘿嘿。。。<br>话说为什么这种奇葩的倒霉事总能发生在我身上。。。好jb。。</p><p>挂在这，我也是有点倒霉了，但是吃一堑长一智，尽管代价有点高，但是收获还是很大的，终面、交叉面的重点。掌握了没？其实操作的足够好的话，其实完全挂不了的吧。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;阿里巴巴-蚂蚁金服-多媒体创新组（也许叫这个）-0315一面电面随便聊聊&quot;&gt;&lt;a href=&quot;#阿里巴巴-蚂蚁金服-多媒体创新组（也许叫这个）-0315一面电面随便聊聊&quot; class=&quot;headerlink&quot; title=&quot;阿里巴巴-蚂蚁金服-多媒体创新组（也许叫这个）-0315一面电面随便聊聊&quot;&gt;&lt;/a&gt;阿里巴巴-蚂蚁金服-多媒体创新组（也许叫这个）-0315一面电面随便聊聊&lt;/h2&gt;&lt;p&gt;神奇的6面挂之旅。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="实习面试经历" scheme="blog.lovelaolao.xin/categories/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
+    
+      <category term="2018-暑期" scheme="blog.lovelaolao.xin/categories/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/2018-%E6%9A%91%E6%9C%9F/"/>
+    
+    
+      <category term="面试经历" scheme="blog.lovelaolao.xin/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
+    
+      <category term="2018面试经历" scheme="blog.lovelaolao.xin/tags/2018%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>0309-格灵深瞳-计算机视觉算法</title>
+    <link href="blog.lovelaolao.xin/2018/03/09/309-%E6%A0%BC%E7%81%B5%E6%B7%B1%E7%9E%B3-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E7%AE%97%E6%B3%95/"/>
+    <id>blog.lovelaolao.xin/2018/03/09/309-格灵深瞳-计算机视觉算法/</id>
+    <published>2018-03-09T08:34:00.000Z</published>
+    <updated>2018-05-28T07:53:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="格灵深瞳-计算机视觉算法实习生"><a href="#格灵深瞳-计算机视觉算法实习生" class="headerlink" title="格灵深瞳-计算机视觉算法实习生"></a>格灵深瞳-计算机视觉算法实习生</h1><p>格灵深瞳的实习生面试就一面，难度嘛就很低，是电话面，倒是非常关注专业知识，9成都在问机器学习、深度学习相关的知识，但是都还不深，我差不多都能答出来。<br><a id="more"></a><br>顺便问了一下培养方式，实习生任务。大概是和mentor或者自己找idea来做小项目吧，针对一个方向，比如人脸等等。每周一汇报，很像实验室有木有。</p><h2 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h2><h3 id="专业知识："><a href="#专业知识：" class="headerlink" title="专业知识："></a>专业知识：</h3><ul><li>中日韩这个项目，用的什么模型（vgg19），跟之前的模型比起来有什么优点，为什么能达到这个优点？</li><li>正则化用了哪些（weight decay、dropout）？dropout的原理？</li><li>中日韩这个项目的数据量怎么样？怎么增强的？为什么要用正则化？效果提升了多少？</li><li>SVM的核函数是啥？</li><li>LR的loss是啥？为啥？</li><li>Allstate这个项目是回归还是分类项目？</li><li>应答率预估这个项目介绍下？</li><li>介绍下CNN的卷积工作原理？</li><li>卷积核的运算是怎样的？</li></ul><h3 id="算法题"><a href="#算法题" class="headerlink" title="算法题"></a>算法题</h3><p>2sum</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;格灵深瞳-计算机视觉算法实习生&quot;&gt;&lt;a href=&quot;#格灵深瞳-计算机视觉算法实习生&quot; class=&quot;headerlink&quot; title=&quot;格灵深瞳-计算机视觉算法实习生&quot;&gt;&lt;/a&gt;格灵深瞳-计算机视觉算法实习生&lt;/h1&gt;&lt;p&gt;格灵深瞳的实习生面试就一面，难度嘛就很低，是电话面，倒是非常关注专业知识，9成都在问机器学习、深度学习相关的知识，但是都还不深，我差不多都能答出来。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="实习面试经历" scheme="blog.lovelaolao.xin/categories/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
+    
+      <category term="2018-暑期" scheme="blog.lovelaolao.xin/categories/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/2018-%E6%9A%91%E6%9C%9F/"/>
+    
+    
+      <category term="面试经历" scheme="blog.lovelaolao.xin/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
+    
+      <category term="2018面试经历" scheme="blog.lovelaolao.xin/tags/2018%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/"/>
     
   </entry>
   
