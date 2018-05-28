@@ -107,7 +107,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="HZ's Blog" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="Fall Out Boy" type="application/atom+xml" />
 
 
 
@@ -116,13 +116,13 @@
 
 <meta name="description" content="human learning, shallow leanring...">
 <meta property="og:type" content="website">
-<meta property="og:title" content="HZ&#39;s Blog">
+<meta property="og:title" content="Fall Out Boy">
 <meta property="og:url" content="blog.lovelaolao.xin/page/6/index.html">
-<meta property="og:site_name" content="HZ&#39;s Blog">
+<meta property="og:site_name" content="Fall Out Boy">
 <meta property="og:description" content="human learning, shallow leanring...">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HZ&#39;s Blog">
+<meta name="twitter:title" content="Fall Out Boy">
 <meta name="twitter:description" content="human learning, shallow leanring...">
 
 
@@ -133,7 +133,7 @@
     root: '/',
     scheme: 'Muse',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -159,7 +159,7 @@
 
 
 
-  <title>HZ's Blog</title>
+  <title>Fall Out Boy</title>
   
 
 
@@ -200,7 +200,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">HZ's Blog</span>
+        <span class="site-title">Fall Out Boy</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -331,16 +331,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="blog.lovelaolao.xin/2017/08/04/5-二叉树+树+BFS+DFS+图/">
+    <link itemprop="mainEntityOfPage" href="blog.lovelaolao.xin/2017/08/04/3-链表+数组/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="HZ">
+      <meta itemprop="name" content="Hou Zhe">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/handsomeme.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HZ's Blog">
+      <meta itemprop="name" content="Fall Out Boy">
     </span>
 
     
@@ -350,7 +350,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/04/5-二叉树+树+BFS+DFS+图/" itemprop="url">5.二叉树+树+BFS+DFS+图</a></h1>
+                <a class="post-title-link" href="/2017/08/04/3-链表+数组/" itemprop="url">3.链表+数组</a></h1>
         
 
         <div class="post-meta">
@@ -413,7 +413,7 @@
 
           
           
-             <span id="/2017/08/04/5-二叉树+树+BFS+DFS+图/" class="leancloud_visitors" data-flag-title="5.二叉树+树+BFS+DFS+图">
+             <span id="/2017/08/04/3-链表+数组/" class="leancloud_visitors" data-flag-title="3.链表+数组">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -438,7 +438,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4,263 字
+                  1,647 字
                 </span>
               
 
@@ -454,7 +454,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  16 分钟
+                  6 分钟
                 </span>
               
             </div>
@@ -476,12 +476,15 @@
 
       
         
-          <h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><p>只要是遍历了，空间复杂度都自带O(logn)的。</p>
-<h2 id="Traversal"><a href="#Traversal" class="headerlink" title="Traversal"></a>Traversal</h2><p>pre-order/in-order/post-order</p>
-<h3 id="层次遍历"><a href="#层次遍历" class="headerlink" title="层次遍历"></a>层次遍历</h3><p>如果要一层层输出的话，<strong>用两个int标记</strong>，统计本层结点数和下一层结点数。将本层的pop出去，将下一层的push进来。<br>用一个数组的数组保存每一层的输出。</p>
+          <h1 id="Linked-List-链表"><a href="#Linked-List-链表" class="headerlink" title="Linked List 链表"></a>Linked List 链表</h1><ul>
+<li>链表的头结点、尾结点总是要敏感处理的！  </li>
+<li>所有需要pre的操作必须有fakehead。</li>
+<li>所有需要知道tail是什么的，直接用null来做fakehead即可，不用遍历一遍，因为tail-&gt;next一定是null。</li>
+<li><strong>链表的遍历，尤其是找中点、相交这种需求，不要傻傻的for，用一个fast一个slow双指针就能很好的遍历。</strong></li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/08/04/5-二叉树+树+BFS+DFS+图/#more" rel="contents">
+            <a class="btn" href="/2017/08/04/3-链表+数组/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -560,9 +563,9 @@
             
               <img class="site-author-image" itemprop="image"
                 src="/images/handsomeme.jpg"
-                alt="HZ" />
+                alt="Hou Zhe" />
             
-              <p class="site-author-name" itemprop="name">HZ</p>
+              <p class="site-author-name" itemprop="name">Hou Zhe</p>
               <p class="site-description motion-element" itemprop="description">human learning, shallow leanring...</p>
           </div>
 
@@ -679,7 +682,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">HZ</span>
+  <span class="author" itemprop="copyrightHolder">Hou Zhe</span>
 
   
     <span class="post-meta-divider">|</span>
@@ -751,6 +754,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
