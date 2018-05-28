@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+<script>/*文章访问输入密码*/
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-fill-left.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/stupid-180.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/stupid-32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/stupid-16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/stupid.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="leetcode总结,贪心,DP," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Fall Out Boy" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="greedy贪心Meeting Rooms II-👍 Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],…] (si &amp;lt; ei), find the minimum number of conference rooms required.找到最小的会议室数来">
+<meta name="keywords" content="leetcode总结,贪心,DP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="7.贪心+动态规划">
+<meta property="og:url" content="blog.lovelaolao.xin/Algorithm/Leetcode-Categories/7-贪心+动态规划/index.html">
+<meta property="og:site_name" content="Fall Out Boy">
+<meta property="og:description" content="greedy贪心Meeting Rooms II-👍 Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],…] (si &amp;lt; ei), find the minimum number of conference rooms required.找到最小的会议室数来">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-28T07:56:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="7.贪心+动态规划">
+<meta name="twitter:description" content="greedy贪心Meeting Rooms II-👍 Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],…] (si &amp;lt; ei), find the minimum number of conference rooms required.找到最小的会议室数来">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'EQNFCFWZVQ',
+      apiKey: '19713fffa872ec9f90f6a8ade436f7e5',
+      indexName: 'HZBlog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="blog.lovelaolao.xin/Algorithm/Leetcode-Categories/7-贪心+动态规划/"/>
+
+
+
+
+
+  <title>7.贪心+动态规划 | Fall Out Boy</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?40b71fb0e7bcadbfd695ea89064f5aa9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fall Out Boy</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="blog.lovelaolao.xin/Algorithm/Leetcode-Categories/7-贪心+动态规划/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hou Zhe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/handsomeme.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fall Out Boy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">7.贪心+动态规划</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-04T00:00:00+08:00">
+                2017-08-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/Leetcode-Categories/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode Categories</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Algorithm/Leetcode-Categories/7-贪心+动态规划/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/Algorithm/Leetcode-Categories/7-贪心+动态规划/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/Algorithm/Leetcode-Categories/7-贪心+动态规划/" class="leancloud_visitors" data-flag-title="7.贪心+动态规划">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,871 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="greedy贪心"><a href="#greedy贪心" class="headerlink" title="greedy贪心"></a>greedy贪心</h1><h3 id="Meeting-Rooms-II-👍"><a href="#Meeting-Rooms-II-👍" class="headerlink" title="Meeting Rooms II-👍"></a>Meeting Rooms II-👍</h3><blockquote>
+<p>Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],…] (si &lt; ei), find the minimum number of conference rooms required.<br>找到最小的会议室数来满足所有的会议</p>
+</blockquote>
+<a id="more"></a>
+<pre><code>我的解法：
+贪心思想，保证每个会议室有最高的使用率。
+对会议的开始时间排序，从第一个会议室开始，不断将能放入的start时间最小的会议放入会议室。
+如果还有会议，用同一方法循环。直到没有会议。
+但是有冗余计算，O(k*N + NlogN)。（&lt;=O(N^2)）
+
+正答：
+还是贪心，但是没有冗余。
+消除冗余计算，同时考虑所有可能的会议室数。
+用一个小顶堆保存所有会议室目前最后会议的end时间。
+对会议的start时间排序，遍历当前会议的start时间是否比小顶堆里的最小end时间。
+如果当前会议的start比小顶堆堆顶end大，说明可以直接加到这个会议室后面。出堆当前堆顶，入堆当前会议的结束时间。
+如果当前会议的start比小顶堆堆顶end小，说明当前会议没有会议室可以放，会议室数++，入堆当前会议的结束时间。
+O(N + NlogN)
+
+正答代码真的艺术：（结合了自定义Arrays.sort和PriorityQueue）
+public int minMeetingRooms(Interval[] intervals) {
+    if(intervals == null || intervals.length == 0) return 0;
+
+    Arrays.sort(intervals, (a, b) -&gt; a.start == b.start ? a.end - b.end : a.start - b.start);
+
+    PriorityQueue&lt;Integer&gt; minHeap = new PriorityQueue&lt;&gt;();
+    minHeap.offer(intervals[0].end);
+
+    for(int i = 1; i &lt; intervals.length; i++) {
+        if(minHeap.peek() &lt;= intervals[i].start) minHeap.poll();
+        minHeap.offer(intervals[i].end);
+    }
+
+    return minHeap.size();
+}
+</code></pre><h1 id="DP动态规划"><a href="#DP动态规划" class="headerlink" title="DP动态规划"></a>DP动态规划</h1><p>动态规划的算法正确性保证在所有输入元素至少都会遍历一遍，如果算法设计没有全部遍历一遍，多半是无法保证正确的。<br>动态规划往往思想复杂，代码简单。要想清楚逻辑。<br><strong>most important &amp; tricky：寻找子问题父问题之间的推演关系</strong>，必须能寻找到子问题，才能化身DP。</p>
+<h2 id="题型！"><a href="#题型！" class="headerlink" title="题型！"></a>题型！</h2><ul>
+<li>求到第N个情况。每个情况会有多种选择。</li>
+<li>求max/min</li>
+<li>y/n到达</li>
+<li>count数量</li>
+<li><strong>当要求给方案而不是数量，当输入集合不是序列。</strong></li>
+<li>DP可以 从前到后/从后到前。</li>
+<li>时间复杂度一定是o(n).</li>
+<li>二维DP</li>
+</ul>
+<h2 id="DP四要素"><a href="#DP四要素" class="headerlink" title="DP四要素"></a>DP四要素</h2><ul>
+<li><strong>function</strong> 方程，如何从子问题到父问题</li>
+<li><strong>state</strong>    状态，存储子问题的结果</li>
+<li><strong>init</strong>        初始化，最小问题</li>
+<li><strong>result</strong>    结果，最大问题</li>
+</ul>
+<p>设计动态规划要凑齐这四样东西。然后<strong>递归（逆向结果出发bottom-up）/迭代（正向初始化出发folow-up）</strong>。<br>动态规划的推进方向由已知的状态决定。</p>
+<h2 id="标记函数"><a href="#标记函数" class="headerlink" title="标记函数"></a>标记函数</h2><p>要先想好标记数组到底标记的是什么。<br>最标准的：问的什么就标记什么。</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>多空一位0.</p>
+<h2 id="常见题型1：general递推"><a href="#常见题型1：general递推" class="headerlink" title="常见题型1：general递推"></a>常见题型1：general递推</h2><h3 id="Best-Time-to-Buy-and-Sell-Stock-I-II-III-IV-With-Cool-Down"><a href="#Best-Time-to-Buy-and-Sell-Stock-I-II-III-IV-With-Cool-Down" class="headerlink" title="Best Time to Buy and Sell Stock I/II/III/IV/With Cool Down"></a>Best Time to Buy and Sell Stock I/II/III/IV/With Cool Down</h3><p>原理I（一次买卖最大收益）：需要三个标记，buy、sell、max，同时进行更新，用一个标记记录过程中的最大值。<br>动态规划：dp[i]表示i卖的时候最大赚多少，localmin保存i之前的所有股票价格的最小值，随遍历更新即可。<br>（<strong>也可以递归，寻找一个最小值买，然后在最小值后面寻找一个最大值卖，然后在最小值前面部分递归进行。</strong>）<br>（也可以用一个数组b保存a[i]-a[i-1]，将每个a[i]遍历，local为当前i顺序向后加b[i]能到的最大，global是总体最大）</p>
+<p>原理II（可以多次但不处于多个交易，可同时买卖）：easy，并不需要动态规划。  </p>
+<p>原理IV：local+global</p>
+<p>原理with cool down：</p>
+<h3 id="Word-Break"><a href="#Word-Break" class="headerlink" title="Word Break"></a>Word Break</h3><p>一个字符串能否由字符串字典完全组成。  </p>
+<p>原理：标记第i个字符以前的字符串能否做成wordbreak=第j个字符以前的字符串能否做成wordbreak且string[j:i]在字符串字典里。</p>
+<h3 id="Maximal-Square"><a href="#Maximal-Square" class="headerlink" title="Maximal Square"></a>Maximal Square</h3><p>一个只有0，1组成的矩阵，如何找到最大1正方形。<br>先设标记数组m[][]为：以i，j为右下角的正方形的最大边长。<br>难点是寻找子问题组成DP问题，因为要是正方形，那么</p>
+<pre><code>m[i][j] = min { m[i-1][j-1] , m[i-1][j] , m[i][j-1] } + 1.
+</code></pre><p>看图就知道了。</p>
+<h3 id="Maximal-Rectangle"><a href="#Maximal-Rectangle" class="headerlink" title="Maximal Rectangle"></a>Maximal Rectangle</h3><p>情况比上一题复杂一些</p>
+<h3 id="Edit-Distance"><a href="#Edit-Distance" class="headerlink" title="Edit Distance"></a>Edit Distance</h3><p>经过多少次+/-/更换 操作可以将word1变成word2.<br>二维dp。<br>dp[i][j]表示word[:i]到word[:j]的minimum edit distance<br>解的时候画个矩阵就好了。</p>
+<pre><code>dp[i][0] = i
+dp[0][j] = j
+
+1. d[0, j] = j;
+2. d[i, 0] = i;
+3. d[i, j] = d[i-1, j - 1] if A[i] == B[j]
+4. d[i, j] = min(d[i-1,j-1], d[i,j-1], d[i-1,j]) + 1  
+         if A[i] != B[j]
+</code></pre><p>因为dp[i][j]已经在表示前i个单词到前j个单词的最短编辑距离了，所以只需要考虑两个单词新加的那一个字符是否有影响就好了。<br>但是要注意到，下标是从0开始的，从一个单词没有字符开始计算的。<br>不要在意具体是怎么变过来的，只需要在意从最近变化如何变化到目标。</p>
+<h3 id="Regular-Expression-Matching"><a href="#Regular-Expression-Matching" class="headerlink" title="Regular Expression Matching"></a>Regular Expression Matching</h3><p>没看懂。</p>
+<h3 id="Unique-Binary-Search-Tree"><a href="#Unique-Binary-Search-Tree" class="headerlink" title="Unique Binary Search Tree"></a>Unique Binary Search Tree</h3><p>给n个数，那么能构造成多少不同的二叉搜索树。（二叉搜索树 = 二叉排序树（可以不平衡））<br>这里用动态规划来记录当子树里有i个数的情况下，有多少种情况。<br>因为情况是会重复的嘛。<br>而且每种情况时左边情况数*右边情况数的计算和。<br>因为每种情况都是左边x个数，右边y各数。而两边各有x、y种情况。</p>
+<pre><code>class Solution(object):
+def numTrees(self, n):
+    if n == 0:
+        return 1
+    count = [0 for i in range(n+1)]
+    count[0] = 1
+    for i in range(1, n+1):
+        for j in range(0, i): //两个for循坏哦
+            count[i] += count[j] * count[i-j-1]
+    return count[n]
+</code></pre><p>这里用动态规划统计以前计算过的当总结点数为i能有多少种情况。<br>所以整个过程是不断积累计算结点数位i能有多少种不同的二叉搜索树，知道i=n。</p>
+<h2 id="常见题型2：global、local局部和全局最优（nothing-special）"><a href="#常见题型2：global、local局部和全局最优（nothing-special）" class="headerlink" title="常见题型2：global、local局部和全局最优（nothing special）"></a>常见题型2：global、local局部和全局最优（nothing special）</h2><p>当问题需要从二维的可能性上考虑情况时。<br>（额这并不算是二维的情况吧，global只是一个遍历获得最大localDP的临时变量而已。顶多特别在可以保存所有到第i步的最大dp。）</p>
+<pre><code>localDP[i] = max(localDP[i-1] + nums[i], nums[i])
+globalDP[i] = max(localDP[i], globalDP[i-1])
+</code></pre><h3 id="Maximum-Subarray-Sum"><a href="#Maximum-Subarray-Sum" class="headerlink" title="Maximum Subarray Sum"></a>Maximum Subarray Sum</h3><p>寻找数组中构成最大和的子数组。</p>
+<h3 id="Maximum-Product-Subarray"><a href="#Maximum-Product-Subarray" class="headerlink" title="Maximum Product Subarray"></a>Maximum Product Subarray</h3><p>寻找数组中构成最大积的子数组。</p>
+<h2 id="题型3：无法定义子问题的DP题型"><a href="#题型3：无法定义子问题的DP题型" class="headerlink" title="题型3：无法定义子问题的DP题型"></a>题型3：无法定义子问题的DP题型</h2><p>这种类型的题，会有一些限制条件和场景，因为可以想到是类似于回溯的解法，所以能想到是动态规划的题型，但是又没办法定义好子问题，一旦问题定义无法利用到所有外部信息，就没办法完成递归，也就没办法解决问题。<br>所以关键在于：<strong>如何定义子问题</strong>。</p>
+<p><strong>技巧：定义问题的时候，加上必须的外部信息。</strong></p>
+<h3 id="546-Remove-Boxes"><a href="#546-Remove-Boxes" class="headerlink" title="546. Remove Boxes"></a>546. Remove Boxes</h3><p>这个题可以说是非常破了= = ，先记下了</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Hou Zhe 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Hou Zhe 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Hou Zhe
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="blog.lovelaolao.xin/Algorithm/Leetcode-Categories/7-贪心+动态规划/" title="7.贪心+动态规划">blog.lovelaolao.xin/Algorithm/Leetcode-Categories/7-贪心+动态规划/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode总结/" rel="tag"><i class="fa fa-tag"></i> leetcode总结</a>
+          
+            <a href="/tags/贪心/" rel="tag"><i class="fa fa-tag"></i> 贪心</a>
+          
+            <a href="/tags/DP/" rel="tag"><i class="fa fa-tag"></i> DP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Algorithm/Leetcode-Categories/5-二叉树+树+BFS+DFS+图/" rel="next" title="5.二叉树+树+BFS+DFS+图">
+                <i class="fa fa-chevron-left"></i> 5.二叉树+树+BFS+DFS+图
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Algorithm/Leetcode-Categories/1-算法设计/" rel="prev" title="1.算法设计（思想）">
+                1.算法设计（思想） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/handsomeme.jpg"
+                alt="Hou Zhe" />
+            
+              <p class="site-author-name" itemprop="name">Hou Zhe</p>
+              <p class="site-description motion-element" itemprop="description">human learning, shallow leanring...</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/CC1993" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/3855613144" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://leetcode.com/houser/" target="_blank" title="LeetCode">
+                      
+                        <i class="fa fa-fw fa-globe"></i>LeetCode</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.jiangdongyu.space/" title="酱小孩" target="_blank">酱小孩</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#greedy贪心"><span class="nav-number">1.</span> <span class="nav-text">greedy贪心</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Meeting-Rooms-II-👍"><span class="nav-number">1.0.1.</span> <span class="nav-text">Meeting Rooms II-👍</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DP动态规划"><span class="nav-number">2.</span> <span class="nav-text">DP动态规划</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题型！"><span class="nav-number">2.1.</span> <span class="nav-text">题型！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DP四要素"><span class="nav-number">2.2.</span> <span class="nav-text">DP四要素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标记函数"><span class="nav-number">2.3.</span> <span class="nav-text">标记函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">2.4.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见题型1：general递推"><span class="nav-number">2.5.</span> <span class="nav-text">常见题型1：general递推</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Best-Time-to-Buy-and-Sell-Stock-I-II-III-IV-With-Cool-Down"><span class="nav-number">2.5.1.</span> <span class="nav-text">Best Time to Buy and Sell Stock I/II/III/IV/With Cool Down</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Word-Break"><span class="nav-number">2.5.2.</span> <span class="nav-text">Word Break</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maximal-Square"><span class="nav-number">2.5.3.</span> <span class="nav-text">Maximal Square</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maximal-Rectangle"><span class="nav-number">2.5.4.</span> <span class="nav-text">Maximal Rectangle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Edit-Distance"><span class="nav-number">2.5.5.</span> <span class="nav-text">Edit Distance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Regular-Expression-Matching"><span class="nav-number">2.5.6.</span> <span class="nav-text">Regular Expression Matching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unique-Binary-Search-Tree"><span class="nav-number">2.5.7.</span> <span class="nav-text">Unique Binary Search Tree</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见题型2：global、local局部和全局最优（nothing-special）"><span class="nav-number">2.6.</span> <span class="nav-text">常见题型2：global、local局部和全局最优（nothing special）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Maximum-Subarray-Sum"><span class="nav-number">2.6.1.</span> <span class="nav-text">Maximum Subarray Sum</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maximum-Product-Subarray"><span class="nav-number">2.6.2.</span> <span class="nav-text">Maximum Product Subarray</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题型3：无法定义子问题的DP题型"><span class="nav-number">2.7.</span> <span class="nav-text">题型3：无法定义子问题的DP题型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#546-Remove-Boxes"><span class="nav-number">2.7.1.</span> <span class="nav-text">546. Remove Boxes</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hou Zhe</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">96.6k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      你是本站第
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位访问者
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65862436";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'CC1993',
+            repo: 'CC1993.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'dc6d091e130f79570e46d555eed19e556888eed4',
+            
+                client_id: '603f6e3d251801be8556'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      function showGitment(){
+        document.getElementById("gitment-display-button").style.display = "none";
+        document.getElementById("gitment-container").style.display = "block";
+        renderGitment();
+      }
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("AQluv9b2gHsQHXCoEPbYTLVQ-gzGzoHsz", "qEL5EpDtAcgdujB3rqUpopWe");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
