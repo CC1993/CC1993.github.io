@@ -100,20 +100,6 @@
     </url>
 
     <url>
-        <loc>blog.lovelaolao.xin/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/</loc>
-        <lastmod>2018-05-28T07:53:22.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>blog.lovelaolao.xin/tags/2018%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/</loc>
-        <lastmod>2018-05-28T07:53:22.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>blog.lovelaolao.xin/tags/C/</loc>
         <lastmod>2018-05-28T07:55:40.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -333,6 +319,20 @@
     <url>
         <loc>blog.lovelaolao.xin/tags/Array/</loc>
         <lastmod>2018-05-28T07:56:58.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>blog.lovelaolao.xin/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/</loc>
+        <lastmod>2018-05-28T07:59:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>blog.lovelaolao.xin/tags/2018%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/</loc>
+        <lastmod>2018-05-28T07:59:43.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
