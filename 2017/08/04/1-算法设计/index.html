@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+<script>/*文章访问输入密码*/
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-fill-left.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/stupid-180.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/stupid-32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/stupid-16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/stupid.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="算法思想," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="HZ's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="解算法题的-最起码奥义解一道算法题 = 理解本质本质本质 + 问题映射到已知领域 + 找到常用解决方案 + 解决方案实现 + 针对性完善 - 想要找到全适用规律、实现细节 真正的解算法题的做法，不是只用一个公式表达出一个算法题的解题方法，首先这并不可能，其次这根本不是解题之关键。想象一下自己所写的程序，它只知道输入是什么，输出是什么，然后自己一步步按照既定步子循环，就能得到结果。同样，人也应该这样">
+<meta name="keywords" content="算法思想">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1.算法设计（思想）">
+<meta property="og:url" content="blog.lovelaolao.xin/2017/08/04/1-算法设计/index.html">
+<meta property="og:site_name" content="HZ&#39;s Blog">
+<meta property="og:description" content="解算法题的-最起码奥义解一道算法题 = 理解本质本质本质 + 问题映射到已知领域 + 找到常用解决方案 + 解决方案实现 + 针对性完善 - 想要找到全适用规律、实现细节 真正的解算法题的做法，不是只用一个公式表达出一个算法题的解题方法，首先这并不可能，其次这根本不是解题之关键。想象一下自己所写的程序，它只知道输入是什么，输出是什么，然后自己一步步按照既定步子循环，就能得到结果。同样，人也应该这样">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-28T07:27:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1.算法设计（思想）">
+<meta name="twitter:description" content="解算法题的-最起码奥义解一道算法题 = 理解本质本质本质 + 问题映射到已知领域 + 找到常用解决方案 + 解决方案实现 + 针对性完善 - 想要找到全适用规律、实现细节 真正的解算法题的做法，不是只用一个公式表达出一个算法题的解题方法，首先这并不可能，其次这根本不是解题之关键。想象一下自己所写的程序，它只知道输入是什么，输出是什么，然后自己一步步按照既定步子循环，就能得到结果。同样，人也应该这样">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'EQNFCFWZVQ',
+      apiKey: '19713fffa872ec9f90f6a8ade436f7e5',
+      indexName: 'HZBlog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="blog.lovelaolao.xin/2017/08/04/1-算法设计/"/>
+
+
+
+
+
+  <title>1.算法设计（思想） | HZ's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?40b71fb0e7bcadbfd695ea89064f5aa9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">HZ's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="blog.lovelaolao.xin/2017/08/04/1-算法设计/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HZ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/handsomeme.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HZ's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">1.算法设计（思想）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-04T00:00:00+08:00">
+                2017-08-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode-Categories/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode Categories</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/04/1-算法设计/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2017/08/04/1-算法设计/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/08/04/1-算法设计/" class="leancloud_visitors" data-flag-title="1.算法设计（思想）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,976 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="解算法题的-最起码奥义"><a href="#解算法题的-最起码奥义" class="headerlink" title="解算法题的-最起码奥义"></a>解算法题的-最起码奥义</h2><p><strong><code>解一道算法题</code> = <code>理解本质本质本质</code> + <code>问题映射到已知领域</code> + <code>找到常用解决方案</code> + <code>解决方案实现</code> + <code>针对性完善</code> - <code>想要找到全适用规律、实现细节</code></strong></p>
+<p><strong>真正的解算法题的做法，不是只用一个公式表达出一个算法题的解题方法，首先这并不可能，其次这根本不是解题之关键。</strong><br>想象一下自己所写的程序，它只知道输入是什么，输出是什么，然后自己一步步按照既定步子循环，就能得到结果。<br>同样，人也应该这样思考，对于一个问题，最重要的不是公式，从来不是公式，而是<strong>针对一个问题，抽象成一个可解的思考方式，然后用所学方法运用在上面就ok了</strong>。不用去想什么trick，不用去想什么规律。内部变化过程就当是一个黑盒就够了。<strong>只要迈着步子，能从开头走到结尾就行了。</strong>    </p>
+<a id="more"></a>
+<h3 id="遇到一个不好解的复杂问题："><a href="#遇到一个不好解的复杂问题：" class="headerlink" title="遇到一个不好解的复杂问题："></a>遇到一个不好解的复杂问题：</h3><ul>
+<li>先转换思考方式，将题转换成一种数据结构+输入输出的熟悉形式。</li>
+<li>既然题目已经变成了程序可以理解的问题，那么就用程序的思维，熟悉的结题方法，提出可解的方案。</li>
+<li>对于程序而言，过程细节不重要，只需要知道 <code>每一步是怎么迈的</code>、<code>起始点</code>、<code>中间的状态</code>、<code>何时得到结果</code> 就够了。</li>
+<li>至于 为什么能做、总结适用所有情况的规律、到底每一步发生了什么。完全是没用的考量。</li>
+</ul>
+<blockquote>
+<p>题一：输入三个int，瓶子a的容量，瓶子b的容量，期望倒出的水量。只允许装满一瓶水，倒空一瓶水，将一个瓶子的水倒入另一个瓶子三种操作。问能否得到期望水量，能的话最短用多少次操作。  </p>
+<blockquote>
+<p>这道题我想了很久，总想根据a、b总结出一个规律，判断到底能不能倒出期望水量。a、b的差，差的差，试了好久，用了很长时间，但是没有总结出来。<br>但是，这个规律真的重要吗，如果我<strong>转换一个思考角度</strong>，如果我将两个瓶子的水量当做一个状态或者结点，那么从每个结点，一定有三种操作多条边能到下一个结点。我所输出的状态，不就是一个目标结点吗。所以，这不就是图的BFS、DFS吗？（考虑到每个节点到下一个结点的操作都可知且最多三种，那么BFS比DFS要更合适）<br>根据BFS的细节，每一层需要一个队列保存本轮需要考察的结点（两个瓶子状态），BFS的退出标志也就是队列为空了，也就意味着没有找到解决方案。如果在BFS中遍历到了终点，那就代表最先找到了方案，也是最少操作的。如果在BFS中遍历到了重复的结点（瓶子状态），那代表之后的操作不需要考虑了。所以还需要一个set保存所有遍历过的结点。  </p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>所以其实总结起来就是：  </p>
+<ul>
+<li>先转换问题为程序可以理解的问题及合适的解决方案。   </li>
+<li>找到起始点、中间状态、状态变化、何时达到重点。<br>就够了。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>题二：edit distance，给两个单词，操作包括：换一个字母，删一个字母，加一个字母，最少多少次操作能让两个单词变成一样。  </p>
+<blockquote>
+<p>我想了很久，两个单词之间的关系，如何能最大利用两者之间的相似点，比如有多少一样的单词，这样就能节省操作。但是如何判断两个单词之间的关系呢？<br>还是那句话，搞这么复杂，<strong>想这么多关系来关系去的，真的重要吗？</strong>题目里写的清清楚楚，操作之有三种，增删改（这里其实删=增，所以只考虑增也一样），动态规划我可以想到，动态规划是划分子问题的做法，子问题到父问题，真的需要单词之间的关系吗？<br>dp[i][j]为单词1前i个字母到单词2前j个字母的最少操作，能到单词1前i和单词2前j，经过增改，可以描述为：<br>d[i, j] = d[i-1, j - 1] if A[i] == B[j]<br>d[i, j] = min(d[i-1,j-1], d[i,j-1], d[i-1,j]) + 1 if A[i] != B[j]  </p>
+</blockquote>
+<p>也就是说，一个单词到另一个单词的最少操作数，根本不用管是怎么操作来的，只需要管两个字母的关系及子问题的操作数即可。</p>
+</blockquote>
+<h1 id="算法设计："><a href="#算法设计：" class="headerlink" title="算法设计："></a>算法设计：</h1><h3 id="暴力并不丢人，因为它可以叫回溯-backtracking！"><a href="#暴力并不丢人，因为它可以叫回溯-backtracking！" class="headerlink" title="暴力并不丢人，因为它可以叫回溯-backtracking！"></a>暴力并不丢人，因为它可以叫回溯-backtracking！</h3><p>而且里面还可以加入很多循环、声明等优化时间的手法，实际编译环境的效果并没那么丑陋可能。</p>
+<h3 id="递归设计"><a href="#递归设计" class="headerlink" title="递归设计"></a>递归设计</h3><p>递归的不断深入设置很少或者不设置判断，在递归的入口设置所有判断。<br>并且可以给递归方法设计成返回boolean，方便对返回条件做冗余排除。</p>
+<h2 id="回溯、DFS类问题的路径、结果保存"><a href="#回溯、DFS类问题的路径、结果保存" class="headerlink" title="回溯、DFS类问题的路径、结果保存"></a>回溯、DFS类问题的路径、结果保存</h2><p>一般除非题目要求，很少会用string这种传递过程中是形参的类型保存路径。<br>很多时候都在用<code>List&lt;Integer&gt;</code>、<code>int[]</code>保存路径，<strong>这种参数类型在递归传递中都是传递的实参！</strong></p>
+<h3 id="问题1：递归的出入栈-路径维护"><a href="#问题1：递归的出入栈-路径维护" class="headerlink" title="问题1：递归的出入栈+路径维护"></a>问题1：递归的出入栈+路径维护</h3><p>由于是实参，那么整个回溯、DFS过程的每一条支线都在使用这个，所以在递归方法中，<strong>如果在入口里做了<code>add</code>操作，那就必须在出口做好<code>remove(res.size()-1)</code></strong>。</p>
+<h3 id="问题2：找到了结果如何处理"><a href="#问题2：找到了结果如何处理" class="headerlink" title="问题2：找到了结果如何处理"></a>问题2：找到了结果如何处理</h3><p>当找到了结果想要加入到结果集如<code>List&lt;List&lt;Integer&gt;&gt;</code>中时：  </p>
+<ol>
+<li>如果是只需要找到一种答案：<strong>直接不断向上返回退出即可，其他支线放弃。</strong></li>
+<li>如果是需要找到所有答案：<strong>必须new一个新的<code>List&lt;Integer&gt;</code>、<code>int[]</code>，然后将路径元素一个个加到新对象中，再放入结果集。</strong></li>
+</ol>
+<h2 id="算法设计的第一步：全面情况考虑"><a href="#算法设计的第一步：全面情况考虑" class="headerlink" title="算法设计的第一步：全面情况考虑"></a>算法设计的第一步：全面情况考虑</h2><p><strong>算法题中最重要的是 BUG FREE</strong></p>
+<p><strong>写代码永远的第一步：保证算法的健壮和全面，第一步代码往往是考虑不需要操作的比较例外的情况，因为如果是这种例外，那干脆省事了。</strong></p>
+<p>一旦你的思路需要不断的分类问题的解决方向，越分越细，对不起，dead end。就算能分清楚，也太不好写了。一定有简介单纯的解法。</p>
+<p><strong>代码美观直观重要，不止是说明你的代码习惯好，更说明你的思路清晰。</strong>可以多用点三目，甚至三目中加三目。</p>
+<p>特别容易陷入图省事的陷阱里，有的时候会因为设计算法的时候的测试例子的规模让自己忽略一些更加优化的“小”提升。比如做题到最后需要找“5”个int里的最小的。乍一看需要遍历一遍嘛。但是明显有更好的堆排序对吧。实际问题里的问题规模可不一定是5.</p>
+<p>有的时候需要考虑<strong>性能</strong>，最简单的提高性能就是将幂次算数改成位运算。</p>
+<h2 id="利用二进制的特殊性"><a href="#利用二进制的特殊性" class="headerlink" title="利用二进制的特殊性"></a>利用二进制的特殊性</h2><p>许多问题的输出出现几率均匀时，需要分类考虑整个问题，或者难以将问题转化成一个好处理的情况时，可以借用二进制表示的同地位性。  </p>
+<p>如：如何将一个概率为p的01分布的随机生成器改为一个以1/2为概率的01分布随机生成器。（最快做法：不需要考虑p，将结果两两输出，01和10分半代表0，1因为概率相等，00，11舍弃–额其实不需要舍弃呗）<br>如：数据挖掘中字母数据的数字化。（直接将取值范围内的取值分布用二进制来对应即可）</p>
+<h2 id="有限可能性问题"><a href="#有限可能性问题" class="headerlink" title="有限可能性问题"></a>有限可能性问题</h2><p>比如限定了一个字符串只有小写字母，就代表最多26种可能，那么空间一定可以节省为O(1)，而不再是O(N)。<br>并且，这样做可以让对一个str[]的一个个判断，编程对26个list&lt;&gt;一个个判断。每次最多判断26个中的一个。  </p>
+<blockquote>
+<p>例题：提供一个原str全是小写字母，提供一个str[]，考察这个数组中有多少个可以由原字符串子序列得到。<br>原字符串每个字母只用一次，子序列不能破坏原字符串字母间先后关系。  </p>
+</blockquote>
+<h2 id="利用经典算法"><a href="#利用经典算法" class="headerlink" title="利用经典算法"></a>利用经典算法</h2><p>在代码中，尤其是手写的里，如quicksort，干脆直接调用这个方法好了，需要再实现在写嘛。<br>也是存在运用快排partition操作以<code>O(logN)</code>的时间找到第k小元素。比堆排序的<code>O(klogN)</code>还好。</p>
+<h2 id="链表骚操作"><a href="#链表骚操作" class="headerlink" title="链表骚操作"></a>链表骚操作</h2><p>由于head的特殊性，可以加一个fakeHead为空，但是next为head来强行加一个head的pre。</p>
+<h2 id="巧用集合类特性"><a href="#巧用集合类特性" class="headerlink" title="巧用集合类特性"></a>巧用集合类特性</h2><p>暂时习惯用java写，集合类中，map用put，其他都用add。<br>善用hashmap、set的特性</p>
+<pre><code>public List&lt;String&gt; blabla()
+{
+    ????
+}
+
+集合类遍历：
+Iterator&lt;int&gt; it = blabla.iterator();
+while (it.hasNext()) {  
+      int num = it.next();  
+ }  
+ 或者：
+ for (String str : set) {  
+  System.out.println(str);  
+}  
+</code></pre><h2 id="巧用位运算"><a href="#巧用位运算" class="headerlink" title="巧用位运算"></a>巧用位运算</h2><p>凡是总体情况不管如何都在一定范围内的题目，都可以借助位运算来减少空间复杂度。<br>并且位运算的与、或操作都非常快速。</p>
+<h2 id="If-this-function-is-called-many-times-how-would-you-optimize-it"><a href="#If-this-function-is-called-many-times-how-would-you-optimize-it" class="headerlink" title="If this function is called many times, how would you optimize it?"></a>If this function is called many times, how would you optimize it?</h2><p>无非是把过程中的可以用到后面的子结果保留下来罢了。</p>
+<h2 id="Window-two-pointer移动法"><a href="#Window-two-pointer移动法" class="headerlink" title="Window+two pointer移动法"></a>Window+two pointer移动法</h2><p>当规定要求是sub(String)的情况时，必须是连续的，那么就可以使用一个window来遍历，然后用两个指针分别向后移动。（开始时p1=p2）</p>
+<h2 id="如何实现O-1-的查找-修改（对一堆数的）—双向链表-map-ArrayList-map"><a href="#如何实现O-1-的查找-修改（对一堆数的）—双向链表-map-ArrayList-map" class="headerlink" title="如何实现O(1)的查找+修改（对一堆数的）—双向链表+map/ArrayList+map"></a>如何实现O(1)的查找+修改（对一堆数的）—双向链表+map/ArrayList+map</h2><p>对一堆数做查找+更新，很容易想到用list和map，map存每个数的位置，这样查找就是O(1)，但是做了修改，就要更新整个被影响的map。<br>但是链表的更新（如果知道位置的话）就是O(1)，我很容易忽视<strong>链表</strong>的使用。用map记录链表的节点本身，在查找的时候就直接<br>指向了链表里的那个元素。至于修改，用双向链表很容易实现。 </p>
+<p>然而实际上用map+ArrayList就行了，因为之前不可以是因为删除的时候要去更新所有后续map，但是实际上不需要保存数组顺序的话，就把被删除元素和最后一个元素交换再删除就好了！</p>
+<h2 id="如果对一个数组操作需要考虑数组长度是奇数还是偶数不同处理怎么办—-gt-在每个数的两侧插’-’（虚拟）"><a href="#如果对一个数组操作需要考虑数组长度是奇数还是偶数不同处理怎么办—-gt-在每个数的两侧插’-’（虚拟）" class="headerlink" title="如果对一个数组操作需要考虑数组长度是奇数还是偶数不同处理怎么办—&gt;在每个数的两侧插’#’（虚拟）"></a>如果对一个数组操作需要考虑数组长度是奇数还是偶数不同处理怎么办—&gt;在每个数的两侧插’#’（虚拟）</h2><p>首先，插入#是虚拟插入。不用真实操作。<br>这样就可以让任意长度的数组变成奇数长度的数组。而且通过找到第k个元素，不管是#还是数字，其在原来数组所代表的元素就是k/2位置上那个数。</p>
+<h2 id="三重循环不可接受"><a href="#三重循环不可接受" class="headerlink" title="三重循环不可接受"></a>三重循环不可接受</h2><p>代码中如果出现三重循环，除非确定就是这么做的，否则一般是无法接受的。<br>想办法把一个二维数组用一维数组代替，肯定有相应的处理办法。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="HZ 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="HZ 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    HZ
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="blog.lovelaolao.xin/2017/08/04/1-算法设计/" title="1.算法设计（思想）">blog.lovelaolao.xin/2017/08/04/1-算法设计/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法思想/" rel="tag"><i class="fa fa-tag"></i> 算法思想</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/04/5-二叉树+树+BFS+DFS+图/" rel="next" title="5.二叉树+树+BFS+DFS+图">
+                <i class="fa fa-chevron-left"></i> 5.二叉树+树+BFS+DFS+图
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/04/4-hashtable+stack+heap+string/" rel="prev" title="4.hashtable+stack+heap+string">
+                4.hashtable+stack+heap+string <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/handsomeme.jpg"
+                alt="HZ" />
+            
+              <p class="site-author-name" itemprop="name">HZ</p>
+              <p class="site-description motion-element" itemprop="description">human learning, shallow leanring...</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/CC1993" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/3855613144" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://leetcode.com/houser/" target="_blank" title="LeetCode">
+                      
+                        <i class="fa fa-fw fa-globe"></i>LeetCode</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.jiangdongyu.space/" title="酱小孩" target="_blank">酱小孩</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解算法题的-最起码奥义"><span class="nav-number">1.</span> <span class="nav-text">解算法题的-最起码奥义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#遇到一个不好解的复杂问题："><span class="nav-number">1.1.</span> <span class="nav-text">遇到一个不好解的复杂问题：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法设计："><span class="nav-number"></span> <span class="nav-text">算法设计：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#暴力并不丢人，因为它可以叫回溯-backtracking！"><span class="nav-number">0.1.</span> <span class="nav-text">暴力并不丢人，因为它可以叫回溯-backtracking！</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归设计"><span class="nav-number">0.2.</span> <span class="nav-text">递归设计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回溯、DFS类问题的路径、结果保存"><span class="nav-number">1.</span> <span class="nav-text">回溯、DFS类问题的路径、结果保存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题1：递归的出入栈-路径维护"><span class="nav-number">1.1.</span> <span class="nav-text">问题1：递归的出入栈+路径维护</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题2：找到了结果如何处理"><span class="nav-number">1.2.</span> <span class="nav-text">问题2：找到了结果如何处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法设计的第一步：全面情况考虑"><span class="nav-number">2.</span> <span class="nav-text">算法设计的第一步：全面情况考虑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用二进制的特殊性"><span class="nav-number">3.</span> <span class="nav-text">利用二进制的特殊性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有限可能性问题"><span class="nav-number">4.</span> <span class="nav-text">有限可能性问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用经典算法"><span class="nav-number">5.</span> <span class="nav-text">利用经典算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表骚操作"><span class="nav-number">6.</span> <span class="nav-text">链表骚操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#巧用集合类特性"><span class="nav-number">7.</span> <span class="nav-text">巧用集合类特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#巧用位运算"><span class="nav-number">8.</span> <span class="nav-text">巧用位运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#If-this-function-is-called-many-times-how-would-you-optimize-it"><span class="nav-number">9.</span> <span class="nav-text">If this function is called many times, how would you optimize it?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Window-two-pointer移动法"><span class="nav-number">10.</span> <span class="nav-text">Window+two pointer移动法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何实现O-1-的查找-修改（对一堆数的）—双向链表-map-ArrayList-map"><span class="nav-number">11.</span> <span class="nav-text">如何实现O(1)的查找+修改（对一堆数的）—双向链表+map/ArrayList+map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果对一个数组操作需要考虑数组长度是奇数还是偶数不同处理怎么办—-gt-在每个数的两侧插’-’（虚拟）"><span class="nav-number">12.</span> <span class="nav-text">如果对一个数组操作需要考虑数组长度是奇数还是偶数不同处理怎么办—&gt;在每个数的两侧插’#’（虚拟）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三重循环不可接受"><span class="nav-number">13.</span> <span class="nav-text">三重循环不可接受</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HZ</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">98.1k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      你是本站第
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位访问者
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65862436";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'CC1993',
+            repo: 'CC1993.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'dc6d091e130f79570e46d555eed19e556888eed4',
+            
+                client_id: '603f6e3d251801be8556'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      function showGitment(){
+        document.getElementById("gitment-display-button").style.display = "none";
+        document.getElementById("gitment-container").style.display = "block";
+        renderGitment();
+      }
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("AQluv9b2gHsQHXCoEPbYTLVQ-gzGzoHsz", "qEL5EpDtAcgdujB3rqUpopWe");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
