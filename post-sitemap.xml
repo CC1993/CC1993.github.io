@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>blog.lovelaolao.xin/Algorithm/Array/leetcode689/</loc>
+        <lastmod>2018-05-29T15:37:40.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>blog.lovelaolao.xin/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E9%A2%86%E5%9F%9F%E7%9F%A5%E8%AF%86/</loc>
+        <lastmod>2018-05-29T15:36:01.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>blog.lovelaolao.xin/Algorithm/%E7%AE%97%E6%B3%95%E6%8A%80%E5%B7%A7/%E9%AB%98%E7%BA%A7%E5%86%99%E6%B3%95/</loc>
         <lastmod>2018-05-28T08:39:16.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -73,14 +89,6 @@
     <url>
         <loc>blog.lovelaolao.xin/%E9%9D%A2%E8%AF%95%E5%BF%85%E8%80%83/6.%E5%AE%9E%E4%B9%A0:%E9%A1%B9%E7%9B%AE-%E9%9D%A2%E8%AF%95%E5%BF%85%E8%80%83/</loc>
         <lastmod>2018-05-28T08:20:50.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>blog.lovelaolao.xin/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E9%A2%86%E5%9F%9F%E7%9F%A5%E8%AF%86/</loc>
-        <lastmod>2018-05-28T08:20:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
