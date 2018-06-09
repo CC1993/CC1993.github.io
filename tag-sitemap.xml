@@ -317,29 +317,43 @@
     </url>
 
     <url>
-        <loc>blog.lovelaolao.xin/tags/Array/</loc>
-        <lastmod>2018-05-29T15:37:40.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>blog.lovelaolao.xin/tags/%E8%B4%AA%E5%BF%83/</loc>
-        <lastmod>2018-05-29T15:37:40.000Z</lastmod>
+        <lastmod>2018-05-29T15:38:39.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>blog.lovelaolao.xin/tags/DP/</loc>
-        <lastmod>2018-05-29T15:37:40.000Z</lastmod>
+        <lastmod>2018-05-29T15:38:39.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>blog.lovelaolao.xin/tags/Hard/</loc>
+        <lastmod>2018-06-09T09:10:07.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>blog.lovelaolao.xin/tags/Array/</loc>
+        <lastmod>2018-06-09T09:10:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>blog.lovelaolao.xin/tags/Leetcode/</loc>
-        <lastmod>2018-05-29T15:37:40.000Z</lastmod>
+        <lastmod>2018-06-09T09:10:19.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>blog.lovelaolao.xin/tags/Medium/</loc>
+        <lastmod>2018-06-09T09:10:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

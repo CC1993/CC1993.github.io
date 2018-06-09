@@ -7,8 +7,24 @@
     </url>
 
     <url>
-        <loc>blog.lovelaolao.xin/Algorithm/Array/leetcode689/</loc>
-        <lastmod>2018-05-29T15:37:40.000Z</lastmod>
+        <loc>blog.lovelaolao.xin/Algorithm/Array/Medium/Leetcode%E8%8A%82%E5%A5%8FArraymedium/</loc>
+        <lastmod>2018-06-09T09:10:19.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>blog.lovelaolao.xin/Algorithm/Array/Hard/Leetcode%E8%8A%82%E5%A5%8FArrayhard/</loc>
+        <lastmod>2018-06-09T09:10:07.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>blog.lovelaolao.xin/Algorithm/Array/Hard/leetcode689/</loc>
+        <lastmod>2018-05-29T15:38:39.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

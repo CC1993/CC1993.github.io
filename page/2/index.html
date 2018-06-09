@@ -1091,6 +1091,452 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="blog.lovelaolao.xin/Algorithm/Array/Hard/Leetcode节奏Arrayhard/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hou Zhe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/handsomeme.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fall Out Boy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Algorithm/Array/Hard/Leetcode节奏Arrayhard/" itemprop="url">Array-Hard难度刷题总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-06T23:32:00+08:00">
+                2018-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/Array/" itemprop="url" rel="index">
+                    <span itemprop="name">Array</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/Array/Hard/" itemprop="url" rel="index">
+                    <span itemprop="name">Hard</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/Algorithm/Array/Hard/Leetcode节奏Arrayhard/" class="leancloud_visitors" data-flag-title="Array-Hard难度刷题总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,922 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h1><p>很暴力的做法回溯也是很常见的做法。</p>
+<h2 id="未来可以继续做的hard题"><a href="#未来可以继续做的hard题" class="headerlink" title="未来可以继续做的hard题"></a>未来可以继续做的hard题</h2><p><strong><code>715、123、85、57、84、719、4</code></strong><br>时间来不及的话建议想想差不多就看discuss，不要占用一个半小时以上的时间。</p>
+<h2 id="2018-4-8-Max-Chunks-To-Make-Sorted-II-Hard"><a href="#2018-4-8-Max-Chunks-To-Make-Sorted-II-Hard" class="headerlink" title="2018.4.8-Max Chunks To Make Sorted II-Hard"></a>2018.4.8-Max Chunks To Make Sorted II-Hard</h2><p><strong>dp 贪心</strong></p>
+<blockquote>
+<p>将一个数组分成多个块，如果对每个块排序，按照块的顺序组装起来能得到全排序的数组，那么最多能分多少块。</p>
+</blockquote>
+<p>相当于保证所有块中按顺序<code>块k的max</code>&lt;=<code>块k+1的min</code>。</p>
+<pre><code>我的做法：dp+贪心
+用dp[i]保存前i个元素里的最大的那个。
+然后从后往前遍历，用一个min保存后面元素里的最小值。
+遍历到i的min和dp[i-1]比较。
+每当min&gt;dp[i-1]，更新min为arr[i-1]，然后块数+1。否则更新min。
+</code></pre><p>一次AC，beat88%。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/Algorithm/Array/Hard/Leetcode节奏Arrayhard/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="blog.lovelaolao.xin/Algorithm/Array/Medium/Leetcode节奏Arraymedium/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hou Zhe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/handsomeme.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fall Out Boy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Algorithm/Array/Medium/Leetcode节奏Arraymedium/" itemprop="url">Array-Medium难度刷题总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-06T23:32:00+08:00">
+                2018-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/Array/" itemprop="url" rel="index">
+                    <span itemprop="name">Array</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/Array/Medium/" itemprop="url" rel="index">
+                    <span itemprop="name">Medium</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/Algorithm/Array/Medium/Leetcode节奏Arraymedium/" class="leancloud_visitors" data-flag-title="Array-Medium难度刷题总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  8,551 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  34 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h1><p>很暴力的做法回溯也是很常见的做法。</p>
+<h2 id="2018-4-1-Maximum-Product-of-Three-Numbers-Medium"><a href="#2018-4-1-Maximum-Product-of-Three-Numbers-Medium" class="headerlink" title="2018.4.1-Maximum Product of Three Numbers-Medium"></a>2018.4.1-Maximum Product of Three Numbers-Medium</h2><p><strong>多局部标记</strong></p>
+<blockquote>
+<p>从一个数组中找到三个数，使其乘积max。</p>
+</blockquote>
+<pre><code>我的做法：
+    用堆排序，得到正数的前三个，负数的后两个。
+    但是你怎么知道建立多大的堆呢？
+    一旦遍历得到大小，那就意味着失去了堆排序的优势了。
+    但是必须得得到大小啊。。所以错。
+
+正答：
+    遍历一遍就可以了。不断更新五个临时变量。
+    但是注意，初始化是Integer.MAX/MIN_VALUE，否则无法分辨全是负数的情况。
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/Algorithm/Array/Medium/Leetcode节奏Arraymedium/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="blog.lovelaolao.xin/机器学习/朴素贝叶斯/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1663,7 +2109,7 @@ x = {x1, x2, ..., xn}
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="blog.lovelaolao.xin/Algorithm/Array/leetcode689/">
+    <link itemprop="mainEntityOfPage" href="blog.lovelaolao.xin/Algorithm/Array/Hard/leetcode689/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hou Zhe">
@@ -1682,7 +2128,7 @@ x = {x1, x2, ..., xn}
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/Algorithm/Array/leetcode689/" itemprop="url">Leetcode689.Maximum Sum of 3 Non-Overlapping Subarrays-Hard</a></h1>
+                <a class="post-title-link" href="/Algorithm/Array/Hard/leetcode689/" itemprop="url">Leetcode689.Maximum Sum of 3 Non-Overlapping Subarrays-Hard</a></h1>
         
 
         <div class="post-meta">
@@ -1735,6 +2181,17 @@ x = {x1, x2, ..., xn}
 
                 
                 
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/Array/Hard/" itemprop="url" rel="index">
+                    <span itemprop="name">Hard</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -1745,7 +2202,7 @@ x = {x1, x2, ..., xn}
 
           
           
-             <span id="/Algorithm/Array/leetcode689/" class="leancloud_visitors" data-flag-title="Leetcode689.Maximum Sum of 3 Non-Overlapping Subarrays-Hard">
+             <span id="/Algorithm/Array/Hard/leetcode689/" class="leancloud_visitors" data-flag-title="Leetcode689.Maximum Sum of 3 Non-Overlapping Subarrays-Hard">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1815,406 +2272,7 @@ x = {x1, x2, ..., xn}
 <p>可以说是非常非常绕的题了。。。做了好久好久，好在是靠自己做了出来。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/Algorithm/Array/leetcode689/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="blog.lovelaolao.xin/实习面试经历/2018-暑期/514-知乎-推荐/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hou Zhe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/handsomeme.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Fall Out Boy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/实习面试经历/2018-暑期/514-知乎-推荐/" itemprop="url">0514-知乎-推荐</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-14T15:22:00+08:00">
-                2018-05-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实习面试经历/" itemprop="url" rel="index">
-                    <span itemprop="name">实习面试经历</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实习面试经历/2018-暑期/" itemprop="url" rel="index">
-                    <span itemprop="name">2018-暑期</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/实习面试经历/2018-暑期/514-知乎-推荐/" class="leancloud_visitors" data-flag-title="0514-知乎-推荐">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,390 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  5 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="20180514-知乎-推荐算法实习"><a href="#20180514-知乎-推荐算法实习" class="headerlink" title="20180514-知乎-推荐算法实习"></a>20180514-知乎-推荐算法实习</h1><p>可以说是目前面试了很多家表现最好的一次面试了，问的不算太简单，但是算法题也好，技术问题也好都答得很不错。<br>当下就过了，暂时没给答复。    </p>
-<p>说下感受吧，知乎北京全在768一个创意园区里，一个鸟语花香像老干部退休养老的地方= =，知乎公司里也是非常的nice，很闲适很情怀很阳光，是一个像知乎一样的地方。总体感觉非常不错，而且公司里常能看到外面的树啊什么的，很舒服。里面的人也很nice，面试过程很舒服，感觉思路都是打开的。公司属于一种非常注重员工生活工作的感觉，大家比较融洽，还有带猫去公司、出去玩等的活动。总体感觉上是和自己的价值观比较类似的。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/实习面试经历/2018-暑期/514-知乎-推荐/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="blog.lovelaolao.xin/实习面试经历/2018-暑期/511-今日头条-抖音推荐/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hou Zhe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/handsomeme.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Fall Out Boy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/实习面试经历/2018-暑期/511-今日头条-抖音推荐/" itemprop="url">511-今日头条-抖音推荐</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-11T15:22:00+08:00">
-                2018-05-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实习面试经历/" itemprop="url" rel="index">
-                    <span itemprop="name">实习面试经历</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实习面试经历/2018-暑期/" itemprop="url" rel="index">
-                    <span itemprop="name">2018-暑期</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/实习面试经历/2018-暑期/511-今日头条-抖音推荐/" class="leancloud_visitors" data-flag-title="511-今日头条-抖音推荐">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,297 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  5 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="511-今日头条-抖音组推荐"><a href="#511-今日头条-抖音组推荐" class="headerlink" title="511-今日头条-抖音组推荐"></a>511-今日头条-抖音组推荐</h1><p>过程简约痛快的面试过程，还是体验不错的，两个面试官人都蛮nice，面试过程我还是有不少进步的，跟面试官没有尬住，还是聊了几句，不错不错。<br>整体过程自己有不少小瑕疵，没有表现十全十美，但是该会的地方我还是都答得不错的。收获颇丰，找到了许多可以升级的地方。<br>觉得是很不错的组，但是根据想多些时间去准备秋招，也许去不成反而不用纠结了。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/实习面试经历/2018-暑期/511-今日头条-抖音推荐/#more" rel="contents">
+            <a class="btn" href="/Algorithm/Array/Hard/leetcode689/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2306,7 +2364,7 @@ x = {x1, x2, ..., xn}
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">54</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2317,7 +2375,7 @@ x = {x1, x2, ..., xn}
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2328,7 +2386,7 @@ x = {x1, x2, ..., xn}
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2422,7 +2480,7 @@ x = {x1, x2, ..., xn}
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">97.9k</span>
+    <span title="Site words total count">109.4k</span>
   
 </div>
 
