@@ -23,6 +23,13 @@
     </url>
 
     <url>
+        <loc>blog.lovelaolao.xin/tags/%E9%9D%A2%E8%AF%95%E5%BF%85%E8%80%83/</loc>
+        <lastmod>2018-05-28T07:55:50.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>blog.lovelaolao.xin/tags/Python/</loc>
         <lastmod>2018-05-28T07:55:50.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -205,13 +212,6 @@
     </url>
 
     <url>
-        <loc>blog.lovelaolao.xin/tags/%E9%9D%A2%E8%AF%95%E5%BF%85%E8%80%83/</loc>
-        <lastmod>2018-05-28T08:21:20.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>blog.lovelaolao.xin/tags/%E6%99%BA%E5%8A%9B%E9%A2%98/</loc>
         <lastmod>2018-05-28T08:39:13.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -360,14 +360,14 @@
 
     <url>
         <loc>blog.lovelaolao.xin/tags/%E6%80%9D%E8%80%83%E9%A2%98/</loc>
-        <lastmod>2018-07-25T13:42:19.000Z</lastmod>
+        <lastmod>2018-07-25T13:48:15.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>blog.lovelaolao.xin/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
-        <lastmod>2018-07-25T13:42:19.000Z</lastmod>
+        <lastmod>2018-07-25T13:48:15.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
