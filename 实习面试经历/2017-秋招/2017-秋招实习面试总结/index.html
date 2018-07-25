@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+<script>/*文章访问输入密码*/
+    (function(){
+        if('mianshijinglibugeinikan'){
+            if (prompt('请输入文章密码') !== 'mianshijinglibugeinikan'){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-fill-left.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/stupid-180.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/stupid-32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/stupid-16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/stupid.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="2017面试经历,面试经历," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Fall Out Boy" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="MSRA-IEG-人脸识别项目组-被吊起来打（基础问题）">
+<meta name="keywords" content="2017面试经历,面试经历">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2017秋招实习面试总结">
+<meta property="og:url" content="blog.lovelaolao.xin/实习面试经历/2017-秋招/2017-秋招实习面试总结/index.html">
+<meta property="og:site_name" content="Fall Out Boy">
+<meta property="og:description" content="MSRA-IEG-人脸识别项目组-被吊起来打（基础问题）">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-25T13:39:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2017秋招实习面试总结">
+<meta name="twitter:description" content="MSRA-IEG-人脸识别项目组-被吊起来打（基础问题）">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'EQNFCFWZVQ',
+      apiKey: '19713fffa872ec9f90f6a8ade436f7e5',
+      indexName: 'HZBlog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="blog.lovelaolao.xin/实习面试经历/2017-秋招/2017-秋招实习面试总结/"/>
+
+
+
+
+
+  <title>2017秋招实习面试总结 | Fall Out Boy</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?40b71fb0e7bcadbfd695ea89064f5aa9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fall Out Boy</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="blog.lovelaolao.xin/实习面试经历/2017-秋招/2017-秋招实习面试总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hou Zhe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/handsomeme.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fall Out Boy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">2017秋招实习面试总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-15T00:00:00+08:00">
+                2017-08-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/实习面试经历/" itemprop="url" rel="index">
+                    <span itemprop="name">实习面试经历</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/实习面试经历/2017-秋招/" itemprop="url" rel="index">
+                    <span itemprop="name">2017-秋招</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/实习面试经历/2017-秋招/2017-秋招实习面试总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/实习面试经历/2017-秋招/2017-秋招实习面试总结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/实习面试经历/2017-秋招/2017-秋招实习面试总结/" class="leancloud_visitors" data-flag-title="2017秋招实习面试总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  11,163 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  39 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="MSRA-IEG-人脸识别项目组-被吊起来打（基础问题）"><a href="#MSRA-IEG-人脸识别项目组-被吊起来打（基础问题）" class="headerlink" title="MSRA-IEG-人脸识别项目组-被吊起来打（基础问题）"></a>MSRA-IEG-人脸识别项目组-被吊起来打（基础问题）</h1><a id="more"></a>
+<p>2017-08-10</p>
+<h2 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h2><h3 id="1-写一个单例模式"><a href="#1-写一个单例模式" class="headerlink" title="1.写一个单例模式"></a>1.写一个单例模式</h3><p><a href="http://www.jfox.info/java-dan-li-mo-shi-de-ji-zhong-xie-fa.html" target="_blank" rel="noopener">http://www.jfox.info/java-dan-li-mo-shi-de-ji-zhong-xie-fa.html</a>  </p>
+<p>最简单的，把类的构造函数private，不允许构造，然后在类的变量里加一个private static本类instance实例化。就只能用这个类提供的get方法获得的本实例。但是线程不安全。  </p>
+<p>优化一：get方法加synchronized线程安全。</p>
+<p>优化n：双重校验，避免加载类的时候就实例化。</p>
+<pre><code>public class Singleton {  
+    private volatile static Singleton singleton;  
+      private Singleton (){}   
+      public static Singleton getSingleton() {  
+         if (singleton == null) {  
+          synchronized (Singleton.class) {  
+              if (singleton == null) {  
+                  singleton = new Singleton();  
+                  }  
+             }  
+         }  
+         return singleton;  
+     }  
+}  
+</code></pre><h3 id="2-写一个死锁"><a href="#2-写一个死锁" class="headerlink" title="2.写一个死锁"></a>2.写一个死锁</h3><p>死锁是指两个或两个以上的进程在执行过程中，由于竞争资源或者由于彼此通信而造成的一种阻塞的现象，若无外力作用，它们都将无法推进下去。  </p>
+<p>死锁产生条件：<br>1）<strong>互斥条件</strong>：资源使用互斥。<br>2）<strong>请求和保持条件</strong>：指进程已经保持至少一个资源，但又提出了新的资源请求，而该资源已被其它进程占有。<br>3）<strong>不剥夺条件</strong>：指进程已获得的资源，在未使用完之前，不能被剥夺，只能在使用完时由自己释放。<br>4）<strong>环路等待条件</strong>：  </p>
+<p>解决死锁：<br>1、撤消陷于死锁的全部进程；<br>2、逐个撤消陷于死锁的进程，直到死锁不存在；<br>3、从陷于死锁的进程中逐个强迫放弃所占用的资源，直至死锁消失。<br>4、从另外一些进程那里强行剥夺足够数量的资源分配给死锁进程，以解除死锁状态  </p>
+<p>至于代码实现：<br>多线程（实现runnable接口）+请求互斥资源（保证死锁产生的条件）</p>
+<h3 id="3-一道算法题"><a href="#3-一道算法题" class="headerlink" title="3.一道算法题"></a>3.一道算法题</h3><p>一个棋盘（二维数组），散落着大小不一的水滴，水滴大小从1到7不等，当大到7的时候会爆开，然后水滴消失并向周围四个方向发射大小为1的水滴，当遇到其他水滴就融合，遇不到就飞出棋盘。设计一个函数接受棋盘+随机水滴+滴落一个水滴的位置，给输出的棋盘。</p>
+<p>思路一：<br>递归，两个方法，dropWater、waterBoom<br>问题：执行顺序在递归栈中有明显的先后。并不是现实实现的情况。<br>思路二：<br>思路一可以理解为深度优先，改为广度优先，从产生爆炸的水滴开始，一层一层的向外扩展执行，但是实际上也有执行顺序的先后问题。<br>思路三：<br>使用多线程，将每个发生的事物交给新的线程去处理，可以达到并行，但是从本质考虑的话，相当于把执行顺序交给了cpu去管理，还是会有先后的顺序。（但是实际上已经是很好的思路了）<br>思路四：<br>为了完全的保证按照现实发生的情景，考虑到水滴移动的速度，然后以棋盘+水滴+飞行的水滴等元素考虑为整体，然后一个状态一个状态的向后推移。可以并行所有发生的事情。</p>
+<h3 id="4-总结"><a href="#4-总结" class="headerlink" title="4.总结"></a>4.总结</h3><p>感觉面试官比较重视java的实际工程能力，给的面试题都比较结合java经典的东西，没考太多算法。。。所以是不是还是选c语言好了。。好气哦</p>
+<h2 id="二面-DL（被问惨了）"><a href="#二面-DL（被问惨了）" class="headerlink" title="二面-DL（被问惨了）"></a>二面-DL（被问惨了）</h2><h3 id="1-介绍比较熟悉的项目"><a href="#1-介绍比较熟悉的项目" class="headerlink" title="1.介绍比较熟悉的项目"></a>1.介绍比较熟悉的项目</h3><h4 id="中日韩人脸识别"><a href="#中日韩人脸识别" class="headerlink" title="中日韩人脸识别"></a>中日韩人脸识别</h4><p>最大的问题，数据量实在可怜，没有什么实际的意义。<br>所以要先定位好自己的位置，这个项目缺少实际的经验，以实验深度学习知识+技巧练手为主，不要扯些什么结果不错。</p>
+<ul>
+<li><p><strong>数据集收集：</strong>  </p>
+<ul>
+<li>数据集太小了。其实也就相当于本个项目在实际角度没什么意义。</li>
+</ul>
+</li>
+<li><p><strong>数据预处理：</strong>  </p>
+<ul>
+<li>数据集增强的方式，加在哪里？（应该在每个批次进入模型之前进行数据集增强，这样可以保证数据的随机性。在训练之前就完成数据集增强的话就固定了训练集）</li>
+</ul>
+</li>
+<li><p><strong>模型训练：</strong>  </p>
+<ul>
+<li><strong>都训练了哪些参数？</strong>（<a href="http://www.jianshu.com/p/3b611043cbae" target="_blank" rel="noopener">http://www.jianshu.com/p/3b611043cbae</a>  最大迭代1500，批量大小16，学习速率初始化0.0004，正则化参数0.001，dropout0.5加在最后softmax层、全连接层，滑动窗口步长，weight_loss正则化处理，padding，<strong>bias即kernels、filters代表图像中一个特定的feature</strong>，）</li>
+<li><strong>dropout的原理及应该在哪里加？</strong>（原理是防止过拟合，类似于bagging的作用，可以将网络的强特征联系降低，一定意义上将网络结构变得多样。增强了泛化能力。一般不应该加在卷积层，卷积层本来特征就少，一般加在input layer设小一些，还有hidden layer设大一些，所以应该是fc层吧）</li>
+<li><strong>batch size是多少？</strong>（16，很小会导致训练结果抖动严重，但是也局限于显卡的烂，所以也算make sense，就算是mini也应该大不少。比如100。使用mini batch是因为训练起来比较快，尽管训练过程不稳定。根据你的数据集规模、你的设备计算能力去选。）</li>
+<li><strong>用什么训练的？</strong>（额，答得1050，就很不专业了= =）</li>
+<li><strong>初始的学习速率应该怎么设置？学习速率应该如何变化？为什么？</strong>（learning rate的一开始设置如果太大，那么每次更新的loss不一定会下降，但是太小的话又会训练的太慢，可以处理的方式：1.自适应，总体越来越小，因为基于碗的形状。如adagrad。2.根据不同的参数设置不同的learning rate。初始设置为0.01，可以通过观察变小或变大。）</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-DL基础知识提问"><a href="#2-DL基础知识提问" class="headerlink" title="2.DL基础知识提问"></a>2.DL基础知识提问</h3><ul>
+<li><strong>pooling层有哪些种类，有什么不同？</strong>（pooling的作用是池化浓缩信息，直观地来说，max池化就是找出某一特征是否在图片中出现，该特征的确切位置不如其它特征的相关位置重要。还有max、mean池化，重叠池化，空金字塔池化）</li>
+</ul>
+<h3 id="3-C-底层"><a href="#3-C-底层" class="headerlink" title="3.C++底层"></a>3.C++底层</h3><p>C++真的是一个很有深度的语言，给了很大的想象空间，但是需要自己来维护好许多东西。足够接近底层，可以进行极限的性能操作。支持多范式编程，管理不同维度的复杂度。</p>
+<p>C好比一个普通人在世界里探险，一旦遇到坑掉下去就没救了。Java给人插上翅膀让人可以在更安全的天空飞，但是为了保障安全，限制翅膀飞行速度，还把人腿砍了，防止人往危险的地上落。C++不仅插了翅膀，还是好几对高性能的翅膀，也没有任何保护措施，也不阻止你继续在地上走，然后还在不断往你身上加一些起落架啊、火箭喷射器啊、立体机动装置啊之类的意义不明的东西……Python：我想想，我们要不把人整个去掉，只留下翅膀算了？</p>
+<ul>
+<li><strong>对C++11、14、17版本的变化的看法？</strong></li>
+<li><strong>讲一讲C++底层的那些feature？有什么效果？</strong><ul>
+<li>std：是个<strong>名称空间标示符</strong>，<strong>C++标准库中的函数或者对象</strong>都是在命名空间std中定义的，所以我们要使用标准函数库中的函数或对象都要使用std来限定。命名空间的使用目的是为了将逻辑相关的标示符限定在一起，组成相应的命名空间，可使整个系统更加模块化，最重要的是它可以防止命名冲突。</li>
+</ul>
+</li>
+<li><strong>C++的多线程是怎样的？</strong></li>
+<li><strong>在C++提供了多线程库之前多线程是怎样的？</strong></li>
+</ul>
+<h3 id="4-java底层"><a href="#4-java底层" class="headerlink" title="4.java底层"></a>4.java底层</h3><ul>
+<li><strong>gcc垃圾回收的原理是什么？</strong></li>
+<li><strong>java8和7的gcc区别？</strong></li>
+<li><strong>讲一讲jvm？</strong></li>
+<li><strong>堆区、栈区、方法区的作用？有什么好处？（反射？）</strong></li>
+</ul>
+<h3 id="5-领域知识"><a href="#5-领域知识" class="headerlink" title="5.领域知识"></a>5.领域知识</h3><ul>
+<li><strong>卷积是怎样操作的？</strong>（局部感知（大大降低了训练难度）+共享权值（减少参数个数，相当于对某种特征存在与否的扫描））</li>
+<li><strong>为什么卷积的处理方式存在了很久，现在变得很有效果。他有什么好处？</strong>（卷积神经网络在20世纪60年代提出，首先卷积将特征由像素变成了一种大的特征，大大的降低了参数数量。CNN已经成为众多科学领域的研究热点之一，特别是在模式分类领域，由于该网络避免了对图像的复杂前期预处理，可以直接输入原始图像，因而得到了更为广泛的应用）</li>
+<li><p><strong>神经网络的发展，谈谈你对神经网络的理解？</strong></p>
+<ul>
+<li>第一代神经网络：感知器-&gt;SVM<br>调整权值很简洁，但是学习能力大大受限。<br>可以看做是神经网络的一部分。<br>一般是典型的二分类。  </li>
+<li><p>第二代神经网络：BP神经网络<br>BP并不是一种很实用的方法。原因有三：<br>1、它需要被标记的训练数据，但是几乎所有的数据都是未标记的。<br>2、学习时间不易衡量，在多层网络中，速度非常慢。<br>3、它陷入局部极小点而不收敛的情况极大。  </p>
+</li>
+<li><p>第三代神经网络：  </p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="6-总结"><a href="#6-总结" class="headerlink" title="6.总结"></a>6.总结</h3><p>感觉面试官首先很重视深度学习的基础知识，只是简单的使用工具来做些小破工程对他而言就是谁都能做一样。。。而基础知识既要懂得是什么，原理，还要懂得应用在哪里，应用的效果，如何调整，调整的效果等等。  </p>
+<p>除此之外还要比较要求对DL本身的理解，应该是为了显示自己的兴趣吧。要明白产生了一些大的领域变化、需求等的原因。  </p>
+<p>对于一些非常细节的东西，并不在乎，比如数据增强的手段，旋转、调整、噪声，所以啊，这些细节，如果自己没什么深入的了解，干脆就别bb了。反而给人家机会乱问你。  </p>
+<p>倒是没有要求论文的相关知识。<em>**</em></p>
+<h1 id="2017-08-31-爱奇艺-深度学习实习生-情感分析项目-水平不足未过"><a href="#2017-08-31-爱奇艺-深度学习实习生-情感分析项目-水平不足未过" class="headerlink" title="2017-08.31-爱奇艺-深度学习实习生-情感分析项目-水平不足未过"></a>2017-08.31-爱奇艺-深度学习实习生-情感分析项目-水平不足未过</h1><p>是一个蛮有水平的姐姐面的，一些基础的东西没答出来让人家很失望，然后说能不能来做数据标注的工作，那当然是拒绝了啊= =。一共面了不到1小时。</p>
+<h2 id="算法部分"><a href="#算法部分" class="headerlink" title="算法部分"></a>算法部分</h2><p>只问了一道题，非常骚。  </p>
+<h3 id="给任意n边形，用一道折线将图形面积的1-3划分出来（这里应该是指凸多边形了）"><a href="#给任意n边形，用一道折线将图形面积的1-3划分出来（这里应该是指凸多边形了）" class="headerlink" title="给任意n边形，用一道折线将图形面积的1/3划分出来（这里应该是指凸多边形了）"></a>给任意n边形，用一道折线将图形面积的1/3划分出来（这里应该是指凸多边形了）</h3><p>ps：其实可以转化为1/k的题目。  </p>
+<p>一开始没有什么思路。</p>
+<p>经过提示，有一个特殊的情况：三角形，<strong>三角形的面积的1/3直接在一条边取三分之一画三角形就好了。</strong>  </p>
+<p>而且多边形可以从任意一点出发向其他所有节点画直线，得到n-2个三角形。</p>
+<p>然后从出发点的两侧中的一个点开始，向邻近的边的1/3的位置连接，然后再连接邻近边的非出发点的原点。依次一直画到出发点另一侧的 那个点结束。画个图就懂了。</p>
+<p>值得注意到是，多边形的边数为奇数、偶数会有不同的结尾点的位置。</p>
+<h1 id="2017-08-31-网易新闻-短视频推荐预测点击率-过了没去"><a href="#2017-08-31-网易新闻-短视频推荐预测点击率-过了没去" class="headerlink" title="2017-08.31-网易新闻-短视频推荐预测点击率-过了没去"></a>2017-08.31-网易新闻-短视频推荐预测点击率-过了没去</h1><p>一共面试不到2小时。结果还可以。一些基础知识还要补充。<br>实习内容：一开始做处理数据的打杂工作比较多，后面会接触模型相关的内容。<br>面试通过，但是hr太压人，要求最近给结果，但是发现貌似自己可以找到更好的实习= =。</p>
+<h2 id="算法部分-1"><a href="#算法部分-1" class="headerlink" title="算法部分"></a>算法部分</h2><h3 id="1-一面："><a href="#1-一面：" class="headerlink" title="1. 一面："></a>1. 一面：</h3><h4 id="链表的逆置"><a href="#链表的逆置" class="headerlink" title="链表的逆置"></a>链表的逆置</h4><p>题比较简单，但是有一些head不变的细节等。而且面试官比较想要我用C++写，在我写的代码里考究了一些指针等细节问题。</p>
+<h3 id="2-二面："><a href="#2-二面：" class="headerlink" title="2. 二面："></a>2. 二面：</h3><h4 id="手写快排"><a href="#手写快排" class="headerlink" title="手写快排"></a>手写快排</h4><h4 id="层次优先遍历"><a href="#层次优先遍历" class="headerlink" title="层次优先遍历"></a>层次优先遍历</h4><h4 id="最大回文子字符串"><a href="#最大回文子字符串" class="headerlink" title="最大回文子字符串"></a>最大回文子字符串</h4><p>leetcode： longest palindrome<br>思路一：（限制只考虑奇数型回文）比较暴力，从前往后遍历，每个字符作为中心向两侧扩大。<br>（优化：以窗口的形式向后遍历，窗口大小为已知的最大回文长度，如果还有满足的就扩大试试）<br><strong>思路二：动态规划</strong><br>state：dp[i][j]表示从i到j的字符串时回文。<br>function：</p>
+<pre><code>if dp[j+1][i-1] == True and s[i] == s[j]:
+    dp[i][j] = True
+</code></pre><p>要求j&lt;i，i从0到n遍历，j从0到i遍历。只有j=i-1的时候需要特殊处理。</p>
+<p>ps：现在回过头来看= =，明明我的方法时间复杂度更优啊。。</p>
+<pre><code>正答：优化动态规划
+dp[i]应定义为以字母i结尾的最长回文的长度。
+    所以：
+    （1）dp[i] = dp[i-1] + 2
+    当arr[i] = arr[i - dp[i-1] - 1]，也就是当前字母与前一个字母的最长回文的前一个字母一样，那么可以凑一个新的回文出来。
+    （2）否则：dp[i] = 1
+    （3）这里漏考虑了一种当前字母和上一个字母所能达到的最大回文一起可以成为一个新的回文，而不是在此基础上扩展。但是这种情况好像只有在上一个字母的回文字母全部一样，且当前字母也和上一个字母一样才行。
+</code></pre><p>注意：以上做法凡是从一维角度考虑的dp都是会有纰漏的，不管是一维dp二维dp的空间复杂度，都需要在二维的时间复杂度上遍历。</p>
+<h2 id="面试过程"><a href="#面试过程" class="headerlink" title="面试过程"></a>面试过程</h2><h3 id="实习工作中遇到的问题，如何解决的"><a href="#实习工作中遇到的问题，如何解决的" class="headerlink" title="实习工作中遇到的问题，如何解决的"></a>实习工作中遇到的问题，如何解决的</h3><p>技术、扭吧的逻辑，答得不咋地</p>
+<p>补充：  </p>
+<ol>
+<li>不能直接找上级或者带自己的人肯定的，先要自己去尝试解决问题，查阅各种资料，做各种实验测试等等。当遇到平台问题，基础设施问题的时候，可以找其他人帮忙，自己的处理思路可以找mentor商议给出评估。（如hive的大量数据join中去重）</li>
+<li></li>
+</ol>
+<h3 id="运维的shell怎么样"><a href="#运维的shell怎么样" class="headerlink" title="运维的shell怎么样"></a>运维的shell怎么样</h3><p>不咋样，用python写脚本比较多</p>
+<p>现在还凑合，还会写一些。主要如crontab，hive脚本，spark启动脚本，简单的处理逻辑的脚本。常见质量，awk、vim等。</p>
+<h1 id="2017-09-01-滴滴大脑-算法工程师-数据挖掘"><a href="#2017-09-01-滴滴大脑-算法工程师-数据挖掘" class="headerlink" title="2017-09.01-滴滴大脑-算法工程师+数据挖掘"></a>2017-09.01-滴滴大脑-算法工程师+数据挖掘</h1><p>本次面试共不到3小时，面的想尿尿，面试的部门比较厉害，是滴滴研究院下的滴滴大脑，过了必须去呀。有一些细节有深度的问题没有答出来，但是总体上大部分问题都答出来的。<br>实习内容：一开始做数据相关的工作，后面有关模型相关的工作。<br>面试过了，但是结果还没给，说什么可能还要聊聊，搞屁。。<br>（ps：三面（终面）过了）</p>
+<h2 id="算法部分-2"><a href="#算法部分-2" class="headerlink" title="算法部分"></a>算法部分</h2><h3 id="1-一面：-1"><a href="#1-一面：-1" class="headerlink" title="1. 一面："></a>1. 一面：</h3><h4 id="最短编辑距离"><a href="#最短编辑距离" class="headerlink" title="最短编辑距离"></a>最短编辑距离</h4><p>leetcode：Edit Distance  （hrad）<br>这道题没做好，没有体会到这道题的真谛。<br>想到了要用动态规划，也想到了要用二维的动态规划，但是没有想好子问题之间的关系。  </p>
+<p>dp[i][j]表示word1[:i]到word2[:j]的minimum edit distance 。</p>
+<p>关键是转换一个抽象的角度理解问题，首先可以先确定好边缘dp矩阵的大小。至于每个dp[i][j]，也就是word1[:i]与word2[:j]的相互转化一定是：  </p>
+<p>（1） word1[i] == word2[j]，说明直接用dp[i-1][j-1]的编辑距离即可。<br>（2） 要么是word1[:i]删掉word1[i]，去用已知的word1[:i-1] 到word2[:j]的编辑距离，也就是dp[i-1][j] + 1。<br>（3）要么是word2[:j]删掉word2[j]，去用已知的word1[:i] 到word2[:j-1]的编辑距离，也就是dp[i][j-1] + 1。<br>（4）要么是word1[i]替换为word2[j]，去用已知的word1[:i-1] 到word2[:j-1]的编辑距离，也就是dp[i-1][j-1] + 1。<br><strong>只需要照顾逻辑关系，不需要去管单词互相转化的内部操作是什么。</strong></p>
+<pre><code>dp[i][0] = i
+dp[0][j] = j
+
+1. d[0, j] = j;
+2. d[i, 0] = i;
+3. d[i, j] = d[i-1, j - 1] if A[i] == B[j]
+4. d[i, j] = min(d[i-1,j-1], d[i,j-1], d[i-1,j]) + 1  
+         if A[i] != B[j]
+</code></pre><p>因为dp[i][j]已经在表示前i个单词到前j个单词的最短编辑距离了，所以只需要考虑两个单词新加的那一个字符是否有影响就好了。<br>但是要注意到，下标是从0开始的，从一个单词没有字符开始计算的。</p>
+<h4 id="逆序数量统计"><a href="#逆序数量统计" class="headerlink" title="逆序数量统计"></a>逆序数量统计</h4><p>统计数组中所有大小顺序不对的pair的数量。如23401，就是6个（234与0，234与1）。  </p>
+<p>想到了这个问题其实是统计稳定的排序算法排序完完成的交换次数。比较直观的看就是冒泡。<br>为了提升时间复杂度，需要用唯一稳定的最快排序 归并排序。<br>逆序的数量就是每次merge操作的时候产生的逆序数量。加和。</p>
+<p>但是计算merge操作的逆序数量的方式不对，一定情况下对。。。<br>（实际上我的思路是对的，只是细节处理不足，不应该是在a、b合并后有多少个数的下标在原a、b中产生了变化就是多少个逆序，而应该是统计所有这种下标变化的差求和。）</p>
+<p>应该是这样的，如归并123、04，不管是归并到123还是归并到04，如到123，比较的时候发现0先插进去了，说明0于1有逆序，那1后面的23必然也有逆序，就有三个。插入4的时候已经不存在逆序了。</p>
+<pre><code>正答：
+其实只要把这个序列排序，然后把向前移动/向后移动中的一种所有的元素的位移长度和就是逆序的个数。
+其实也就是每个小数前面出现大数的个数或反之。
+用[一个map]储存初始的&lt;数,原始位置&gt;即可。
+然后排序，循环排序后的序列，比对位置即可。
+</code></pre><h3 id="2-二面：-1"><a href="#2-二面：-1" class="headerlink" title="2. 二面："></a>2. 二面：</h3><h4 id="2sum问题（但是要能写出来）"><a href="#2sum问题（但是要能写出来）" class="headerlink" title="2sum问题（但是要能写出来）"></a>2sum问题（但是要能写出来）</h4><h4 id="求string最长无重复字符子字符串长度"><a href="#求string最长无重复字符子字符串长度" class="headerlink" title="求string最长无重复字符子字符串长度"></a>求string最长无重复字符子字符串长度</h4><p>经过了扭曲的推理过程，正确的求出结果。  </p>
+<p>动态规划：<strong>dp[i]+max+Map(char,位置)</strong><br>dp[i]代表以i字符结束的子字符串里，最长无重复字符子串长度。<br>max记录目前得到的最大长度。<br>map记录当前i的情况下，最长无重复字符子串的每个&lt;字符,该字符在string中的下标&gt;。</p>
+<p>这样的话，dp[i]与dp[i-1]比较时，先看string.at(i)是否在map中存在。<br>1.存在：说明dp[i]为从i结束，从这个map里同当前字符的位置下一位开始的长度。（因为从这里开始后面的字符不会和第i字符重复）<br>2.不存在：dp[i] = dp[i-1] + 1，说明以i-1结束的最大无重复字符子串里没有第i个字符。</p>
+<h2 id="面试过程-1"><a href="#面试过程-1" class="headerlink" title="面试过程"></a>面试过程</h2><h3 id="shell怎么样"><a href="#shell怎么样" class="headerlink" title="shell怎么样"></a>shell怎么样</h3><p>现在还算会了</p>
+<h3 id="linux指令做txt去重会不会，一些搜索、高亮的指令会不会"><a href="#linux指令做txt去重会不会，一些搜索、高亮的指令会不会" class="headerlink" title="linux指令做txt去重会不会，一些搜索、高亮的指令会不会"></a>linux指令做txt去重会不会，一些搜索、高亮的指令会不会</h3><p>sort 按行指定分割方式根据某一列排序<br>去重可以先排序后去掉相邻行的重复内容：</p>
+<pre><code>sort test.txt | uniq
+</code></pre><p>vim里高亮搜索用/</p>
+<h3 id="java的jvm、gcc"><a href="#java的jvm、gcc" class="headerlink" title="java的jvm、gcc"></a>java的jvm、gcc</h3><p>###数据库的手写查询，left join等会不会<br>    SELECT column_name(s)<br>    FROM table_name1<br>    LEFT JOIN table_name2<br>    ON table_name1.column_name=table_name2.column_name</p>
+<h3 id="hadoop、spark会不会"><a href="#hadoop、spark会不会" class="headerlink" title="hadoop、spark会不会"></a>hadoop、spark会不会</h3><p>写过scala脚本。<br>动map reduce的过程。</p>
+<h3 id="python怎么样，一些数据处理的模块熟不熟"><a href="#python怎么样，一些数据处理的模块熟不熟" class="headerlink" title="python怎么样，一些数据处理的模块熟不熟"></a>python怎么样，一些数据处理的模块熟不熟</h3><p>pandas、numpy<br>dataframe处理分析数据<br>matplotlib画图  </p>
+<h3 id="C-怎么样"><a href="#C-怎么样" class="headerlink" title="C++怎么样"></a>C++怎么样</h3><p>写过一个项目，在滴滴用go干的活。以前刷题基本都是用java，目前转用c++了。</p>
+<h2 id="2017-09-05-今日头条-算法-国际化-没给二面"><a href="#2017-09-05-今日头条-算法-国际化-没给二面" class="headerlink" title="2017-09.05-今日头条-算法-国际化-没给二面"></a>2017-09.05-今日头条-算法-国际化-没给二面</h2><p>一共面了一个半小时，公司外壳印象还行，据说面试搞核弹进去拧螺丝，面试完对这个创业公司印象扣分！！扣分！！！<br>结果只给了一面，项目聊了10分钟，而且只问了数据挖掘，也没有深问，感觉面试官可能根本不懂深度学习呵呵。<br>算法两道。过程坎坷，细节有些不足，但是也算是写出来了，然而直接就不给二面。更可气的是，面试官根本没有大家风采，既不给提示，也不提出质疑哪里值得优化。总之就是默默地否认你。很气</p>
+<h2 id="算法部分-3"><a href="#算法部分-3" class="headerlink" title="算法部分"></a>算法部分</h2><h3 id="1-将一个float转成string。"><a href="#1-将一个float转成string。" class="headerlink" title="1. 将一个float转成string。"></a>1. 将一个float转成string。</h3><p><strong>简单但是不好写。</strong><br>简单，取余的形式取出每一位，只是整数部分和小数部分的顺序不同。  </p>
+<p>不足：没有考虑的负数的情况。</p>
+<pre><code>要考虑到：
+1. 负号是否有
+2. 小数点
+3. 整数部分前几位为0
+4. 整数取余负数取余方式不同
+5. 小数部分可能有前几位为0，需要加上
+
+特别方法：这种要实现问好是不是就用C最原生的方法来写。
+std::string Convert (float number){
+     std::ostringstream buff;
+     buff&lt;&lt;number; 
+     return buff.str();
+}
+</code></pre><p>其实写起来代码还挺多的，一位一位取数就很麻烦，难以让人满意。</p>
+<p><a href="https://www.geeksforgeeks.org/convert-floating-point-number-string/" target="_blank" rel="noopener">网上的标答很tm蓝瘦。。。</a>    基本意思还是差不多的，大概美观了10倍。</p>
+<h3 id="2-给一个手机键盘，123-456-789-0-，只能向右和向下移动，移动可以移动多次，也可以不移动。只关注按下这个操作。问给定一个数判断能不能按出来，不能的话返回比这个数小的最大的可以按出来的值。如：9990，不能按出来，返回8999"><a href="#2-给一个手机键盘，123-456-789-0-，只能向右和向下移动，移动可以移动多次，也可以不移动。只关注按下这个操作。问给定一个数判断能不能按出来，不能的话返回比这个数小的最大的可以按出来的值。如：9990，不能按出来，返回8999" class="headerlink" title="2. 给一个手机键盘，123 456 789 #0#，只能向右和向下移动，移动可以移动多次，也可以不移动。只关注按下这个操作。问给定一个数判断能不能按出来，不能的话返回比这个数小的最大的可以按出来的值。如：9990，不能按出来，返回8999."></a>2. 给一个手机键盘，123 456 789 #0#，只能向右和向下移动，移动可以移动多次，也可以不移动。只关注按下这个操作。问给定一个数判断能不能按出来，不能的话返回比这个数小的最大的可以按出来的值。如：9990，不能按出来，返回8999.</h3><p>我的思路：由于键盘是给定的，那么每个数字出现后，后面那位数字可以按出来的值是一个一定的范围。<br>先从后往前考察，看当前数字的前一个数字能按出来的数字集合里包不包括当前数字，如果不包括代表这个数按不出来。<br>再从后往前考察，既然是按不出来的，就往小里取，考察当前这个数，在前面一个数可以按出来的数里面，有没即比当前这个数小，又能按出来后面那个数的数，取所有满足这一条件的最大值。如果当前这个数有这样的一个数，代表新的数已经做了缩小。<br>此时从当前数向后考察，每个数都换成前面那个数能按出来的最大值。</p>
+<p>这样的思路应该是正确的，但是逻辑太复杂，写起来容易漏东西或者写错细节。</p>
+<p>ps：没有考虑出来dp能不能做这道题。肯定代码简洁的多了。</p>
+<pre><code>我想的正答：
+（1）判断是否可以打出来，还是老样子，当键盘是确定的，那么可以先后打出来的按键肯定也是一定的，所以可以用map存储规则，从高位到低位判断一次，是否存在不能打出来的情况。为了方便之后使用，这里的规则map里的每一个数字能达到的数组按从大到小排序。
+（2）如何找到最大的比这个数小的打得出来的数？因为数肯定要变小，可以调整一下思考角度，说明四位数里一定存在需要做出牺牲来变小的一位。那么从低位到高位，根据前后两个数的联合判断，是否存在可以变小又可以打出来前后两个数字的数。有的话就变小，变小后再从这一位开始向后检查后面的所有位，一旦前面的某一位做出了牺牲，后面的每一位都可以直接提升为能到达的最大数。
+</code></pre><h1 id="0905-滴滴大脑-算法终面"><a href="#0905-滴滴大脑-算法终面" class="headerlink" title="0905-滴滴大脑-算法终面"></a>0905-滴滴大脑-算法终面</h1><h2 id="形式"><a href="#形式" class="headerlink" title="形式"></a>形式</h2><p>电话面试：迟到了一个半小时才给我打的，打了15分钟吧<br>加了微信，微信电话（是不是意味着过了）</p>
+<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><p>1.自我介绍<br>2.兴趣<br>3.问我用过什么算法，做过什么项目<br>4.问我一些非常基础的能力有没有<br>5.问我有什么想问他的不（问了：去他们组需要什么样的能力，实习生的培养方式，什么时候给结果）<br>6.给了offer<br>总结：并没难为人，问了一些基本的东西</p>
+<h2 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h2><p><a href="https://www.zhihu.com/question/19629949" target="_blank" rel="noopener">https://www.zhihu.com/question/19629949</a>  </p>
+<p>憋笑，我不是开玩笑。现在很多公司为了提高工作效率， 都会用电话作为初步面试。所以，电话面试的技巧对于顺利通过第一轮面试有着至关重要的影响。<br>切忌随意应付电话面试，你应该把它当成一场和正式面试一样等级的面试。一个不够的话，之下还有十点，各位看客尽量做到。  </p>
+<p>1.提前计划和准备电话面试一般情况下，面试公司会提前通知你电话面试的时间。得知面试时间之后，你首先应该做的就是寻找最合适的场地进行面试。这个场地必须要非常安静，有着舒适的温度等等。试想一下如果你在回答问题的时候大汗淋漓，那势必会影响你在面试中的表现。同时要确保你选择电话面试的房间手机信号一定要稳定，不会影响面试时的通话质量。  </p>
+<p>2.提前在网上调查你感兴趣的公司在电话面试中，你需要给面试者一个印象是你对这个公司已经有一定的了解。你至少一定需要知道的信息是，这个公司是做什么的，它的产品、或者服务是什么，它的客户群是谁。如果没有这些信息，你会在电话面试中看起来准备的十分不充分。有许多同学会在网上随意的进行海投，而不会去认真筛选和准备面试的公司。有经验的面试官会立刻察觉那些随意应付的面试者，之后立刻淘汰这个面试者。  </p>
+<p>3.说服面试官你就是最合适的人也许你没办法说你是所有应聘者中最优秀的，但是你可以展示你一定是最合适的。你要把握住电话面试中的每一分每一秒运用每一个回答告诉面试官，你一定可以胜任这个职位。你过去的工作经验，你的能力还有你的教育背景全都可以用来打动面试官。选择一个你认为和这个工作岗位最匹配的、可以将来对工作帮助最大的，将它运用到你的面试回答中。  </p>
+<p>4.回答面试问题时保持微笑你可能认为因为是电话面试，面试官一定不会知道你是在微笑还是一副苦瓜脸，那你可就大错特错了。你的声音音调是会被你的面部表情影响的，同时你可以假装这个面试官就在你的面前，回答问题的时候运用你的肢体动作。面带微笑和运用肢体动作都可以让你在回答问题时声音变得更加柔和和友好，请记住，这是一个电话面试，你的声音是面试官唯一可以捕捉的东西。  </p>
+<p>5.察觉面试好坏电话面试有一个非常大的弊端是，应聘者无法看到进行发问的面试官。所以，你无法看到面试官对你的回答的反应，自然而然你就无法判断出当下你的回答是好还是坏。所以你在回答问题的时候，你需要非常留心面试官发出的任何声音。比如说，在面试过程中，如果面试官一直打断你，那么你的回答可能太长或者没有回答到要点上。所以最好先简单明了的回答问题，当面试者询问细节的时候，你再将你的回答补充的更加完整。  </p>
+<p>6.对所有问题都给出积极的答案在电话面试中，你可能会被间接的问到你对过去上司或者公司竞争对手的看法，谨记不要跌入这个陷阱，任何给出对前任上司或者竞争对手负面评价的应聘者都会被看作对工作有负面的态度。取而代之的是，你需要注重回答你从过去的公司和工作中学到了什么或者是什么可以让你的公司变的更好。  </p>
+<p>7.穿着正式规范你可能会觉得这听起来很奇怪，明明是电话面试，为什么还需要穿着正式规范？其实这个跟心理学有关。穿着正式规范的时候，你的大脑会自动严肃紧张起来，设定成你是一个合适的应聘者，并且告诉你你正在进行一场正规的面试。但是如果你穿着睡衣睡裤的进行面试，这些衣服过度舒适了，你的大脑也会同时变的放松随意，可能在你的回答语气和态度上也变的有所不同。  </p>
+<p>8.保持冷静和自信随着电话面试里一个接着一个问题的抛出，可能进行了一段时间之后你会变的比较疲惫，大脑也会运作的比较缓慢。但是，只要面试者还在继续发问，这场电话面试都没有结束。所以你一定要继续保持高度的注意力集中。有些时候面试官可能是准备了许多问题，为了全部问完这些问题，他们可能会加快提问的速度。不要让这个加快的速度影响到你，慢慢来，想清楚你要怎么回答才是最好的。时刻保持冷静，调整你的呼吸。这样做不仅仅是帮助你自己放松，同时也可以告诉面试官你是一个有自信并且可以把握整个面试速度的人。  </p>
+<p>9.最后的提问环节是重点电话面试的最后一个环节一般是面试官会问你，“请问你有什么问题吗？”许多的应聘者都在这个环节上说他们没有问题，这往往是导致他们面试失败的原因，因为这在面试官眼里，你会是一个准备的并不充分、对这个职位也没有太多兴趣的应聘者。相反，你应该问问更多关于你这个职位的细节，或者公司有没有社区活动。这会让你看起来是一个对于融入新团队有着非常高的热情，不管是工作时间还是其他时间。这样的说法会给面试官留下非常深刻的印象。  </p>
+<p>10.不要忘记询问面试官你什么时候可以得到通知不像传统的面试，电话面试的结束通常会十分匆忙。所以一旦你可以从面试官那里确认到面试已经结束了，你需要询问接下来的步骤是什么。比如说询问面试官你什么时候可以得到公司的通知，或者他们会以什么样的通知形式联系你。除此之外，不要忘记询问面试者的姓名，这样在之后你见到他们本人的时候，你不会连他是谁都不知道。一般情况下来说，很少会直接通过电话面试直接录取应聘者的，所以一般如果你顺利通过了电话面试，会进入下一轮面对面的面试。在电话面试中，公司看中的是应聘者某些与众不同的特质。所以不要忘了在电话面试之后，写一封感谢邮件给你的面试官，也许其他一般的应聘者不会有这样一个举动，那么这样一个个小小的步骤，可能已经让你变的与众不同了。</p>
+<h1 id="2017-09-06-百度-网页搜索部（核心部门）-新闻时间线rank组（非核心rank）"><a href="#2017-09-06-百度-网页搜索部（核心部门）-新闻时间线rank组（非核心rank）" class="headerlink" title="2017-09.06-百度-网页搜索部（核心部门）-新闻时间线rank组（非核心rank）"></a>2017-09.06-百度-网页搜索部（核心部门）-新闻时间线rank组（非核心rank）</h1><p>面试共2小时，总的来说比较顺利，除了两道题经过了提示解答出来了，其他的都独立解答好。<br>但是百度的算法题出的很多，深度不深，有个别题比较难。在专业知识尤其是机器学习方面的考察特别浅，感觉当公司的数据量达到特别特别大的时候，机器学习算法的优化效果可能没那么有用了。<br>百度的面试好像比较重视业务的思考，这也表达了这个技术地位很高的公司里，产品思考的不足。也是百度的问题所在。<br>还比较喜欢问分布式相关的东西。<br>面试官人不错，整体面试的感觉不错，大百度还是财大气粗行业巨头的呀。  </p>
+<p>总结：百度的技术会在产品需求部分很有发言权，对于我这个即喜欢做技术，又喜欢开脑洞的人来说，还是很合适的。</p>
+<h2 id="算法部分-4"><a href="#算法部分-4" class="headerlink" title="算法部分"></a>算法部分</h2><h3 id="1-一面：-2"><a href="#1-一面：-2" class="headerlink" title="1. 一面："></a>1. 一面：</h3><h4 id="1-1-给一个数组有正有负，求最大连续子数组的和。"><a href="#1-1-给一个数组有正有负，求最大连续子数组的和。" class="headerlink" title="1.1 给一个数组有正有负，求最大连续子数组的和。"></a>1.1 给一个数组有正有负，求最大连续子数组的和。</h4><p>秒杀，动态规划</p>
+<h4 id="1-2-给一个数组，每个连续的两个数之间大小都差1-那么给定一个目标，返回这个目标的所有位置。"><a href="#1-2-给一个数组，每个连续的两个数之间大小都差1-那么给定一个目标，返回这个目标的所有位置。" class="headerlink" title="1.2 给一个数组，每个连续的两个数之间大小都差1.那么给定一个目标，返回这个目标的所有位置。"></a>1.2 给一个数组，每个连续的两个数之间大小都差1.那么给定一个目标，返回这个目标的所有位置。</h4><p>思路一：遍历一遍，妥妥的o(n)。</p>
+<p>思路二：提示了考虑到只是遍历一遍的话并没有利用到相差为1的条件，那么比如遍历到了i，直接就可以调到target-a[i]+i的位置去看是不是target，因为最好的情况会直接一直+/-1到target。如果不是target就以此类推。这样的话有效优化了遍历，但是最坏情况还是o(n)。</p>
+<p>思路三：面试官的思路，用二分查找，尽管不是有序的，但是可以两侧都查找来抵消这一问题。总的来说并没太听懂。</p>
+<h4 id="1-3-有n个10t数据的文件，里面有许多的query，可能重复，如何找出来排名前十的query及其计数。"><a href="#1-3-有n个10t数据的文件，里面有许多的query，可能重复，如何找出来排名前十的query及其计数。" class="headerlink" title="1.3 有n个10t数据的文件，里面有许多的query，可能重复，如何找出来排名前十的query及其计数。"></a>1.3 有n个10t数据的文件，里面有许多的query，可能重复，如何找出来排名前十的query及其计数。</h4><p>此题基本上是靠面试 官层层提示才给出答案的，囧。  </p>
+<p>首先意识到了这个题的思路和map reduce的解决方案很像。但是又规定只有一台机器。  </p>
+<p>为了可以把数据加载到内存里切便于操作，需要先切分数据为更小的块。  </p>
+<p>然后做类似于map reduce重要部分shuffle的操作，在分配成小块的时候，将同一个query的数据分到同一个小数据块，并技术。  </p>
+<p>由此获得了数据的处理和统计。为了得到前10的query排名，我想用直接插入排序，不断更新前十名。但是更快的排序算法显然是堆排序。并且堆排序可以最快的得到前k个数据。</p>
+<h4 id="1-4-给定一个封装的函数，x作为随机数生成器，它符合0-1分布，以p的概率生成1，1-p的概率生成0-如何可以改造出一个以1-2的概率生成0、1的随机数生成器。"><a href="#1-4-给定一个封装的函数，x作为随机数生成器，它符合0-1分布，以p的概率生成1，1-p的概率生成0-如何可以改造出一个以1-2的概率生成0、1的随机数生成器。" class="headerlink" title="1.4 给定一个封装的函数，x作为随机数生成器，它符合0-1分布，以p的概率生成1，1-p的概率生成0.如何可以改造出一个以1/2的概率生成0、1的随机数生成器。"></a>1.4 给定一个封装的函数，x作为随机数生成器，它符合0-1分布，以p的概率生成1，1-p的概率生成0.如何可以改造出一个以1/2的概率生成0、1的随机数生成器。</h4><p><strong>我的思路</strong>：<br>首先我的思路很扭曲很骚，但是从性能上考虑不会浪费每次生成的数，比面试官的正确答案还要优秀。</p>
+<p>首先从概率分布的角度考虑，改造出的概率模型是一个期望为1/2的0-1分布。初始的概率模型是期望为p的0-1分布。需要调整到目标分布，即将期望调整为p-(p-1/2)的概率模型。</p>
+<p>可以借助库里的random方法，得到一个从0到2(p-1/2)的均匀分布，用生成器x得到的0、1减去random出的一个float。这一结果的范围是（0，0-2(p-1/2)），（1，1-2(p-1/2)）。尽管这两个范围的情况概率不一样，但是无所谓，在这两个范围各割一半，每一半都各对于新的生成器的0，1即可。</p>
+<p>验证：这样的方法可以扩展到非p=1/2或者多种取值结果的分布。原因就是接住了一个random产生的均匀分布来调整为新的伯努利分布。</p>
+<p><strong>面试官思路：</strong><br>面试官的思路更简洁，但是浪费了一些取值。  </p>
+<p>不管x的概率p是多少，如果将x输出的0，1两两一组输出，01和10的概率必然一样，可以分别作为新的生成器的0，1.至于00和11可以舍弃。</p>
+<p>这里不是很懂啊，为毛要舍弃00和11，直接00 11做0，01 10做1不行吗。</p>
+<h3 id="2-二面"><a href="#2-二面" class="headerlink" title="2. 二面"></a>2. 二面</h3><h4 id="2-1-手写快排"><a href="#2-1-手写快排" class="headerlink" title="2.1 手写快排"></a>2.1 手写快排</h4><p>easy</p>
+<h4 id="2-2-给你一亿个特征参数，范围0-1000，如何最省内存的方式保存"><a href="#2-2-给你一亿个特征参数，范围0-1000，如何最省内存的方式保存" class="headerlink" title="2.2 给你一亿个特征参数，范围0-1000，如何最省内存的方式保存"></a>2.2 给你一亿个特征参数，范围0-1000，如何最省内存的方式保存</h4><p>因为一个int是32位，而1000最多占10为就能保存。那么可以每个int用10位。而余出来的2位，可以用五个int凑出10位再多保存一个。也就意味着是一亿X5X4B/16.</p>
+<h4 id="2-3-讲一下梯度下降的原理"><a href="#2-3-讲一下梯度下降的原理" class="headerlink" title="2.3 讲一下梯度下降的原理"></a>2.3 讲一下梯度下降的原理</h4><p>easy</p>
+<h4 id="2-4-假设一个业务场景，将许许多多的网页分出来哪部分是新闻，你会提取哪些作为特征"><a href="#2-4-假设一个业务场景，将许许多多的网页分出来哪部分是新闻，你会提取哪些作为特征" class="headerlink" title="2.4 假设一个业务场景，将许许多多的网页分出来哪部分是新闻，你会提取哪些作为特征"></a>2.4 假设一个业务场景，将许许多多的网页分出来哪部分是新闻，你会提取哪些作为特征</h4><p>url来源（如头条）、记者署名、报社机构、网页元素等等</p>
+<h4 id="2-5-什么情况下会导致新闻误分类，你打算如何解决"><a href="#2-5-什么情况下会导致新闻误分类，你打算如何解决" class="headerlink" title="2.5 什么情况下会导致新闻误分类，你打算如何解决"></a>2.5 什么情况下会导致新闻误分类，你打算如何解决</h4><p>（1）根据一些重要特征产生过大效果（如头条中的非新闻内容）等。（误分分为不是新闻的判断为新闻，是新闻的判断为不是新闻）<br>（2）可以之前训练的模型后面加一个模型，第一个模型负责找出新闻。第二个模型负责在新闻中找出非新闻。（为什么不能两个模型融合呢，因为两个模型负责的内容不同，所以特征的影响放到一起不一定能产生效果）</p>
+<pre><code>觉得可以用boosting的方式啊，第一个模型得到的新闻类和非新闻的结果可以在分到两个不同的模型再训练，一个找新闻里的非新闻，一个找非新闻里的新闻。是不是更合理。
+</code></pre><h4 id="2-6-为什么产生重大新闻的时候，你喜欢使用微博搜索，而不是百度新闻"><a href="#2-6-为什么产生重大新闻的时候，你喜欢使用微博搜索，而不是百度新闻" class="headerlink" title="2.6 为什么产生重大新闻的时候，你喜欢使用微博搜索，而不是百度新闻"></a>2.6 为什么产生重大新闻的时候，你喜欢使用微博搜索，而不是百度新闻</h4><p>列了11条理由。。。。因为他说是加分项，有多少加多少。。。而且一直问我然后呢。。。算是锻炼业务敏感吧。</p>
+<h1 id="2017-09-25-微软亚洲工程院（互联网研究院）-Joiont-Master"><a href="#2017-09-25-微软亚洲工程院（互联网研究院）-Joiont-Master" class="headerlink" title="2017-09.25-微软亚洲工程院（互联网研究院）-Joiont Master"></a>2017-09.25-微软亚洲工程院（互联网研究院）-Joiont Master</h1><p>应该是算法（机器学习）实习生。因为实在给的太慢了，所以大爷已经去别的地方实习了，但是还是去试试，毕竟明年暑期实习还是非常想去这里的。  </p>
+<p>好吧面试完，了解到了，这个联合培养的计划还蛮厉害的。是在许多高校选出了一些学生，由MSRA联合培养，在毕业的硕士学位上会有MSRA联合培养的标记。而且要求可以实习一年，所以还是很大机会可以留在工程院的。</p>
+<p>知识面试的时候被吊打，很生气。面试官问问题的方向和思路很奇怪。。。让人特别不舒服。。不按套路来</p>
+<p>不过没关系，失败的多了，肯定可以成功！最起码你还有机会失败，已经很幸运啦~加油！</p>
+<h2 id="算法部分-5"><a href="#算法部分-5" class="headerlink" title="算法部分"></a>算法部分</h2><p>妈个鸡，都很难，都是问的老子的短板。矩阵形式的题。</p>
+<h3 id="一面-1"><a href="#一面-1" class="headerlink" title="一面"></a>一面</h3><h4 id="给定一个矩阵，矩阵中各种数字，如何找出来里面最大的连续（相同数字）块的大小。连续只上下左右相邻写数字相同。"><a href="#给定一个矩阵，矩阵中各种数字，如何找出来里面最大的连续（相同数字）块的大小。连续只上下左右相邻写数字相同。" class="headerlink" title="给定一个矩阵，矩阵中各种数字，如何找出来里面最大的连续（相同数字）块的大小。连续只上下左右相邻写数字相同。"></a>给定一个矩阵，矩阵中各种数字，如何找出来里面最大的连续（相同数字）块的大小。连续只上下左右相邻写数字相同。</h4><p>一开始想用二维dp做，但是设定好方向向右向下的遍历来设定子问题明显是不行的，如111，001，111.</p>
+<p>然后给出了提示，应该每一行左-右遍历，每个元素只考虑直接相连的左侧和上面的元素是否在同一个集合里。需要判断集合的逻辑处理。</p>
+<p>代码没写完就到时间了。。。很尴尬。</p>
+<p>然后这道题很好气dp能不能做，严重怀疑是可以的。只是思考的不是很全面。</p>
+<pre><code>正答：
+bool visit[][];
+int max, blockSize;
+用最简单的BFS方式，每个点都判断上下左右四个点。
+最外层循环对所有的点做一遍遍历，判断是否visit，否的话执行BFS。
+BFS内从该点出发依次判断所有相邻点是否 !visit&amp;&amp;值相等，对这个点再BFS。
+所以每次从外层循环进入BFS方法就是一个新的block，记得把blockSize清零。
+</code></pre><h3 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h3><h4 id="给nXn的点阵，要求至少使用4个点，做连续的折线。并且每条线段不能经过别的点，一共有多少种折线"><a href="#给nXn的点阵，要求至少使用4个点，做连续的折线。并且每条线段不能经过别的点，一共有多少种折线" class="headerlink" title="给nXn的点阵，要求至少使用4个点，做连续的折线。并且每条线段不能经过别的点，一共有多少种折线"></a>给nXn的点阵，要求至少使用4个点，做连续的折线。并且每条线段不能经过别的点，一共有多少种折线</h4><p>一开始还是想用dp，但是每次选定不同走法后，会让后面的走法变成不同的子问题。</p>
+<p>虽然打算先把可以使用重复元素的点，然后计算。在刨去不能走的点，一起算。</p>
+<p>trick是当矩阵一定，里面每个点所能连接到的点就是已知。</p>
+<p>但是应该用一种方法来判断他能到的点。而非初始化的处理。</p>
+<p>正确方法是类似图的深度优先遍历。</p>
+<p>唉，逻辑比较复杂，代码还没写完就到时间了。很气。</p>
+<pre><code>正答：
+BFS和DFS都可以，求解过程可以理解为图的遍历过程。
+要求：不能回头、不能重复、不能间接连线。
+为达目的（不回头，不重复），可以用无向边记录连线过程。
+无向边可以默认从左到右的记录方式来记录连线实现。
+set&lt;int[4]&gt;，但是每次调用递归方法都要复制一个新的set来使用。
+
+---如何确定一个点可以直接连的点有哪些？
+类似于BFS的过程。
+（虽然具有对称性可以简化计算）可以对每个点出发，确定一个可以到达的点的bool矩阵。
+从这个点，有近到远一圈圈的扩出去。最近的肯定都可以直连。
+然后所有可以直连的点会做延展判断，一直延展到矩阵外。延展到的点直接标记为不可达。
+</code></pre><h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><p>问了许多角度完全没考虑过的问题= =。</p>
+<h3 id="为什么要选择机器学习算法，现在机器学习、深度学习门槛越来越低了。不能说是火就学吧。"><a href="#为什么要选择机器学习算法，现在机器学习、深度学习门槛越来越低了。不能说是火就学吧。" class="headerlink" title="为什么要选择机器学习算法，现在机器学习、深度学习门槛越来越低了。不能说是火就学吧。"></a>为什么要选择机器学习算法，现在机器学习、深度学习门槛越来越低了。不能说是火就学吧。</h3><p>难道是对比较未来科技，可以造福人类？未来的发展趋势就是智能化的？我个人的数学比较好，也对学数学有兴趣，也算是契合度比较高的程序员领域了。</p>
+<h3 id="CNN的原理，画一下vgg的结构。"><a href="#CNN的原理，画一下vgg的结构。" class="headerlink" title="CNN的原理，画一下vgg的结构。"></a>CNN的原理，画一下vgg的结构。</h3><h3 id="质疑了人脸识别项目的命名。。。什么鬼-，还有这种问法，识别中日韩不叫人脸识别。你nb"><a href="#质疑了人脸识别项目的命名。。。什么鬼-，还有这种问法，识别中日韩不叫人脸识别。你nb" class="headerlink" title="质疑了人脸识别项目的命名。。。什么鬼= =，还有这种问法，识别中日韩不叫人脸识别。你nb"></a>质疑了人脸识别项目的命名。。。什么鬼= =，还有这种问法，识别中日韩不叫人脸识别。你nb</h3><h3 id="SVM为什么识别率达到了100，还是可以不断的降低loss。"><a href="#SVM为什么识别率达到了100，还是可以不断的降低loss。" class="headerlink" title="SVM为什么识别率达到了100，还是可以不断的降低loss。"></a>SVM为什么识别率达到了100，还是可以不断的降低loss。</h3><h3 id="那又为什么今年出现的cnn可以吊打传统的图像上的处理"><a href="#那又为什么今年出现的cnn可以吊打传统的图像上的处理" class="headerlink" title="那又为什么今年出现的cnn可以吊打传统的图像上的处理"></a>那又为什么今年出现的cnn可以吊打传统的图像上的处理</h3><h3 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Hou Zhe 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Hou Zhe 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Hou Zhe
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="blog.lovelaolao.xin/实习面试经历/2017-秋招/2017-秋招实习面试总结/" title="2017秋招实习面试总结">blog.lovelaolao.xin/实习面试经历/2017-秋招/2017-秋招实习面试总结/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/2017面试经历/" rel="tag"><i class="fa fa-tag"></i> 2017面试经历</a>
+          
+            <a href="/tags/面试经历/" rel="tag"><i class="fa fa-tag"></i> 面试经历</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Algorithm/Leetcode-Categories/7-贪心+动态规划/" rel="next" title="7.贪心+动态规划">
+                <i class="fa fa-chevron-left"></i> 7.贪心+动态规划
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/深度学习/DL基础/" rel="prev" title="DL基础">
+                DL基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/handsomeme.jpg"
+                alt="Hou Zhe" />
+            
+              <p class="site-author-name" itemprop="name">Hou Zhe</p>
+              <p class="site-description motion-element" itemprop="description">human learning, shallow leanring...</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/CC1993" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/3855613144" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://leetcode.com/houser/" target="_blank" title="LeetCode">
+                      
+                        <i class="fa fa-fw fa-globe"></i>LeetCode</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.jiangdongyu.space/" title="酱小孩" target="_blank">酱小孩</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MSRA-IEG-人脸识别项目组-被吊起来打（基础问题）"><span class="nav-number">1.</span> <span class="nav-text">MSRA-IEG-人脸识别项目组-被吊起来打（基础问题）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一面"><span class="nav-number">1.1.</span> <span class="nav-text">一面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-写一个单例模式"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.写一个单例模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-写一个死锁"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.写一个死锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-一道算法题"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.一道算法题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-总结"><span class="nav-number">1.1.4.</span> <span class="nav-text">4.总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二面-DL（被问惨了）"><span class="nav-number">1.2.</span> <span class="nav-text">二面-DL（被问惨了）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-介绍比较熟悉的项目"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.介绍比较熟悉的项目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#中日韩人脸识别"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">中日韩人脸识别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-DL基础知识提问"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.DL基础知识提问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-C-底层"><span class="nav-number">1.2.3.</span> <span class="nav-text">3.C++底层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-java底层"><span class="nav-number">1.2.4.</span> <span class="nav-text">4.java底层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-领域知识"><span class="nav-number">1.2.5.</span> <span class="nav-text">5.领域知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-总结"><span class="nav-number">1.2.6.</span> <span class="nav-text">6.总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-08-31-爱奇艺-深度学习实习生-情感分析项目-水平不足未过"><span class="nav-number">2.</span> <span class="nav-text">2017-08.31-爱奇艺-深度学习实习生-情感分析项目-水平不足未过</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法部分"><span class="nav-number">2.1.</span> <span class="nav-text">算法部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#给任意n边形，用一道折线将图形面积的1-3划分出来（这里应该是指凸多边形了）"><span class="nav-number">2.1.1.</span> <span class="nav-text">给任意n边形，用一道折线将图形面积的1/3划分出来（这里应该是指凸多边形了）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-08-31-网易新闻-短视频推荐预测点击率-过了没去"><span class="nav-number">3.</span> <span class="nav-text">2017-08.31-网易新闻-短视频推荐预测点击率-过了没去</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法部分-1"><span class="nav-number">3.1.</span> <span class="nav-text">算法部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-一面："><span class="nav-number">3.1.1.</span> <span class="nav-text">1. 一面：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#链表的逆置"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">链表的逆置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-二面："><span class="nav-number">3.1.2.</span> <span class="nav-text">2. 二面：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#手写快排"><span class="nav-number">3.1.2.1.</span> <span class="nav-text">手写快排</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#层次优先遍历"><span class="nav-number">3.1.2.2.</span> <span class="nav-text">层次优先遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最大回文子字符串"><span class="nav-number">3.1.2.3.</span> <span class="nav-text">最大回文子字符串</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面试过程"><span class="nav-number">3.2.</span> <span class="nav-text">面试过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实习工作中遇到的问题，如何解决的"><span class="nav-number">3.2.1.</span> <span class="nav-text">实习工作中遇到的问题，如何解决的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运维的shell怎么样"><span class="nav-number">3.2.2.</span> <span class="nav-text">运维的shell怎么样</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-09-01-滴滴大脑-算法工程师-数据挖掘"><span class="nav-number">4.</span> <span class="nav-text">2017-09.01-滴滴大脑-算法工程师+数据挖掘</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法部分-2"><span class="nav-number">4.1.</span> <span class="nav-text">算法部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-一面：-1"><span class="nav-number">4.1.1.</span> <span class="nav-text">1. 一面：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#最短编辑距离"><span class="nav-number">4.1.1.1.</span> <span class="nav-text">最短编辑距离</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逆序数量统计"><span class="nav-number">4.1.1.2.</span> <span class="nav-text">逆序数量统计</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-二面：-1"><span class="nav-number">4.1.2.</span> <span class="nav-text">2. 二面：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2sum问题（但是要能写出来）"><span class="nav-number">4.1.2.1.</span> <span class="nav-text">2sum问题（但是要能写出来）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#求string最长无重复字符子字符串长度"><span class="nav-number">4.1.2.2.</span> <span class="nav-text">求string最长无重复字符子字符串长度</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面试过程-1"><span class="nav-number">4.2.</span> <span class="nav-text">面试过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#shell怎么样"><span class="nav-number">4.2.1.</span> <span class="nav-text">shell怎么样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux指令做txt去重会不会，一些搜索、高亮的指令会不会"><span class="nav-number">4.2.2.</span> <span class="nav-text">linux指令做txt去重会不会，一些搜索、高亮的指令会不会</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java的jvm、gcc"><span class="nav-number">4.2.3.</span> <span class="nav-text">java的jvm、gcc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hadoop、spark会不会"><span class="nav-number">4.2.4.</span> <span class="nav-text">hadoop、spark会不会</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python怎么样，一些数据处理的模块熟不熟"><span class="nav-number">4.2.5.</span> <span class="nav-text">python怎么样，一些数据处理的模块熟不熟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-怎么样"><span class="nav-number">4.2.6.</span> <span class="nav-text">C++怎么样</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2017-09-05-今日头条-算法-国际化-没给二面"><span class="nav-number">4.3.</span> <span class="nav-text">2017-09.05-今日头条-算法-国际化-没给二面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法部分-3"><span class="nav-number">4.4.</span> <span class="nav-text">算法部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-将一个float转成string。"><span class="nav-number">4.4.1.</span> <span class="nav-text">1. 将一个float转成string。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-给一个手机键盘，123-456-789-0-，只能向右和向下移动，移动可以移动多次，也可以不移动。只关注按下这个操作。问给定一个数判断能不能按出来，不能的话返回比这个数小的最大的可以按出来的值。如：9990，不能按出来，返回8999"><span class="nav-number">4.4.2.</span> <span class="nav-text">2. 给一个手机键盘，123 456 789 #0#，只能向右和向下移动，移动可以移动多次，也可以不移动。只关注按下这个操作。问给定一个数判断能不能按出来，不能的话返回比这个数小的最大的可以按出来的值。如：9990，不能按出来，返回8999.</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0905-滴滴大脑-算法终面"><span class="nav-number">5.</span> <span class="nav-text">0905-滴滴大脑-算法终面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#形式"><span class="nav-number">5.1.</span> <span class="nav-text">形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内容"><span class="nav-number">5.2.</span> <span class="nav-text">内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技巧"><span class="nav-number">5.3.</span> <span class="nav-text">技巧</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-09-06-百度-网页搜索部（核心部门）-新闻时间线rank组（非核心rank）"><span class="nav-number">6.</span> <span class="nav-text">2017-09.06-百度-网页搜索部（核心部门）-新闻时间线rank组（非核心rank）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法部分-4"><span class="nav-number">6.1.</span> <span class="nav-text">算法部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-一面：-2"><span class="nav-number">6.1.1.</span> <span class="nav-text">1. 一面：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-给一个数组有正有负，求最大连续子数组的和。"><span class="nav-number">6.1.1.1.</span> <span class="nav-text">1.1 给一个数组有正有负，求最大连续子数组的和。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-给一个数组，每个连续的两个数之间大小都差1-那么给定一个目标，返回这个目标的所有位置。"><span class="nav-number">6.1.1.2.</span> <span class="nav-text">1.2 给一个数组，每个连续的两个数之间大小都差1.那么给定一个目标，返回这个目标的所有位置。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-有n个10t数据的文件，里面有许多的query，可能重复，如何找出来排名前十的query及其计数。"><span class="nav-number">6.1.1.3.</span> <span class="nav-text">1.3 有n个10t数据的文件，里面有许多的query，可能重复，如何找出来排名前十的query及其计数。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-给定一个封装的函数，x作为随机数生成器，它符合0-1分布，以p的概率生成1，1-p的概率生成0-如何可以改造出一个以1-2的概率生成0、1的随机数生成器。"><span class="nav-number">6.1.1.4.</span> <span class="nav-text">1.4 给定一个封装的函数，x作为随机数生成器，它符合0-1分布，以p的概率生成1，1-p的概率生成0.如何可以改造出一个以1/2的概率生成0、1的随机数生成器。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-二面"><span class="nav-number">6.1.2.</span> <span class="nav-text">2. 二面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-手写快排"><span class="nav-number">6.1.2.1.</span> <span class="nav-text">2.1 手写快排</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-给你一亿个特征参数，范围0-1000，如何最省内存的方式保存"><span class="nav-number">6.1.2.2.</span> <span class="nav-text">2.2 给你一亿个特征参数，范围0-1000，如何最省内存的方式保存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-讲一下梯度下降的原理"><span class="nav-number">6.1.2.3.</span> <span class="nav-text">2.3 讲一下梯度下降的原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-假设一个业务场景，将许许多多的网页分出来哪部分是新闻，你会提取哪些作为特征"><span class="nav-number">6.1.2.4.</span> <span class="nav-text">2.4 假设一个业务场景，将许许多多的网页分出来哪部分是新闻，你会提取哪些作为特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-什么情况下会导致新闻误分类，你打算如何解决"><span class="nav-number">6.1.2.5.</span> <span class="nav-text">2.5 什么情况下会导致新闻误分类，你打算如何解决</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-为什么产生重大新闻的时候，你喜欢使用微博搜索，而不是百度新闻"><span class="nav-number">6.1.2.6.</span> <span class="nav-text">2.6 为什么产生重大新闻的时候，你喜欢使用微博搜索，而不是百度新闻</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-09-25-微软亚洲工程院（互联网研究院）-Joiont-Master"><span class="nav-number">7.</span> <span class="nav-text">2017-09.25-微软亚洲工程院（互联网研究院）-Joiont Master</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法部分-5"><span class="nav-number">7.1.</span> <span class="nav-text">算法部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一面-1"><span class="nav-number">7.1.1.</span> <span class="nav-text">一面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#给定一个矩阵，矩阵中各种数字，如何找出来里面最大的连续（相同数字）块的大小。连续只上下左右相邻写数字相同。"><span class="nav-number">7.1.1.1.</span> <span class="nav-text">给定一个矩阵，矩阵中各种数字，如何找出来里面最大的连续（相同数字）块的大小。连续只上下左右相邻写数字相同。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二面"><span class="nav-number">7.1.2.</span> <span class="nav-text">二面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#给nXn的点阵，要求至少使用4个点，做连续的折线。并且每条线段不能经过别的点，一共有多少种折线"><span class="nav-number">7.1.2.1.</span> <span class="nav-text">给nXn的点阵，要求至少使用4个点，做连续的折线。并且每条线段不能经过别的点，一共有多少种折线</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习"><span class="nav-number">7.2.</span> <span class="nav-text">机器学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要选择机器学习算法，现在机器学习、深度学习门槛越来越低了。不能说是火就学吧。"><span class="nav-number">7.2.1.</span> <span class="nav-text">为什么要选择机器学习算法，现在机器学习、深度学习门槛越来越低了。不能说是火就学吧。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CNN的原理，画一下vgg的结构。"><span class="nav-number">7.2.2.</span> <span class="nav-text">CNN的原理，画一下vgg的结构。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#质疑了人脸识别项目的命名。。。什么鬼-，还有这种问法，识别中日韩不叫人脸识别。你nb"><span class="nav-number">7.2.3.</span> <span class="nav-text">质疑了人脸识别项目的命名。。。什么鬼= =，还有这种问法，识别中日韩不叫人脸识别。你nb</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVM为什么识别率达到了100，还是可以不断的降低loss。"><span class="nav-number">7.2.4.</span> <span class="nav-text">SVM为什么识别率达到了100，还是可以不断的降低loss。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#那又为什么今年出现的cnn可以吊打传统的图像上的处理"><span class="nav-number">7.2.5.</span> <span class="nav-text">那又为什么今年出现的cnn可以吊打传统的图像上的处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则化"><span class="nav-number">7.2.6.</span> <span class="nav-text">正则化</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hou Zhe</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">109.4k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      你是本站第
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位访问者
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65862436";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'CC1993',
+            repo: 'CC1993.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'dc6d091e130f79570e46d555eed19e556888eed4',
+            
+                client_id: '603f6e3d251801be8556'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      function showGitment(){
+        document.getElementById("gitment-display-button").style.display = "none";
+        document.getElementById("gitment-container").style.display = "block";
+        renderGitment();
+      }
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("AQluv9b2gHsQHXCoEPbYTLVQ-gzGzoHsz", "qEL5EpDtAcgdujB3rqUpopWe");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
