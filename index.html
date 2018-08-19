@@ -331,546 +331,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="blog.lovelaolao.xin/机器学习/FM-FFM-DeepFM/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hou Zhe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/handsomeme.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Fall Out Boy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/机器学习/FM-FFM-DeepFM/" itemprop="url">FM FFM DeepFM</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-19T22:48:00+08:00">
-                2018-08-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/机器学习/FM-FFM-DeepFM/" class="leancloud_visitors" data-flag-title="FM FFM DeepFM">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  2,497 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  11 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>一般的线性模型是不考虑特征交叉的。   </p>
-<p><math xmlns="http://www.w3.org/1998/Math/MathML"><br>  <mi>y</mi><br>  <mo>=</mo><br>  <msub><br>    <mi>w</mi><br>    <mn>0</mn><br>  </msub><br>  <mo>+</mo><br>  <munderover><br>    <mo>&#x2211;<!-- ∑ --></mo><br>    <mrow class="MJX-TeXAtom-ORD"><br>      <mi>i</mi><br>      <mo>=</mo><br>      <mn>1</mn><br>    </mrow><br>    <mi>n</mi><br>  </munderover><br>  <msub><br>    <mi>w</mi><br>    <mi>i</mi><br>  </msub><br>  <msub><br>    <mi>x</mi><br>    <mi>i</mi><br>  </msub><br></math><br>二阶多项式模型会考虑所有两个特征交叉的情况。即 n<em>(n-1)/2 种特征。<br>**注意：这里的交叉部分是从<code>i = 1到n</code>\</em><code>j = i+1到n</code>，避免重复交叉**。<br>且交叉的是样本，而不是特征。    </p>
-<p><math xmlns="http://www.w3.org/1998/Math/MathML"><br>  <mi>y</mi><br>  <mo>=</mo><br>  <msub><br>    <mi>w</mi><br>    <mn>0</mn><br>  </msub><br>  <mo>+</mo><br>  <munderover><br>    <mo>&#x2211;<!-- ∑ --></mo><br>    <mrow class="MJX-TeXAtom-ORD"><br>      <mi>i</mi><br>      <mo>=</mo><br>      <mn>1</mn><br>    </mrow><br>    <mi>n</mi><br>  </munderover><br>  <msub><br>    <mi>w</mi><br>    <mi>i</mi><br>  </msub><br>  <msub><br>    <mi>x</mi><br>    <mi>i</mi><br>  </msub><br>  <mo>+</mo><br>  <munderover><br>    <mo>&#x2211;<!-- ∑ --></mo><br>    <mrow class="MJX-TeXAtom-ORD"><br>      <mi>i</mi><br>      <mo>=</mo><br>      <mn>1</mn><br>    </mrow><br>    <mrow class="MJX-TeXAtom-ORD"><br>      <mi>n</mi><br>    </mrow><br>  </munderover><br>  <munderover><br>    <mo>&#x2211;<!-- ∑ --></mo><br>    <mrow class="MJX-TeXAtom-ORD"><br>      <mi>j</mi><br>      <mo>=</mo><br>      <mi>i</mi><br>      <mo>+</mo><br>      <mn>1</mn><br>    </mrow><br>    <mi>n</mi><br>  </munderover><br>  <msub><br>    <mi>w</mi><br>    <mrow class="MJX-TeXAtom-ORD"><br>      <mi>i</mi><br>      <mi>j</mi><br>    </mrow><br>  </msub><br>  <msub><br>    <mi>x</mi><br>    <mi>i</mi><br>  </msub><br>  <msub><br>    <mi>x</mi><br>    <mi>j</mi><br>  </msub><br></math><br>如果特征交叉的维度再提升的话会带来非常高的复杂度。</p>
-<h1 id="FM（Factorization-Machines）"><a href="#FM（Factorization-Machines）" class="headerlink" title="FM（Factorization Machines）"></a>FM（Factorization Machines）</h1><p><a href="https://www.csie.ntu.edu.tw/~b97053/paper/Rendle2010FM.pdf" target="_blank" rel="noopener">paper</a><br>目标：解决数据稀疏的情况下，特征怎样组合的问题 </p>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><ul>
-<li>首先要做的是对所有特征做<strong>one hot编码</strong>。<ul>
-<li>比如：特征年龄：中年、青年、老年。就会变成是否中年、是否青年、是否老年三个特征。<ul>
-<li>这样，特征空间会迅速变大。</li>
-<li>但是特征会变得很稀疏。</li>
-</ul>
-</li>
-<li>好处：将离散特征每一个取值都拆分成一个特征非常适合特征交叉。会产生很有意义的特征。<ul>
-<li>比如加上职业，不会是年龄+程序员，而是中年程序员、青年程序员、老年程序员。</li>
-</ul>
-</li>
-<li>（其实在第二个式子中已经有二阶多项式的实现方式）<ul>
-<li>但是由于每个wij都需要大量非零样本来训练，然而稀疏的one hot特征会让非零样本很少，所以是不可训练的。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>解决二次项参数训练问题：<strong>矩阵分解</strong>。<ul>
-<li><strong>其实就是二阶多项式的 wij（nxn）其实就构成了一个所有样本公用的权重矩阵 W，而<code>V转置xV</code>的形式刚好可以让（nxk x kxn）的两个矩阵得到（nxn）的目标权重矩阵W，k可以是一个灵活的值。</strong><ul>
-<li><strong>这样就相当于把求解一个（nxn）的W矩阵变成求解（kxn）的 V 矩阵，从而把 n^2 的参数量变成了 kxn 的（伪）线性参数量。</strong></li>
-</ul>
-</li>
-<li>比如：在 model-based 的协同过滤问题对 user 向量矩阵和 item 向量矩阵<strong>点乘</strong>得到user、item矩阵的做法。（矩阵中每一个值就是user-item的一个打分）<img src="https://tech.meituan.com/img/deep-understanding-of-ffm-principle-and-practice/ffm_mf.png" alt=""></li>
-<li>做法：借鉴协同过滤的做法，把所有的二次项参数 wij 组成为一个矩阵 W，<math xmlns="http://www.w3.org/1998/Math/MathML"><br><mrow class="MJX-TeXAtom-ORD"><br><mi mathvariant="bold">W</mi><br></mrow><br><mo>=</mo><br><msup><br><mrow class="MJX-TeXAtom-ORD"><br><mi mathvariant="bold">V</mi><br></mrow><br><mi>T</mi><br></msup><br><mrow class="MJX-TeXAtom-ORD"><br><mi mathvariant="bold">V</mi><br></mrow><br></math>，其中V矩阵就是特征的矩阵，V的第j列就是j特征的所有样本取值。<ul>
-<li>所以其实W是由V自己<strong>点乘</strong>自己得到的，也就肯定是一个对称矩阵。</li>
-</ul>
-</li>
-<li><strong>公式：</strong><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><br><mtable displaystyle="true"><br><mlabeledtr><br><mtd><br>  <mi>y</mi><br>  <mo stretchy="false">(</mo><br>  <mrow class="MJX-TeXAtom-ORD"><pre><code>&lt;mi mathvariant=&quot;bold&quot;&gt;x&lt;/mi&gt;
-</code></pre>  </mrow><br>  <mo stretchy="false">)</mo><br>  <mo>=</mo><br>  <msub><pre><code>&lt;mi&gt;w&lt;/mi&gt;
-&lt;mn&gt;0&lt;/mn&gt;
-</code></pre>  </msub><br>  <mo>+</mo><br>  <munderover><pre><code>&lt;mo&gt;&amp;#x2211;&lt;!-- ∑ --&gt;&lt;/mo&gt;
-&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;
-  &lt;mi&gt;i&lt;/mi&gt;
-  &lt;mo&gt;=&lt;/mo&gt;
-  &lt;mn&gt;1&lt;/mn&gt;
-&lt;/mrow&gt;
-&lt;mi&gt;n&lt;/mi&gt;
-</code></pre>  </munderover><br>  <msub><pre><code>&lt;mi&gt;w&lt;/mi&gt;
-&lt;mi&gt;i&lt;/mi&gt;
-</code></pre>  </msub><br>  <msub><pre><code>&lt;mi&gt;x&lt;/mi&gt;
-&lt;mi&gt;i&lt;/mi&gt;
-</code></pre>  </msub><br>  <mo>+</mo><br>  <munderover><pre><code>&lt;mo&gt;&amp;#x2211;&lt;!-- ∑ --&gt;&lt;/mo&gt;
-&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;
-  &lt;mi&gt;i&lt;/mi&gt;
-  &lt;mo&gt;=&lt;/mo&gt;
-  &lt;mn&gt;1&lt;/mn&gt;
-&lt;/mrow&gt;
-&lt;mi&gt;n&lt;/mi&gt;
-</code></pre>  </munderover><br>  <munderover><pre><code>&lt;mo&gt;&amp;#x2211;&lt;!-- ∑ --&gt;&lt;/mo&gt;
-&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;
-  &lt;mi&gt;j&lt;/mi&gt;
-  &lt;mo&gt;=&lt;/mo&gt;
-  &lt;mi&gt;i&lt;/mi&gt;
-  &lt;mo&gt;+&lt;/mo&gt;
-  &lt;mn&gt;1&lt;/mn&gt;
-&lt;/mrow&gt;
-&lt;mi&gt;n&lt;/mi&gt;
-</code></pre>  </munderover><br>  <mo fence="false" stretchy="false">&#x27E8;<!-- ⟨ --></mo><br>  <msub><pre><code>&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;
-  &lt;mi mathvariant=&quot;bold&quot;&gt;v&lt;/mi&gt;
-&lt;/mrow&gt;
-&lt;mi&gt;i&lt;/mi&gt;
-</code></pre>  </msub><br>  <mo>,</mo><br>  <msub><pre><code>&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;
-  &lt;mi mathvariant=&quot;bold&quot;&gt;v&lt;/mi&gt;
-&lt;/mrow&gt;
-&lt;mi&gt;j&lt;/mi&gt;
-</code></pre>  </msub><br>  <mo fence="false" stretchy="false">&#x27E9;<!-- ⟩ --></mo><br>  <msub><pre><code>&lt;mi&gt;x&lt;/mi&gt;
-&lt;mi&gt;i&lt;/mi&gt;
-</code></pre>  </msub><br>  <msub><pre><code>&lt;mi&gt;x&lt;/mi&gt;
-&lt;mi&gt;j&lt;/mi&gt;
-</code></pre>  </msub><br></mtd><br></mlabeledtr><br></mtable><br></math><ul>
-<li>其中vi代表第i位特征的隐向量。&lt;·,·&gt;代表点乘，n 为特征数量，x 就是输入的一个样本。（也就是对于一个样本，得到他的结果，由这个公式计算）</li>
-<li>由于<strong>每个 V 特征向量都相当于一个特征的隐向量，本身没有直接意义，但是和其他特征的隐向量点乘得到的值会成为一个交叉特征的权重</strong>。且 Vi 的长度k&lt;&lt;n。</li>
-</ul>
-</li>
-<li>好处：<strong>总参数量为 kxn</strong><ul>
-<li>参数量由 n^2 变成了 kxn 的线性，并且在普通的二阶多项式模型里wij和wji是相互独立的。但是在矩阵分解的做法里，两者是一样的。</li>
-<li>比如 wij 和 whj ，矩阵分解的做法会让 vj 和vi、vh都产生关系。也就意味着vi、vh都对vj的学习产生作用。从稀释了稀疏特征的很多0让 wij 其实没卵用的影响。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>扩展</strong>：上面矩阵分解的公式是一个通用的基础。在此基础上可以引入不同的损失函数，解决回归、分类问题。（其实就是<code>∑wixi</code>和<code>∑∑&lt;vi, vj&gt;xixj</code>的变形。）</li>
-<li><strong>训练/计算时间复杂度问题</strong>：参数量虽然下降到了线性，但是要计算y(x)的损失，因为<code>∑∑&lt;vi, vj&gt;xixj</code>存在使时间复杂度为O(k*n^2)。<ul>
-<li>解决：由于<code>i = 1到n</code> <code>j = i+1到n</code>，也就是对称矩阵对角线的上半部分。那么原公式就可以转化为<code>1/2(整个矩阵做特征交叉-对角线的特征交叉)</code>，经过一堆骚操作可以把公式简化为：<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><br><mtable displaystyle="true"><br><mlabeledtr><br><mtd><br>  <munderover><pre><code>&lt;mo&gt;&amp;#x2211;&lt;!-- ∑ --&gt;&lt;/mo&gt;
-&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;
-  &lt;mi&gt;i&lt;/mi&gt;
-  &lt;mo&gt;=&lt;/mo&gt;
-  &lt;mn&gt;1&lt;/mn&gt;
-&lt;/mrow&gt;
-&lt;mi&gt;n&lt;/mi&gt;
-</code></pre>  </munderover><br>  <munderover><pre><code>&lt;mo&gt;&amp;#x2211;&lt;!-- ∑ --&gt;&lt;/mo&gt;
-&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;
-  &lt;mi&gt;j&lt;/mi&gt;
-  &lt;mo&gt;=&lt;/mo&gt;
-  &lt;mi&gt;i&lt;/mi&gt;
-  &lt;mo&gt;+&lt;/mo&gt;
-  &lt;mn&gt;1&lt;/mn&gt;
-&lt;/mrow&gt;
-&lt;mi&gt;n&lt;/mi&gt;
-</code></pre>  </munderover><br>  <mo fence="false" stretchy="false">&#x27E8;<!-- ⟨ --></mo><br>  <msub><pre><code>&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;
-  &lt;mi mathvariant=&quot;bold&quot;&gt;v&lt;/mi&gt;
-&lt;/mrow&gt;
-&lt;mi&gt;i&lt;/mi&gt;
-</code></pre>  </msub><br>  <mo>,</mo><br>  <msub><pre><code>&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;
-  &lt;mi mathvariant=&quot;bold&quot;&gt;v&lt;/mi&gt;
-&lt;/mrow&gt;
-&lt;mi&gt;j&lt;/mi&gt;
-</code></pre>  </msub><br>  <mo fence="false" stretchy="false">&#x27E9;<!-- ⟩ --></mo><br>  <msub><pre><code>&lt;mi&gt;x&lt;/mi&gt;
-&lt;mi&gt;i&lt;/mi&gt;
-</code></pre>  </msub><br>  <msub><pre><code>&lt;mi&gt;x&lt;/mi&gt;
-&lt;mi&gt;j&lt;/mi&gt;
-</code></pre>  </msub><br>  <mo>=</mo><br>  <mfrac><pre><code>&lt;mn&gt;1&lt;/mn&gt;
-&lt;mn&gt;2&lt;/mn&gt;
-</code></pre>  </mfrac><br>  <munderover><pre><code>&lt;mo&gt;&amp;#x2211;&lt;!-- ∑ --&gt;&lt;/mo&gt;
-&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;
-  &lt;mi&gt;f&lt;/mi&gt;
-  &lt;mo&gt;=&lt;/mo&gt;
-  &lt;mn&gt;1&lt;/mn&gt;
-&lt;/mrow&gt;
-&lt;mi&gt;k&lt;/mi&gt;
-</code></pre>  </munderover><br>  <mrow><pre><code>&lt;mo&gt;(&lt;/mo&gt;
-&lt;mrow&gt;
-  &lt;msup&gt;
-    &lt;mrow&gt;
-      &lt;mo&gt;(&lt;/mo&gt;
-      &lt;mrow&gt;
-        &lt;munderover&gt;
-          &lt;mo&gt;&amp;#x2211;&lt;!-- ∑ --&gt;&lt;/mo&gt;
-          &lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;
-            &lt;mi&gt;i&lt;/mi&gt;
-            &lt;mo&gt;=&lt;/mo&gt;
-            &lt;mn&gt;1&lt;/mn&gt;
-          &lt;/mrow&gt;
-          &lt;mi&gt;n&lt;/mi&gt;
-        &lt;/munderover&gt;
-        &lt;msub&gt;
-          &lt;mi&gt;v&lt;/mi&gt;
-          &lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;
-            &lt;mi&gt;i&lt;/mi&gt;
-            &lt;mo&gt;,&lt;/mo&gt;
-            &lt;mi&gt;f&lt;/mi&gt;
-          &lt;/mrow&gt;
-        &lt;/msub&gt;
-        &lt;msub&gt;
-          &lt;mi&gt;x&lt;/mi&gt;
-          &lt;mi&gt;i&lt;/mi&gt;
-        &lt;/msub&gt;
-      &lt;/mrow&gt;
-      &lt;mo&gt;)&lt;/mo&gt;
-    &lt;/mrow&gt;
-    &lt;mn&gt;2&lt;/mn&gt;
-  &lt;/msup&gt;
-  &lt;mo&gt;&amp;#x2212;&lt;!-- − --&gt;&lt;/mo&gt;
-  &lt;munderover&gt;
-    &lt;mo&gt;&amp;#x2211;&lt;!-- ∑ --&gt;&lt;/mo&gt;
-    &lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;
-      &lt;mi&gt;i&lt;/mi&gt;
-      &lt;mo&gt;=&lt;/mo&gt;
-      &lt;mn&gt;1&lt;/mn&gt;
-    &lt;/mrow&gt;
-    &lt;mi&gt;n&lt;/mi&gt;
-  &lt;/munderover&gt;
-  &lt;msubsup&gt;
-    &lt;mi&gt;v&lt;/mi&gt;
-    &lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;
-      &lt;mi&gt;i&lt;/mi&gt;
-      &lt;mo&gt;,&lt;/mo&gt;
-      &lt;mi&gt;f&lt;/mi&gt;
-    &lt;/mrow&gt;
-    &lt;mn&gt;2&lt;/mn&gt;
-  &lt;/msubsup&gt;
-  &lt;msubsup&gt;
-    &lt;mi&gt;x&lt;/mi&gt;
-    &lt;mi&gt;i&lt;/mi&gt;
-    &lt;mn&gt;2&lt;/mn&gt;
-  &lt;/msubsup&gt;
-&lt;/mrow&gt;
-&lt;mo&gt;)&lt;/mo&gt;
-</code></pre>  </mrow><br></mtd><br></mlabeledtr><br></mtable><br></math></li>
-<li><code>f = 1到k</code>为vi的第f个元素。可以看到 j 神奇的消失了= =（因为实际本身就需要一个 wij 做交叉特征的权重，求梯度的时候也就一个偏导，不是对i、j各求一个。而特殊的化简方式里放弃了<code>j = i+1到n</code>的关系，直接用 i 代替 j 。并且化简了i、j两层循环，变成i一层循环但是里面有平方的形式。）</li>
-<li>所以<strong>计算损失的时间复杂度为O(kn)</strong>。</li>
-<li>偏导：<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><br><mfrac><br><mi mathvariant="normal">&#x2202;<!-- ∂ --></mi><br><mrow><br><mi mathvariant="normal">&#x2202;<!-- ∂ --></mi><br><mi>&#x03B8;<!-- θ --></mi><br></mrow><br></mfrac><br><mi>y</mi><br><mo stretchy="false">(</mo><br><mrow class="MJX-TeXAtom-ORD"><br><mi mathvariant="bold">x</mi><br></mrow><br><mo stretchy="false">)</mo><br><mo>=</mo><br><mrow><br><mo>{</mo><br><mtable columnalign="left left" rowspacing="4pt" columnspacing="1em"><br><mtr><br>  <mtd><pre><code>&lt;mn&gt;1&lt;/mn&gt;
-&lt;mo&gt;,&lt;/mo&gt;
-</code></pre>  </mtd><br>  <mtd><pre><code>&lt;mtext&gt;if&lt;/mtext&gt;
-&lt;mspace width=&quot;thickmathspace&quot; /&gt;
-&lt;mi&gt;&amp;#x03B8;&lt;!-- θ --&gt;&lt;/mi&gt;
-&lt;mspace width=&quot;thickmathspace&quot; /&gt;
-&lt;mtext&gt;is&lt;/mtext&gt;
-&lt;mspace width=&quot;thickmathspace&quot; /&gt;
-&lt;msub&gt;
-  &lt;mi&gt;w&lt;/mi&gt;
-  &lt;mn&gt;0&lt;/mn&gt;
-&lt;/msub&gt;
-</code></pre>  </mtd><br></mtr><br><mtr><br>  <mtd><pre><code>&lt;msub&gt;
-  &lt;mi&gt;x&lt;/mi&gt;
-  &lt;mi&gt;i&lt;/mi&gt;
-&lt;/msub&gt;
-&lt;mo&gt;,&lt;/mo&gt;
-</code></pre>  </mtd><br>  <mtd><pre><code>&lt;mtext&gt;if&lt;/mtext&gt;
-&lt;mspace width=&quot;thickmathspace&quot; /&gt;
-&lt;mi&gt;&amp;#x03B8;&lt;!-- θ --&gt;&lt;/mi&gt;
-&lt;mspace width=&quot;thickmathspace&quot; /&gt;
-&lt;mtext&gt;is&lt;/mtext&gt;
-&lt;mspace width=&quot;thickmathspace&quot; /&gt;
-&lt;msub&gt;
-  &lt;mi&gt;w&lt;/mi&gt;
-  &lt;mi&gt;i&lt;/mi&gt;
-&lt;/msub&gt;
-</code></pre>  </mtd><br></mtr><br><mtr><br>  <mtd><pre><code>&lt;msub&gt;
-  &lt;mi&gt;x&lt;/mi&gt;
-  &lt;mi&gt;i&lt;/mi&gt;
-&lt;/msub&gt;
-&lt;munderover&gt;
-  &lt;mo&gt;&amp;#x2211;&lt;!-- ∑ --&gt;&lt;/mo&gt;
-  &lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;
-    &lt;mi&gt;j&lt;/mi&gt;
-    &lt;mo&gt;=&lt;/mo&gt;
-    &lt;mn&gt;1&lt;/mn&gt;
-  &lt;/mrow&gt;
-  &lt;mi&gt;n&lt;/mi&gt;
-&lt;/munderover&gt;
-&lt;msub&gt;
-  &lt;mi&gt;v&lt;/mi&gt;
-  &lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;
-    &lt;mi&gt;j&lt;/mi&gt;
-    &lt;mo&gt;,&lt;/mo&gt;
-    &lt;mi&gt;f&lt;/mi&gt;
-  &lt;/mrow&gt;
-&lt;/msub&gt;
-&lt;msub&gt;
-  &lt;mi&gt;x&lt;/mi&gt;
-  &lt;mi&gt;j&lt;/mi&gt;
-&lt;/msub&gt;
-&lt;mo&gt;&amp;#x2212;&lt;!-- − --&gt;&lt;/mo&gt;
-&lt;msub&gt;
-  &lt;mi&gt;v&lt;/mi&gt;
-  &lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;
-    &lt;mi&gt;i&lt;/mi&gt;
-    &lt;mo&gt;,&lt;/mo&gt;
-    &lt;mi&gt;f&lt;/mi&gt;
-  &lt;/mrow&gt;
-&lt;/msub&gt;
-&lt;msubsup&gt;
-  &lt;mi&gt;x&lt;/mi&gt;
-  &lt;mi&gt;i&lt;/mi&gt;
-  &lt;mn&gt;2&lt;/mn&gt;
-&lt;/msubsup&gt;
-&lt;mo&gt;,&lt;/mo&gt;
-</code></pre>  </mtd><br>  <mtd><pre><code>&lt;mtext&gt;if&lt;/mtext&gt;
-&lt;mspace width=&quot;thickmathspace&quot; /&gt;
-&lt;mi&gt;&amp;#x03B8;&lt;!-- θ --&gt;&lt;/mi&gt;
-&lt;mspace width=&quot;thickmathspace&quot; /&gt;
-&lt;mtext&gt;is&lt;/mtext&gt;
-&lt;mspace width=&quot;thickmathspace&quot; /&gt;
-&lt;msub&gt;
-  &lt;mi&gt;v&lt;/mi&gt;
-  &lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;
-    &lt;mi&gt;i&lt;/mi&gt;
-    &lt;mo&gt;,&lt;/mo&gt;
-    &lt;mi&gt;f&lt;/mi&gt;
-  &lt;/mrow&gt;
-&lt;/msub&gt;
-</code></pre>  </mtd><br></mtr><br></mtable><br><mo fence="true" stretchy="true" symmetric="true"></mo><br></mrow><br></math><ul>
-<li>可以看到特别一点的只有交叉特征权重的偏导：<code>vif的偏导</code>指特征 i 的隐含向量中第 f 元素的偏导。其中<math xmlns="http://www.w3.org/1998/Math/MathML"><br><munderover><br><mo>&#x2211;<!-- ∑ --></mo><br><mrow class="MJX-TeXAtom-ORD"><br><mi>j</mi><br><mo>=</mo><br><mn>1</mn><br></mrow><br><mi>n</mi><br></munderover><br><msub><br><mi>v</mi><br><mrow class="MJX-TeXAtom-ORD"><br><mi>j</mi><br><mo>,</mo><br><mi>f</mi><br></mrow><br></msub><br><msub><br><mi>x</mi><br><mi>j</mi><br></msub><br></math>是求 y(x) 时已经算过的东西了。</li>
-<li>所以<strong>求偏导的时间复杂度为O(1)</strong></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="FM的优势"><a href="#FM的优势" class="headerlink" title="FM的优势"></a>FM的优势</h2><ul>
-<li>灵活：通过合适的特征变换方式，FM 可以模拟二阶多项式核的 SVM 模型、MF 模型、SVD++ 模型等。</li>
-<li>样本稀疏的情况下天然适合 FM 发挥。</li>
-<li>训练、预测、参数量均是线性的。</li>
-<li>对于 FM 的特征交叉方式而言，可以添加任意多的特征，除了 one hot 还可以用均值等等内容做特征。</li>
-</ul>
-<h1 id="FFM（Field-aware-Factorization-Machine）"><a href="#FFM（Field-aware-Factorization-Machine）" class="headerlink" title="FFM（Field-aware Factorization Machine）"></a>FFM（Field-aware Factorization Machine）</h1><p>非常适用于 CTR、CVR 问题上。</p>
-<h2 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h2><ul>
-<li><strong>field</strong>：引入了 field 的概念，就是把经过 one hot 处理过的离散特征，比如：年龄有青年、中年、老年。可以处理为三个二分类特征。这三个特征会放到同一个 field 中来处理。连续特征的话可以直接看为一个 field或进行特征离散化。  <ul>
-<li>每一维特征都会对其他特征所有的 field 为单位学习一个隐向量<math xmlns="http://www.w3.org/1998/Math/MathML"><br><msub><br><mrow class="MJX-TeXAtom-ORD"><br><mi mathvariant="bold">v</mi><br></mrow><br><mrow class="MJX-TeXAtom-ORD"><br><mi>i</mi><br><mo>,</mo><br><msub><br>  <mi>f</mi><br>  <mi>j</mi><br></msub><br></mrow><br></msub><br></math>（含义：特征 i 的 f 个隐向量中对应 field j 那个）。<ul>
-<li>即：每个特征 f 个隐向量。（f 为所有特征一共在 f 个field）</li>
-<li>也就是<strong>一共有 <code>nxf</code> 个隐向量</strong>。</li>
-<li>如果每个隐向量长度为 k，也就是<strong>一共有 <code>kxnxf</code> 个交叉特征参数</strong>。</li>
-</ul>
-</li>
-<li>好处：将特征间的隐向量做了隔离，能专门取学习不同特征间 field 交叉的信息。</li>
-</ul>
-</li>
-<li><strong>复杂度</strong>：<ul>
-<li><strong>公式</strong>：<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><br><mtable displaystyle="true"><br><mlabeledtr><br><mtd><br>  <mi>y</mi><br>  <mo stretchy="false">(</mo><br>  <mrow class="MJX-TeXAtom-ORD"><pre><code>&lt;mi mathvariant=&quot;bold&quot;&gt;x&lt;/mi&gt;
-</code></pre>  </mrow><br>  <mo stretchy="false">)</mo><br>  <mo>=</mo><br>  <msub><pre><code>&lt;mi&gt;w&lt;/mi&gt;
-&lt;mn&gt;0&lt;/mn&gt;
-</code></pre>  </msub><br>  <mo>+</mo><br>  <munderover><pre><code>&lt;mo&gt;&amp;#x2211;&lt;!-- ∑ --&gt;&lt;/mo&gt;
-&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;
-  &lt;mi&gt;i&lt;/mi&gt;
-  &lt;mo&gt;=&lt;/mo&gt;
-  &lt;mn&gt;1&lt;/mn&gt;
-&lt;/mrow&gt;
-&lt;mi&gt;n&lt;/mi&gt;
-</code></pre>  </munderover><br>  <msub><pre><code>&lt;mi&gt;w&lt;/mi&gt;
-&lt;mi&gt;i&lt;/mi&gt;
-</code></pre>  </msub><br>  <msub><pre><code>&lt;mi&gt;x&lt;/mi&gt;
-&lt;mi&gt;i&lt;/mi&gt;
-</code></pre>  </msub><br>  <mo>+</mo><br>  <munderover><pre><code>&lt;mo&gt;&amp;#x2211;&lt;!-- ∑ --&gt;&lt;/mo&gt;
-&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;
-  &lt;mi&gt;i&lt;/mi&gt;
-  &lt;mo&gt;=&lt;/mo&gt;
-  &lt;mn&gt;1&lt;/mn&gt;
-&lt;/mrow&gt;
-&lt;mi&gt;n&lt;/mi&gt;
-</code></pre>  </munderover><br>  <munderover><pre><code>&lt;mo&gt;&amp;#x2211;&lt;!-- ∑ --&gt;&lt;/mo&gt;
-&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;
-  &lt;mi&gt;j&lt;/mi&gt;
-  &lt;mo&gt;=&lt;/mo&gt;
-  &lt;mi&gt;i&lt;/mi&gt;
-  &lt;mo&gt;+&lt;/mo&gt;
-  &lt;mn&gt;1&lt;/mn&gt;
-&lt;/mrow&gt;
-&lt;mi&gt;n&lt;/mi&gt;
-</code></pre>  </munderover><br>  <mo fence="false" stretchy="false">&#x27E8;<!-- ⟨ --></mo><br>  <msub><pre><code>&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;
-  &lt;mi mathvariant=&quot;bold&quot;&gt;v&lt;/mi&gt;
-&lt;/mrow&gt;
-&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;
-  &lt;mi&gt;i&lt;/mi&gt;
-  &lt;mo&gt;,&lt;/mo&gt;
-  &lt;msub&gt;
-    &lt;mi&gt;f&lt;/mi&gt;
-    &lt;mi&gt;j&lt;/mi&gt;
-  &lt;/msub&gt;
-&lt;/mrow&gt;
-</code></pre>  </msub><br>  <mo>,</mo><br>  <msub><pre><code>&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;
-  &lt;mi mathvariant=&quot;bold&quot;&gt;v&lt;/mi&gt;
-&lt;/mrow&gt;
-&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;
-  &lt;mi&gt;j&lt;/mi&gt;
-  &lt;mo&gt;,&lt;/mo&gt;
-  &lt;msub&gt;
-    &lt;mi&gt;f&lt;/mi&gt;
-    &lt;mi&gt;i&lt;/mi&gt;
-  &lt;/msub&gt;
-&lt;/mrow&gt;
-</code></pre>  </msub><br>  <mo fence="false" stretchy="false">&#x27E9;<!-- ⟩ --></mo><br>  <msub><pre><code>&lt;mi&gt;x&lt;/mi&gt;
-&lt;mi&gt;i&lt;/mi&gt;
-</code></pre>  </msub><br>  <msub><pre><code>&lt;mi&gt;x&lt;/mi&gt;
-&lt;mi&gt;j&lt;/mi&gt;
-</code></pre>  </msub><br></mtd><br></mlabeledtr><br></mtable><br></math>也就是计算交叉特征权重的方式中引入了field。</li>
-<li>预测/复杂度：<strong>O(k*n^2)</strong>。</li>
-<li>特别的，由于每个特征都维护了一个<code>fxk</code>的矩阵，来表达一个 field 和其他所有 field 做特征交叉的权重。在更新梯度的时候套路还是一样，只是要更新到的特征空间更加复杂。</li>
-</ul>
-</li>
-<li>特征表示：<code>field_id:feat_id:value</code>，feat_id 为特征编号。</li>
-</ul>
-<h2 id="论文"><a href="#论文" class="headerlink" title="论文"></a>论文</h2><p><a href="https://www.csie.ntu.edu.tw/~cjlin/papers/ffm.pdf" target="_blank" rel="noopener">paper</a><br>在该论文中对正负样本处理成了1、-1.<br>损失函数选择了交叉熵。<br>求偏导时用到了链式法则。</p>
-<h1 id="DeepMF"><a href="#DeepMF" class="headerlink" title="DeepMF"></a>DeepMF</h1>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="blog.lovelaolao.xin/Algorithm/Leetcode-Categories/1-算法设计/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2878,6 +2338,197 @@ password: test
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/Algorithm/算法技巧/智力题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="blog.lovelaolao.xin/深度学习/DL领域知识/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hou Zhe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/handsomeme.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fall Out Boy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/深度学习/DL领域知识/" itemprop="url">DL领域知识</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-30T00:00:00+08:00">
+                2017-08-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/深度学习/DL领域知识/" class="leancloud_visitors" data-flag-title="DL领域知识">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,738 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="一些专业词汇"><a href="#一些专业词汇" class="headerlink" title="一些专业词汇"></a>一些专业词汇</h2><pre><code>imbalance 不平衡
+sparse 稀疏【即特征的向量表示的时候，0比特征维度小得多，一般表达出数据信息的缺失。
+    一般处理方式是降维、】
+</code></pre><h1 id="1-深度学习的三步："><a href="#1-深度学习的三步：" class="headerlink" title="1.深度学习的三步："></a>1.深度学习的三步：</h1><p>（thinner+deeper）<br>（1）选择神经网络<br>（2）评价方法的好坏<br>loss/total loss，<br>（3）选择最好的方法<br>梯度下降、epoch（每个epoch后都打乱一次数据）-batch size-iteration（有的时候呀，层数太多也会过拟合呀）<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/深度学习/DL领域知识/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
