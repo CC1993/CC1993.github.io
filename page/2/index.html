@@ -465,10 +465,17 @@
 
       
         
-          <h2 id="一些专业词汇"><a href="#一些专业词汇" class="headerlink" title="一些专业词汇"></a>一些专业词汇</h2><pre><code>imbalance 不平衡
+          <h2 id="一些专业词汇">一些专业词汇</h2>
+<pre><code>imbalance 不平衡
 sparse 稀疏【即特征的向量表示的时候，0比特征维度小得多，一般表达出数据信息的缺失。
-    一般处理方式是降维、】
-</code></pre><h1 id="1-深度学习的三步："><a href="#1-深度学习的三步：" class="headerlink" title="1.深度学习的三步："></a>1.深度学习的三步：</h1><p>（thinner+deeper）<br>（1）选择神经网络<br>（2）评价方法的好坏<br>loss/total loss，<br>（3）选择最好的方法<br>梯度下降、epoch（每个epoch后都打乱一次数据）-batch size-iteration（有的时候呀，层数太多也会过拟合呀）<br>
+    一般处理方式是降维、】</code></pre>
+<h1 id="深度学习的三步">1.深度学习的三步：</h1>
+<p>（thinner+deeper）<br>
+（1）选择神经网络<br>
+（2）评价方法的好坏<br>
+loss/total loss，<br>
+（3）选择最好的方法<br>
+梯度下降、epoch（每个epoch后都打乱一次数据）-batch size-iteration（有的时候呀，层数太多也会过拟合呀）
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/深度学习/DL领域知识/#more" rel="contents">
@@ -656,9 +663,11 @@ sparse 稀疏【即特征的向量表示的时候，0比特征维度小得多，
 
       
         
-          <h1 id="1-DL领域知识"><a href="#1-DL领域知识" class="headerlink" title="1. DL领域知识"></a>1. DL领域知识</h1><p><a href="http://www.cnblogs.com/tychyg/p/5313094.html" target="_blank" rel="noopener">http://www.cnblogs.com/tychyg/p/5313094.html</a><br>以前的普通神经网络、SVM等都是浅层学习（shallow learning），深度学习是机器学习的第二次浪潮。  </p>
-<p>因为多隐层神经网络具有优异的特征学习能力，且可以借助逐层初始化降低深度神经网络的训练难度。  </p>
-<p>很久以前就有深度学习的概念，但是由于容易过拟合、训练速度慢一直都不如SVM、boosting，一直都是hinton坚持研究可行的深度学习框架。deep learning整体上是一个layer-wise的训练机制。这样做的原因是因为，如果采用back propagation的机制，对于一个deep network（7层以上），残差传播到最前面的层已经变得太小，出现所谓的gradient diffusion（梯度扩散）。这个问题我们接下来讨论。<br><strong>神经网络的深度越深，越可以用更少的数据完成更优秀的拟合。</strong>迭代组成的先验知识使得样本可用于帮助训练其他共用同样底层结构的样本。<br>
+          <h1 id="dl领域知识">1. DL领域知识</h1>
+<p><a href="http://www.cnblogs.com/tychyg/p/5313094.html" class="uri" target="_blank" rel="noopener">http://www.cnblogs.com/tychyg/p/5313094.html</a><br>
+以前的普通神经网络、SVM等都是浅层学习（shallow learning），深度学习是机器学习的第二次浪潮。</p>
+<p>因为多隐层神经网络具有优异的特征学习能力，且可以借助逐层初始化降低深度神经网络的训练难度。</p>
+<p>很久以前就有深度学习的概念，但是由于容易过拟合、训练速度慢一直都不如SVM、boosting，一直都是hinton坚持研究可行的深度学习框架。deep learning整体上是一个layer-wise的训练机制。这样做的原因是因为，如果采用back propagation的机制，对于一个deep network（7层以上），残差传播到最前面的层已经变得太小，出现所谓的gradient diffusion（梯度扩散）。这个问题我们接下来讨论。 <strong>神经网络的深度越深，越可以用更少的数据完成更优秀的拟合。</strong>迭代组成的先验知识使得样本可用于帮助训练其他共用同样底层结构的样本。
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/深度学习/DL基础/#more" rel="contents">
@@ -846,13 +855,13 @@ sparse 稀疏【即特征的向量表示的时候，0比特征维度小得多，
 
       
         
-          <h2 id="MapReduce编程"><a href="#MapReduce编程" class="headerlink" title="MapReduce编程"></a>MapReduce编程</h2><h3 id="二度好友问题（有点tricky-陌陌面试题）"><a href="#二度好友问题（有点tricky-陌陌面试题）" class="headerlink" title="二度好友问题（有点tricky-陌陌面试题）"></a>二度好友问题（有点tricky-陌陌面试题）</h3><p><img src="http://p9f9koofz.bkt.clouddn.com/二度好友.png" alt="avatar"><br>例如输入：  </p>
-<blockquote>
-<p>[A,B] [B,C] [C,D] [D,E] [E,F] [F,D] [F,C] [F,G] [G,I] [G,H] [H,I] [I,C] [H,A]  </p>
-</blockquote>
-<p>输出所有二度好友：  </p>
-<blockquote>
-<p>[A,C I G] [B, D F I H]…..<br>
+          <h2 id="mapreduce编程">MapReduce编程</h2>
+<h3 id="二度好友问题有点tricky-陌陌面试题">二度好友问题（有点tricky-陌陌面试题）</h3>
+<p><img src="http://p9f9koofz.bkt.clouddn.com/二度好友.png" alt="avatar"><br>
+例如输入：<br>
+&gt;[A,B] [B,C] [C,D] [D,E] [E,F] [F,D] [F,C] [F,G] [G,I] [G,H] [H,I] [I,C] [H,A]</p>
+<p>输出所有二度好友：<br>
+&gt;[A,C I G] [B, D F I H]…..
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/面经总结/3.BigData-面试必考/#more" rel="contents">
@@ -1040,7 +1049,9 @@ sparse 稀疏【即特征的向量表示的时候，0比特征维度小得多，
 
       
         
-          <h1 id="实习经历"><a href="#实习经历" class="headerlink" title="实习经历"></a>实习经历</h1><h2 id="滴滴"><a href="#滴滴" class="headerlink" title="滴滴"></a>滴滴</h2><h3 id="在实习中做的项目有哪些印象深刻的地方"><a href="#在实习中做的项目有哪些印象深刻的地方" class="headerlink" title="在实习中做的项目有哪些印象深刻的地方"></a>在实习中做的项目有哪些印象深刻的地方</h3>
+          <h1 id="实习经历">实习经历</h1>
+<h2 id="滴滴">滴滴</h2>
+<h3 id="在实习中做的项目有哪些印象深刻的地方">在实习中做的项目有哪些印象深刻的地方</h3>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/面经总结/6.实习:项目-面试必考/#more" rel="contents">
@@ -1228,234 +1239,12 @@ sparse 稀疏【即特征的向量表示的时候，0比特征维度小得多，
 
       
         
-          <h2 id="1-2-偏向数据挖掘部分"><a href="#1-2-偏向数据挖掘部分" class="headerlink" title="1.2 偏向数据挖掘部分"></a>1.2 偏向数据挖掘部分</h2><h3 id="信息论：信息熵-条件熵-互信息-信息增益-交叉熵"><a href="#信息论：信息熵-条件熵-互信息-信息增益-交叉熵" class="headerlink" title="信息论：信息熵 条件熵 互信息/信息增益 交叉熵"></a>信息论：信息熵 条件熵 互信息/信息增益 交叉熵</h3><p><img src="http://p9f9koofz.bkt.clouddn.com/各种熵.png" alt="avatar"><br>
+          <h2 id="偏向数据挖掘部分">1.2 偏向数据挖掘部分</h2>
+<h3 id="信息论信息熵-条件熵-互信息信息增益-交叉熵">信息论：信息熵 条件熵 互信息/信息增益 交叉熵</h3>
+<p><img src="http://p9f9koofz.bkt.clouddn.com/各种熵.png" alt="avatar">
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/面经总结/1.DM-面试必考/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="blog.lovelaolao.xin/Algorithm/Array/Medium/Leetcode节奏Arraymedium/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hou Zhe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/handsomeme.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Fall Out Boy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Algorithm/Array/Medium/Leetcode节奏Arraymedium/" itemprop="url">Array-Medium难度刷题总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-06T23:32:00+08:00">
-                2018-06-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/Array/" itemprop="url" rel="index">
-                    <span itemprop="name">Array</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/Array/Medium/" itemprop="url" rel="index">
-                    <span itemprop="name">Medium</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/Algorithm/Array/Medium/Leetcode节奏Arraymedium/" class="leancloud_visitors" data-flag-title="Array-Medium难度刷题总结">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  8,551 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  34 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h1><p>很暴力的做法回溯也是很常见的做法。</p>
-<h2 id="2018-4-1-Maximum-Product-of-Three-Numbers-Medium"><a href="#2018-4-1-Maximum-Product-of-Three-Numbers-Medium" class="headerlink" title="2018.4.1-Maximum Product of Three Numbers-Medium"></a>2018.4.1-Maximum Product of Three Numbers-Medium</h2><p><strong>多局部标记</strong></p>
-<blockquote>
-<p>从一个数组中找到三个数，使其乘积max。</p>
-</blockquote>
-<pre><code>我的做法：
-    用堆排序，得到正数的前三个，负数的后两个。
-    但是你怎么知道建立多大的堆呢？
-    一旦遍历得到大小，那就意味着失去了堆排序的优势了。
-    但是必须得得到大小啊。。所以错。
-
-正答：
-    遍历一遍就可以了。不断更新五个临时变量。
-    但是注意，初始化是Integer.MAX/MIN_VALUE，否则无法分辨全是负数的情况。
-</code></pre>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/Algorithm/Array/Medium/Leetcode节奏Arraymedium/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1662,9 +1451,11 @@ sparse 稀疏【即特征的向量表示的时候，0比特征维度小得多，
 
       
         
-          <h1 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h1><p>很暴力的做法回溯也是很常见的做法。</p>
-<h2 id="未来可以继续做的hard题"><a href="#未来可以继续做的hard题" class="headerlink" title="未来可以继续做的hard题"></a>未来可以继续做的hard题</h2><p><strong><code>715、123、85、57、84、719、4</code></strong><br>时间来不及的话建议想想差不多就看discuss，不要占用一个半小时以上的时间。</p>
-<h2 id="2018-4-8-Max-Chunks-To-Make-Sorted-II-Hard"><a href="#2018-4-8-Max-Chunks-To-Make-Sorted-II-Hard" class="headerlink" title="2018.4.8-Max Chunks To Make Sorted II-Hard"></a>2018.4.8-Max Chunks To Make Sorted II-Hard</h2><p><strong>dp 贪心</strong></p>
+          <h1 id="array">Array</h1>
+<p>很暴力的做法回溯也是很常见的做法。 ## 未来可以继续做的hard题 <strong><code>715、123、85、57、84、719、4</code></strong><br>
+时间来不及的话建议想想差不多就看discuss，不要占用一个半小时以上的时间。</p>
+<h2 id="max-chunks-to-make-sorted-ii-hard">2018.4.8-Max Chunks To Make Sorted II-Hard</h2>
+<p><strong>dp 贪心</strong></p>
 <blockquote>
 <p>将一个数组分成多个块，如果对每个块排序，按照块的顺序组装起来能得到全排序的数组，那么最多能分多少块。</p>
 </blockquote>
@@ -1673,11 +1464,235 @@ sparse 稀疏【即特征的向量表示的时候，0比特征维度小得多，
 用dp[i]保存前i个元素里的最大的那个。
 然后从后往前遍历，用一个min保存后面元素里的最小值。
 遍历到i的min和dp[i-1]比较。
-每当min&gt;dp[i-1]，更新min为arr[i-1]，然后块数+1。否则更新min。
-</code></pre><p>一次AC，beat88%。<br>
+每当min&gt;dp[i-1]，更新min为arr[i-1]，然后块数+1。否则更新min。</code></pre>
+<p>一次AC，beat88%。
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/Algorithm/Array/Hard/Leetcode节奏Arrayhard/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="blog.lovelaolao.xin/Algorithm/Array/Medium/Leetcode节奏Arraymedium/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hou Zhe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/handsomeme.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fall Out Boy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Algorithm/Array/Medium/Leetcode节奏Arraymedium/" itemprop="url">Array-Medium难度刷题总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-06T23:32:00+08:00">
+                2018-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/Array/" itemprop="url" rel="index">
+                    <span itemprop="name">Array</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/Array/Medium/" itemprop="url" rel="index">
+                    <span itemprop="name">Medium</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/Algorithm/Array/Medium/Leetcode节奏Arraymedium/" class="leancloud_visitors" data-flag-title="Array-Medium难度刷题总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  8,551 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  34 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="array">Array</h1>
+<p>很暴力的做法回溯也是很常见的做法。 ## 2018.4.1-Maximum Product of Three Numbers-Medium <strong>多局部标记</strong></p>
+<blockquote>
+<p>从一个数组中找到三个数，使其乘积max。</p>
+</blockquote>
+<pre><code>我的做法：
+    用堆排序，得到正数的前三个，负数的后两个。
+    但是你怎么知道建立多大的堆呢？
+    一旦遍历得到大小，那就意味着失去了堆排序的优势了。
+    但是必须得得到大小啊。。所以错。
+    
+正答：
+    遍历一遍就可以了。不断更新五个临时变量。
+    但是注意，初始化是Integer.MAX/MIN_VALUE，否则无法分辨全是负数的情况。
+    </code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/Algorithm/Array/Medium/Leetcode节奏Arraymedium/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1824,7 +1839,7 @@ sparse 稀疏【即特征的向量表示的时候，0比特征维度小得多，
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  441 字
+                  440 字
                 </span>
               
 
@@ -1862,11 +1877,13 @@ sparse 稀疏【即特征的向量表示的时候，0比特征维度小得多，
 
       
         
-          <h1 id="1-原理"><a href="#1-原理" class="headerlink" title="1. 原理"></a>1. 原理</h1><pre><code>C = {y1, y2, y3, ....., ym} 
+          <h1 id="原理">1. 原理</h1>
+<pre><code>C = {y1, y2, y3, ....., ym} 
 类别集合，共k种样本类别。
 x = {x1, x2, ..., xn} 
-样本特征表示，共n个特征。
-</code></pre><p>条件概率公式：<br><img src="http://p9f9koofz.bkt.clouddn.com/条件概率.png" alt="avatar"><br>
+样本特征表示，共n个特征。</code></pre>
+<p>条件概率公式：<br>
+<img src="http://p9f9koofz.bkt.clouddn.com/条件概率.png" alt="avatar"><br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/机器学习/朴素贝叶斯/#more" rel="contents">
@@ -2054,10 +2071,9 @@ x = {x1, x2, ..., xn}
 
       
         
-          <p>hadoop = HDFS + MapReduce</p>
-<h1 id="HDFS"><a href="#HDFS" class="headerlink" title="HDFS"></a>HDFS</h1><p>DFS即分布式文件系统，分布式文件存储在多个机器组成的集群中，用来管理分布式文件存储的系统称之为分布式文件系统。</p>
+          <p>hadoop = HDFS + MapReduce # HDFS DFS即分布式文件系统，分布式文件存储在多个机器组成的集群中，用来管理分布式文件存储的系统称之为分布式文件系统。</p>
 <p>HDFS即Hadoop分布式文件系统，它擅长存储大文件，流式读取，运行于一般性的商业硬件上。HDFS不适合存储大量的小文件，namenode会在内存中存储元数据，通常情况下每个文件、目录和块都将占用150个字节；也不适合任意并发写的场景，HDFS的写文件操作是append的模式。</p>
-<p>在HDFS中，文件被分割成不同的块存储在集群的数据节点里，文件系统的元数据由文件系统集中管理。<br>
+<p>在HDFS中，文件被分割成不同的块存储在集群的数据节点里，文件系统的元数据由文件系统集中管理。
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/面经总结/2.HDFS+MapReduce/#more" rel="contents">
@@ -2245,8 +2261,10 @@ x = {x1, x2, ..., xn}
 
       
         
-          <h1 id="1-模型："><a href="#1-模型：" class="headerlink" title="1.模型："></a>1.模型：</h1><p><strong>线性回归、逻辑回归、神经网络</strong>（前向传播+后向传播）<strong>、SVM</strong>（svm简单快速，但是还是更倾向于特征是直接获取的而不是由数据自己学习到的）  </p>
-<h1 id="2-训练过程："><a href="#2-训练过程：" class="headerlink" title="2.训练过程："></a>2.训练过程：</h1><p><strong>梯度下降、矩阵乘法</strong>（必须特征缩放、均值归一，适用于特征较多情况）<strong>、正规方程</strong>（无需训练过程与迭代，特征值很多会很慢）<strong>、神经网络后向传播、SVM核函数</strong><br>
+          <h1 id="模型">1.模型：</h1>
+<p><strong>线性回归、逻辑回归、神经网络</strong>（前向传播+后向传播）<strong>、SVM</strong>（svm简单快速，但是还是更倾向于特征是直接获取的而不是由数据自己学习到的）<br>
+# 2.训练过程：<br>
+<strong>梯度下降、矩阵乘法</strong>（必须特征缩放、均值归一，适用于特征较多情况）<strong>、正规方程</strong>（无需训练过程与迭代，特征值很多会很慢）<strong>、神经网络后向传播、SVM核函数</strong>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/机器学习/领域知识/#more" rel="contents">
@@ -3134,11 +3152,50 @@ x = {x1, x2, ..., xn}
       
       new needShareButton('#needsharebutton-float', flOptions);
     
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
 
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
 
   
 

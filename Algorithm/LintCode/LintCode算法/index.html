@@ -101,7 +101,7 @@
 
 
 
-  <meta name="keywords" content="LintCode,Matrix," />
+  <meta name="keywords" content="Matrix,LintCode," />
 
 
 
@@ -114,18 +114,18 @@
 
 
 
-<meta name="description" content="数据结构–矩阵int[][] arr; arr.length:行数 arr[1].length:第二行的元素数（列数） 和为零的子矩阵—👍👍👍提供一个矩阵，寻找一个和为0的子矩阵。返回子矩阵的左上角下标和右下角下标。 学会了：一个矩阵（矩形）所有元素的和dp[i][j][x][y]可以由dp[0][0][x][y]、dp[0][0][x][j-1]、dp[0][0][i-1][y]、dp[0">
-<meta name="keywords" content="LintCode,Matrix">
+<meta name="description" content="数据结构–矩阵 int[][] arr; arr.length:行数 arr[1].length:第二行的元素数（列数） 和为零的子矩阵—👍👍👍 提供一个矩阵，寻找一个和为0的子矩阵。返回子矩阵的左上角下标和右下角下标。 学会了：一个矩阵（矩形）所有元素的和dp[i][j][x][y]可以由dp[0][0][x][y]、dp[0][0][x][j-1]、dp[0][0][i-1][y]、dp">
+<meta name="keywords" content="Matrix,LintCode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LintCode算法.md">
 <meta property="og:url" content="blog.lovelaolao.xin/Algorithm/LintCode/LintCode算法/index.html">
 <meta property="og:site_name" content="Fall Out Boy">
-<meta property="og:description" content="数据结构–矩阵int[][] arr; arr.length:行数 arr[1].length:第二行的元素数（列数） 和为零的子矩阵—👍👍👍提供一个矩阵，寻找一个和为0的子矩阵。返回子矩阵的左上角下标和右下角下标。 学会了：一个矩阵（矩形）所有元素的和dp[i][j][x][y]可以由dp[0][0][x][y]、dp[0][0][x][j-1]、dp[0][0][i-1][y]、dp[0">
+<meta property="og:description" content="数据结构–矩阵 int[][] arr; arr.length:行数 arr[1].length:第二行的元素数（列数） 和为零的子矩阵—👍👍👍 提供一个矩阵，寻找一个和为0的子矩阵。返回子矩阵的左上角下标和右下角下标。 学会了：一个矩阵（矩形）所有元素的和dp[i][j][x][y]可以由dp[0][0][x][y]、dp[0][0][x][j-1]、dp[0][0][i-1][y]、dp">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-05-28T07:56:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LintCode算法.md">
-<meta name="twitter:description" content="数据结构–矩阵int[][] arr; arr.length:行数 arr[1].length:第二行的元素数（列数） 和为零的子矩阵—👍👍👍提供一个矩阵，寻找一个和为0的子矩阵。返回子矩阵的左上角下标和右下角下标。 学会了：一个矩阵（矩形）所有元素的和dp[i][j][x][y]可以由dp[0][0][x][y]、dp[0][0][x][j-1]、dp[0][0][i-1][y]、dp[0">
+<meta name="twitter:description" content="数据结构–矩阵 int[][] arr; arr.length:行数 arr[1].length:第二行的元素数（列数） 和为零的子矩阵—👍👍👍 提供一个矩阵，寻找一个和为0的子矩阵。返回子矩阵的左上角下标和右下角下标。 学会了：一个矩阵（矩形）所有元素的和dp[i][j][x][y]可以由dp[0][0][x][y]、dp[0][0][x][j-1]、dp[0][0][i-1][y]、dp">
 
 
 
@@ -484,24 +484,27 @@
       
 
       
-        <h1 id="数据结构–矩阵"><a href="#数据结构–矩阵" class="headerlink" title="数据结构–矩阵"></a>数据结构–矩阵</h1><pre><code>int[][] arr;
+        <h1 id="数据结构矩阵">数据结构–矩阵</h1>
+<pre><code>int[][] arr;
 arr.length:行数
-arr[1].length:第二行的元素数（列数）
-</code></pre><h2 id="和为零的子矩阵—👍👍👍"><a href="#和为零的子矩阵—👍👍👍" class="headerlink" title="和为零的子矩阵—👍👍👍"></a>和为零的子矩阵—👍👍👍</h2><p>提供一个矩阵，寻找一个和为0的子矩阵。返回子矩阵的左上角下标和右下角下标。</p>
+arr[1].length:第二行的元素数（列数）</code></pre>
+<h2 id="和为零的子矩阵">和为零的子矩阵—👍👍👍</h2>
+<p>提供一个矩阵，寻找一个和为0的子矩阵。返回子矩阵的左上角下标和右下角下标。</p>
 <p><strong>学会了：一个矩阵（矩形）所有元素的和dp[i][j][x][y]可以由dp[0][0][x][y]、dp[0][0][x][j-1]、dp[0][0][i-1][y]、dp[0][0][i-1][j-1]计算得来。</strong></p>
 <a id="more"></a>
-<h3 id="n-4"><a href="#n-4" class="headerlink" title="n^4"></a>n^4</h3><p>哎，第一反应是dp，还好是可以做的。<br>时间复杂度是优化的n^4，因为要考虑起终点，一共有四个int。</p>
+<h3 id="n4">n^4</h3>
+<p>哎，第一反应是dp，还好是可以做的。<br>
+时间复杂度是优化的n^4，因为要考虑起终点，一共有四个int。</p>
 <pre><code>dp[i][j][x][y]表示从i,j到x,y的矩阵和的大小。
 
 每个dp[i][j][x][y] = dp[i][j][x-1][y] + 
 dp[i][j][x][y-1] - dp[i][j][x-1][y-1] + arr[i][j]
 
-所以一定会写四层循环。前两层确定起点，后两层确定重点。
-</code></pre><p>写起来比较麻烦，思路不难，但是数据太大会死掉。<br>为了达到题目要求的n^3的时间复杂度要求，可以做一次很骚的变换。</p>
-<blockquote>
-<p>回头看起来，神奇的想法🤦‍♀️，还真能做出来。</p>
-</blockquote>
-<h3 id="n-3-（太难想了）"><a href="#n-3-（太难想了）" class="headerlink" title="n^3 （太难想了）"></a>n^3 （太难想了）</h3><p>在写四层循环的时候就可以发现了，每个起点都要计算一个单独的dp矩阵。而实际上这个矩阵的计算有很多冗余。</p>
+所以一定会写四层循环。前两层确定起点，后两层确定重点。</code></pre>
+<p>写起来比较麻烦，思路不难，但是数据太大会死掉。<br>
+为了达到题目要求的n^3的时间复杂度要求，可以做一次很骚的变换。 &gt; 回头看起来，神奇的想法🤦‍♀️，还真能做出来。</p>
+<h3 id="n3-太难想了">n^3 （太难想了）</h3>
+<p>在写四层循环的时候就可以发现了，每个起点都要计算一个单独的dp矩阵。而实际上这个矩阵的计算有很多冗余。</p>
 <p>但是思考问题的方式：起点-重点 的思路限制了必须这样做。</p>
 <p>但是转换角度后，可以发现：</p>
 <pre><code>dp[i][j][x][y] = dp[0][0][x][y] - dp[0][0][x][j-1]
@@ -509,39 +512,41 @@ dp[i][j][x][y-1] - dp[i][j][x-1][y-1] + arr[i][j]
 
 即把起终点的矩阵块，由起点为0，0到终点为x，y的矩阵块分割得到
 
-然而从0，0到x，y的矩阵是所有起点都共享的，只需要计算一次。
-</code></pre><p>所以就变成了n^3.  个鬼啦！<br><strong>用dp[i][j]表示从0，0到i，j的矩阵的和就够了。</strong><br>这里求得所有的dp[i][j]就已经用了n^2，然后还要求sum[i][j][x][y]也要双层循环。</p>
-<p>目前为止只是转化了一下思考方式，算是打下了基础。<br>我们来看公式：</p>
+然而从0，0到x，y的矩阵是所有起点都共享的，只需要计算一次。</code></pre>
+<p>所以就变成了n^3. 个鬼啦！<br>
+<strong>用dp[i][j]表示从0，0到i，j的矩阵的和就够了。</strong><br>
+这里求得所有的dp[i][j]就已经用了n^2，然后还要求sum[i][j][x][y]也要双层循环。</p>
+<p>目前为止只是转化了一下思考方式，算是打下了基础。<br>
+我们来看公式：</p>
 <pre><code>sum[i][j][x][y] = dp[x][y] + dp[i][j] - dp[x][j] - dp[i][y]
-如果要满足sum为0，也就意味着0 = dp[x][y] + dp[i][j] - dp[x][j] - dp[i][y]
-</code></pre><p>我们转换一下公式：    </p>
-<pre><code>dp[x][y] - dp[x][j] = dp[i][y] - dp[i][j]
-</code></pre><p>这里明显的公式两侧就变成了三个参数。所以通过三层循环计算出所有的dp[x][y] - dp[x][j]，然后在遍历一遍寻找相等的两个值。（带着i、j、x、y的条件。）<br>这才是n^3。</p>
-<h2 id="排序矩阵中的从小到大第k个数—👍👍👍"><a href="#排序矩阵中的从小到大第k个数—👍👍👍" class="headerlink" title="排序矩阵中的从小到大第k个数—👍👍👍"></a>排序矩阵中的从小到大第k个数—👍👍👍</h2><p>矩阵每一行都是从小到大排序好的。<br>要求时间复杂度klogn。</p>
-<h3 id="我的思路："><a href="#我的思路：" class="headerlink" title="我的思路："></a>我的思路：</h3><p>由于选出前k个最小的元素的最快算法是堆排序，所以打算用堆排序。<br>但是还要考虑如何选出建堆的元素们。</p>
+如果要满足sum为0，也就意味着0 = dp[x][y] + dp[i][j] - dp[x][j] - dp[i][y]</code></pre>
+<p>我们转换一下公式：</p>
+<pre><code>dp[x][y] - dp[x][j] = dp[i][y] - dp[i][j]</code></pre>
+<p>这里明显的公式两侧就变成了三个参数。所以通过三层循环计算出所有的dp[x][y] - dp[x][j]，然后在遍历一遍寻找相等的两个值。（带着i、j、x、y的条件。）<br>
+这才是n^3。 ## 排序矩阵中的从小到大第k个数—👍👍👍 矩阵每一行都是从小到大排序好的。<br>
+要求时间复杂度klogn。 ### 我的思路： 由于选出前k个最小的元素的最快算法是堆排序，所以打算用堆排序。<br>
+但是还要考虑如何选出建堆的元素们。</p>
 <blockquote>
-<ol>
+<ol type="1">
 <li>先选出足够k个元素建堆，原理是，先选出一个矩阵，矩阵长度为sqrt(k)+1。然后把除小矩阵右下角（最大值）右下侧元素的所有元素加入考虑。</li>
 <li>此时堆里一定有足够多的元素，然后输出到第k个元素。</li>
 </ol>
 </blockquote>
 <p>所以准备两个方法，一个heapify方法，一个建堆+出堆的方法。</p>
-<p>但是写着写着发现，太特么蠢了，也太难写了。</p>
-<h3 id="优化一下："><a href="#优化一下：" class="headerlink" title="优化一下："></a>优化一下：</h3><blockquote>
-<p>因为上一个思路最大的问题是选出来足够的元素来堆排序，但是选择的标准很容易就到了n^2。</p>
-</blockquote>
+<p>但是写着写着发现，太特么蠢了，也太难写了。 ### 优化一下： &gt;因为上一个思路最大的问题是选出来足够的元素来堆排序，但是选择的标准很容易就到了n^2。</p>
 <blockquote>
 <p>所以打算改用插入排序的思想，准备一个有序集合，不断更新已经确定一定是这样的位置的长度。</p>
 </blockquote>
 <blockquote>
 <p>但是这样实际上不是插入排序了，是归并，还不是分治思想的归并。说白了就是把矩阵前几列列入了考虑，一旦前几列的数据比较稀疏，那就相当于把整个矩阵全都排序了。nlogn不满足。</p>
 </blockquote>
-<h3 id="正答："><a href="#正答：" class="headerlink" title="正答："></a>正答：</h3><p>实际上即不需要堆排序（还是需要的）、也不需要插入排序等等。也不需要一个有序序列。因为输出的只是一个结果而已。只是单纯的以行为单位顺序遍历就行了。</p>
+<h3 id="正答">正答：</h3>
+<p>实际上即不需要堆排序（还是需要的）、也不需要插入排序等等。也不需要一个有序序列。因为输出的只是一个结果而已。只是单纯的以行为单位顺序遍历就行了。</p>
 <blockquote>
 <p>因为要输出第k小的那个元素，那么循环k次输出整个矩阵的最小的那个。</p>
 </blockquote>
 <blockquote>
-<p>因为每一行的数据都是从小到大的，那么矩阵里的元素就不需要重复遍历<br>到，最多每个元素遍历一次。</p>
+<p>因为每一行的数据都是从小到大的，那么矩阵里的元素就不需要重复遍历 到，最多每个元素遍历一次。</p>
 </blockquote>
 <blockquote>
 <p>用一个数组来保存每一行元素中，在k次遍历里还没被选出来的第一个元素。</p>
@@ -549,34 +554,34 @@ dp[i][j][x][y-1] - dp[i][j][x-1][y-1] + arr[i][j]
 <pre><code>k次遍历每次都需要遍历每一行。
 用flag保存本次遍历最小元素产生在了哪行。
 用temp保存本次遍历中目前的最小值。
-用result保存每次遍历结果的最小值，最终输出result。
-</code></pre><p>目前为止可以实现kn的复杂度。因为每次遍历相当于选出来了n个元素，再找到最小那个。<br>所以借助堆排序，用n个元素来建堆，然后输出堆顶，加入新的元素。直到输出k个。所以是O(klogn)</p>
-<h2 id="矩阵归零"><a href="#矩阵归零" class="headerlink" title="矩阵归零"></a>矩阵归零</h2><p>如果矩阵中一个元素（原始的）是0，那么把其所在行、列都置0.<br>easy：用两个set储存有哪些行、列存在0元素。遍历一次所有元素即可。</p>
-<h2 id="搜索二维矩阵-II"><a href="#搜索二维矩阵-II" class="headerlink" title="搜索二维矩阵 II"></a>搜索二维矩阵 II</h2><p>矩阵可以理解为是一个排序好的数据，截成一行一行组成的矩阵。<br>目标：O(log(n) + log(m))</p>
-<h3 id="第一印象"><a href="#第一印象" class="headerlink" title="第一印象"></a>第一印象</h3><p>可以用一个int min标记每一行最小的大于等于目标元素的位置。那么下一行最多遍历到这个点即可，并且更新这个min。</p>
+用result保存每次遍历结果的最小值，最终输出result。</code></pre>
+<p>目前为止可以实现kn的复杂度。因为每次遍历相当于选出来了n个元素，再找到最小那个。<br>
+所以借助堆排序，用n个元素来建堆，然后输出堆顶，加入新的元素。直到输出k个。所以是O(klogn)</p>
+<h2 id="矩阵归零">矩阵归零</h2>
+<p>如果矩阵中一个元素（原始的）是0，那么把其所在行、列都置0.<br>
+easy：用两个set储存有哪些行、列存在0元素。遍历一次所有元素即可。 ## 搜索二维矩阵 II 矩阵可以理解为是一个排序好的数据，截成一行一行组成的矩阵。<br>
+目标：O(log(n) + log(m)) ### 第一印象 可以用一个int min标记每一行最小的大于等于目标元素的位置。那么下一行最多遍历到这个点即可，并且更新这个min。</p>
 <p>结束标志：min = 0。</p>
-<p>bingo！</p>
-<h3 id="正答"><a href="#正答" class="headerlink" title="正答"></a>正答</h3><p>显然是二分查找</p>
-<h2 id="接雨水-II-—👍👍"><a href="#接雨水-II-—👍👍" class="headerlink" title="接雨水 II —👍👍"></a>接雨水 II —👍👍</h2><p>根据矩阵所代表的海拔图来计算能接住多少雨水。<br>目标：O(n)时间 O(1)/O(n)空间</p>
-<h3 id="first-thought（wrong）"><a href="#first-thought（wrong）" class="headerlink" title="first thought（wrong）"></a>first thought（wrong）</h3><p>因为凡是可以蓄雨水的地方，都和周围四个格子能蓄多少水有关系。所以应该是DP。</p>
-<p>dp[i][j]代表第i,j个格子可以蓄多少水。  </p>
+<p>bingo！ ### 正答 显然是二分查找 ## 接雨水 II —👍👍 根据矩阵所代表的海拔图来计算能接住多少雨水。<br>
+目标：O(n)时间 O(1)/O(n)空间 ### first thought（wrong） 因为凡是可以蓄雨水的地方，都和周围四个格子能蓄多少水有关系。所以应该是DP。</p>
+<p>dp[i][j]代表第i,j个格子可以蓄多少水。</p>
 <pre><code>1.最外一圈的dp[i][j] = 0.（补：倒数第二圈的元素直接相连的倒数第一圈的元素里如果有比自己矮的，倒数第二圈的这个元素也为0.）  
 2.周围都比自己矮dp[i][j] = 0.
-3.dp[i][j] = 周围四个格子比自己高的格子所能蓄的水的和 + 与周围比自己高的格子里最低的格子高的差（补：如果周围有比自己矮的且已知dp为0的或者那个元素加上自己的dp都不如自己高，那么自己必然无法蓄水）
-</code></pre><p>这样看起来好像是对的，但是如果存在一个地中海的情况，中间有一个比周围都高的，但是这个又比外圈都低，这样的算法是不计入考虑的，然而却有积水。  </p>
+3.dp[i][j] = 周围四个格子比自己高的格子所能蓄的水的和 + 与周围比自己高的格子里最低的格子高的差（补：如果周围有比自己矮的且已知dp为0的或者那个元素加上自己的dp都不如自己高，那么自己必然无法蓄水）</code></pre>
+<p>这样看起来好像是对的，但是如果存在一个地中海的情况，中间有一个比周围都高的，但是这个又比外圈都低，这样的算法是不计入考虑的，然而却有积水。</p>
 <p>并且还存在，一个较高的元素，需要自己比自己矮的元素的蓄水数，但是比自己矮的那个蓄水数反过来还需要自己的蓄水数。那就悖论了。</p>
 <p>太难全面写好，初步版本过了41%的数据。</p>
-<p>总的来说要是被面到了这个题，这种思路100%gg。</p>
-<h3 id="improve（暴力，但是最起码是bug-free）"><a href="#improve（暴力，但是最起码是bug-free）" class="headerlink" title="improve（暴力，但是最起码是bug free）"></a>improve（暴力，但是最起码是bug free）</h3><p>换个角度用动调，将这样一个立体的图像从高度上分析，一层一层的铲这个图像。<br>那么就简单了，因为不需要考虑每个空档能蓄多少水，因为一层只能蓄水一个。</p>
+<p>总的来说要是被面到了这个题，这种思路100%gg。 ### improve（暴力，但是最起码是bug free） 换个角度用动调，将这样一个立体的图像从高度上分析，一层一层的铲这个图像。<br>
+那么就简单了，因为不需要考虑每个空档能蓄多少水，因为一层只能蓄水一个。</p>
 <pre><code>dp[][] + i 代表第i层每个格子是否可以蓄水。true/false。
 每一层之后会计数：如果这一层没有实心的格子退出。
 是否可以蓄水：判断上下左右这一层的四个格子是否是空的
             如果四周有格子为空，那么先暂时置自己的为true
             然后递归的形式去看为空的格子能不能蓄水。
 稍微优化一下：从最低格子的高度遍历到最高格子的高度。
-但是效率好低
-</code></pre><p>这种思路也不算是动调了，这是DFS。</p>
-<h3 id="正答看不懂。。。所以还是用最蠢的吧"><a href="#正答看不懂。。。所以还是用最蠢的吧" class="headerlink" title="正答看不懂。。。所以还是用最蠢的吧"></a>正答看不懂。。。所以还是用最蠢的吧</h3>
+但是效率好低</code></pre>
+<p>这种思路也不算是动调了，这是DFS。 ### 正答看不懂。。。所以还是用最蠢的吧</p>
+
       
     </div>
     
@@ -640,9 +645,9 @@ dp[i][j][x][y-1] - dp[i][j][x-1][y-1] + arr[i][j]
       
         <div class="post-tags">
           
-            <a href="/tags/LintCode/" rel="tag"><i class="fa fa-tag"></i> LintCode</a>
-          
             <a href="/tags/Matrix/" rel="tag"><i class="fa fa-tag"></i> Matrix</a>
+          
+            <a href="/tags/LintCode/" rel="tag"><i class="fa fa-tag"></i> LintCode</a>
           
         </div>
       
@@ -854,7 +859,7 @@ dp[i][j][x][y-1] - dp[i][j][x-1][y-1] + arr[i][j]
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构–矩阵"><span class="nav-number">1.</span> <span class="nav-text">数据结构–矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#和为零的子矩阵—👍👍👍"><span class="nav-number">1.1.</span> <span class="nav-text">和为零的子矩阵—👍👍👍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#n-4"><span class="nav-number">1.1.1.</span> <span class="nav-text">n^4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#n-3-（太难想了）"><span class="nav-number">1.1.2.</span> <span class="nav-text">n^3 （太难想了）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排序矩阵中的从小到大第k个数—👍👍👍"><span class="nav-number">1.2.</span> <span class="nav-text">排序矩阵中的从小到大第k个数—👍👍👍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#我的思路："><span class="nav-number">1.2.1.</span> <span class="nav-text">我的思路：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化一下："><span class="nav-number">1.2.2.</span> <span class="nav-text">优化一下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正答："><span class="nav-number">1.2.3.</span> <span class="nav-text">正答：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵归零"><span class="nav-number">1.3.</span> <span class="nav-text">矩阵归零</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索二维矩阵-II"><span class="nav-number">1.4.</span> <span class="nav-text">搜索二维矩阵 II</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一印象"><span class="nav-number">1.4.1.</span> <span class="nav-text">第一印象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正答"><span class="nav-number">1.4.2.</span> <span class="nav-text">正答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接雨水-II-—👍👍"><span class="nav-number">1.5.</span> <span class="nav-text">接雨水 II —👍👍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#first-thought（wrong）"><span class="nav-number">1.5.1.</span> <span class="nav-text">first thought（wrong）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#improve（暴力，但是最起码是bug-free）"><span class="nav-number">1.5.2.</span> <span class="nav-text">improve（暴力，但是最起码是bug free）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正答看不懂。。。所以还是用最蠢的吧"><span class="nav-number">1.5.3.</span> <span class="nav-text">正答看不懂。。。所以还是用最蠢的吧</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构矩阵"><span class="nav-number">1.</span> <span class="nav-text">数据结构–矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#和为零的子矩阵"><span class="nav-number">1.1.</span> <span class="nav-text">和为零的子矩阵—👍👍👍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#n4"><span class="nav-number">1.1.1.</span> <span class="nav-text">n^4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#n3-太难想了"><span class="nav-number">1.1.2.</span> <span class="nav-text">n^3 （太难想了）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正答"><span class="nav-number">1.1.3.</span> <span class="nav-text">正答：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵归零"><span class="nav-number">1.2.</span> <span class="nav-text">矩阵归零</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1597,11 +1602,50 @@ dp[i][j][x][y-1] - dp[i][j][x-1][y-1] + arr[i][j]
       
       new needShareButton('#needsharebutton-float', flOptions);
     
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
 
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
 
   
 

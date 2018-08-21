@@ -114,19 +114,19 @@
 
 
 
-<meta name="description" content="一般的线性模型是不考虑特征交叉的。$y = w_0 + \sum_{i=1}^nw_ix_i$二阶多项式模型会考虑所有两个特征交叉的情况。即 n(n-1)/2 种特征。**注意：这里的交叉部分是从i = 1到n\j = i+1到n，避免重复交叉**。且交叉的是样本，而不是特征。$y(\mathbf{x}) = w_0+ \sum_{i=1}^n w_i x_i + \sum_{i=1}^n \su">
+<meta name="description" content="一般的线性模型是不考虑特征交叉的。 \[ y = w_0 + \sum_{i=1}^nw_ix_i \] 二阶多项式模型会考虑所有两个特征交叉的情况。即 n*(n-1)/2 种特征。 注意：这里的交叉部分是从i = 1到n*j = i+1到n，避免重复交叉。 且交叉的是样本，而不是特征。 \[ y(\mathbf{x}) = w_0+ \sum_{i=1}^n w_i x_i + \sum_{i=">
 <meta name="keywords" content="推荐,CTR模型">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FM FFM DeepFM">
 <meta property="og:url" content="blog.lovelaolao.xin/机器学习/FM-FFM-DeepFM/index.html">
 <meta property="og:site_name" content="Fall Out Boy">
-<meta property="og:description" content="一般的线性模型是不考虑特征交叉的。$y = w_0 + \sum_{i=1}^nw_ix_i$二阶多项式模型会考虑所有两个特征交叉的情况。即 n(n-1)/2 种特征。**注意：这里的交叉部分是从i = 1到n\j = i+1到n，避免重复交叉**。且交叉的是样本，而不是特征。$y(\mathbf{x}) = w_0+ \sum_{i=1}^n w_i x_i + \sum_{i=1}^n \su">
+<meta property="og:description" content="一般的线性模型是不考虑特征交叉的。 \[ y = w_0 + \sum_{i=1}^nw_ix_i \] 二阶多项式模型会考虑所有两个特征交叉的情况。即 n*(n-1)/2 种特征。 注意：这里的交叉部分是从i = 1到n*j = i+1到n，避免重复交叉。 且交叉的是样本，而不是特征。 \[ y(\mathbf{x}) = w_0+ \sum_{i=1}^n w_i x_i + \sum_{i=">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://tech.meituan.com/img/deep-understanding-of-ffm-principle-and-practice/ffm_mf.png">
-<meta property="og:updated_time" content="2018-08-21T15:47:05.000Z">
+<meta property="og:updated_time" content="2018-08-21T18:22:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FM FFM DeepFM">
-<meta name="twitter:description" content="一般的线性模型是不考虑特征交叉的。$y = w_0 + \sum_{i=1}^nw_ix_i$二阶多项式模型会考虑所有两个特征交叉的情况。即 n(n-1)/2 种特征。**注意：这里的交叉部分是从i = 1到n\j = i+1到n，避免重复交叉**。且交叉的是样本，而不是特征。$y(\mathbf{x}) = w_0+ \sum_{i=1}^n w_i x_i + \sum_{i=1}^n \su">
+<meta name="twitter:description" content="一般的线性模型是不考虑特征交叉的。 \[ y = w_0 + \sum_{i=1}^nw_ix_i \] 二阶多项式模型会考虑所有两个特征交叉的情况。即 n*(n-1)/2 种特征。 注意：这里的交叉部分是从i = 1到n*j = i+1到n，避免重复交叉。 且交叉的是样本，而不是特征。 \[ y(\mathbf{x}) = w_0+ \sum_{i=1}^n w_i x_i + \sum_{i=">
 <meta name="twitter:image" content="https://tech.meituan.com/img/deep-understanding-of-ffm-principle-and-practice/ffm_mf.png">
 
 
@@ -475,88 +475,83 @@
       
 
       
-        <p>一般的线性模型是不考虑特征交叉的。<br>$y = w_0 + \sum_{i=1}^nw_ix_i$<br>二阶多项式模型会考虑所有两个特征交叉的情况。即 n<em>(n-1)/2 种特征。<br>**注意：这里的交叉部分是从<code>i = 1到n</code>\</em><code>j = i+1到n</code>，避免重复交叉**。<br>且交叉的是样本，而不是特征。<br>$y(\mathbf{x}) = w_0+ \sum_{i=1}^n w_i x_i + \sum_{i=1}^n \sum_{j=i+1}^n w_{ij} x_i x_j \label{eq:poly}\tag{1}$<br>如果特征交叉的维度再提升的话会带来非常高的复杂度。</p>
-<h1 id="FM（Factorization-Machines）"><a href="#FM（Factorization-Machines）" class="headerlink" title="FM（Factorization Machines）"></a>FM（Factorization Machines）</h1><p><a href="https://www.csie.ntu.edu.tw/~b97053/paper/Rendle2010FM.pdf" target="_blank" rel="noopener">paper</a><br>目标：解决数据稀疏的情况下，特征怎样组合的问题 </p>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><ul>
-<li>首先要做的是对所有特征做<strong>one hot编码</strong>。<ul>
-<li>比如：特征年龄：中年、青年、老年。就会变成是否中年、是否青年、是否老年三个特征。<ul>
+        <p>一般的线性模型是不考虑特征交叉的。<br>
+<span class="math display">\[ y = w_0 + \sum_{i=1}^nw_ix_i \]</span><br>
+二阶多项式模型会考虑所有两个特征交叉的情况。即 n*(n-1)/2 种特征。<br>
+<strong>注意：这里的交叉部分是从<code>i = 1到n</code>*<code>j = i+1到n</code>，避免重复交叉</strong>。<br>
+且交叉的是样本，而不是特征。<br>
+<span class="math display">\[ y(\mathbf{x}) = w_0+ \sum_{i=1}^n w_i x_i + \sum_{i=1}^n \sum_{j=i+1}^n w_{ij} x_i x_j \label{eq:poly}\tag{1} \]</span><br>
+如果特征交叉的维度再提升的话会带来非常高的复杂度。 <a id="more"></a> # FM（Factorization Machines） <a href="https://www.csie.ntu.edu.tw/~b97053/paper/Rendle2010FM.pdf" target="_blank" rel="noopener">paper</a><br>
+目标：解决数据稀疏的情况下，特征怎样组合的问题</p>
+<h2 id="原理">原理</h2>
+<ul>
+<li>首先要做的是对所有特征做<strong>one hot编码</strong>。
+<ul>
+<li>比如：特征年龄：中年、青年、老年。就会变成是否中年、是否青年、是否老年三个特征。
+<ul>
 <li>这样，特征空间会迅速变大。</li>
 <li>但是特征会变得很稀疏。</li>
-</ul>
-</li>
-<li>好处：将离散特征每一个取值都拆分成一个特征非常适合特征交叉。会产生很有意义的特征。<ul>
+</ul></li>
+<li>好处：将离散特征每一个取值都拆分成一个特征非常适合特征交叉。会产生很有意义的特征。
+<ul>
 <li>比如加上职业，不会是年龄+程序员，而是中年程序员、青年程序员、老年程序员。</li>
-</ul>
-</li>
-<li>（其实在第二个式子中已经有二阶多项式的实现方式）<ul>
+</ul></li>
+<li>（其实在第二个式子中已经有二阶多项式的实现方式）
+<ul>
 <li>但是由于每个wij都需要大量非零样本来训练，然而稀疏的one hot特征会让非零样本很少，所以是不可训练的。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>解决二次项参数训练问题：<strong>矩阵分解</strong>。<ul>
-<li><strong>其实就是二阶多项式的 wij（nxn）其实就构成了一个所有样本公用的权重矩阵 W，而<code>V转置xV</code>的形式刚好可以让（nxk x kxn）的两个矩阵得到（nxn）的目标权重矩阵W，k可以是一个灵活的值。</strong><ul>
+</ul></li>
+</ul></li>
+<li>解决二次项参数训练问题：<strong>矩阵分解</strong>。
+<ul>
+<li><strong>其实就是二阶多项式的 wij（nxn）其实就构成了一个所有样本公用的权重矩阵 W，而<code>V转置xV</code>的形式刚好可以让（nxk x kxn）的两个矩阵得到（nxn）的目标权重矩阵W，k可以是一个灵活的值。</strong>
+<ul>
 <li><strong>这样就相当于把求解一个（nxn）的W矩阵变成求解（kxn）的 V 矩阵，从而把 n^2 的参数量变成了 kxn 的（伪）线性参数量。</strong></li>
-</ul>
-</li>
-<li>比如：在 model-based 的协同过滤问题对 user 向量矩阵和 item 向量矩阵<strong>点乘</strong>得到user、item矩阵的做法。（矩阵中每一个值就是user-item的一个打分）<img src="https://tech.meituan.com/img/deep-understanding-of-ffm-principle-and-practice/ffm_mf.png" alt=""></li>
-<li>做法：借鉴协同过滤的做法，把所有的二次项参数 wij 组成为一个矩阵 W，$\mathbf{W} = \mathbf{V}^T \mathbf{V}$，其中V矩阵就是特征的矩阵，V的第j列就是j特征的所有样本取值。<ul>
+</ul></li>
+<li>比如：在 model-based 的协同过滤问题对 user 向量矩阵和 item 向量矩阵<strong>点乘</strong>得到user、item矩阵的做法。（矩阵中每一个值就是user-item的一个打分）<img src="https://tech.meituan.com/img/deep-understanding-of-ffm-principle-and-practice/ffm_mf.png"></li>
+<li>做法：借鉴协同过滤的做法，把所有的二次项参数 wij 组成为一个矩阵 W，<span class="math display">\[ \mathbf{W} = \mathbf{V}^T \mathbf{V} \]</span>，其中V矩阵就是特征的矩阵，V的第j列就是j特征的所有样本取值。
+<ul>
 <li>所以其实W是由V自己<strong>点乘</strong>自己得到的，也就肯定是一个对称矩阵。</li>
-</ul>
-</li>
-<li><strong>公式：</strong>$y(\mathbf{x}) = w_0+ \sum_{i=1}^n w_i x_i + \sum_{i=1}^n \sum_{j=i+1}^n \langle \mathbf{v}_i, \mathbf{v}_j \rangle x_i x_j \label{eq:fm}\tag{2}$<ul>
+</ul></li>
+<li><strong>公式：</strong><span class="math display">\[ y(\mathbf{x}) = w_0+ \sum_{i=1}^n w_i x_i + \sum_{i=1}^n \sum_{j=i+1}^n \langle \mathbf{v}_i, \mathbf{v}_j \rangle x_i x_j \label{eq:fm}\tag{2} \]</span>
+<ul>
 <li>其中vi代表第i位特征的隐向量。&lt;·,·&gt;代表点乘，n 为特征数量，x 就是输入的一个样本。（也就是对于一个样本，得到他的结果，由这个公式计算）</li>
 <li>由于<strong>每个 V 特征向量都相当于一个特征的隐向量，本身没有直接意义，但是和其他特征的隐向量点乘得到的值会成为一个交叉特征的权重</strong>。且 Vi 的长度k&lt;&lt;n。</li>
-</ul>
-</li>
-<li>好处：<strong>总参数量为 kxn</strong><ul>
+</ul></li>
+<li>好处：<strong>总参数量为 kxn</strong>
+<ul>
 <li>参数量由 n^2 变成了 kxn 的线性，并且在普通的二阶多项式模型里wij和wji是相互独立的。但是在矩阵分解的做法里，两者是一样的。</li>
 <li>比如 wij 和 whj ，矩阵分解的做法会让 vj 和vi、vh都产生关系。也就意味着vi、vh都对vj的学习产生作用。从稀释了稀疏特征的很多0让 wij 其实没卵用的影响。</li>
-</ul>
-</li>
-</ul>
-</li>
+</ul></li>
+</ul></li>
 <li><strong>扩展</strong>：上面矩阵分解的公式是一个通用的基础。在此基础上可以引入不同的损失函数，解决回归、分类问题。（其实就是<code>∑wixi</code>和<code>∑∑&lt;vi, vj&gt;xixj</code>的变形。）</li>
-<li><strong>训练/计算时间复杂度问题</strong>：参数量虽然下降到了线性，但是要计算y(x)的损失，因为<code>∑∑&lt;vi, vj&gt;xixj</code>存在使时间复杂度为O(k*n^2)。<ul>
-<li>解决：由于<code>i = 1到n</code> <code>j = i+1到n</code>，也就是对称矩阵对角线的上半部分。那么原公式就可以转化为<code>1/2(整个矩阵做特征交叉-对角线的特征交叉)</code>，经过一堆骚操作可以把公式简化为：$\sum_{i=1}^n \sum_{j=i+1}^n \langle \mathbf{v}_i, \mathbf{v}_j \rangle x_i x_j = \frac{1}{2} \sum_{f=1}^k \left(\left( \sum_{i=1}^n v_{i, f} x_i \right)^2 - \sum_{i=1}^n v_{i, f}^2 x_i^2 \right) \label{eq:fm_conv}\tag{3}$</li>
+<li><strong>训练/计算时间复杂度问题</strong>：参数量虽然下降到了线性，但是要计算y(x)的损失，因为<code>∑∑&lt;vi, vj&gt;xixj</code>存在使时间复杂度为O(k*n^2)。
+<ul>
+<li>解决：由于<code>i = 1到n</code> <code>j = i+1到n</code>，也就是对称矩阵对角线的上半部分。那么原公式就可以转化为<code>1/2(整个矩阵做特征交叉-对角线的特征交叉)</code>，经过一堆骚操作可以把公式简化为：<span class="math display">\[ \sum_{i=1}^n \sum_{j=i+1}^n \langle \mathbf{v}_i, \mathbf{v}_j \rangle x_i x_j = \frac{1}{2} \sum_{f=1}^k \left(\left( \sum_{i=1}^n v_{i, f} x_i \right)^2 - \sum_{i=1}^n v_{i, f}^2 x_i^2 \right) \label{eq:fm_conv}\tag{3} \]</span></li>
 <li><code>f = 1到k</code>为vi的第f个元素。可以看到 j 神奇的消失了= =（因为实际本身就需要一个 wij 做交叉特征的权重，求梯度的时候也就一个偏导，不是对i、j各求一个。而特殊的化简方式里放弃了<code>j = i+1到n</code>的关系，直接用 i 代替 j 。并且化简了i、j两层循环，变成i一层循环但是里面有平方的形式。）</li>
 <li>所以<strong>计算损失的时间复杂度为O(kn)</strong>。</li>
-<li>偏导：$\sum_{j=1}^n v_{j, f} x_j$<ul>
-<li>可以看到特别一点的只有交叉特征权重的偏导：<code>vif的偏导</code>指特征 i 的隐含向量中第 f 元素的偏导。其中$\sum_{j=1}^n v_{j, f} x_j$是求 y(x) 时已经算过的东西了。</li>
+<li>偏导：<span class="math display">\[ \sum_{j=1}^n v_{j, f} x_j \]</span>
+<ul>
+<li>可以看到特别一点的只有交叉特征权重的偏导：<code>vif的偏导</code>指特征 i 的隐含向量中第 f 元素的偏导。其中<span class="math display">\[ \sum_{j=1}^n v_{j, f} x_j \]</span>是求 y(x) 时已经算过的东西了。</li>
 <li>所以<strong>求偏导的时间复杂度为O(1)</strong></li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="FM的优势"><a href="#FM的优势" class="headerlink" title="FM的优势"></a>FM的优势</h2><ul>
+<h2 id="fm的优势">FM的优势</h2>
+<ul>
 <li>灵活：通过合适的特征变换方式，FM 可以模拟二阶多项式核的 SVM 模型、MF 模型、SVD++ 模型等。</li>
 <li>样本稀疏的情况下天然适合 FM 发挥。</li>
 <li>训练、预测、参数量均是线性的。</li>
 <li>对于 FM 的特征交叉方式而言，可以添加任意多的特征，除了 one hot 还可以用均值等等内容做特征。</li>
 </ul>
-<h1 id="FFM（Field-aware-Factorization-Machine）"><a href="#FFM（Field-aware-Factorization-Machine）" class="headerlink" title="FFM（Field-aware Factorization Machine）"></a>FFM（Field-aware Factorization Machine）</h1><p>非常适用于 CTR、CVR 问题上。</p>
-<h2 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h2><ul>
-<li><strong>field</strong>：引入了 field 的概念，就是把经过 one hot 处理过的离散特征，比如：年龄有青年、中年、老年。可以处理为三个二分类特征。这三个特征会放到同一个 field 中来处理。连续特征的话可以直接看为一个 field或进行特征离散化。  <ul>
-<li>每一维特征都会对其他特征所有的 field 为单位学习一个隐向量$\mathbf{v}_{i, f_j}$（含义：特征 i 的 f 个隐向量中对应 field j 那个）。<ul>
-<li>即：每个特征 f 个隐向量。（f 为所有特征一共在 f 个field）</li>
-<li>也就是<strong>一共有 <code>nxf</code> 个隐向量</strong>。</li>
-<li>如果每个隐向量长度为 k，也就是<strong>一共有 <code>kxnxf</code> 个交叉特征参数</strong>。</li>
-</ul>
-</li>
-<li>好处：将特征间的隐向量做了隔离，能专门取学习不同特征间 field 交叉的信息。</li>
-</ul>
-</li>
-<li><strong>复杂度</strong>：<ul>
-<li><strong>公式</strong>：$y(\mathbf{x}) = w_0 + \sum_{i=1}^n w_i x_i + \sum_{i=1}^n \sum_{j=i+1}^n \langle \mathbf{v}_{i, f_j}, \mathbf{v}_{j, f_i} \rangle x_i x_j \label{eq:ffm}\tag{4}$也就是计算交叉特征权重的方式中引入了field。</li>
-<li>预测/复杂度：<strong>O(k*n^2)</strong>。</li>
-<li>特别的，由于每个特征都维护了一个<code>fxk</code>的矩阵，来表达一个 field 和其他所有 field 做特征交叉的权重。在更新梯度的时候套路还是一样，只是要更新到的特征空间更加复杂。</li>
-</ul>
-</li>
-<li>特征表示：<code>field_id:feat_id:value</code>，feat_id 为特征编号。</li>
-</ul>
-<h2 id="论文"><a href="#论文" class="headerlink" title="论文"></a>论文</h2><p><a href="https://www.csie.ntu.edu.tw/~cjlin/papers/ffm.pdf" target="_blank" rel="noopener">paper</a><br>在该论文中对正负样本处理成了1、-1.<br>损失函数选择了交叉熵。<br>求偏导时用到了链式法则。</p>
-<h1 id="DeepMF"><a href="#DeepMF" class="headerlink" title="DeepMF"></a>DeepMF</h1>
+<h1 id="ffmfield-aware-factorization-machine">FFM（Field-aware Factorization Machine）</h1>
+<p>非常适用于 CTR、CVR 问题上。 ## 原理 - <strong>field</strong>：引入了 field 的概念，就是把经过 one hot 处理过的离散特征，比如：年龄有青年、中年、老年。可以处理为三个二分类特征。这三个特征会放到同一个 field 中来处理。连续特征的话可以直接看为一个 field或进行特征离散化。<br>
+- 每一维特征都会对其他特征所有的 field 为单位学习一个隐向量<span class="math display">\[ \mathbf{v}_{i, f_j} \]</span>（含义：特征 i 的 f 个隐向量中对应 field j 那个）。 - 即：每个特征 f 个隐向量。（f 为所有特征一共在 f 个field） - 也就是<strong>一共有 <code>nxf</code> 个隐向量</strong>。 - 如果每个隐向量长度为 k，也就是<strong>一共有 <code>kxnxf</code> 个交叉特征参数</strong>。 - 好处：将特征间的隐向量做了隔离，能专门取学习不同特征间 field 交叉的信息。 - <strong>复杂度</strong>： - <strong>公式</strong>：<span class="math display">\[ y(\mathbf{x}) = w_0 + \sum_{i=1}^n w_i x_i + \sum_{i=1}^n \sum_{j=i+1}^n \langle \mathbf{v}_{i, f_j}, \mathbf{v}_{j, f_i} \rangle x_i x_j \label{eq:ffm}\tag{4} \]</span>也就是计算交叉特征权重的方式中引入了field。 - 预测/复杂度：<strong>O(k*n^2)</strong>。 - 特别的，由于每个特征都维护了一个<code>fxk</code>的矩阵，来表达一个 field 和其他所有 field 做特征交叉的权重。在更新梯度的时候套路还是一样，只是要更新到的特征空间更加复杂。 - 特征表示：<code>field_id:feat_id:value</code>，feat_id 为特征编号。</p>
+<h2 id="论文">论文</h2>
+<p><a href="https://www.csie.ntu.edu.tw/~cjlin/papers/ffm.pdf" target="_blank" rel="noopener">paper</a><br>
+在该论文中对正负样本处理成了1、-1.<br>
+损失函数选择了交叉熵。<br>
+求偏导时用到了链式法则。 # DeepMF</p>
+
       
     </div>
     
@@ -830,7 +825,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#FM（Factorization-Machines）"><span class="nav-number">1.</span> <span class="nav-text">FM（Factorization Machines）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">1.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FM的优势"><span class="nav-number">1.2.</span> <span class="nav-text">FM的优势</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FFM（Field-aware-Factorization-Machine）"><span class="nav-number">2.</span> <span class="nav-text">FFM（Field-aware Factorization Machine）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原理-1"><span class="nav-number">2.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#论文"><span class="nav-number">2.2.</span> <span class="nav-text">论文</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DeepMF"><span class="nav-number">3.</span> <span class="nav-text">DeepMF</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fm的优势"><span class="nav-number">2.</span> <span class="nav-text">FM的优势</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ffmfield-aware-factorization-machine"><span class="nav-number"></span> <span class="nav-text">FFM（Field-aware Factorization Machine）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#论文"><span class="nav-number">1.</span> <span class="nav-text">论文</span></a></li></ol></div>
             
 
           </div>
@@ -1573,11 +1568,50 @@
       
       new needShareButton('#needsharebutton-float', flOptions);
     
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
 
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
 
   
 

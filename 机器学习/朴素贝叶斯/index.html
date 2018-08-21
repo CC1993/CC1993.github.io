@@ -114,26 +114,26 @@
 
 
 
-<meta name="description" content="1. 原理C = {y1, y2, y3, ....., ym}  类别集合，共k种样本类别。 x = {x1, x2, ..., xn}  样本特征表示，共n个特征。 条件概率公式：">
+<meta name="description" content="1. 原理 C = {y1, y2, y3, ....., ym}  类别集合，共k种样本类别。 x = {x1, x2, ..., xn}  样本特征表示，共n个特征。 条件概率公式：">
 <meta name="keywords" content="机器学习,朴素贝叶斯">
 <meta property="og:type" content="article">
 <meta property="og:title" content="朴素贝叶斯">
 <meta property="og:url" content="blog.lovelaolao.xin/机器学习/朴素贝叶斯/index.html">
 <meta property="og:site_name" content="Fall Out Boy">
-<meta property="og:description" content="1. 原理C = {y1, y2, y3, ....., ym}  类别集合，共k种样本类别。 x = {x1, x2, ..., xn}  样本特征表示，共n个特征。 条件概率公式：">
+<meta property="og:description" content="1. 原理 C = {y1, y2, y3, ....., ym}  类别集合，共k种样本类别。 x = {x1, x2, ..., xn}  样本特征表示，共n个特征。 条件概率公式：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p9f9koofz.bkt.clouddn.com/条件概率.png">
 <meta property="og:image" content="http://p9f9koofz.bkt.clouddn.com/全概率公式.png">
 <meta property="og:image" content="http://p9f9koofz.bkt.clouddn.com/贝叶斯定理.png">
 <meta property="og:image" content="http://p9f9koofz.bkt.clouddn.com/离散朴素贝叶斯.png">
 <meta property="og:image" content="http://p9f9koofz.bkt.clouddn.com/离散全概率朴素贝叶斯.png">
-<meta property="og:image" content="http://p9f9koofz.bkt.clouddn.com/p(x|yk">
+<meta property="og:image" content="http://p9f9koofz.bkt.clouddn.com/p(x%7Cyk).png">
 <meta property="og:image" content="http://p9f9koofz.bkt.clouddn.com/离散朴素贝叶斯公式.png">
 <meta property="og:image" content="http://p9f9koofz.bkt.clouddn.com/连续高斯分布.png">
 <meta property="og:updated_time" content="2018-05-28T08:20:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="朴素贝叶斯">
-<meta name="twitter:description" content="1. 原理C = {y1, y2, y3, ....., ym}  类别集合，共k种样本类别。 x = {x1, x2, ..., xn}  样本特征表示，共n个特征。 条件概率公式：">
+<meta name="twitter:description" content="1. 原理 C = {y1, y2, y3, ....., ym}  类别集合，共k种样本类别。 x = {x1, x2, ..., xn}  样本特征表示，共n个特征。 条件概率公式：">
 <meta name="twitter:image" content="http://p9f9koofz.bkt.clouddn.com/条件概率.png">
 
 
@@ -445,7 +445,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  441 字
+                  440 字
                 </span>
               
 
@@ -482,26 +482,40 @@
       
 
       
-        <h1 id="1-原理"><a href="#1-原理" class="headerlink" title="1. 原理"></a>1. 原理</h1><pre><code>C = {y1, y2, y3, ....., ym} 
+        <h1 id="原理">1. 原理</h1>
+<pre><code>C = {y1, y2, y3, ....., ym} 
 类别集合，共k种样本类别。
 x = {x1, x2, ..., xn} 
-样本特征表示，共n个特征。
-</code></pre><p>条件概率公式：<br><img src="http://p9f9koofz.bkt.clouddn.com/条件概率.png" alt="avatar"><br><a id="more"></a><br>全概率公式：<br><img src="http://p9f9koofz.bkt.clouddn.com/全概率公式.png" alt="avatar"><br>贝叶斯定理（事件A/B相互独立）<br><img src="http://p9f9koofz.bkt.clouddn.com/贝叶斯定理.png" alt="avatar"></p>
-<h1 id="2-分类推导"><a href="#2-分类推导" class="headerlink" title="2. 分类推导"></a>2. 分类推导</h1><p>朴素贝叶斯分类是基于贝叶斯定理的分类算法。</p>
-<h2 id="2-1-离散型随机变量推导"><a href="#2-1-离散型随机变量推导" class="headerlink" title="2.1 离散型随机变量推导"></a>2.1 离散型随机变量推导</h2><p>分析：<br>选择具有最高概率的决策。计算新样本x在类标记结合中的概率。<br>P(y_1|x)、P(y_2|x)…….P(y_k|x)。</p>
-<h3 id="重点在这里"><a href="#重点在这里" class="headerlink" title="重点在这里"></a>重点在这里</h3><blockquote>
-<p>所以朴素贝叶斯公式为：<br><img src="http://p9f9koofz.bkt.clouddn.com/离散朴素贝叶斯.png" alt="avatar"><br>根据全概率公式改写为：<br><img src="http://p9f9koofz.bkt.clouddn.com/离散全概率朴素贝叶斯.png" alt="avatar">  </p>
+样本特征表示，共n个特征。</code></pre>
+<p>条件概率公式：<br>
+<img src="http://p9f9koofz.bkt.clouddn.com/条件概率.png" alt="avatar"><br>
+<a id="more"></a> 全概率公式：<br>
+<img src="http://p9f9koofz.bkt.clouddn.com/全概率公式.png" alt="avatar"><br>
+贝叶斯定理（事件A/B相互独立）<br>
+<img src="http://p9f9koofz.bkt.clouddn.com/贝叶斯定理.png" alt="avatar"></p>
+<h1 id="分类推导">2. 分类推导</h1>
+<p>朴素贝叶斯分类是基于贝叶斯定理的分类算法。 ## 2.1 离散型随机变量推导 分析：<br>
+选择具有最高概率的决策。计算新样本x在类标记结合中的概率。<br>
+P(y_1|x)、P(y_2|x)…….P(y_k|x)。</p>
+<h3 id="重点在这里">重点在这里</h3>
 <blockquote>
-<p>其中P(yk)可由数据直接获得。问题在于P(x|yk)如何得到。<br>x = {x1, x2, …., xn}，如果每个特征都满足相互独立。<br>那么P(x|yk) = P(x1, x2, …, xn | yk) =<br><img src="http://p9f9koofz.bkt.clouddn.com/p(x|yk" alt="avatar">.png)    </p>
+<p>所以朴素贝叶斯公式为：<br>
+<img src="http://p9f9koofz.bkt.clouddn.com/离散朴素贝叶斯.png" alt="avatar"><br>
+根据全概率公式改写为：<br>
+<img src="http://p9f9koofz.bkt.clouddn.com/离散全概率朴素贝叶斯.png" alt="avatar"><br>
+&gt;其中P(yk)可由数据直接获得。问题在于P(x|yk)如何得到。<br>
+&gt;x = {x1, x2, …., xn}，如果每个特征都满足相互独立。<br>
+&gt;那么P(x|yk) = P(x1, x2, …, xn | yk) = &gt;<img src="http://p9f9koofz.bkt.clouddn.com/p(x%7Cyk).png" alt="avatar"></p>
 </blockquote>
-</blockquote>
-<p>带回原式得到最后结果：<br><img src="http://p9f9koofz.bkt.clouddn.com/离散朴素贝叶斯公式.png" alt="avatar"> </p>
-<h2 id="2-2-连续型随机变量推导"><a href="#2-2-连续型随机变量推导" class="headerlink" title="2.2 连续型随机变量推导"></a>2.2 连续型随机变量推导</h2><p>若数据特征属性为连续型值，该值服从高斯分布，即：<br><img src="http://p9f9koofz.bkt.clouddn.com/连续高斯分布.png" alt="avatar"><br>这里每个类别y都有n（特征维数）个不同的高斯分布。（共m*n个）<br>同理将P(ak|yi)带回朴素贝叶斯公式的P(xi|yk)即可。</p>
-<h1 id="3-常用模型"><a href="#3-常用模型" class="headerlink" title="3. 常用模型"></a>3. 常用模型</h1><p>朴素贝叶斯的模型里不一定只有离散或连续的一种特征，可能需要结合计算。如：性别、身高、体重。</p>
-<h2 id="3-1-多项式"><a href="#3-1-多项式" class="headerlink" title="3.1 多项式"></a>3.1 多项式</h2><p>离散特征。<br>用多项式模型对公式进行平滑处理。</p>
-<h2 id="3-2-高斯"><a href="#3-2-高斯" class="headerlink" title="3.2 高斯"></a>3.2 高斯</h2><p>连续特征。</p>
-<h2 id="3-3-伯努利"><a href="#3-3-伯努利" class="headerlink" title="3.3 伯努利"></a>3.3 伯努利</h2><p>离散特征。<br>每个特征的取值只能是1或者0.</p>
-<h1 id="4-异常处理"><a href="#4-异常处理" class="headerlink" title="4. 异常处理"></a>4. 异常处理</h1><h2 id="4-1-拉普拉斯平滑"><a href="#4-1-拉普拉斯平滑" class="headerlink" title="4.1 拉普拉斯平滑"></a>4.1 拉普拉斯平滑</h2><p>在连乘的特征概率的部分，避免一个特征的概率是0，可以在分子上加一个参数λ。</p>
+<p>带回原式得到最后结果：<br>
+<img src="http://p9f9koofz.bkt.clouddn.com/离散朴素贝叶斯公式.png" alt="avatar"></p>
+<h2 id="连续型随机变量推导">2.2 连续型随机变量推导</h2>
+<p>若数据特征属性为连续型值，该值服从高斯分布，即：<br>
+<img src="http://p9f9koofz.bkt.clouddn.com/连续高斯分布.png" alt="avatar"><br>
+这里每个类别y都有n（特征维数）个不同的高斯分布。（共m*n个）<br>
+同理将P(ak|yi)带回朴素贝叶斯公式的P(xi|yk)即可。 # 3. 常用模型 朴素贝叶斯的模型里不一定只有离散或连续的一种特征，可能需要结合计算。如：性别、身高、体重。 ## 3.1 多项式 离散特征。<br>
+用多项式模型对公式进行平滑处理。 ## 3.2 高斯 连续特征。 ## 3.3 伯努利 离散特征。<br>
+每个特征的取值只能是1或者0. # 4. 异常处理 ## 4.1 拉普拉斯平滑 在连乘的特征概率的部分，避免一个特征的概率是0，可以在分子上加一个参数λ。</p>
 
       
     </div>
@@ -780,7 +794,7 @@ x = {x1, x2, ..., xn}
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-原理"><span class="nav-number">1.</span> <span class="nav-text">1. 原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-分类推导"><span class="nav-number">2.</span> <span class="nav-text">2. 分类推导</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-离散型随机变量推导"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 离散型随机变量推导</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重点在这里"><span class="nav-number">2.1.1.</span> <span class="nav-text">重点在这里</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-连续型随机变量推导"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 连续型随机变量推导</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-常用模型"><span class="nav-number">3.</span> <span class="nav-text">3. 常用模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-多项式"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 多项式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-高斯"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 高斯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-伯努利"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 伯努利</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-异常处理"><span class="nav-number">4.</span> <span class="nav-text">4. 异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-拉普拉斯平滑"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 拉普拉斯平滑</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原理"><span class="nav-number">1.</span> <span class="nav-text">1. 原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分类推导"><span class="nav-number">2.</span> <span class="nav-text">2. 分类推导</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重点在这里"><span class="nav-number">2.0.1.</span> <span class="nav-text">重点在这里</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连续型随机变量推导"><span class="nav-number">2.1.</span> <span class="nav-text">2.2 连续型随机变量推导</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1523,11 +1537,50 @@ x = {x1, x2, ..., xn}
       
       new needShareButton('#needsharebutton-float', flOptions);
     
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
 
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
 
   
 

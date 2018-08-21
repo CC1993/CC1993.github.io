@@ -114,19 +114,19 @@
 
 
 
-<meta name="description" content="1.模型：线性回归、逻辑回归、神经网络（前向传播+后向传播）、SVM（svm简单快速，但是还是更倾向于特征是直接获取的而不是由数据自己学习到的）   2.训练过程：梯度下降、矩阵乘法（必须特征缩放、均值归一，适用于特征较多情况）、正规方程（无需训练过程与迭代，特征值很多会很慢）、神经网络后向传播、SVM核函数">
+<meta name="description" content="1.模型： 线性回归、逻辑回归、神经网络（前向传播+后向传播）、SVM（svm简单快速，但是还是更倾向于特征是直接获取的而不是由数据自己学习到的） # 2.训练过程： 梯度下降、矩阵乘法（必须特征缩放、均值归一，适用于特征较多情况）、正规方程（无需训练过程与迭代，特征值很多会很慢）、神经网络后向传播、SVM核函数">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习-领域知识">
 <meta property="og:url" content="blog.lovelaolao.xin/机器学习/领域知识/index.html">
 <meta property="og:site_name" content="Fall Out Boy">
-<meta property="og:description" content="1.模型：线性回归、逻辑回归、神经网络（前向传播+后向传播）、SVM（svm简单快速，但是还是更倾向于特征是直接获取的而不是由数据自己学习到的）   2.训练过程：梯度下降、矩阵乘法（必须特征缩放、均值归一，适用于特征较多情况）、正规方程（无需训练过程与迭代，特征值很多会很慢）、神经网络后向传播、SVM核函数">
+<meta property="og:description" content="1.模型： 线性回归、逻辑回归、神经网络（前向传播+后向传播）、SVM（svm简单快速，但是还是更倾向于特征是直接获取的而不是由数据自己学习到的） # 2.训练过程： 梯度下降、矩阵乘法（必须特征缩放、均值归一，适用于特征较多情况）、正规方程（无需训练过程与迭代，特征值很多会很慢）、神经网络后向传播、SVM核函数">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p9f9koofz.bkt.clouddn.com/损失函数.jpg">
 <meta property="og:updated_time" content="2018-05-29T15:36:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习-领域知识">
-<meta name="twitter:description" content="1.模型：线性回归、逻辑回归、神经网络（前向传播+后向传播）、SVM（svm简单快速，但是还是更倾向于特征是直接获取的而不是由数据自己学习到的）   2.训练过程：梯度下降、矩阵乘法（必须特征缩放、均值归一，适用于特征较多情况）、正规方程（无需训练过程与迭代，特征值很多会很慢）、神经网络后向传播、SVM核函数">
+<meta name="twitter:description" content="1.模型： 线性回归、逻辑回归、神经网络（前向传播+后向传播）、SVM（svm简单快速，但是还是更倾向于特征是直接获取的而不是由数据自己学习到的） # 2.训练过程： 梯度下降、矩阵乘法（必须特征缩放、均值归一，适用于特征较多情况）、正规方程（无需训练过程与迭代，特征值很多会很慢）、神经网络后向传播、SVM核函数">
 <meta name="twitter:image" content="http://p9f9koofz.bkt.clouddn.com/损失函数.jpg">
 
 
@@ -475,60 +475,75 @@
       
 
       
-        <h1 id="1-模型："><a href="#1-模型：" class="headerlink" title="1.模型："></a>1.模型：</h1><p><strong>线性回归、逻辑回归、神经网络</strong>（前向传播+后向传播）<strong>、SVM</strong>（svm简单快速，但是还是更倾向于特征是直接获取的而不是由数据自己学习到的）  </p>
-<h1 id="2-训练过程："><a href="#2-训练过程：" class="headerlink" title="2.训练过程："></a>2.训练过程：</h1><p><strong>梯度下降、矩阵乘法</strong>（必须特征缩放、均值归一，适用于特征较多情况）<strong>、正规方程</strong>（无需训练过程与迭代，特征值很多会很慢）<strong>、神经网络后向传播、SVM核函数</strong><br><a id="more"></a>  </p>
-<h1 id="3-不断调优："><a href="#3-不断调优：" class="headerlink" title="3.不断调优："></a>3.不断调优：</h1><p><strong>交叉验证</strong>（确定什么模型最优k-fold、hand-out）<strong>、上限分析</strong>（借助机器学习流水线的原理，人为的把某一部分修改为已知的正确答案，然后继续一遍操作，得到提升程度，直到所有步的操作都是正确答案，那么可以知道某一步可以得到最大的提升程度，也就是最有价值加深研究的步骤）<strong>、高偏差/高方差</strong>（欠拟合/过拟合）（如果是高偏差的情况，再增多训练数据的数量并不能提高性能。）（如果是高方差的情况，收集数据会让偏差值也会降低。）<strong>、accuracy+precision+reacall+f1score、降维PCA</strong>（保留矩阵特征方程-精华使降维后差异性足够小）<strong>、异常检测（</strong>将数据拟合到如高斯分布上，因为方便用方差和均值构造，来寻找异常的数据）<strong>、批量梯度下降</strong>（随机梯度下降、小批量梯度下降）  </p>
-<h2 id="3-1-模型验证"><a href="#3-1-模型验证" class="headerlink" title="3.1 模型验证"></a>3.1 模型验证</h2><h3 id="3-1-1-set-approach"><a href="#3-1-1-set-approach" class="headerlink" title="3.1.1 set approach"></a>3.1.1 set approach</h3><p>将原始数据分为训练集和验证集。<br>这种方式，不同的划分方式得到的结果也会有差异。<br>而且也无法充分利用数据来让训练集更大。</p>
-<h3 id="3-1-2-LOOCV（Leave-one-out-cross-validation）"><a href="#3-1-2-LOOCV（Leave-one-out-cross-validation）" class="headerlink" title="3.1.2 LOOCV（Leave-one-out cross-validation）"></a>3.1.2 LOOCV（Leave-one-out cross-validation）</h3><p>只用一个数据做测试集，但是重复n次。<br>结果更加精确，但是成本很高。</p>
-<h3 id="3-1-3-K-fold-Cross-Validation"><a href="#3-1-3-K-fold-Cross-Validation" class="headerlink" title="3.1.3 K-fold Cross Validation"></a>3.1.3 K-fold Cross Validation</h3><p>将所有数据分成k份，然后重复k-1次，每次用1份做测试集，剩下的k-1份做训练集。将k次的评估平均。</p>
-<h3 id="3-1-4-Bias-Variance-Trade-Off-for-k-Fold-Cross-Validation"><a href="#3-1-4-Bias-Variance-Trade-Off-for-k-Fold-Cross-Validation" class="headerlink" title="3.1.4 Bias-Variance Trade-Off for k-Fold Cross-Validation"></a>3.1.4 Bias-Variance Trade-Off for k-Fold Cross-Validation</h3><p>k越大，训练集越大，bias越小。但是越容易取到相似（相关性强）的数据，所以variance越大。<br>一般取5/10.</p>
-<h2 id="3-2-常见问题"><a href="#3-2-常见问题" class="headerlink" title="3.2 常见问题"></a>3.2 常见问题</h2><h3 id="3-2-1-过拟合"><a href="#3-2-1-过拟合" class="headerlink" title="3.2.1 过拟合"></a>3.2.1 过拟合</h3><p>从根源（哲学）角度理解这个问题：<strong>如无必要，勿增实体</strong> 《奥卡姆剃刀原则》。我们往往使用假设最少的解释最接近事实。</p>
-<p>从根源上讲，过拟合是因为样本数据中存在噪声、异常点，在训练学习的过程中将这些异常也学习到了模型里，但是在实际使用预测的时候却只能起反作用。<br>所以最基本的防止过拟合就是验证、筛选、剔除异常值。</p>
-<h3 id="3-2-2-欠拟合"><a href="#3-2-2-欠拟合" class="headerlink" title="3.2.2 欠拟合"></a>3.2.2 欠拟合</h3><p>建模的时候欠缺了数据、特征、模型复杂度。</p>
-<h3 id="3-2-3-维度灾难"><a href="#3-2-3-维度灾难" class="headerlink" title="3.2.3 维度灾难"></a>3.2.3 维度灾难</h3><h1 id="4-应用："><a href="#4-应用：" class="headerlink" title="4.应用："></a>4.应用：</h1><p><strong>推荐系统</strong>（协同过滤-特征学习，将所有个性化用户都参与到其他个性化的学习中）<strong>、在线学习机制</strong>  </p>
-<h1 id="5-kmeans-knn"><a href="#5-kmeans-knn" class="headerlink" title="5.kmeans-knn"></a>5.kmeans-knn</h1><p>##（1）kmeans  （聚类）</p>
-<ol>
-<li>是随机取k个标记。</li>
-<li>对每个样本判断离哪个标记最近就属于哪个簇里，<strong>然后取新的k个标记为每个簇的所有样本均值</strong>。 </li>
-<li>重复2直到误差最小。 （误差为所有该簇代表分类的样本到中心点的距离最小）</li>
-</ol>
-<p><strong>缺点：</strong>必须事先知道k是多大，还需要认为设置标记初始位置，不同的初始位置可能导致不同的结果。<br><strong>优化选择初始标记：</strong>kmeans++，第一个点随机-然后将所有的点到最近标记的距离保存-在距离数组中范围内选择一个随机数，然后不断减数组中数直到小于等于零，目前的数是下一个标记。当簇接近高斯分布的时候，效果很好。  </p>
-<p>kmeans是取标记是取的质心，所以一旦有异常点，会有很大影响。<br>kmeans是初值敏感的，不同的初始化可能会有不同的划分结果。</p>
-<p>##（2）knn（k nearest neighbor）（分类）<br>根据已加入label的数据，和待分类数据。<br>将一个待分类数据在图像中找到离他最近的k个数据，最多的那种就是待分类数据的种类。<br>memory-based learning，不需要预训练，当数据加载到内存就可以分类了。  </p>
-<p>##（3）kmeans，knn<br>聚类算法，分类算法<br>无监督，监督<br>需要明显训练，无预训练<br>k种簇，k个点  </p>
-<p>##（4）SVM（监督学习）<br>大间距分类器。（二分类模型）<br>核函数：将样本数据映射到更高维的空间，从而将原本难以切割的情况可以切割。然后再把切割后的映射回原空间，获得了可用的分类器。<br>而最常用的核函数有：线性核、多项式核、高斯核、拉普拉斯核、sigmoid核、通过核函数之间的线性组合或直积等运算得出的新核函数。<br>但是在分割的时候，又不能过拟合。所以允许有一定的损失。<br>训练的时候可以使用one-vs-all来不断训练不同的svm分类器，达到多分类。  </p>
-<h1 id="6-loss-function"><a href="#6-loss-function" class="headerlink" title="6.loss function"></a>6.loss function</h1><p><a href="http://blog.csdn.net/shenxiaoming77/article/details/51614601" target="_blank" rel="noopener">http://blog.csdn.net/shenxiaoming77/article/details/51614601</a><br><img src="http://p9f9koofz.bkt.clouddn.com/损失函数.jpg" alt="avatar"></p>
-<h2 id="6-0基本知识"><a href="#6-0基本知识" class="headerlink" title="6.0基本知识"></a>6.0基本知识</h2><p><strong>误差</strong>：观测值与真实值的偏离（表达观测失误或模型问题）<br><strong>残差</strong>：观测值与拟合值的偏离（表达样本和特征不具有代表性）</p>
-<h2 id="6-1-log对数损失函数（逻辑回归）"><a href="#6-1-log对数损失函数（逻辑回归）" class="headerlink" title="6.1 log对数损失函数（逻辑回归）"></a>6.1 log对数损失函数（逻辑回归）</h2><p>就是利用已知的样本分布，找到最有可能（即最大概率）导致这种分布的参数值；或者说什么样的参数才能使我们观测到目前这组数据的概率最大。</p>
-<p>取对数是为了方便计算极大似然估计，逻辑回归的推导过程中，我们假设样本是服从伯努利分布(0-1分布)的，然后求得满足该分布的似然函数，最终求该似然函数的极大值。整体的思想就是求极大似然函数的思想。而取对数，只是为了方便我们的在求MLE(Maximum Likelihood Estimation)过程中采取的一种数学手段而已。</p>
-<h2 id="6-2-平方损失函数（最小二乘法-Ordinary-Least-Squares-）"><a href="#6-2-平方损失函数（最小二乘法-Ordinary-Least-Squares-）" class="headerlink" title="6.2 平方损失函数（最小二乘法, Ordinary Least Squares ）"></a>6.2 平方损失函数（最小二乘法, Ordinary Least Squares ）</h2><p>最小二乘法是线性回归的一种，原则是：最优拟合直线应该是使各点到回归直线的距离和最小的直线，即平方和最小。  </p>
-<p>好处：<br>简单，计算方便；<br>欧氏距离是一种很好的相似性度量标准；<br>在不同的表示域变换后特征性质不变。  </p>
-<h2 id="6-3-指数损失函数（Adaboost）"><a href="#6-3-指数损失函数（Adaboost）" class="headerlink" title="6.3 指数损失函数（Adaboost）"></a>6.3 指数损失函数（Adaboost）</h2><h2 id="6-4-Hinge损失函数（SVM）"><a href="#6-4-Hinge损失函数（SVM）" class="headerlink" title="6.4 Hinge损失函数（SVM）"></a>6.4 Hinge损失函数（SVM）</h2><p>可以理解为变形的<strong>0-1损失函数</strong>。</p>
-<h2 id="6-5-cross-entropy交叉熵"><a href="#6-5-cross-entropy交叉熵" class="headerlink" title="6.5 cross entropy交叉熵"></a>6.5 cross entropy交叉熵</h2><p>vgg使用的loss评估为交叉熵。  </p>
-<p>熵：信息量的期望值，是一个随机变量的确定性的度量。熵越大，变量的取值越不确定，反之就越确定。  </p>
+        <h1 id="模型">1.模型：</h1>
+<p><strong>线性回归、逻辑回归、神经网络</strong>（前向传播+后向传播）<strong>、SVM</strong>（svm简单快速，但是还是更倾向于特征是直接获取的而不是由数据自己学习到的）<br>
+# 2.训练过程：<br>
+<strong>梯度下降、矩阵乘法</strong>（必须特征缩放、均值归一，适用于特征较多情况）<strong>、正规方程</strong>（无需训练过程与迭代，特征值很多会很慢）<strong>、神经网络后向传播、SVM核函数</strong> <a id="more"></a><br>
+# 3.不断调优：<br>
+<strong>交叉验证</strong>（确定什么模型最优k-fold、hand-out）<strong>、上限分析</strong>（借助机器学习流水线的原理，人为的把某一部分修改为已知的正确答案，然后继续一遍操作，得到提升程度，直到所有步的操作都是正确答案，那么可以知道某一步可以得到最大的提升程度，也就是最有价值加深研究的步骤）<strong>、高偏差/高方差</strong>（欠拟合/过拟合）（如果是高偏差的情况，再增多训练数据的数量并不能提高性能。）（如果是高方差的情况，收集数据会让偏差值也会降低。）<strong>、accuracy+precision+reacall+f1score、降维PCA</strong>（保留矩阵特征方程-精华使降维后差异性足够小）<strong>、异常检测（</strong>将数据拟合到如高斯分布上，因为方便用方差和均值构造，来寻找异常的数据）<strong>、批量梯度下降</strong>（随机梯度下降、小批量梯度下降）<br>
+## 3.1 模型验证 ### 3.1.1 set approach 将原始数据分为训练集和验证集。<br>
+这种方式，不同的划分方式得到的结果也会有差异。<br>
+而且也无法充分利用数据来让训练集更大。 ### 3.1.2 LOOCV（Leave-one-out cross-validation） 只用一个数据做测试集，但是重复n次。<br>
+结果更加精确，但是成本很高。 ### 3.1.3 K-fold Cross Validation 将所有数据分成k份，然后重复k-1次，每次用1份做测试集，剩下的k-1份做训练集。将k次的评估平均。 ### 3.1.4 Bias-Variance Trade-Off for k-Fold Cross-Validation k越大，训练集越大，bias越小。但是越容易取到相似（相关性强）的数据，所以variance越大。<br>
+一般取5/10. ## 3.2 常见问题 ### 3.2.1 过拟合 从根源（哲学）角度理解这个问题：<strong>如无必要，勿增实体</strong> 《奥卡姆剃刀原则》。我们往往使用假设最少的解释最接近事实。</p>
+<p>从根源上讲，过拟合是因为样本数据中存在噪声、异常点，在训练学习的过程中将这些异常也学习到了模型里，但是在实际使用预测的时候却只能起反作用。<br>
+所以最基本的防止过拟合就是验证、筛选、剔除异常值。 ### 3.2.2 欠拟合 建模的时候欠缺了数据、特征、模型复杂度。 ### 3.2.3 维度灾难</p>
+<h1 id="应用">4.应用：</h1>
+<p><strong>推荐系统</strong>（协同过滤-特征学习，将所有个性化用户都参与到其他个性化的学习中）<strong>、在线学习机制</strong><br>
+# 5.kmeans-knn<br>
+##（1）kmeans （聚类） 1. 是随机取k个标记。 2. 对每个样本判断离哪个标记最近就属于哪个簇里，<strong>然后取新的k个标记为每个簇的所有样本均值</strong>。 3. 重复2直到误差最小。 （误差为所有该簇代表分类的样本到中心点的距离最小）</p>
+<p><strong>缺点：</strong>必须事先知道k是多大，还需要认为设置标记初始位置，不同的初始位置可能导致不同的结果。<br>
+<strong>优化选择初始标记：</strong>kmeans++，第一个点随机-然后将所有的点到最近标记的距离保存-在距离数组中范围内选择一个随机数，然后不断减数组中数直到小于等于零，目前的数是下一个标记。当簇接近高斯分布的时候，效果很好。</p>
+<p>kmeans是取标记是取的质心，所以一旦有异常点，会有很大影响。<br>
+kmeans是初值敏感的，不同的初始化可能会有不同的划分结果。 ##（2）knn（k nearest neighbor）（分类） 根据已加入label的数据，和待分类数据。<br>
+将一个待分类数据在图像中找到离他最近的k个数据，最多的那种就是待分类数据的种类。<br>
+memory-based learning，不需要预训练，当数据加载到内存就可以分类了。<br>
+##（3）kmeans，knn<br>
+聚类算法，分类算法<br>
+无监督，监督<br>
+需要明显训练，无预训练<br>
+k种簇，k个点<br>
+##（4）SVM（监督学习）<br>
+大间距分类器。（二分类模型）<br>
+核函数：将样本数据映射到更高维的空间，从而将原本难以切割的情况可以切割。然后再把切割后的映射回原空间，获得了可用的分类器。<br>
+而最常用的核函数有：线性核、多项式核、高斯核、拉普拉斯核、sigmoid核、通过核函数之间的线性组合或直积等运算得出的新核函数。<br>
+但是在分割的时候，又不能过拟合。所以允许有一定的损失。<br>
+训练的时候可以使用one-vs-all来不断训练不同的svm分类器，达到多分类。<br>
+# 6.loss function <a href="http://blog.csdn.net/shenxiaoming77/article/details/51614601" class="uri" target="_blank" rel="noopener">http://blog.csdn.net/shenxiaoming77/article/details/51614601</a><br>
+<img src="http://p9f9koofz.bkt.clouddn.com/损失函数.jpg" alt="avatar"> ## 6.0基本知识 <strong>误差</strong>：观测值与真实值的偏离（表达观测失误或模型问题）<br>
+<strong>残差</strong>：观测值与拟合值的偏离（表达样本和特征不具有代表性） ## 6.1 log对数损失函数（逻辑回归） 就是利用已知的样本分布，找到最有可能（即最大概率）导致这种分布的参数值；或者说什么样的参数才能使我们观测到目前这组数据的概率最大。</p>
+<p>取对数是为了方便计算极大似然估计，逻辑回归的推导过程中，我们假设样本是服从伯努利分布(0-1分布)的，然后求得满足该分布的似然函数，最终求该似然函数的极大值。整体的思想就是求极大似然函数的思想。而取对数，只是为了方便我们的在求MLE(Maximum Likelihood Estimation)过程中采取的一种数学手段而已。 ## 6.2 平方损失函数（最小二乘法, Ordinary Least Squares ） 最小二乘法是线性回归的一种，原则是：最优拟合直线应该是使各点到回归直线的距离和最小的直线，即平方和最小。</p>
+<p>好处： 简单，计算方便；<br>
+欧氏距离是一种很好的相似性度量标准；<br>
+在不同的表示域变换后特征性质不变。<br>
+## 6.3 指数损失函数（Adaboost） ## 6.4 Hinge损失函数（SVM） 可以理解为变形的<strong>0-1损失函数</strong>。 ## 6.5 cross entropy交叉熵 vgg使用的loss评估为交叉熵。</p>
+<p>熵：信息量的期望值，是一个随机变量的确定性的度量。熵越大，变量的取值越不确定，反之就越确定。</p>
 <p>相对熵：又称为KL散度，KL距离，是两个随机分布间距离的度量。DKL(p||q)表示在真实分布为p的前提下，使用q分布进行编码相对于使用真实分布p进行编码（即最优编码）所多出来的bit数。</p>
 <p><strong>交叉熵</strong>：。。。没看懂，大概是真实样本分布和模型分布的相似程度。</p>
-<p>为神经网络引入交叉熵代价函数，是为了弥补 sigmoid 型函数的导数形式易发生饱和（saturate，梯度更新的较慢）的缺陷。</p>
-<h1 id="7-模型评估"><a href="#7-模型评估" class="headerlink" title="7 模型评估"></a>7 模型评估</h1><p>true positive = tp<br>false positive = fp<br>false negative = fn<br>true negative = tn  </p>
+<p>为神经网络引入交叉熵代价函数，是为了弥补 sigmoid 型函数的导数形式易发生饱和（saturate，梯度更新的较慢）的缺陷。 # 7 模型评估 true positive = tp<br>
+false positive = fp<br>
+false negative = fn<br>
+true negative = tn</p>
 <blockquote>
-<p>一般precision和recall是相互制约的，不会都高。根据不同的场景，对评估指标做取舍。<br>Fscore可以综合考虑precision和recall。</p>
+<p>一般precision和recall是相互制约的，不会都高。根据不同的场景，对评估指标做取舍。<br>
+Fscore可以综合考虑precision和recall。</p>
 </blockquote>
-<p>其中accuracy、precision、recall、Fscore、ROC、AUC都是评估分类模型的好坏的指标。<br>MSE、MAE这些事评估回归模型好坏的指标。</p>
-<h2 id="7-1-准确率-accuracy"><a href="#7-1-准确率-accuracy" class="headerlink" title="7.1 准确率-accuracy"></a>7.1 准确率-accuracy</h2><pre><code>tp/所有的样本  
-</code></pre><p>也就是分对的样本占所有样本的比例。</p>
-<h2 id="7-2-精准率-precision"><a href="#7-2-精准率-precision" class="headerlink" title="7.2 精准率-precision"></a>7.2 精准率-precision</h2><pre><code>tp/tp+fp  
-</code></pre><p>也就是不考虑negative的样本中分对的比例。<br>即：看不应该分到目标分类的样本多不多。</p>
-<h2 id="7-3-召回率-recall"><a href="#7-3-召回率-recall" class="headerlink" title="7.3 召回率-recall"></a>7.3 召回率-recall</h2><pre><code>tp/tp+fn  
-</code></pre><p>也就是正确分对的样本占所有实际在positive中样本的比例。<br>即：看应该分到目标分类而没分到的样本多不多。</p>
-<h2 id="7-4-F分数-Fscore"><a href="#7-4-F分数-Fscore" class="headerlink" title="7.4 F分数-Fscore"></a>7.4 F分数-Fscore</h2><pre><code>(1+β^2) * (precision * recall) / (β^2 * precision + recall)
-</code></pre><p>相当于用参数β来调整precision和recall的权重。来调和我们根据场景认为哪个评估参数更重要。    </p>
-<h2 id="7-5-均方根误差-RMSE"><a href="#7-5-均方根误差-RMSE" class="headerlink" title="7.5 均方根误差-RMSE"></a>7.5 均方根误差-RMSE</h2><p>（MSE的根号形式）  </p>
-<pre><code>估计值与实际值差的平方的均值再开方。  
-</code></pre><p>这个值越低预测的效果越好。<br>结合用平均值做预测值来获得一个基准的RMSE，可以简单的评估拟合水平能不能接受。</p>
-<h2 id="7-6-ROC"><a href="#7-6-ROC" class="headerlink" title="7.6 ROC"></a>7.6 ROC</h2><p>横坐标：FPR（false positive rate = <code>fp/tn+fp</code>）即实际是好的但是预测为坏的的比例<br>纵坐标：TPR（true positive rate = <code>tp/tp+fn</code>）= recall即实际为好的里预测为好的的比例<br>ROC曲线的来源是对分类概率的阈值的考察，选取不同的阈值得到的不同的FPR、TPR点行程曲线。</p>
-<h2 id="7-7-AUC"><a href="#7-7-AUC" class="headerlink" title="7.7 AUC"></a>7.7 AUC</h2><p>ROC曲线的积分，AUC越大，模型的区分能力越好。（0.5就是猜的大小）</p>
-<h1 id="8-补充"><a href="#8-补充" class="headerlink" title="8. 补充"></a>8. 补充</h1><h2 id="向量点乘"><a href="#向量点乘" class="headerlink" title="向量点乘"></a>向量点乘</h2><p>向量点乘结果是标量，一个值，代表向量二在向量一方向的投影长度。</p>
-<h2 id="向量叉乘"><a href="#向量叉乘" class="headerlink" title="向量叉乘"></a>向量叉乘</h2><p>向量叉乘结果是向量，代表手指沿向量一方向，手心沿向量二方向，大拇指方向就是结果向量方向。<br>计算的时候是类似计算行列式的方式，引入i、j、k三个构成空间的单位向来。</p>
+<p>其中accuracy、precision、recall、Fscore、ROC、AUC都是评估分类模型的好坏的指标。<br>
+MSE、MAE这些事评估回归模型好坏的指标。 ## 7.1 准确率-accuracy tp/所有的样本<br>
+也就是分对的样本占所有样本的比例。 ## 7.2 精准率-precision tp/tp+fp<br>
+也就是不考虑negative的样本中分对的比例。<br>
+即：看不应该分到目标分类的样本多不多。 ## 7.3 召回率-recall tp/tp+fn<br>
+也就是正确分对的样本占所有实际在positive中样本的比例。<br>
+即：看应该分到目标分类而没分到的样本多不多。 ## 7.4 F分数-Fscore (1+β^2) * (precision * recall) / (β^2 * precision + recall) 相当于用参数β来调整precision和recall的权重。来调和我们根据场景认为哪个评估参数更重要。 ## 7.5 均方根误差-RMSE （MSE的根号形式）</p>
+<pre><code>估计值与实际值差的平方的均值再开方。  </code></pre>
+<p>这个值越低预测的效果越好。<br>
+结合用平均值做预测值来获得一个基准的RMSE，可以简单的评估拟合水平能不能接受。 ## 7.6 ROC 横坐标：FPR（false positive rate = <code>fp/tn+fp</code>）即实际是好的但是预测为坏的的比例<br>
+纵坐标：TPR（true positive rate = <code>tp/tp+fn</code>）= recall即实际为好的里预测为好的的比例<br>
+ROC曲线的来源是对分类概率的阈值的考察，选取不同的阈值得到的不同的FPR、TPR点行程曲线。 ## 7.7 AUC ROC曲线的积分，AUC越大，模型的区分能力越好。（0.5就是猜的大小）</p>
+<h1 id="补充">8. 补充</h1>
+<h2 id="向量点乘">向量点乘</h2>
+<p>向量点乘结果是标量，一个值，代表向量二在向量一方向的投影长度。 ## 向量叉乘 向量叉乘结果是向量，代表手指沿向量一方向，手心沿向量二方向，大拇指方向就是结果向量方向。<br>
+计算的时候是类似计算行列式的方式，引入i、j、k三个构成空间的单位向来。</p>
 
       
     </div>
@@ -606,8 +621,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Language/C/C++/" rel="next" title="C++面试必考">
-                <i class="fa fa-chevron-left"></i> C++面试必考
+              <a href="/深度学习/DL领域知识/" rel="next" title="DL领域知识">
+                <i class="fa fa-chevron-left"></i> DL领域知识
               </a>
             
           </div>
@@ -616,8 +631,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/深度学习/DL领域知识/" rel="prev" title="DL领域知识">
-                DL领域知识 <i class="fa fa-chevron-right"></i>
+              <a href="/面经总结/4.ML-面试必考/" rel="prev" title="机器学习-思考题">
+                机器学习-思考题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -805,7 +820,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-模型："><span class="nav-number">1.</span> <span class="nav-text">1.模型：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-训练过程："><span class="nav-number">2.</span> <span class="nav-text">2.训练过程：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-不断调优："><span class="nav-number">3.</span> <span class="nav-text">3.不断调优：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-模型验证"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 模型验证</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1-set-approach"><span class="nav-number">3.1.1.</span> <span class="nav-text">3.1.1 set approach</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-2-LOOCV（Leave-one-out-cross-validation）"><span class="nav-number">3.1.2.</span> <span class="nav-text">3.1.2 LOOCV（Leave-one-out cross-validation）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-3-K-fold-Cross-Validation"><span class="nav-number">3.1.3.</span> <span class="nav-text">3.1.3 K-fold Cross Validation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-4-Bias-Variance-Trade-Off-for-k-Fold-Cross-Validation"><span class="nav-number">3.1.4.</span> <span class="nav-text">3.1.4 Bias-Variance Trade-Off for k-Fold Cross-Validation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-常见问题"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1-过拟合"><span class="nav-number">3.2.1.</span> <span class="nav-text">3.2.1 过拟合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2-欠拟合"><span class="nav-number">3.2.2.</span> <span class="nav-text">3.2.2 欠拟合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-3-维度灾难"><span class="nav-number">3.2.3.</span> <span class="nav-text">3.2.3 维度灾难</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-应用："><span class="nav-number">4.</span> <span class="nav-text">4.应用：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-kmeans-knn"><span class="nav-number">5.</span> <span class="nav-text">5.kmeans-knn</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-loss-function"><span class="nav-number">6.</span> <span class="nav-text">6.loss function</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-0基本知识"><span class="nav-number">6.1.</span> <span class="nav-text">6.0基本知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-log对数损失函数（逻辑回归）"><span class="nav-number">6.2.</span> <span class="nav-text">6.1 log对数损失函数（逻辑回归）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-平方损失函数（最小二乘法-Ordinary-Least-Squares-）"><span class="nav-number">6.3.</span> <span class="nav-text">6.2 平方损失函数（最小二乘法, Ordinary Least Squares ）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-指数损失函数（Adaboost）"><span class="nav-number">6.4.</span> <span class="nav-text">6.3 指数损失函数（Adaboost）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-4-Hinge损失函数（SVM）"><span class="nav-number">6.5.</span> <span class="nav-text">6.4 Hinge损失函数（SVM）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-5-cross-entropy交叉熵"><span class="nav-number">6.6.</span> <span class="nav-text">6.5 cross entropy交叉熵</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-模型评估"><span class="nav-number">7.</span> <span class="nav-text">7 模型评估</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-准确率-accuracy"><span class="nav-number">7.1.</span> <span class="nav-text">7.1 准确率-accuracy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-精准率-precision"><span class="nav-number">7.2.</span> <span class="nav-text">7.2 精准率-precision</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-召回率-recall"><span class="nav-number">7.3.</span> <span class="nav-text">7.3 召回率-recall</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-4-F分数-Fscore"><span class="nav-number">7.4.</span> <span class="nav-text">7.4 F分数-Fscore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-5-均方根误差-RMSE"><span class="nav-number">7.5.</span> <span class="nav-text">7.5 均方根误差-RMSE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-6-ROC"><span class="nav-number">7.6.</span> <span class="nav-text">7.6 ROC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-7-AUC"><span class="nav-number">7.7.</span> <span class="nav-text">7.7 AUC</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-补充"><span class="nav-number">8.</span> <span class="nav-text">8. 补充</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#向量点乘"><span class="nav-number">8.1.</span> <span class="nav-text">向量点乘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向量叉乘"><span class="nav-number">8.2.</span> <span class="nav-text">向量叉乘</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#模型"><span class="nav-number">1.</span> <span class="nav-text">1.模型：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#应用"><span class="nav-number">2.</span> <span class="nav-text">4.应用：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#补充"><span class="nav-number">3.</span> <span class="nav-text">8. 补充</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#向量点乘"><span class="nav-number">3.1.</span> <span class="nav-text">向量点乘</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1548,11 +1563,50 @@
       
       new needShareButton('#needsharebutton-float', flOptions);
     
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
 
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
 
   
 

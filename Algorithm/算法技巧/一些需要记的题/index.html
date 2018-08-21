@@ -114,18 +114,18 @@
 
 
 
-<meta name="description" content="寻找连续子数组、子矩阵的和为精确值的情况数组、矩阵是无序的，就没办法用窗口类的O(N、N^2)时间复杂度方法。最简单的思考方式就是用二、三维的动态规划，计算所有i到j的情况。但是算的时候就发现了，有很多的冗余计算。 DP降维—问题转化">
+<meta name="description" content="寻找连续子数组、子矩阵的和为精确值的情况 数组、矩阵是无序的，就没办法用窗口类的O(N、N^2)时间复杂度方法。 最简单的思考方式就是用二、三维的动态规划，计算所有i到j的情况。但是算的时候就发现了，有很多的冗余计算。 ### DP降维—问题转化">
 <meta name="keywords" content="技巧,算法,高级技巧,记忆">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一些需要记的题">
 <meta property="og:url" content="blog.lovelaolao.xin/Algorithm/算法技巧/一些需要记的题/index.html">
 <meta property="og:site_name" content="Fall Out Boy">
-<meta property="og:description" content="寻找连续子数组、子矩阵的和为精确值的情况数组、矩阵是无序的，就没办法用窗口类的O(N、N^2)时间复杂度方法。最简单的思考方式就是用二、三维的动态规划，计算所有i到j的情况。但是算的时候就发现了，有很多的冗余计算。 DP降维—问题转化">
+<meta property="og:description" content="寻找连续子数组、子矩阵的和为精确值的情况 数组、矩阵是无序的，就没办法用窗口类的O(N、N^2)时间复杂度方法。 最简单的思考方式就是用二、三维的动态规划，计算所有i到j的情况。但是算的时候就发现了，有很多的冗余计算。 ### DP降维—问题转化">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-05-28T08:39:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一些需要记的题">
-<meta name="twitter:description" content="寻找连续子数组、子矩阵的和为精确值的情况数组、矩阵是无序的，就没办法用窗口类的O(N、N^2)时间复杂度方法。最简单的思考方式就是用二、三维的动态规划，计算所有i到j的情况。但是算的时候就发现了，有很多的冗余计算。 DP降维—问题转化">
+<meta name="twitter:description" content="寻找连续子数组、子矩阵的和为精确值的情况 数组、矩阵是无序的，就没办法用窗口类的O(N、N^2)时间复杂度方法。 最简单的思考方式就是用二、三维的动态规划，计算所有i到j的情况。但是算的时候就发现了，有很多的冗余计算。 ### DP降维—问题转化">
 
 
 
@@ -484,38 +484,53 @@
       
 
       
-        <h2 id="寻找连续子数组、子矩阵的和为精确值的情况"><a href="#寻找连续子数组、子矩阵的和为精确值的情况" class="headerlink" title="寻找连续子数组、子矩阵的和为精确值的情况"></a>寻找连续子数组、子矩阵的和为精确值的情况</h2><p>数组、矩阵是无序的，就没办法用窗口类的O(N、N^2)时间复杂度方法。<br>最简单的思考方式就是用二、三维的动态规划，计算所有i到j的情况。但是算的时候就发现了，有很多的冗余计算。</p>
-<h3 id="DP降维—问题转化"><a href="#DP降维—问题转化" class="headerlink" title="DP降维—问题转化"></a>DP降维—问题转化</h3><a id="more"></a>
-<p>由于是连续的子数组、子矩阵。必然存在一下关系：<br>(数组的话是第i到第j元素的子数组，矩阵的话是左上角在i坐标，右下角在j坐标的子矩阵。)：<strong><code>sum(i,j) = sum(0,j) - sum(0,i)</code></strong><br>那么<strong>所有从起点到终点的问题都变成了从0点到终点的问题之间的差</strong>。<br>从而动态规划的问题维数就变成了<code>二 =&gt; 一</code>，<code>三 =&gt; 二</code>。</p>
-<h3 id="O-N-的精确找答案—Map"><a href="#O-N-的精确找答案—Map" class="headerlink" title="O(N)的精确找答案—Map"></a>O(N)的精确找答案—Map</h3><p>虽然用更高效的形式得到了所有子数组、子矩阵的<code>sum(i,j)</code>。但是查找还是要遍历所有起终点之间的差。<br>可以讲所有的<code>sum(0,i)</code>全都保存到map里，key为和的值，这样在<strong>找所有满足<code>k = sum(0,j) - sum(0,i)</code>的情况时，直接<code>map.find(sum(0,i) - k)</code></strong>就好了，类似于two sum的问题。</p>
-<h2 id="快速选择-VS-堆排序-得到第k个结果"><a href="#快速选择-VS-堆排序-得到第k个结果" class="headerlink" title="快速选择 VS 堆排序 得到第k个结果"></a>快速选择 VS 堆排序 得到第k个结果</h2><p><strong>有可以达到O(N)比堆排序更优秀的算法：快速选择算法。</strong></p>
+        <h2 id="寻找连续子数组子矩阵的和为精确值的情况">寻找连续子数组、子矩阵的和为精确值的情况</h2>
+<p>数组、矩阵是无序的，就没办法用窗口类的O(N、N^2)时间复杂度方法。<br>
+最简单的思考方式就是用二、三维的动态规划，计算所有i到j的情况。但是算的时候就发现了，有很多的冗余计算。 ### DP降维—问题转化 <a id="more"></a> 由于是连续的子数组、子矩阵。必然存在一下关系：<br>
+(数组的话是第i到第j元素的子数组，矩阵的话是左上角在i坐标，右下角在j坐标的子矩阵。)：<strong><code>sum(i,j) = sum(0,j) - sum(0,i)</code></strong><br>
+那么<strong>所有从起点到终点的问题都变成了从0点到终点的问题之间的差</strong>。<br>
+从而动态规划的问题维数就变成了<code>二 =&gt; 一</code>，<code>三 =&gt; 二</code>。 ### O(N)的精确找答案—Map 虽然用更高效的形式得到了所有子数组、子矩阵的<code>sum(i,j)</code>。但是查找还是要遍历所有起终点之间的差。<br>
+可以讲所有的<code>sum(0,i)</code>全都保存到map里，key为和的值，这样在<strong>找所有满足<code>k = sum(0,j) - sum(0,i)</code>的情况时，直接<code>map.find(sum(0,i) - k)</code></strong>就好了，类似于two sum的问题。 ## 快速选择 VS 堆排序 得到第k个结果 <strong>有可以达到O(N)比堆排序更优秀的算法：快速选择算法。</strong></p>
 <table>
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:center">得到第k小的元素</th>
-<th style="text-align:center">时间复杂度</th>
-<th style="text-align:center">优点</th>
-<th style="text-align:center">缺点</th>
+<tr class="header">
+<th style="text-align: center;">得到第k小的元素</th>
+<th style="text-align: center;">时间复杂度</th>
+<th style="text-align: center;">优点</th>
+<th style="text-align: center;">缺点</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">堆排序（大顶堆找k小，小顶堆找k大）</td>
-<td style="text-align:center">O(klogn)</td>
-<td style="text-align:center">可以动态更新，添加、删除堆元素后很快得到新结果</td>
-<td style="text-align:center">单纯从固定数组得到第k元素的话时间复杂度不如快速选择</td>
+<tr class="odd">
+<td style="text-align: center;">堆排序（大顶堆找k小，小顶堆找k大）</td>
+<td style="text-align: center;">O(klogn)</td>
+<td style="text-align: center;">可以动态更新，添加、删除堆元素后很快得到新结果</td>
+<td style="text-align: center;">单纯从固定数组得到第k元素的话时间复杂度不如快速选择</td>
 </tr>
-<tr>
-<td style="text-align:center">快速选择算法</td>
-<td style="text-align:center">平均O(N)（最差O(N^2)）</td>
-<td style="text-align:center">从固定数组得到第k元素可以达到O(N)的完美时间复杂度</td>
-<td style="text-align:center">必须是固定数组</td>
+<tr class="even">
+<td style="text-align: center;">快速选择算法</td>
+<td style="text-align: center;">平均O(N)（最差O(N^2)）</td>
+<td style="text-align: center;">从固定数组得到第k元素可以达到O(N)的完美时间复杂度</td>
+<td style="text-align: center;">必须是固定数组</td>
 </tr>
 </tbody>
 </table>
-<h3 id="快速选择算法"><a href="#快速选择算法" class="headerlink" title="快速选择算法"></a>快速选择算法</h3><p>（原理上类似二分查找，但是二分查找只能寻找有序集合）<br>借助快速排序的partition方法，不断地用pivot得到其最终位置，然后和k比，然后在k应该在的那一侧继续重复，直到精准的找到pivot位置为k。  </p>
-<p>为什么时间复杂度是O(N)不是快排的O(NlogN)：<br>因为快排需要得到pivot之后两侧递归继续partition。但是快速选择得知k位置所在一侧之后，会舍弃另一侧不考虑。<br>这样总的比较次数就是<code>n+n/2+n/4+...+1 = 2*n</code>时间复杂度也就是O(N)。<br>这里n/2^m是指平局情况的比较次数。</p>
-<h2 id="二叉树两个结点最近公共父节点"><a href="#二叉树两个结点最近公共父节点" class="headerlink" title="二叉树两个结点最近公共父节点"></a>二叉树两个结点最近公共父节点</h2><h3 id="法一：DFS"><a href="#法一：DFS" class="headerlink" title="法一：DFS"></a>法一：DFS</h3><p>没有重复val的结点。这个题非常好理解，但是不太好写，因为有一点要理解，<strong>如果在遍历中能找到其中一个目标，那就不用继续遍历了（不管它下面还有没有另一个结点，这一点可以后验得知）</strong>，直接返回这个目标作为候选的公共父。因为如果一个结点发现左右子树中只有一个能找到目标，那么这个目标一定是公共父节点了。</p>
+<h3 id="快速选择算法">快速选择算法</h3>
+<p>（原理上类似二分查找，但是二分查找只能寻找有序集合）<br>
+借助快速排序的partition方法，不断地用pivot得到其最终位置，然后和k比，然后在k应该在的那一侧继续重复，直到精准的找到pivot位置为k。</p>
+<p>为什么时间复杂度是O(N)不是快排的O(NlogN)：<br>
+因为快排需要得到pivot之后两侧递归继续partition。但是快速选择得知k位置所在一侧之后，会舍弃另一侧不考虑。<br>
+这样总的比较次数就是<code>n+n/2+n/4+...+1 = 2*n</code>时间复杂度也就是O(N)。<br>
+这里n/2^m是指平局情况的比较次数。</p>
+<h2 id="二叉树两个结点最近公共父节点">二叉树两个结点最近公共父节点</h2>
+<h3 id="法一dfs">法一：DFS</h3>
+<p>没有重复val的结点。这个题非常好理解，但是不太好写，因为有一点要理解，<strong>如果在遍历中能找到其中一个目标，那就不用继续遍历了（不管它下面还有没有另一个结点，这一点可以后验得知）</strong>，直接返回这个目标作为候选的公共父。因为如果一个结点发现左右子树中只有一个能找到目标，那么这个目标一定是公共父节点了。</p>
 <pre><code>代码及其简洁
 public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
     if(root == null || root == p || root == q) return root;
@@ -523,29 +538,38 @@ public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
     TreeNode right = lowestCommonAncestor(root.right, p, q);
     if(left != null &amp;&amp; right != null) return root;
     return left == null ? right : left;
-}
-</code></pre><h3 id="法二：根到结点路径"><a href="#法二：根到结点路径" class="headerlink" title="法二：根到结点路径"></a>法二：根到结点路径</h3><p>可以<strong>借助dfs寻找root到两个目标结点的路径</strong>，返回一个List，头对齐之后用并行遍历的方式，一个个比对，直到不一样，那么就找到了最近公共父节点。<br>虽然不如法一直接，但是也是O(logN)的时间复杂度。</p>
-<h3 id="扩展：找到m个结点的最近公共父节点"><a href="#扩展：找到m个结点的最近公共父节点" class="headerlink" title="扩展：找到m个结点的最近公共父节点"></a>扩展：找到m个结点的最近公共父节点</h3><p>如果用法一，那就需要两个合成一个，两个合成一个来寻找，需要O(logN^m)指数级增长的时间复杂度！<br>但是用<strong>法二</strong>的话，可以用线性时间复杂度，找到m个结点的路径，一起比对寻找最近公共父节点O(m*logN)。</p>
-<h2 id="sqrt-牛顿法"><a href="#sqrt-牛顿法" class="headerlink" title="sqrt-牛顿法"></a>sqrt-牛顿法</h2><p>不断通过切线逼近结果的方式（二次方程）。    </p>
+}</code></pre>
+<h3 id="法二根到结点路径">法二：根到结点路径</h3>
+<p>可以<strong>借助dfs寻找root到两个目标结点的路径</strong>，返回一个List，头对齐之后用并行遍历的方式，一个个比对，直到不一样，那么就找到了最近公共父节点。<br>
+虽然不如法一直接，但是也是O(logN)的时间复杂度。 ### 扩展：找到m个结点的最近公共父节点 如果用法一，那就需要两个合成一个，两个合成一个来寻找，需要O(logN^m)指数级增长的时间复杂度！<br>
+但是用<strong>法二</strong>的话，可以用线性时间复杂度，找到m个结点的路径，一起比对寻找最近公共父节点O(m*logN)。</p>
+<h2 id="sqrt-牛顿法">sqrt-牛顿法</h2>
+<p>不断通过切线逼近结果的方式（二次方程）。</p>
 <pre><code>数学理解：
 输入为n，找到开方结果也就是x^2 - n = 0的解。
 在图像上也就是图像在x轴正向上交点。
 为了寻找这个交点，需要从一个起始点x1开始。（假设x1 = n）
-那么xi处的切线为f(xi) + f&apos;(xi)(x - xi) = y。
-解出xi切线与x轴交点横坐标：xi+1 = xi - f(xi) / f&apos;(xi)
+那么xi处的切线为f(xi) + f&#39;(xi)(x - xi) = y。
+解出xi切线与x轴交点横坐标：xi+1 = xi - f(xi) / f&#39;(xi)
 xi+1也就是下一个候选点横坐标，继续这一从切线接近解的方式
 直到x^2 - n = 0。因为此时xn的切线与x交点本身就是自己。
-更新方程：xi+1 = xi - f(xi) / f&apos;(xi)
+更新方程：xi+1 = xi - f(xi) / f&#39;(xi)
 也就是：xi+1 = xi - (xi^2 - n) / 2*xi
-也就是：xi+1 = xi / 2 +  n / 2*xi
-</code></pre><p>数学解释：就是用开方方程<code>x^2 - n = 0</code>不断从一个起始点取切线交于x轴，与x轴的交点xi就是下一个候选点（横坐标）。这样可以不断接近实际方程的解。当点满足了<code>x^2 - n = 0</code>（或者说此时该点切线与x轴交点就是本身），那么就是答案。（从图上很好理解）</p>
+也就是：xi+1 = xi / 2 +  n / 2*xi</code></pre>
+<p>数学解释：就是用开方方程<code>x^2 - n = 0</code>不断从一个起始点取切线交于x轴，与x轴的交点xi就是下一个候选点（横坐标）。这样可以不断接近实际方程的解。当点满足了<code>x^2 - n = 0</code>（或者说此时该点切线与x轴交点就是本身），那么就是答案。（从图上很好理解）</p>
 <pre><code>long r = x;
 while (r*r &gt; x)
     r = (r + x/r) / 2;
-return (int) r;   
-</code></pre><h3 id="扩展：限定输入输出为double，输出精度在小数点后k位"><a href="#扩展：限定输入输出为double，输出精度在小数点后k位" class="headerlink" title="扩展：限定输入输出为double，输出精度在小数点后k位"></a>扩展：限定输入输出为double，输出精度在小数点后k位</h3><p>这样的话还是可以用牛顿法。<br>如果不用牛顿法的话：二分查找，直接用mid顶替low/high。<br><strong>退出循环标志</strong>（由于精度的引入，牛顿法也要考察精度）：<code>double res*res &lt;= n + 10^-k</code> &amp;&amp; <code>double res*res &gt;= n - 10^-k</code><br>时间复杂度：<code>O(log(n*10^k))</code></p>
-<h2 id="Moore’s-voting-Algorithm"><a href="#Moore’s-voting-Algorithm" class="headerlink" title="Moore’s voting Algorithm"></a>Moore’s voting Algorithm</h2><blockquote>
-<p>找到一个数组中出现比例在1/k以上的所有数。（已知：最多可以有k-1个）<br>要搞懂怎么做，也要搞懂为什么可以这么做。</p>
+return (int) r;   </code></pre>
+<h3 id="扩展限定输入输出为double输出精度在小数点后k位">扩展：限定输入输出为double，输出精度在小数点后k位</h3>
+<p>这样的话还是可以用牛顿法。<br>
+如果不用牛顿法的话：二分查找，直接用mid顶替low/high。<br>
+<strong>退出循环标志</strong>（由于精度的引入，牛顿法也要考察精度）：<code>double res*res &lt;= n + 10^-k</code> &amp;&amp; <code>double res*res &gt;= n - 10^-k</code><br>
+时间复杂度：<code>O(log(n*10^k))</code></p>
+<h2 id="moores-voting-algorithm">Moore’s voting Algorithm</h2>
+<blockquote>
+<p>找到一个数组中出现比例在1/k以上的所有数。（已知：最多可以有k-1个）<br>
+要搞懂怎么做，也要搞懂为什么可以这么做。</p>
 </blockquote>
 <p><a href="http://www.cs.utexas.edu/~moore/best-ideas/mjrty/example.html#step01" target="_blank" rel="noopener">图解例子：k=2的时候</a></p>
 <pre><code>具体做法：
@@ -564,13 +588,19 @@ return (int) r;
         （2）tmp.size() != 0：用tmp中最后一个counter对应这个元素并在tmp中删除（这样可以节省删除时间），保存元素到候选数组map，设置该counter为1.
 ------------------------
 4. 所有map中的元素都是可能满足的候选元素。
-5. 再遍历一遍所有元素，统计所有map元素的出现次数，验证是否出现比例大于1/k，通过的计入结果。
-</code></pre><h3 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h3><blockquote>
-<p>不断凑出来k个不一样的数从数组中排除。<br>剩下的元素（应该）全是满足条件的元素。<br>因为所有出现比例大于1/k次的数一定满足每次都在删除的k个元素里，最后还能剩下它。</p>
+5. 再遍历一遍所有元素，统计所有map元素的出现次数，验证是否出现比例大于1/k，通过的计入结果。</code></pre>
+<h3 id="原理">原理：</h3>
+<blockquote>
+<p>不断凑出来k个不一样的数从数组中排除。<br>
+剩下的元素（应该）全是满足条件的元素。<br>
+因为所有出现比例大于1/k次的数一定满足每次都在删除的k个元素里，最后还能剩下它。</p>
 </blockquote>
-<p>首先要知道，<strong>Moore’s voting Algorithm是得到一个数组中出现比例在1/k以上的所有数的<code>必要不充分条件</code></strong>。<br>也就是说，通过Moore’s voting Algorithm得到的结果不一定是满足出现1/k的数。但是满足出现比例大于1/k的数一定可以用Moore’s voting Algorithm得到。</p>
-<h3 id="关键及必须做的事—验证结果正确性！"><a href="#关键及必须做的事—验证结果正确性！" class="headerlink" title="关键及必须做的事—验证结果正确性！"></a>关键及必须做的事—验证结果正确性！</h3><p>由于Moore’s voting Algorithm是一个必要不充分条件，结果不一定满足出现比例大于1/k，所以要再遍历一遍统计其是否满足条件。<br>很可能筛选掉不满足的哟。</p>
-<h2 id="Catalan数"><a href="#Catalan数" class="headerlink" title="Catalan数"></a>Catalan数</h2><p><strong>适用题型1</strong>：每一步有两种走法，但是限制此步前的a走法数&gt;=b走法数，答案是所有可能走法-所有不满足走法。即<strong><code>h(n) = C(n,2n) - C(n+1, 2n)</code></strong>。<br><strong>适用题型2</strong>：类似于动态规划、分治。<code>h(n)</code>的父问题可以由确定一个位置，剩下的分为<code>h(0)*h(n-1)</code>、<code>h(1)*h(n-2)</code>、<code>h(3)*h(n-3)</code>…、<code>h(n-1)*h(0)</code>的子问题。<strong><code>h(n) = h(0)*h(n-1) + h(1)*h(n-2) + h(2)*h(n-3) + ... + h(n-1)*h(0)</code></strong>  </p>
+<p>首先要知道，<strong>Moore’s voting Algorithm是得到一个数组中出现比例在1/k以上的所有数的<code>必要不充分条件</code></strong>。<br>
+也就是说，通过Moore’s voting Algorithm得到的结果不一定是满足出现1/k的数。但是满足出现比例大于1/k的数一定可以用Moore’s voting Algorithm得到。</p>
+<h3 id="关键及必须做的事验证结果正确性">关键及必须做的事—验证结果正确性！</h3>
+<p>由于Moore’s voting Algorithm是一个必要不充分条件，结果不一定满足出现比例大于1/k，所以要再遍历一遍统计其是否满足条件。<br>
+很可能筛选掉不满足的哟。 ## Catalan数 <strong>适用题型1</strong>：每一步有两种走法，但是限制此步前的a走法数&gt;=b走法数，答案是所有可能走法-所有不满足走法。即<strong><code>h(n) = C(n,2n) - C(n+1, 2n)</code></strong>。<br>
+<strong>适用题型2</strong>：类似于动态规划、分治。<code>h(n)</code>的父问题可以由确定一个位置，剩下的分为<code>h(0)*h(n-1)</code>、<code>h(1)*h(n-2)</code>、<code>h(3)*h(n-3)</code>…、<code>h(n-1)*h(0)</code>的子问题。<strong><code>h(n) = h(0)*h(n-1) + h(1)*h(n-2) + h(2)*h(n-3) + ... + h(n-1)*h(0)</code></strong></p>
 <p>（trick，如果用例子测出来，f(0)=1 f(1)=1 f(2)=2 f(3)=5 f(4)=14就一定可以用这个方法）</p>
 <pre><code>解法公式：
 类似于h(n) = h(0)*h(n-1) + h(1)*h(n-2) + h(2)*h(n-3) + ... + h(n-1)*h(0)
@@ -578,14 +608,14 @@ return (int) r;
 或：C(n,2n) - C(n+1, 2n)
 具体问题具体分析，不一定是h(i)*h(n-1-i)
 由于不断地将h(i)更换为h(i-1)可以将公式总结为一个直接结果。
-但是计算公式会变，我就不记了。
-</code></pre><p>（<strong>比较好理解且适用性最高的解释：详见n对括号问题。</strong>）</p>
-<p>适用场景：</p>
-<h3 id="问题1：出栈顺序问题"><a href="#问题1：出栈顺序问题" class="headerlink" title="问题1：出栈顺序问题"></a>问题1：出栈顺序问题</h3><blockquote>
-<p>进栈顺序是1~n，有多少种出栈顺序。  </p>
-</blockquote>
-<h3 id="问题2：n对括号，有多少种合理的组合方式"><a href="#问题2：n对括号，有多少种合理的组合方式" class="headerlink" title="问题2：n对括号，有多少种合理的组合方式"></a>问题2：n对括号，有多少种合理的组合方式</h3><p>说实话在这个问题上，不是很好理解Catalan组合方式的解释。</p>
-<p>因为不管怎么组合，第一个括号一定是(，最后一个括号一定是)。所以就占用了一对括号。<br>所以就变成了(….)的问题。括号里是n-1个括号。<br>用严格意义的catalan就可以。</p>
+但是计算公式会变，我就不记了。</code></pre>
+<p>（<strong>比较好理解且适用性最高的解释：详见n对括号问题。</strong>）</p>
+<p>适用场景： ### 问题1：出栈顺序问题 &gt; 进栈顺序是1~n，有多少种出栈顺序。</p>
+<h3 id="问题2n对括号有多少种合理的组合方式">问题2：n对括号，有多少种合理的组合方式</h3>
+<p>说实话在这个问题上，不是很好理解Catalan组合方式的解释。</p>
+<p>因为不管怎么组合，第一个括号一定是(，最后一个括号一定是)。所以就占用了一对括号。<br>
+所以就变成了(….)的问题。括号里是n-1个括号。<br>
+用严格意义的catalan就可以。</p>
 <pre><code>PS：需要解释一下。
 为什么可以用严格的catalan。
 公式里出现了h(0)*h(n-1)、h(n-1)*h(0)，这两个实际就是一个情况呀。
@@ -603,19 +633,24 @@ return (int) r;
 所以每一个不合法的情况都对应一个n+1个(，n-1个)的情况。
 其实每一个n+1个(，n-1个)的情况，都可以找到一个位置k使前k个数的和&gt;0，也就是可以返回之前不合理的情况。
 这样下来就相当于是一一对应关系。
-所以结果就是C(n,2n) - C(n+1, 2n)。也刚好是卡特兰数的公式结果。
-</code></pre><h3 id="问题3：矩阵连乘，用括号改变运算顺序，有多少种不同计算方式"><a href="#问题3：矩阵连乘，用括号改变运算顺序，有多少种不同计算方式" class="headerlink" title="问题3：矩阵连乘，用括号改变运算顺序，有多少种不同计算方式"></a>问题3：矩阵连乘，用括号改变运算顺序，有多少种不同计算方式</h3><blockquote>
+所以结果就是C(n,2n) - C(n+1, 2n)。也刚好是卡特兰数的公式结果。</code></pre>
+<h3 id="问题3矩阵连乘用括号改变运算顺序有多少种不同计算方式">问题3：矩阵连乘，用括号改变运算顺序，有多少种不同计算方式</h3>
+<blockquote>
 <p>类似于<code>a1*a2*a3*...*an</code></p>
 </blockquote>
-<h3 id="问题4：n个结点构成二叉树有多少种可能"><a href="#问题4：n个结点构成二叉树有多少种可能" class="headerlink" title="问题4：n个结点构成二叉树有多少种可能"></a>问题4：n个结点构成二叉树有多少种可能</h3><p>这个问题用原始叠加公式更容易看懂。</p>
-<h3 id="问题5：一个圆上2-n个点，多少种连接n条线段的方式，让这n个线段不相交"><a href="#问题5：一个圆上2-n个点，多少种连接n条线段的方式，让这n个线段不相交" class="headerlink" title="问题5：一个圆上2*n个点，多少种连接n条线段的方式，让这n个线段不相交"></a>问题5：一个圆上2*n个点，多少种连接n条线段的方式，让这n个线段不相交</h3><p>用原始叠加公式很好理解，相当于随便取一条线段，然后线段左右所有的点都找连接全部线段的所有方式（当然左右需要满足都是偶数个点）。当然第一条线段是后验的，只要左右各自连好，最后两个点自然是一条线段。</p>
-<h3 id="问题6：一个凸多边形，有多少种划分方式可以将图形划分成全是三角形"><a href="#问题6：一个凸多边形，有多少种划分方式可以将图形划分成全是三角形" class="headerlink" title="问题6：一个凸多边形，有多少种划分方式可以将图形划分成全是三角形"></a>问题6：一个凸多边形，有多少种划分方式可以将图形划分成全是三角形</h3><p>同上，其实就是连接n条不相交的线段。</p>
-<h2 id="merge-interval-meeting-room-II"><a href="#merge-interval-meeting-room-II" class="headerlink" title="merge interval    /meeting room II"></a>merge interval    /meeting room II</h2><blockquote>
-<p><strong>题型：两个int组合成时间段，找到所有带/不带合并的时间段。</strong>  </p>
-</blockquote>
-<p>其实就是总结出来了一个定理：<br><strong>什么样的连续时间段是可合并的？将连续时间段的start、end去掉组合关系分别排序，一定有start[i+1]&lt;=end[i]</strong></p>
+<h3 id="问题4n个结点构成二叉树有多少种可能">问题4：n个结点构成二叉树有多少种可能</h3>
+<p>这个问题用原始叠加公式更容易看懂。 ### 问题5：一个圆上2*n个点，多少种连接n条线段的方式，让这n个线段不相交 用原始叠加公式很好理解，相当于随便取一条线段，然后线段左右所有的点都找连接全部线段的所有方式（当然左右需要满足都是偶数个点）。当然第一条线段是后验的，只要左右各自连好，最后两个点自然是一条线段。 ### 问题6：一个凸多边形，有多少种划分方式可以将图形划分成全是三角形 同上，其实就是连接n条不相交的线段。</p>
+<h2 id="merge-interval-meeting-room-ii">merge interval /meeting room II</h2>
 <blockquote>
-<p>对象Interval包括start、end两个int，可以理解为时间段。给出一个Interval的数组，合并所有带交叉的时间段，返回合并之后的数组。<br>Given a collection of intervals, merge all overlapping intervals.<br>Input: [[1,3],[2,6],[8,15],[15,18]]<br>Output: [[1,6],[8,18]]  </p>
+<p><strong>题型：两个int组合成时间段，找到所有带/不带合并的时间段。</strong></p>
+</blockquote>
+<p>其实就是总结出来了一个定理：<br>
+<strong>什么样的连续时间段是可合并的？将连续时间段的start、end去掉组合关系分别排序，一定有start[i+1]&lt;=end[i]</strong></p>
+<blockquote>
+<p>对象Interval包括start、end两个int，可以理解为时间段。给出一个Interval的数组，合并所有带交叉的时间段，返回合并之后的数组。<br>
+Given a collection of intervals, merge all overlapping intervals.<br>
+Input: [[1,3],[2,6],[8,15],[15,18]]<br>
+Output: [[1,6],[8,18]]</p>
 </blockquote>
 <pre><code>先排序再遍历组合判断是否合并的方法比较容易想到和理解，就不解释了。
 
@@ -623,44 +658,44 @@ return (int) r;
 放弃两两一组的组合关系，取出所有的start、end分别构成两个int[]。
 用Arrays.sort排序两个int[].
 对start[i]做循环遍历，用j标记已合并结果数。
-每找到一个start[i+1]&gt;end[i]就代表，从j+1到i为合并对象。
-</code></pre><p>解释：</p>
+每找到一个start[i+1]&gt;end[i]就代表，从j+1到i为合并对象。</code></pre>
+<p>解释：</p>
 <ul>
-<li>每找到一个start[i+1]&gt;end[i]：<ul>
+<li>每找到一个start[i+1]&gt;end[i]：
+<ul>
 <li>由于start、end是已排序的，那么第i+1前的所有end都不可能是i+1的end，因为都比start[i+1]小。那么可以确定 j 到 i 的所有start、end元素必然是打乱前互相组合的所有元素。</li>
 <li>由于是第一个找到的，那么可以确定 j 到 i 的所有原时间段组合，任何可行的交换，都会有前者后者时间上的交叉。</li>
 <li>所以就代表了从 j 到 i 的所有原时间段都是可以合并的，之前取start[j]、end[i]即可。</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="实现ArrayList的O-1-增删"><a href="#实现ArrayList的O-1-增删" class="headerlink" title="实现ArrayList的O(1)增删"></a>实现ArrayList的O(1)增删</h2><p>如果要保留数组元素顺序，那就实现不了。必须得是<strong>双向链表+map</strong>。<br>如果不用保留顺序，就用<strong>ArrayList+map</strong>实现，直接最后一个元素和被删除元素交换，删除最后一个元素就是O(1)。  </p>
-<blockquote>
-<p>也就是LRU+O(1)、单纯O(1)的增删 的实现区别。</p>
-</blockquote>
-<h3 id="PS-ArrayList的修改"><a href="#PS-ArrayList的修改" class="headerlink" title="PS ArrayList的修改"></a>PS ArrayList的修改</h3><p>java中ArrayList没有replace方法，但是有<strong>set(index, value)</strong></p>
-<h2 id="实现一个二叉搜索-排序树"><a href="#实现一个二叉搜索-排序树" class="headerlink" title="实现一个二叉搜索/排序树"></a>实现一个二叉搜索/排序树</h2><p>首先，二叉排序树BST并不是平衡二叉树AVL，所以删除、增加没那么麻烦。</p>
-<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><p>O(h)，类似于二分查找的过程。</p>
-<h3 id="增加"><a href="#增加" class="headerlink" title="增加"></a>增加</h3><p>如果是已经存在的数，不需要增加。<br>如果是不存在的数，一定是增加在叶节点。先不断查询到不存在相应左/右节点。（并不一定是在叶节点，可能是一个节点不存在左子树，最后插到了其左孩子。）插到缺失位置。</p>
-<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>稍微复杂一些。</p>
+<h2 id="实现arraylist的o1增删">实现ArrayList的O(1)增删</h2>
+<p>如果要保留数组元素顺序，那就实现不了。必须得是<strong>双向链表+map</strong>。<br>
+如果不用保留顺序，就用<strong>ArrayList+map</strong>实现，直接最后一个元素和被删除元素交换，删除最后一个元素就是O(1)。<br>
+&gt;也就是LRU+O(1)、单纯O(1)的增删 的实现区别。</p>
+<h3 id="ps-arraylist的修改">PS ArrayList的修改</h3>
+<p>java中ArrayList没有replace方法，但是有<strong>set(index, value)</strong></p>
+<h2 id="实现一个二叉搜索排序树">实现一个二叉搜索/排序树</h2>
+<p>首先，二叉排序树BST并不是平衡二叉树AVL，所以删除、增加没那么麻烦。 ### 查询 O(h)，类似于二分查找的过程。 ### 增加 如果是已经存在的数，不需要增加。<br>
+如果是不存在的数，一定是增加在叶节点。先不断查询到不存在相应左/右节点。（并不一定是在叶节点，可能是一个节点不存在左子树，最后插到了其左孩子。）插到缺失位置。 ### 删除 稍微复杂一些。</p>
 <table>
 <thead>
-<tr>
-<th style="text-align:center">删除节点类型</th>
-<th style="text-align:center">删除方式</th>
+<tr class="header">
+<th style="text-align: center;">删除节点类型</th>
+<th style="text-align: center;">删除方式</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center"><strong>叶节点</strong></td>
-<td style="text-align:center">直接删除</td>
+<tr class="odd">
+<td style="text-align: center;"><strong>叶节点</strong></td>
+<td style="text-align: center;">直接删除</td>
 </tr>
-<tr>
-<td style="text-align:center">左/右子树只存在一侧的<strong>非叶节点</strong></td>
-<td style="text-align:center">直接用存在的右/左子树代替被删除节点</td>
+<tr class="even">
+<td style="text-align: center;">左/右子树只存在一侧的<strong>非叶节点</strong></td>
+<td style="text-align: center;">直接用存在的右/左子树代替被删除节点</td>
 </tr>
-<tr>
-<td style="text-align:center">左右子树都存在的<strong>非叶节点</strong></td>
-<td style="text-align:center">1. 用左子树的最大节点（一定会是叶节点）替换到本节点；2. 用右子树的最小节点（一定会是叶节点）替换到本节点。</td>
+<tr class="odd">
+<td style="text-align: center;">左右子树都存在的<strong>非叶节点</strong></td>
+<td style="text-align: center;">1. 用左子树的最大节点（一定会是叶节点）替换到本节点；2. 用右子树的最小节点（一定会是叶节点）替换到本节点。</td>
 </tr>
 </tbody>
 </table>
@@ -946,7 +981,7 @@ return (int) r;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#寻找连续子数组、子矩阵的和为精确值的情况"><span class="nav-number">1.</span> <span class="nav-text">寻找连续子数组、子矩阵的和为精确值的情况</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DP降维—问题转化"><span class="nav-number">1.1.</span> <span class="nav-text">DP降维—问题转化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#O-N-的精确找答案—Map"><span class="nav-number">1.2.</span> <span class="nav-text">O(N)的精确找答案—Map</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速选择-VS-堆排序-得到第k个结果"><span class="nav-number">2.</span> <span class="nav-text">快速选择 VS 堆排序 得到第k个结果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#快速选择算法"><span class="nav-number">2.1.</span> <span class="nav-text">快速选择算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树两个结点最近公共父节点"><span class="nav-number">3.</span> <span class="nav-text">二叉树两个结点最近公共父节点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#法一：DFS"><span class="nav-number">3.1.</span> <span class="nav-text">法一：DFS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#法二：根到结点路径"><span class="nav-number">3.2.</span> <span class="nav-text">法二：根到结点路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展：找到m个结点的最近公共父节点"><span class="nav-number">3.3.</span> <span class="nav-text">扩展：找到m个结点的最近公共父节点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sqrt-牛顿法"><span class="nav-number">4.</span> <span class="nav-text">sqrt-牛顿法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展：限定输入输出为double，输出精度在小数点后k位"><span class="nav-number">4.1.</span> <span class="nav-text">扩展：限定输入输出为double，输出精度在小数点后k位</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Moore’s-voting-Algorithm"><span class="nav-number">5.</span> <span class="nav-text">Moore’s voting Algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原理："><span class="nav-number">5.1.</span> <span class="nav-text">原理：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键及必须做的事—验证结果正确性！"><span class="nav-number">5.2.</span> <span class="nav-text">关键及必须做的事—验证结果正确性！</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Catalan数"><span class="nav-number">6.</span> <span class="nav-text">Catalan数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题1：出栈顺序问题"><span class="nav-number">6.1.</span> <span class="nav-text">问题1：出栈顺序问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题2：n对括号，有多少种合理的组合方式"><span class="nav-number">6.2.</span> <span class="nav-text">问题2：n对括号，有多少种合理的组合方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题3：矩阵连乘，用括号改变运算顺序，有多少种不同计算方式"><span class="nav-number">6.3.</span> <span class="nav-text">问题3：矩阵连乘，用括号改变运算顺序，有多少种不同计算方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题4：n个结点构成二叉树有多少种可能"><span class="nav-number">6.4.</span> <span class="nav-text">问题4：n个结点构成二叉树有多少种可能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题5：一个圆上2-n个点，多少种连接n条线段的方式，让这n个线段不相交"><span class="nav-number">6.5.</span> <span class="nav-text">问题5：一个圆上2*n个点，多少种连接n条线段的方式，让这n个线段不相交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题6：一个凸多边形，有多少种划分方式可以将图形划分成全是三角形"><span class="nav-number">6.6.</span> <span class="nav-text">问题6：一个凸多边形，有多少种划分方式可以将图形划分成全是三角形</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#merge-interval-meeting-room-II"><span class="nav-number">7.</span> <span class="nav-text">merge interval    /meeting room II</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现ArrayList的O-1-增删"><span class="nav-number">8.</span> <span class="nav-text">实现ArrayList的O(1)增删</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PS-ArrayList的修改"><span class="nav-number">8.1.</span> <span class="nav-text">PS ArrayList的修改</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现一个二叉搜索-排序树"><span class="nav-number">9.</span> <span class="nav-text">实现一个二叉搜索/排序树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查询"><span class="nav-number">9.1.</span> <span class="nav-text">查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增加"><span class="nav-number">9.2.</span> <span class="nav-text">增加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-number">9.3.</span> <span class="nav-text">删除</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#寻找连续子数组子矩阵的和为精确值的情况"><span class="nav-number">1.</span> <span class="nav-text">寻找连续子数组、子矩阵的和为精确值的情况</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#快速选择算法"><span class="nav-number">1.1.</span> <span class="nav-text">快速选择算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树两个结点最近公共父节点"><span class="nav-number">2.</span> <span class="nav-text">二叉树两个结点最近公共父节点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#法一dfs"><span class="nav-number">2.1.</span> <span class="nav-text">法一：DFS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#法二根到结点路径"><span class="nav-number">2.2.</span> <span class="nav-text">法二：根到结点路径</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sqrt-牛顿法"><span class="nav-number">3.</span> <span class="nav-text">sqrt-牛顿法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展限定输入输出为double输出精度在小数点后k位"><span class="nav-number">3.1.</span> <span class="nav-text">扩展：限定输入输出为double，输出精度在小数点后k位</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#moores-voting-algorithm"><span class="nav-number">4.</span> <span class="nav-text">Moore’s voting Algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-number">4.1.</span> <span class="nav-text">原理：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键及必须做的事验证结果正确性"><span class="nav-number">4.2.</span> <span class="nav-text">关键及必须做的事—验证结果正确性！</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题2n对括号有多少种合理的组合方式"><span class="nav-number">4.3.</span> <span class="nav-text">问题2：n对括号，有多少种合理的组合方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题3矩阵连乘用括号改变运算顺序有多少种不同计算方式"><span class="nav-number">4.4.</span> <span class="nav-text">问题3：矩阵连乘，用括号改变运算顺序，有多少种不同计算方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题4n个结点构成二叉树有多少种可能"><span class="nav-number">4.5.</span> <span class="nav-text">问题4：n个结点构成二叉树有多少种可能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#merge-interval-meeting-room-ii"><span class="nav-number">5.</span> <span class="nav-text">merge interval /meeting room II</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现arraylist的o1增删"><span class="nav-number">6.</span> <span class="nav-text">实现ArrayList的O(1)增删</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ps-arraylist的修改"><span class="nav-number">6.1.</span> <span class="nav-text">PS ArrayList的修改</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现一个二叉搜索排序树"><span class="nav-number">7.</span> <span class="nav-text">实现一个二叉搜索/排序树</span></a></li></ol></div>
             
 
           </div>
@@ -1689,11 +1724,50 @@ return (int) r;
       
       new needShareButton('#needsharebutton-float', flOptions);
     
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
 
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
 
   
 

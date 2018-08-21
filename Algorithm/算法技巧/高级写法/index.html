@@ -114,18 +114,18 @@
 
 
 
-<meta name="description" content="矩阵四个相邻元素的高效比较–👍必用+常见一般和矩阵相关的BFS、DFS，都是需要对一个元素的上下左右四个元素做比较，需要每个方向上加一个限制条件是否超出了边界。一般我的做法是：（平均比较4次） if(i-1 &amp;gt;= 0) then; if(j-1 &amp;gt;= 0) then; if(i+1 &amp;lt; xlen) then; if(j+1 &amp;lt; ylen) then; 也就是四个方向都判断">
+<meta name="description" content="矩阵四个相邻元素的高效比较–👍必用+常见 一般和矩阵相关的BFS、DFS，都是需要对一个元素的上下左右四个元素做比较，需要每个方向上加一个限制条件是否超出了边界。一般我的做法是：（平均比较4次） if(i-1 &amp;gt;= 0) then; if(j-1 &amp;gt;= 0) then; if(i+1 &amp;lt; xlen) then; if(j+1 &amp;lt; ylen) then; 也就是四个方向都判">
 <meta name="keywords" content="代码书写,技巧,算法,高级技巧">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高级写法">
 <meta property="og:url" content="blog.lovelaolao.xin/Algorithm/算法技巧/高级写法/index.html">
 <meta property="og:site_name" content="Fall Out Boy">
-<meta property="og:description" content="矩阵四个相邻元素的高效比较–👍必用+常见一般和矩阵相关的BFS、DFS，都是需要对一个元素的上下左右四个元素做比较，需要每个方向上加一个限制条件是否超出了边界。一般我的做法是：（平均比较4次） if(i-1 &amp;gt;= 0) then; if(j-1 &amp;gt;= 0) then; if(i+1 &amp;lt; xlen) then; if(j+1 &amp;lt; ylen) then; 也就是四个方向都判断">
+<meta property="og:description" content="矩阵四个相邻元素的高效比较–👍必用+常见 一般和矩阵相关的BFS、DFS，都是需要对一个元素的上下左右四个元素做比较，需要每个方向上加一个限制条件是否超出了边界。一般我的做法是：（平均比较4次） if(i-1 &amp;gt;= 0) then; if(j-1 &amp;gt;= 0) then; if(i+1 &amp;lt; xlen) then; if(j+1 &amp;lt; ylen) then; 也就是四个方向都判">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-05-28T08:39:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高级写法">
-<meta name="twitter:description" content="矩阵四个相邻元素的高效比较–👍必用+常见一般和矩阵相关的BFS、DFS，都是需要对一个元素的上下左右四个元素做比较，需要每个方向上加一个限制条件是否超出了边界。一般我的做法是：（平均比较4次） if(i-1 &amp;gt;= 0) then; if(j-1 &amp;gt;= 0) then; if(i+1 &amp;lt; xlen) then; if(j+1 &amp;lt; ylen) then; 也就是四个方向都判断">
+<meta name="twitter:description" content="矩阵四个相邻元素的高效比较–👍必用+常见 一般和矩阵相关的BFS、DFS，都是需要对一个元素的上下左右四个元素做比较，需要每个方向上加一个限制条件是否超出了边界。一般我的做法是：（平均比较4次） if(i-1 &amp;gt;= 0) then; if(j-1 &amp;gt;= 0) then; if(i+1 &amp;lt; xlen) then; if(j+1 &amp;lt; ylen) then; 也就是四个方向都判">
 
 
 
@@ -484,28 +484,34 @@
       
 
       
-        <h2 id="矩阵四个相邻元素的高效比较–👍必用-常见"><a href="#矩阵四个相邻元素的高效比较–👍必用-常见" class="headerlink" title="矩阵四个相邻元素的高效比较–👍必用+常见"></a>矩阵四个相邻元素的高效比较–👍必用+常见</h2><p>一般和矩阵相关的BFS、DFS，都是需要对一个元素的上下左右四个元素做比较，需要每个方向上加一个限制条件是否超出了边界。一般我的做法是：（平均比较4次）</p>
+        <h2 id="矩阵四个相邻元素的高效比较必用常见">矩阵四个相邻元素的高效比较–👍必用+常见</h2>
+<p>一般和矩阵相关的BFS、DFS，都是需要对一个元素的上下左右四个元素做比较，需要每个方向上加一个限制条件是否超出了边界。一般我的做法是：（平均比较4次）</p>
 <pre><code>if(i-1 &gt;= 0) then;
 if(j-1 &gt;= 0) then;
 if(i+1 &lt; xlen) then;
 if(j+1 &lt; ylen) then;
-也就是四个方向都判断了一次，每次做这个操作都要做四次判断。
-</code></pre><p>但是存在一种更加优秀的比较方式（针对矩阵）：（平均比较2.5次）<br><a id="more"></a></p>
+也就是四个方向都判断了一次，每次做这个操作都要做四次判断。</code></pre>
+<p>但是存在一种更加优秀的比较方式（针对矩阵）：（平均比较2.5次） <a id="more"></a></p>
 <pre><code>public static final int[][] dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
 for(int[] dir: dirs) {
     int x = i + dir[0], y = j + dir[1];
     if(x &lt; 0 || x &gt;= xlen || y &lt; 0 || y &gt;= ylen) continue;
 }
 相当于把四个边界判断以循环的方式放到了一个比较条件里。
-根据短路原则，会依次判断四个条件，那么四个方向分别需要1、2、3、4次比较，也就是平均2.5次。
-</code></pre><p>在计算量很大的测试用例里，如果主要时间在比较，那么会节省一半时间。<br><strong>这个trick适合在网上笔试时使用，如果超时了。</strong></p>
-<h2 id="递归方法设计（DFS）"><a href="#递归方法设计（DFS）" class="headerlink" title="递归方法设计（DFS）"></a>递归方法设计（DFS）</h2><p>最思路清晰且容易写的方式就是：（写的时候你就知道好处了）</p>
+根据短路原则，会依次判断四个条件，那么四个方向分别需要1、2、3、4次比较，也就是平均2.5次。</code></pre>
+<p>在计算量很大的测试用例里，如果主要时间在比较，那么会节省一半时间。<br>
+<strong>这个trick适合在网上笔试时使用，如果超时了。</strong> ## 递归方法设计（DFS） 最思路清晰且容易写的方式就是：（写的时候你就知道好处了）</p>
 <ul>
 <li>在方法的不断向深处递归时，不设置判断，尽情的DFS递归。</li>
 <li>在方法的入口，进行所有的可行性判断、返回判断。</li>
 </ul>
-<h3 id="将DFS的结果path加入List-lt-List-lt-gt-gt"><a href="#将DFS的结果path加入List-lt-List-lt-gt-gt" class="headerlink" title="将DFS的结果path加入List\&lt;List\&lt;&gt;&gt;"></a>将DFS的结果path加入List\&lt;List\&lt;&gt;&gt;</h3><p><strong><code>res.add(new ArrayList&lt;&gt;(path));</code></strong><br>因为List类型的path在递归传递中是实参，大家共享，必须new一个新的List装有path的所有元素再加入结果集合。<br>这个过程不能是简单的<code>new ArrayList&lt;&gt;() = path;</code>，还会得到path这个对象实体。<br>但是也不用遍历path元素加入到新的List里，直接用第一行的代码就可以实现只把path中所有内容加入到新的List。<br>而且从时间角度上快得多得多。</p>
-<h2 id="自定义Arrays-sort"><a href="#自定义Arrays-sort" class="headerlink" title="自定义Arrays.sort()"></a>自定义Arrays.sort()</h2><pre><code>Arrays.sort(arr, (a, b) -&gt; a.v1 - b.v1);
+<h3 id="将dfs的结果path加入listlist">将DFS的结果path加入List&lt;List&lt;&gt;&gt;</h3>
+<p><strong><code>res.add(new ArrayList&lt;&gt;(path));</code></strong><br>
+因为List类型的path在递归传递中是实参，大家共享，必须new一个新的List装有path的所有元素再加入结果集合。<br>
+这个过程不能是简单的<code>new ArrayList&lt;&gt;() = path;</code>，还会得到path这个对象实体。<br>
+但是也不用遍历path元素加入到新的List里，直接用第一行的代码就可以实现只把path中所有内容加入到新的List。<br>
+而且从时间角度上快得多得多。 ## 自定义Arrays.sort()</p>
+<pre><code>Arrays.sort(arr, (a, b) -&gt; a.v1 - b.v1);
 或Arrays.sort(arr, (a, b) -&gt; a.v1 == b.v1 ? a.v2 - b.v2 : a.v1 - b.v1);
 //Arrays.sort()默认按升序排序，这里相当于用了自定义的Comparator：
 //式2意思是：令arr的元素升序排序，如果元素的v1相等，按v2升序排序
@@ -513,9 +519,11 @@ for(int[] dir: dirs) {
 //这里a、b是连续的arr中的对象
 //Comparator返回前者元素的value - 后者元素的value
 //如果把表达式相减顺序反过来就是降序了
-//注意a、b必须是对象，int不算是对象，Integer可以
-</code></pre><h2 id="Collections-sort"><a href="#Collections-sort" class="headerlink" title="Collections.sort()"></a>Collections.sort()</h2><pre><code>基本同上，不过支持对对象的排序，需要自定义comparator。
-</code></pre><h2 id="PriorityQueue小顶堆"><a href="#PriorityQueue小顶堆" class="headerlink" title="PriorityQueue小顶堆"></a>PriorityQueue小顶堆</h2><pre><code>//实现了queue的接口，自带一些基础方法
+//注意a、b必须是对象，int不算是对象，Integer可以</code></pre>
+<h2 id="collections.sort">Collections.sort()</h2>
+<pre><code>基本同上，不过支持对对象的排序，需要自定义comparator。</code></pre>
+<h2 id="priorityqueue小顶堆">PriorityQueue小顶堆</h2>
+<pre><code>//实现了queue的接口，自带一些基础方法
 PriorityQueue&lt;Integer&gt; minHeap = new PriorityQueue&lt;&gt;();
 //PriorityQueue默认小顶堆
 minHeap.offer(x);
@@ -523,27 +531,34 @@ minHeap.offer(x);
 int min = minHeap.peek();
 //得到堆顶元素（最小值）
 minHeap.poll();
-//出堆堆顶元素（最小值）
-</code></pre><h2 id="a-b-gt-c-还是-a-gt-c-b"><a href="#a-b-gt-c-还是-a-gt-c-b" class="headerlink" title="a*b &gt; c 还是 a &gt; c/b"></a>a*b &gt; c 还是 a &gt; c/b</h2><p><strong>a &gt; c/b</strong><br>（假设a b c大于0）<br>实时证明。后者比前者节省时间。<br>而且a*b容易溢出</p>
-<h2 id="从低往高-从高往低-取int每一位"><a href="#从低往高-从高往低-取int每一位" class="headerlink" title="从低往高 从高往低 取int每一位"></a>从低往高 从高往低 取int每一位</h2><h3 id="完美写法"><a href="#完美写法" class="headerlink" title="完美写法"></a>完美写法</h3><pre><code>char[] digits = Integer.toString(num).toCharArray();
+//出堆堆顶元素（最小值）</code></pre>
+<h2 id="ab-c-还是-a-cb-a-cb-假设a-b-c大于0-实时证明后者比前者节省时间-而且ab容易溢出">a*b &gt; c 还是 a &gt; c/b <strong>a &gt; c/b</strong><br>
+（假设a b c大于0）<br>
+实时证明。后者比前者节省时间。<br>
+而且a*b容易溢出</h2>
+<h2 id="从低往高-从高往低-取int每一位">从低往高 从高往低 取int每一位</h2>
+<h3 id="完美写法">完美写法</h3>
+<pre><code>char[] digits = Integer.toString(num).toCharArray();
 而且注意，转化回原数字也快得多：
-Integer.valueOf(new String(digits));
-</code></pre><h3 id="从低往高"><a href="#从低往高" class="headerlink" title="从低往高"></a>从低往高</h3><pre><code>我总是陷在这里= =。%10就好了！！
+Integer.valueOf(new String(digits));</code></pre>
+<h3 id="从低往高">从低往高</h3>
+<pre><code>我总是陷在这里= =。%10就好了！！
 while(n &gt; 0){
     int now = n % 10;
     n /= 10;
-}
-</code></pre><h3 id="从高往低"><a href="#从高往低" class="headerlink" title="从高往低"></a>从高往低</h3><pre><code>int len = 0;
+}</code></pre>
+<h3 id="从高往低">从高往低</h3>
+<pre><code>int len = 0;
 while(n &gt; 0){
     n /= 10;
     len ++;
-}    
+}   
 while(len &gt; 0){
     int now = n / Math.pow(10, len);
     n -= now * Math.pow(10, len);
     len--;
-}
-</code></pre>
+}</code></pre>
+
       
     </div>
     
@@ -825,7 +840,10 @@ while(len &gt; 0){
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵四个相邻元素的高效比较–👍必用-常见"><span class="nav-number">1.</span> <span class="nav-text">矩阵四个相邻元素的高效比较–👍必用+常见</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归方法设计（DFS）"><span class="nav-number">2.</span> <span class="nav-text">递归方法设计（DFS）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#将DFS的结果path加入List-lt-List-lt-gt-gt"><span class="nav-number">2.1.</span> <span class="nav-text">将DFS的结果path加入List\&lt;List\&lt;&gt;&gt;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义Arrays-sort"><span class="nav-number">3.</span> <span class="nav-text">自定义Arrays.sort()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collections-sort"><span class="nav-number">4.</span> <span class="nav-text">Collections.sort()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PriorityQueue小顶堆"><span class="nav-number">5.</span> <span class="nav-text">PriorityQueue小顶堆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#a-b-gt-c-还是-a-gt-c-b"><span class="nav-number">6.</span> <span class="nav-text">a*b &gt; c 还是 a &gt; c/b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从低往高-从高往低-取int每一位"><span class="nav-number">7.</span> <span class="nav-text">从低往高 从高往低 取int每一位</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#完美写法"><span class="nav-number">7.1.</span> <span class="nav-text">完美写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从低往高"><span class="nav-number">7.2.</span> <span class="nav-text">从低往高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从高往低"><span class="nav-number">7.3.</span> <span class="nav-text">从高往低</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵四个相邻元素的高效比较必用常见"><span class="nav-number">1.</span> <span class="nav-text">矩阵四个相邻元素的高效比较–👍必用+常见</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#将dfs的结果path加入listlist"><span class="nav-number">1.1.</span> <span class="nav-text">将DFS的结果path加入List&lt;List&lt;&gt;&gt;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#collections.sort"><span class="nav-number">2.</span> <span class="nav-text">Collections.sort()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#priorityqueue小顶堆"><span class="nav-number">3.</span> <span class="nav-text">PriorityQueue小顶堆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ab-c-还是-a-cb-a-cb-假设a-b-c大于0-实时证明后者比前者节省时间-而且ab容易溢出"><span class="nav-number">4.</span> <span class="nav-text">a*b &gt; c 还是 a &gt; c/b a &gt; c/b
+（假设a b c大于0）
+实时证明。后者比前者节省时间。
+而且a*b容易溢出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从低往高-从高往低-取int每一位"><span class="nav-number">5.</span> <span class="nav-text">从低往高 从高往低 取int每一位</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#完美写法"><span class="nav-number">5.1.</span> <span class="nav-text">完美写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从低往高"><span class="nav-number">5.2.</span> <span class="nav-text">从低往高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从高往低"><span class="nav-number">5.3.</span> <span class="nav-text">从高往低</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1568,11 +1586,50 @@ while(len &gt; 0){
       
       new needShareButton('#needsharebutton-float', flOptions);
     
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
 
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
 
   
 

@@ -465,90 +465,20 @@
 
       
         
-          
-            <p>一般的线性模型是不考虑特征交叉的。<br>$y = w_0 + \sum_{i=1}^nw_ix_i$<br>二阶多项式模型会考虑所有两个特征交叉的情况。即 n<em>(n-1)/2 种特征。<br>**注意：这里的交叉部分是从<code>i = 1到n</code>\</em><code>j = i+1到n</code>，避免重复交叉**。<br>且交叉的是样本，而不是特征。<br>$y(\mathbf{x}) = w_0+ \sum_{i=1}^n w_i x_i + \sum_{i=1}^n \sum_{j=i+1}^n w_{ij} x_i x_j \label{eq:poly}\tag{1}$<br>如果特征交叉的维度再提升的话会带来非常高的复杂度。</p>
-<h1 id="FM（Factorization-Machines）"><a href="#FM（Factorization-Machines）" class="headerlink" title="FM（Factorization Machines）"></a>FM（Factorization Machines）</h1><p><a href="https://www.csie.ntu.edu.tw/~b97053/paper/Rendle2010FM.pdf" target="_blank" rel="noopener">paper</a><br>目标：解决数据稀疏的情况下，特征怎样组合的问题 </p>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><ul>
-<li>首先要做的是对所有特征做<strong>one hot编码</strong>。<ul>
-<li>比如：特征年龄：中年、青年、老年。就会变成是否中年、是否青年、是否老年三个特征。<ul>
-<li>这样，特征空间会迅速变大。</li>
-<li>但是特征会变得很稀疏。</li>
-</ul>
-</li>
-<li>好处：将离散特征每一个取值都拆分成一个特征非常适合特征交叉。会产生很有意义的特征。<ul>
-<li>比如加上职业，不会是年龄+程序员，而是中年程序员、青年程序员、老年程序员。</li>
-</ul>
-</li>
-<li>（其实在第二个式子中已经有二阶多项式的实现方式）<ul>
-<li>但是由于每个wij都需要大量非零样本来训练，然而稀疏的one hot特征会让非零样本很少，所以是不可训练的。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>解决二次项参数训练问题：<strong>矩阵分解</strong>。<ul>
-<li><strong>其实就是二阶多项式的 wij（nxn）其实就构成了一个所有样本公用的权重矩阵 W，而<code>V转置xV</code>的形式刚好可以让（nxk x kxn）的两个矩阵得到（nxn）的目标权重矩阵W，k可以是一个灵活的值。</strong><ul>
-<li><strong>这样就相当于把求解一个（nxn）的W矩阵变成求解（kxn）的 V 矩阵，从而把 n^2 的参数量变成了 kxn 的（伪）线性参数量。</strong></li>
-</ul>
-</li>
-<li>比如：在 model-based 的协同过滤问题对 user 向量矩阵和 item 向量矩阵<strong>点乘</strong>得到user、item矩阵的做法。（矩阵中每一个值就是user-item的一个打分）<img src="https://tech.meituan.com/img/deep-understanding-of-ffm-principle-and-practice/ffm_mf.png" alt=""></li>
-<li>做法：借鉴协同过滤的做法，把所有的二次项参数 wij 组成为一个矩阵 W，$\mathbf{W} = \mathbf{V}^T \mathbf{V}$，其中V矩阵就是特征的矩阵，V的第j列就是j特征的所有样本取值。<ul>
-<li>所以其实W是由V自己<strong>点乘</strong>自己得到的，也就肯定是一个对称矩阵。</li>
-</ul>
-</li>
-<li><strong>公式：</strong>$y(\mathbf{x}) = w_0+ \sum_{i=1}^n w_i x_i + \sum_{i=1}^n \sum_{j=i+1}^n \langle \mathbf{v}_i, \mathbf{v}_j \rangle x_i x_j \label{eq:fm}\tag{2}$<ul>
-<li>其中vi代表第i位特征的隐向量。&lt;·,·&gt;代表点乘，n 为特征数量，x 就是输入的一个样本。（也就是对于一个样本，得到他的结果，由这个公式计算）</li>
-<li>由于<strong>每个 V 特征向量都相当于一个特征的隐向量，本身没有直接意义，但是和其他特征的隐向量点乘得到的值会成为一个交叉特征的权重</strong>。且 Vi 的长度k&lt;&lt;n。</li>
-</ul>
-</li>
-<li>好处：<strong>总参数量为 kxn</strong><ul>
-<li>参数量由 n^2 变成了 kxn 的线性，并且在普通的二阶多项式模型里wij和wji是相互独立的。但是在矩阵分解的做法里，两者是一样的。</li>
-<li>比如 wij 和 whj ，矩阵分解的做法会让 vj 和vi、vh都产生关系。也就意味着vi、vh都对vj的学习产生作用。从稀释了稀疏特征的很多0让 wij 其实没卵用的影响。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>扩展</strong>：上面矩阵分解的公式是一个通用的基础。在此基础上可以引入不同的损失函数，解决回归、分类问题。（其实就是<code>∑wixi</code>和<code>∑∑&lt;vi, vj&gt;xixj</code>的变形。）</li>
-<li><strong>训练/计算时间复杂度问题</strong>：参数量虽然下降到了线性，但是要计算y(x)的损失，因为<code>∑∑&lt;vi, vj&gt;xixj</code>存在使时间复杂度为O(k*n^2)。<ul>
-<li>解决：由于<code>i = 1到n</code> <code>j = i+1到n</code>，也就是对称矩阵对角线的上半部分。那么原公式就可以转化为<code>1/2(整个矩阵做特征交叉-对角线的特征交叉)</code>，经过一堆骚操作可以把公式简化为：$\sum_{i=1}^n \sum_{j=i+1}^n \langle \mathbf{v}_i, \mathbf{v}_j \rangle x_i x_j = \frac{1}{2} \sum_{f=1}^k \left(\left( \sum_{i=1}^n v_{i, f} x_i \right)^2 - \sum_{i=1}^n v_{i, f}^2 x_i^2 \right) \label{eq:fm_conv}\tag{3}$</li>
-<li><code>f = 1到k</code>为vi的第f个元素。可以看到 j 神奇的消失了= =（因为实际本身就需要一个 wij 做交叉特征的权重，求梯度的时候也就一个偏导，不是对i、j各求一个。而特殊的化简方式里放弃了<code>j = i+1到n</code>的关系，直接用 i 代替 j 。并且化简了i、j两层循环，变成i一层循环但是里面有平方的形式。）</li>
-<li>所以<strong>计算损失的时间复杂度为O(kn)</strong>。</li>
-<li>偏导：$\sum_{j=1}^n v_{j, f} x_j$<ul>
-<li>可以看到特别一点的只有交叉特征权重的偏导：<code>vif的偏导</code>指特征 i 的隐含向量中第 f 元素的偏导。其中$\sum_{j=1}^n v_{j, f} x_j$是求 y(x) 时已经算过的东西了。</li>
-<li>所以<strong>求偏导的时间复杂度为O(1)</strong></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="FM的优势"><a href="#FM的优势" class="headerlink" title="FM的优势"></a>FM的优势</h2><ul>
-<li>灵活：通过合适的特征变换方式，FM 可以模拟二阶多项式核的 SVM 模型、MF 模型、SVD++ 模型等。</li>
-<li>样本稀疏的情况下天然适合 FM 发挥。</li>
-<li>训练、预测、参数量均是线性的。</li>
-<li>对于 FM 的特征交叉方式而言，可以添加任意多的特征，除了 one hot 还可以用均值等等内容做特征。</li>
-</ul>
-<h1 id="FFM（Field-aware-Factorization-Machine）"><a href="#FFM（Field-aware-Factorization-Machine）" class="headerlink" title="FFM（Field-aware Factorization Machine）"></a>FFM（Field-aware Factorization Machine）</h1><p>非常适用于 CTR、CVR 问题上。</p>
-<h2 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h2><ul>
-<li><strong>field</strong>：引入了 field 的概念，就是把经过 one hot 处理过的离散特征，比如：年龄有青年、中年、老年。可以处理为三个二分类特征。这三个特征会放到同一个 field 中来处理。连续特征的话可以直接看为一个 field或进行特征离散化。  <ul>
-<li>每一维特征都会对其他特征所有的 field 为单位学习一个隐向量$\mathbf{v}_{i, f_j}$（含义：特征 i 的 f 个隐向量中对应 field j 那个）。<ul>
-<li>即：每个特征 f 个隐向量。（f 为所有特征一共在 f 个field）</li>
-<li>也就是<strong>一共有 <code>nxf</code> 个隐向量</strong>。</li>
-<li>如果每个隐向量长度为 k，也就是<strong>一共有 <code>kxnxf</code> 个交叉特征参数</strong>。</li>
-</ul>
-</li>
-<li>好处：将特征间的隐向量做了隔离，能专门取学习不同特征间 field 交叉的信息。</li>
-</ul>
-</li>
-<li><strong>复杂度</strong>：<ul>
-<li><strong>公式</strong>：$y(\mathbf{x}) = w_0 + \sum_{i=1}^n w_i x_i + \sum_{i=1}^n \sum_{j=i+1}^n \langle \mathbf{v}_{i, f_j}, \mathbf{v}_{j, f_i} \rangle x_i x_j \label{eq:ffm}\tag{4}$也就是计算交叉特征权重的方式中引入了field。</li>
-<li>预测/复杂度：<strong>O(k*n^2)</strong>。</li>
-<li>特别的，由于每个特征都维护了一个<code>fxk</code>的矩阵，来表达一个 field 和其他所有 field 做特征交叉的权重。在更新梯度的时候套路还是一样，只是要更新到的特征空间更加复杂。</li>
-</ul>
-</li>
-<li>特征表示：<code>field_id:feat_id:value</code>，feat_id 为特征编号。</li>
-</ul>
-<h2 id="论文"><a href="#论文" class="headerlink" title="论文"></a>论文</h2><p><a href="https://www.csie.ntu.edu.tw/~cjlin/papers/ffm.pdf" target="_blank" rel="noopener">paper</a><br>在该论文中对正负样本处理成了1、-1.<br>损失函数选择了交叉熵。<br>求偏导时用到了链式法则。</p>
-<h1 id="DeepMF"><a href="#DeepMF" class="headerlink" title="DeepMF"></a>DeepMF</h1>
-          
+          <p>一般的线性模型是不考虑特征交叉的。<br>
+<span class="math display">\[ y = w_0 + \sum_{i=1}^nw_ix_i \]</span><br>
+二阶多项式模型会考虑所有两个特征交叉的情况。即 n*(n-1)/2 种特征。<br>
+<strong>注意：这里的交叉部分是从<code>i = 1到n</code>*<code>j = i+1到n</code>，避免重复交叉</strong>。<br>
+且交叉的是样本，而不是特征。<br>
+<span class="math display">\[ y(\mathbf{x}) = w_0+ \sum_{i=1}^n w_i x_i + \sum_{i=1}^n \sum_{j=i+1}^n w_{ij} x_i x_j \label{eq:poly}\tag{1} \]</span><br>
+如果特征交叉的维度再提升的话会带来非常高的复杂度。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/机器学习/FM-FFM-DeepFM/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -741,65 +671,70 @@
       
         
           
-            <h2 id="解算法题的-最起码奥义"><a href="#解算法题的-最起码奥义" class="headerlink" title="解算法题的-最起码奥义"></a>解算法题的-最起码奥义</h2><p><strong><code>解一道算法题</code> = <code>理解本质本质本质</code> + <code>问题映射到已知领域</code> + <code>找到常用解决方案</code> + <code>解决方案实现</code> + <code>针对性完善</code> - <code>想要找到全适用规律、实现细节</code></strong></p>
-<p><strong>真正的解算法题的做法，不是只用一个公式表达出一个算法题的解题方法，首先这并不可能，其次这根本不是解题之关键。</strong><br>想象一下自己所写的程序，它只知道输入是什么，输出是什么，然后自己一步步按照既定步子循环，就能得到结果。<br>同样，人也应该这样思考，对于一个问题，最重要的不是公式，从来不是公式，而是<strong>针对一个问题，抽象成一个可解的思考方式，然后用所学方法运用在上面就ok了</strong>。不用去想什么trick，不用去想什么规律。内部变化过程就当是一个黑盒就够了。<strong>只要迈着步子，能从开头走到结尾就行了。</strong>    </p>
-<h3 id="遇到一个不好解的复杂问题："><a href="#遇到一个不好解的复杂问题：" class="headerlink" title="遇到一个不好解的复杂问题："></a>遇到一个不好解的复杂问题：</h3><ul>
+            <h2 id="解算法题的-最起码奥义">解算法题的-最起码奥义</h2>
+<p><strong><code>解一道算法题</code> = <code>理解本质本质本质</code> + <code>问题映射到已知领域</code> + <code>找到常用解决方案</code> + <code>解决方案实现</code> + <code>针对性完善</code> - <code>想要找到全适用规律、实现细节</code></strong></p>
+<p><strong>真正的解算法题的做法，不是只用一个公式表达出一个算法题的解题方法，首先这并不可能，其次这根本不是解题之关键。</strong><br>
+想象一下自己所写的程序，它只知道输入是什么，输出是什么，然后自己一步步按照既定步子循环，就能得到结果。<br>
+同样，人也应该这样思考，对于一个问题，最重要的不是公式，从来不是公式，而是<strong>针对一个问题，抽象成一个可解的思考方式，然后用所学方法运用在上面就ok了</strong>。不用去想什么trick，不用去想什么规律。内部变化过程就当是一个黑盒就够了。<strong>只要迈着步子，能从开头走到结尾就行了。</strong></p>
+<h3 id="遇到一个不好解的复杂问题">遇到一个不好解的复杂问题：</h3>
+<ul>
 <li>先转换思考方式，将题转换成一种数据结构+输入输出的熟悉形式。</li>
 <li>既然题目已经变成了程序可以理解的问题，那么就用程序的思维，熟悉的结题方法，提出可解的方案。</li>
 <li>对于程序而言，过程细节不重要，只需要知道 <code>每一步是怎么迈的</code>、<code>起始点</code>、<code>中间的状态</code>、<code>何时得到结果</code> 就够了。</li>
 <li>至于 为什么能做、总结适用所有情况的规律、到底每一步发生了什么。完全是没用的考量。</li>
 </ul>
 <blockquote>
-<p>题一：输入三个int，瓶子a的容量，瓶子b的容量，期望倒出的水量。只允许装满一瓶水，倒空一瓶水，将一个瓶子的水倒入另一个瓶子三种操作。问能否得到期望水量，能的话最短用多少次操作。  </p>
-<blockquote>
-<p>这道题我想了很久，总想根据a、b总结出一个规律，判断到底能不能倒出期望水量。a、b的差，差的差，试了好久，用了很长时间，但是没有总结出来。<br>但是，这个规律真的重要吗，如果我<strong>转换一个思考角度</strong>，如果我将两个瓶子的水量当做一个状态或者结点，那么从每个结点，一定有三种操作多条边能到下一个结点。我所输出的状态，不就是一个目标结点吗。所以，这不就是图的BFS、DFS吗？（考虑到每个节点到下一个结点的操作都可知且最多三种，那么BFS比DFS要更合适）<br>根据BFS的细节，每一层需要一个队列保存本轮需要考察的结点（两个瓶子状态），BFS的退出标志也就是队列为空了，也就意味着没有找到解决方案。如果在BFS中遍历到了终点，那就代表最先找到了方案，也是最少操作的。如果在BFS中遍历到了重复的结点（瓶子状态），那代表之后的操作不需要考虑了。所以还需要一个set保存所有遍历过的结点。  </p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>所以其实总结起来就是：  </p>
-<ul>
-<li>先转换问题为程序可以理解的问题及合适的解决方案。   </li>
-<li>找到起始点、中间状态、状态变化、何时达到重点。<br>就够了。</li>
-</ul>
+<p>题一：输入三个int，瓶子a的容量，瓶子b的容量，期望倒出的水量。只允许装满一瓶水，倒空一瓶水，将一个瓶子的水倒入另一个瓶子三种操作。问能否得到期望水量，能的话最短用多少次操作。<br>
+&gt;这道题我想了很久，总想根据a、b总结出一个规律，判断到底能不能倒出期望水量。a、b的差，差的差，试了好久，用了很长时间，但是没有总结出来。<br>
+&gt;但是，这个规律真的重要吗，如果我<strong>转换一个思考角度</strong>，如果我将两个瓶子的水量当做一个状态或者结点，那么从每个结点，一定有三种操作多条边能到下一个结点。我所输出的状态，不就是一个目标结点吗。所以，这不就是图的BFS、DFS吗？（考虑到每个节点到下一个结点的操作都可知且最多三种，那么BFS比DFS要更合适） &gt;根据BFS的细节，每一层需要一个队列保存本轮需要考察的结点（两个瓶子状态），BFS的退出标志也就是队列为空了，也就意味着没有找到解决方案。如果在BFS中遍历到了终点，那就代表最先找到了方案，也是最少操作的。如果在BFS中遍历到了重复的结点（瓶子状态），那代表之后的操作不需要考虑了。所以还需要一个set保存所有遍历过的结点。</p>
 </blockquote>
 <blockquote>
-<p>题二：edit distance，给两个单词，操作包括：换一个字母，删一个字母，加一个字母，最少多少次操作能让两个单词变成一样。  </p>
-<blockquote>
-<p>我想了很久，两个单词之间的关系，如何能最大利用两者之间的相似点，比如有多少一样的单词，这样就能节省操作。但是如何判断两个单词之间的关系呢？<br>还是那句话，搞这么复杂，<strong>想这么多关系来关系去的，真的重要吗？</strong>题目里写的清清楚楚，操作之有三种，增删改（这里其实删=增，所以只考虑增也一样），动态规划我可以想到，动态规划是划分子问题的做法，子问题到父问题，真的需要单词之间的关系吗？<br>dp[i][j]为单词1前i个字母到单词2前j个字母的最少操作，能到单词1前i和单词2前j，经过增改，可以描述为：<br>d[i, j] = d[i-1, j - 1] if A[i] == B[j]<br>d[i, j] = min(d[i-1,j-1], d[i,j-1], d[i-1,j]) + 1 if A[i] != B[j]  </p>
+<p>所以其实总结起来就是：<br>
+- 先转换问题为程序可以理解的问题及合适的解决方案。<br>
+- 找到起始点、中间状态、状态变化、何时达到重点。<br>
+就够了。</p>
 </blockquote>
+<blockquote>
+<p>题二：edit distance，给两个单词，操作包括：换一个字母，删一个字母，加一个字母，最少多少次操作能让两个单词变成一样。<br>
+&gt;我想了很久，两个单词之间的关系，如何能最大利用两者之间的相似点，比如有多少一样的单词，这样就能节省操作。但是如何判断两个单词之间的关系呢？<br>
+&gt;还是那句话，搞这么复杂，<strong>想这么多关系来关系去的，真的重要吗？</strong>题目里写的清清楚楚，操作之有三种，增删改（这里其实删=增，所以只考虑增也一样），动态规划我可以想到，动态规划是划分子问题的做法，子问题到父问题，真的需要单词之间的关系吗？<br>
+&gt;dp[i][j]为单词1前i个字母到单词2前j个字母的最少操作，能到单词1前i和单词2前j，经过增改，可以描述为：<br>
+&gt;d[i, j] = d[i-1, j - 1] if A[i] == B[j]<br>
+&gt;d[i, j] = min(d[i-1,j-1], d[i,j-1], d[i-1,j]) + 1 if A[i] != B[j]</p>
 <p>也就是说，一个单词到另一个单词的最少操作数，根本不用管是怎么操作来的，只需要管两个字母的关系及子问题的操作数即可。</p>
 </blockquote>
-<p>#·算法设计：</p>
-<h2 id="仔细自我challenge反例"><a href="#仔细自我challenge反例" class="headerlink" title="仔细自我challenge反例"></a>仔细自我challenge反例</h2><p>写完代码一定要耐心的设计反例来自我challenge，尤其是<code>&gt;=</code>写成<code>&gt;</code>，上下限溢出等边界问题。<br>因为面试官除了能写出来对这种问题肯定很清楚，一定会考察能不能保证通过的。</p>
-<h3 id="暴力并不丢人，因为它可以叫回溯-backtracking！"><a href="#暴力并不丢人，因为它可以叫回溯-backtracking！" class="headerlink" title="暴力并不丢人，因为它可以叫回溯-backtracking！"></a>暴力并不丢人，因为它可以叫回溯-backtracking！</h3><p>而且里面还可以加入很多循环、声明等优化时间的手法，实际编译环境的效果并没那么丑陋可能。</p>
-<h3 id="递归设计"><a href="#递归设计" class="headerlink" title="递归设计"></a>递归设计</h3><p>递归的不断深入设置很少或者不设置判断，在递归的入口设置所有判断。<br>并且可以给递归方法设计成返回boolean，方便对返回条件做冗余排除。</p>
-<h2 id="回溯、DFS类问题的路径、结果保存"><a href="#回溯、DFS类问题的路径、结果保存" class="headerlink" title="回溯、DFS类问题的路径、结果保存"></a>回溯、DFS类问题的路径、结果保存</h2><p>一般除非题目要求，很少会用string这种传递过程中是形参的类型保存路径。<br>很多时候都在用<code>List&lt;Integer&gt;</code>、<code>int[]</code>保存路径，<strong>这种参数类型在递归传递中都是传递的实参！</strong></p>
-<h3 id="问题1：递归的出入栈-路径维护"><a href="#问题1：递归的出入栈-路径维护" class="headerlink" title="问题1：递归的出入栈+路径维护"></a>问题1：递归的出入栈+路径维护</h3><p>由于是实参，那么整个回溯、DFS过程的每一条支线都在使用这个，所以在递归方法中，<strong>如果在入口里做了<code>add</code>操作，那就必须在出口做好<code>remove(res.size()-1)</code></strong>。</p>
-<h3 id="问题2：找到了结果如何处理"><a href="#问题2：找到了结果如何处理" class="headerlink" title="问题2：找到了结果如何处理"></a>问题2：找到了结果如何处理</h3><p>当找到了结果想要加入到结果集如<code>List&lt;List&lt;Integer&gt;&gt;</code>中时：  </p>
-<ol>
+<p>#·算法设计： ## 仔细自我challenge反例 写完代码一定要耐心的设计反例来自我challenge，尤其是<code>&gt;=</code>写成<code>&gt;</code>，上下限溢出等边界问题。<br>
+因为面试官除了能写出来对这种问题肯定很清楚，一定会考察能不能保证通过的。</p>
+<h3 id="暴力并不丢人因为它可以叫回溯-backtracking">暴力并不丢人，因为它可以叫回溯-backtracking！</h3>
+<p>而且里面还可以加入很多循环、声明等优化时间的手法，实际编译环境的效果并没那么丑陋可能。 ### 递归设计 递归的不断深入设置很少或者不设置判断，在递归的入口设置所有判断。<br>
+并且可以给递归方法设计成返回boolean，方便对返回条件做冗余排除。 ## 回溯、DFS类问题的路径、结果保存 一般除非题目要求，很少会用string这种传递过程中是形参的类型保存路径。<br>
+很多时候都在用<code>List&lt;Integer&gt;</code>、<code>int[]</code>保存路径，<strong>这种参数类型在递归传递中都是传递的实参！</strong></p>
+<h3 id="问题1递归的出入栈路径维护">问题1：递归的出入栈+路径维护</h3>
+<p>由于是实参，那么整个回溯、DFS过程的每一条支线都在使用这个，所以在递归方法中，<strong>如果在入口里做了<code>add</code>操作，那就必须在出口做好<code>remove(res.size()-1)</code></strong>。 ### 问题2：找到了结果如何处理 当找到了结果想要加入到结果集如<code>List&lt;List&lt;Integer&gt;&gt;</code>中时：</p>
+<ol type="1">
 <li>如果是只需要找到一种答案：<strong>直接不断向上返回退出即可，其他支线放弃。</strong></li>
 <li>如果是需要找到所有答案：<strong>必须new一个新的<code>List&lt;Integer&gt;</code>、<code>int[]</code>，然后将路径元素一个个加到新对象中，再放入结果集。</strong></li>
 </ol>
-<h2 id="一个不够用两个！"><a href="#一个不够用两个！" class="headerlink" title="一个不够用两个！"></a>一个不够用两个！</h2><p>有的时候一些技巧或者方法是针对一个问题的，比如大小顶堆就是可以解决topk问题。但是当可以用两个及以上的时候，那就可以做到一些有趣的事情了。  </p>
-<blockquote>
-<p>例子：给一个为止的数据流，在不断加入数字的过程中，可以随时返回进入的所有数字中的中位数。</p>
-</blockquote>
-<p>首先每次加入一个数都去排序得到的话是肯定无法接受的。<br>用堆很适合这种保存已有内容并且随时输出结过的问题。但是如何得到中位数呢？？<br><strong>想象一下有两个堆，一个大顶堆一个小顶堆，保证两者数量差距不大于1，那么中位数一定存在于两者的堆顶啦！</strong></p>
-<p>##算法设计的第一步：全面情况考虑<br><strong>算法题中最重要的是 BUG FREE</strong></p>
+<h2 id="一个不够用两个">一个不够用两个！</h2>
+<p>有的时候一些技巧或者方法是针对一个问题的，比如大小顶堆就是可以解决topk问题。但是当可以用两个及以上的时候，那就可以做到一些有趣的事情了。<br>
+&gt;例子：给一个为止的数据流，在不断加入数字的过程中，可以随时返回进入的所有数字中的中位数。</p>
+<p>首先每次加入一个数都去排序得到的话是肯定无法接受的。<br>
+用堆很适合这种保存已有内容并且随时输出结过的问题。但是如何得到中位数呢？？<br>
+<strong>想象一下有两个堆，一个大顶堆一个小顶堆，保证两者数量差距不大于1，那么中位数一定存在于两者的堆顶啦！</strong></p>
+<p>##算法设计的第一步：全面情况考虑 <strong>算法题中最重要的是 BUG FREE</strong></p>
 <p><strong>写代码永远的第一步：保证算法的健壮和全面，第一步代码往往是考虑不需要操作的比较例外的情况，因为如果是这种例外，那干脆省事了。</strong></p>
 <p>一旦你的思路需要不断的分类问题的解决方向，越分越细，对不起，dead end。就算能分清楚，也太不好写了。一定有简介单纯的解法。</p>
 <p><strong>代码美观直观重要，不止是说明你的代码习惯好，更说明你的思路清晰。</strong>可以多用点三目，甚至三目中加三目。</p>
 <p>特别容易陷入图省事的陷阱里，有的时候会因为设计算法的时候的测试例子的规模让自己忽略一些更加优化的“小”提升。比如做题到最后需要找“5”个int里的最小的。乍一看需要遍历一遍嘛。但是明显有更好的堆排序对吧。实际问题里的问题规模可不一定是5.</p>
-<p>有的时候需要考虑<strong>性能</strong>，最简单的提高性能就是将幂次算数改成位运算。</p>
-<p>##利用二进制的特殊性<br>许多问题的输出出现几率均匀时，需要分类考虑整个问题，或者难以将问题转化成一个好处理的情况时，可以借用二进制表示的同地位性。  </p>
-<p>如：如何将一个概率为p的01分布的随机生成器改为一个以1/2为概率的01分布随机生成器。（最快做法：不需要考虑p，将结果两两输出，01和10分半代表0，1因为概率相等，00，11舍弃–额其实不需要舍弃呗）<br>如：数据挖掘中字母数据的数字化。（直接将取值范围内的取值分布用二进制来对应即可）</p>
-<h2 id="有限可能性问题"><a href="#有限可能性问题" class="headerlink" title="有限可能性问题"></a>有限可能性问题</h2><p>比如限定了一个字符串只有小写字母，就代表最多26种可能，那么空间一定可以节省为O(1)，而不再是O(N)。<br>并且，这样做可以让对一个str[]的一个个判断，编程对26个list&lt;&gt;一个个判断。每次最多判断26个中的一个。  </p>
-<blockquote>
-<p>例题：提供一个原str全是小写字母，提供一个str[]，考察这个数组中有多少个可以由原字符串子序列得到。<br>原字符串每个字母只用一次，子序列不能破坏原字符串字母间先后关系。  </p>
-</blockquote>
-<p>##利用经典算法<br>在代码中，尤其是手写的里，如quicksort，干脆直接调用这个方法好了，需要再实现在写嘛。<br>也是存在运用快排partition操作以<code>O(logN)</code>的时间找到第k小元素。比堆排序的<code>O(klogN)</code>还好。</p>
-<p>##链表骚操作<br>由于head的特殊性，可以加一个fakeHead为空，但是next为head来强行加一个head的pre。</p>
-<p>##巧用集合类特性<br>暂时习惯用java写，集合类中，map用put，其他都用add。<br>善用hashmap、set的特性</p>
+<p>有的时候需要考虑<strong>性能</strong>，最简单的提高性能就是将幂次算数改成位运算。 ##利用二进制的特殊性 许多问题的输出出现几率均匀时，需要分类考虑整个问题，或者难以将问题转化成一个好处理的情况时，可以借用二进制表示的同地位性。</p>
+<p>如：如何将一个概率为p的01分布的随机生成器改为一个以1/2为概率的01分布随机生成器。（最快做法：不需要考虑p，将结果两两输出，01和10分半代表0，1因为概率相等，00，11舍弃–额其实不需要舍弃呗）<br>
+如：数据挖掘中字母数据的数字化。（直接将取值范围内的取值分布用二进制来对应即可） ## 有限可能性问题 比如限定了一个字符串只有小写字母，就代表最多26种可能，那么空间一定可以节省为O(1)，而不再是O(N)。<br>
+并且，这样做可以让对一个str[]的一个个判断，编程对26个list&lt;&gt;一个个判断。每次最多判断26个中的一个。<br>
+&gt;例题：提供一个原str全是小写字母，提供一个str[]，考察这个数组中有多少个可以由原字符串子序列得到。<br>
+&gt;原字符串每个字母只用一次，子序列不能破坏原字符串字母间先后关系。</p>
+<p>##利用经典算法 在代码中，尤其是手写的里，如quicksort，干脆直接调用这个方法好了，需要再实现在写嘛。<br>
+也是存在运用快排partition操作以<code>O(logN)</code>的时间找到第k小元素。比堆排序的<code>O(klogN)</code>还好。 ##链表骚操作 由于head的特殊性，可以加一个fakeHead为空，但是next为head来强行加一个head的pre。 ##巧用集合类特性 暂时习惯用java写，集合类中，map用put，其他都用add。<br>
+善用hashmap、set的特性</p>
 <pre><code>public List&lt;String&gt; blabla()
 {
     ????
@@ -808,20 +743,22 @@
 集合类遍历：
 Iterator&lt;int&gt; it = blabla.iterator();
 while (it.hasNext()) {  
-      int num = it.next();  
- }  
- 或者：
- for (String str : set) {  
-  System.out.println(str);  
+    int num = it.next();  
 }  
-</code></pre><p>##巧用位运算<br>凡是总体情况不管如何都在一定范围内的题目，都可以借助位运算来减少空间复杂度。<br>并且位运算的与、或操作都非常快速。</p>
-<p>##If this function is called many times, how would you optimize it?<br>无非是把过程中的可以用到后面的子结果保留下来罢了。</p>
-<p>##Window+two pointer移动法<br>当规定要求是sub(String)的情况时，必须是连续的，那么就可以使用一个window来遍历，然后用两个指针分别向后移动。（开始时p1=p2）</p>
-<h2 id="如何实现O-1-的查找-修改（对一堆数的）—双向链表-map-ArrayList-map"><a href="#如何实现O-1-的查找-修改（对一堆数的）—双向链表-map-ArrayList-map" class="headerlink" title="如何实现O(1)的查找+修改（对一堆数的）—双向链表+map/ArrayList+map"></a>如何实现O(1)的查找+修改（对一堆数的）—双向链表+map/ArrayList+map</h2><p>对一堆数做查找+更新，很容易想到用list和map，map存每个数的位置，这样查找就是O(1)，但是做了修改，就要更新整个被影响的map。<br>但是链表的更新（如果知道位置的话）就是O(1)，我很容易忽视<strong>链表</strong>的使用。用map记录链表的节点本身，在查找的时候就直接<br>指向了链表里的那个元素。至于修改，用双向链表很容易实现。 </p>
-<p>然而实际上用map+ArrayList就行了，因为之前不可以是因为删除的时候要去更新所有后续map，但是实际上不需要保存数组顺序的话，就把被删除元素和最后一个元素交换再删除就好了！</p>
-<h2 id="如果对一个数组操作需要考虑数组长度是奇数还是偶数不同处理怎么办—-gt-在每个数的两侧插’-’（虚拟）"><a href="#如果对一个数组操作需要考虑数组长度是奇数还是偶数不同处理怎么办—-gt-在每个数的两侧插’-’（虚拟）" class="headerlink" title="如果对一个数组操作需要考虑数组长度是奇数还是偶数不同处理怎么办—&gt;在每个数的两侧插’#’（虚拟）"></a>如果对一个数组操作需要考虑数组长度是奇数还是偶数不同处理怎么办—&gt;在每个数的两侧插’#’（虚拟）</h2><p>首先，插入#是虚拟插入。不用真实操作。<br>这样就可以让任意长度的数组变成奇数长度的数组。而且通过找到第k个元素，不管是#还是数字，其在原来数组所代表的元素就是k/2位置上那个数。</p>
-<h2 id="三重循环不可接受"><a href="#三重循环不可接受" class="headerlink" title="三重循环不可接受"></a>三重循环不可接受</h2><p>代码中如果出现三重循环，除非确定就是这么做的，否则一般是无法接受的。<br>想办法把一个二维数组用一维数组代替，肯定有相应的处理办法。</p>
-<h2 id="动态规划：top-down还是bottom-up"><a href="#动态规划：top-down还是bottom-up" class="headerlink" title="动态规划：top-down还是bottom-up"></a>动态规划：top-down还是bottom-up</h2><p>一般top-down是要递归的，也就意味着需要栈的额外空间，说不定还有额外的时间。但是，在很多问题上，不需要所有子问题的结果就能得到父问题的答案。这种情况必然是top-down，而且在很多时候从上往下的思考问题更加容易理解。<strong>所以很多时候top-down是比bottom-up优秀的，尽请使用。</strong></p>
+或者：
+for (String str : set) {  
+  System.out.println(str);  
+}  </code></pre>
+<p>##巧用位运算 凡是总体情况不管如何都在一定范围内的题目，都可以借助位运算来减少空间复杂度。<br>
+并且位运算的与、或操作都非常快速。 ##If this function is called many times, how would you optimize it? 无非是把过程中的可以用到后面的子结果保留下来罢了。 ##Window+two pointer移动法 当规定要求是sub(String)的情况时，必须是连续的，那么就可以使用一个window来遍历，然后用两个指针分别向后移动。（开始时p1=p2） ## 如何实现O(1)的查找+修改（对一堆数的）—双向链表+map/ArrayList+map 对一堆数做查找+更新，很容易想到用list和map，map存每个数的位置，这样查找就是O(1)，但是做了修改，就要更新整个被影响的map。<br>
+但是链表的更新（如果知道位置的话）就是O(1)，我很容易忽视<strong>链表</strong>的使用。用map记录链表的节点本身，在查找的时候就直接 指向了链表里的那个元素。至于修改，用双向链表很容易实现。</p>
+<p>然而实际上用map+ArrayList就行了，因为之前不可以是因为删除的时候要去更新所有后续map，但是实际上不需要保存数组顺序的话，就把被删除元素和最后一个元素交换再删除就好了！ ## 如果对一个数组操作需要考虑数组长度是奇数还是偶数不同处理怎么办—&gt;在每个数的两侧插’#’（虚拟） 首先，插入#是虚拟插入。不用真实操作。<br>
+这样就可以让任意长度的数组变成奇数长度的数组。而且通过找到第k个元素，不管是#还是数字，其在原来数组所代表的元素就是k/2位置上那个数。</p>
+<h2 id="三重循环不可接受">三重循环不可接受</h2>
+<p>代码中如果出现三重循环，除非确定就是这么做的，否则一般是无法接受的。<br>
+想办法把一个二维数组用一维数组代替，肯定有相应的处理办法。</p>
+<h2 id="动态规划top-down还是bottom-up">动态规划：top-down还是bottom-up</h2>
+<p>一般top-down是要递归的，也就意味着需要栈的额外空间，说不定还有额外的时间。但是，在很多问题上，不需要所有子问题的结果就能得到父问题的答案。这种情况必然是top-down，而且在很多时候从上往下的思考问题更加容易理解。<strong>所以很多时候top-down是比bottom-up优秀的，尽请使用。</strong></p>
 
           
         
@@ -1004,7 +941,8 @@ while (it.hasNext()) {
 
       
         
-          <h2 id="遇到问题怎么查"><a href="#遇到问题怎么查" class="headerlink" title="遇到问题怎么查"></a>遇到问题怎么查</h2><ul>
+          <h2 id="遇到问题怎么查">遇到问题怎么查</h2>
+<ul>
 <li>遇到的所有问题都去官方git-release记录的问题里查。google也好，百度也好都不需要也不靠谱。</li>
 <li>如果在配置文件中有和官方文档要求配置细节有不一致，以本地文件配置为准。因为官方文档没有跟上项目release。</li>
 <li>配置文件中凡是注释掉的内容（如jiathis和百度分享），都是版本更新后已经淘汰掉的了，不用费神去取消注释尝试了。一般会有代替他们的存在，虽然在issue记录里不一定有。但是应该是可以用的，enable为true就好了。</li>
@@ -1207,8 +1145,9 @@ while (it.hasNext()) {
 
       
         
-          <h2 id="寻找连续子数组、子矩阵的和为精确值的情况"><a href="#寻找连续子数组、子矩阵的和为精确值的情况" class="headerlink" title="寻找连续子数组、子矩阵的和为精确值的情况"></a>寻找连续子数组、子矩阵的和为精确值的情况</h2><p>数组、矩阵是无序的，就没办法用窗口类的O(N、N^2)时间复杂度方法。<br>最简单的思考方式就是用二、三维的动态规划，计算所有i到j的情况。但是算的时候就发现了，有很多的冗余计算。</p>
-<h3 id="DP降维—问题转化"><a href="#DP降维—问题转化" class="headerlink" title="DP降维—问题转化"></a>DP降维—问题转化</h3>
+          <h2 id="寻找连续子数组子矩阵的和为精确值的情况">寻找连续子数组、子矩阵的和为精确值的情况</h2>
+<p>数组、矩阵是无序的，就没办法用窗口类的O(N、N^2)时间复杂度方法。<br>
+最简单的思考方式就是用二、三维的动态规划，计算所有i到j的情况。但是算的时候就发现了，有很多的冗余计算。 ### DP降维—问题转化
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/Algorithm/算法技巧/一些需要记的题/#more" rel="contents">
@@ -1407,13 +1346,14 @@ while (it.hasNext()) {
 
       
         
-          <h2 id="矩阵四个相邻元素的高效比较–👍必用-常见"><a href="#矩阵四个相邻元素的高效比较–👍必用-常见" class="headerlink" title="矩阵四个相邻元素的高效比较–👍必用+常见"></a>矩阵四个相邻元素的高效比较–👍必用+常见</h2><p>一般和矩阵相关的BFS、DFS，都是需要对一个元素的上下左右四个元素做比较，需要每个方向上加一个限制条件是否超出了边界。一般我的做法是：（平均比较4次）</p>
+          <h2 id="矩阵四个相邻元素的高效比较必用常见">矩阵四个相邻元素的高效比较–👍必用+常见</h2>
+<p>一般和矩阵相关的BFS、DFS，都是需要对一个元素的上下左右四个元素做比较，需要每个方向上加一个限制条件是否超出了边界。一般我的做法是：（平均比较4次）</p>
 <pre><code>if(i-1 &gt;= 0) then;
 if(j-1 &gt;= 0) then;
 if(i+1 &lt; xlen) then;
 if(j+1 &lt; ylen) then;
-也就是四个方向都判断了一次，每次做这个操作都要做四次判断。
-</code></pre><p>但是存在一种更加优秀的比较方式（针对矩阵）：（平均比较2.5次）<br>
+也就是四个方向都判断了一次，每次做这个操作都要做四次判断。</code></pre>
+<p>但是存在一种更加优秀的比较方式（针对矩阵）：（平均比较2.5次）
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/Algorithm/算法技巧/高级写法/#more" rel="contents">
@@ -1602,78 +1542,105 @@ if(j+1 &lt; ylen) then;
       
         
           
-            <h1 id="0-Decision-Tree-决策树"><a href="#0-Decision-Tree-决策树" class="headerlink" title="0. Decision Tree-决策树"></a>0. Decision Tree-决策树</h1><p>启发式算法</p>
-<p>分类树：处理分类问题。<br>回归树：预测数值。</p>
+            <h1 id="decision-tree-决策树">0. Decision Tree-决策树</h1>
+<p>启发式算法</p>
+<p>分类树：处理分类问题。<br>
+回归树：预测数值。</p>
 <p>场景：用二十个问题猜出提问者脑中想好的一个事物。不断缩小范围。</p>
-<p>决策树是一种弱分类器，简单易懂，相比复杂完善的方法，通过ensemble来组合弱分类器的方式更不容易过拟合。</p>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p><img src="./各种熵.png" alt="avatar"><br><strong>熵</strong>：体系混乱的程度。<br><strong>信息熵（香农熵）</strong>：信息度量方式，信息越有序越低，否则反之。<br><strong>信息增益</strong>：划分数据集前后信息发生的变化。<br><strong>Gini指数</strong>：反映了在数据集中随机抽取两个样本，类别不同的概率。越低代表纯度越高。</p>
-<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><ol>
-<li>检测所有数据分类标签是否相同。</li>
-<li>穷举每一个特征的每一个阈值，选择划分数据集的最好特征。（即划分之后信息熵最小，也即两个分类比例最远离1:1，信息增益最大的特征，相当于每次划分选一个特征出来，考虑所有特征，选划分之后信息熵最小-也就是信息增益（之前减之后）最大的那个，每次划分之后取出满足划分的数据集做之后的数据集）</li>
-<li>划分数据集</li>
-<li>创建分支节点</li>
-<li>循环2</li>
-<li>返回分支节点</li>
-</ol>
+<p>决策树是一种弱分类器，简单易懂，相比复杂完善的方法，通过ensemble来组合弱分类器的方式更不容易过拟合。 ## 原理 ### 概念 <img src="./各种熵.png" alt="avatar"><br>
+<strong>熵</strong>：体系混乱的程度。<br>
+<strong>信息熵（香农熵）</strong>：信息度量方式，信息越有序越低，否则反之。<br>
+<strong>信息增益</strong>：划分数据集前后信息发生的变化。<br>
+<strong>Gini指数</strong>：反映了在数据集中随机抽取两个样本，类别不同的概率。越低代表纯度越高。 ### 工作原理 1. 检测所有数据分类标签是否相同。 2. 穷举每一个特征的每一个阈值，选择划分数据集的最好特征。（即划分之后信息熵最小，也即两个分类比例最远离1:1，信息增益最大的特征，相当于每次划分选一个特征出来，考虑所有特征，选划分之后信息熵最小-也就是信息增益（之前减之后）最大的那个，每次划分之后取出满足划分的数据集做之后的数据集） 3. 划分数据集 4. 创建分支节点 5. 循环2 6. 返回分支节点</p>
 <p>分类树（C4.5分类树）在划分数据的时候，会穷举特征每一个阈值，找到熵最小的那个。</p>
-<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><p>收集数据<br>准备数据（需要离散化的数据）<br>分析数据（计算信息熵的公式、按照特征划分数据集方法、选择最好的数据划分方式方法）<br>训练算法（创建决策树）<br>测试算法（使用决策树执行分类）<br>使用算法（可以获得树的结构）  </p>
-<h3 id="树的纯度"><a href="#树的纯度" class="headerlink" title="树的纯度"></a>树的纯度</h3><p><strong>纯度差 = 信息增益</strong><br>一个分割点两侧的类别里，各自的同类样本的多少。（也可以理解为信息增益的其他角度理解）</p>
+<h3 id="流程">流程</h3>
+<p>收集数据<br>
+准备数据（需要离散化的数据）<br>
+分析数据（计算信息熵的公式、按照特征划分数据集方法、选择最好的数据划分方式方法）<br>
+训练算法（创建决策树）<br>
+测试算法（使用决策树执行分类）<br>
+使用算法（可以获得树的结构）</p>
+<h3 id="树的纯度">树的纯度</h3>
+<p><strong>纯度差 = 信息增益</strong><br>
+一个分割点两侧的类别里，各自的同类样本的多少。（也可以理解为信息增益的其他角度理解）</p>
 <p>纯度量化指标：（越小纯度越高）</p>
 <ul>
 <li>Gini不纯度</li>
 <li>熵（Entropy）</li>
 <li>错误率</li>
 </ul>
-<h2 id="构建决策树的方法比较"><a href="#构建决策树的方法比较" class="headerlink" title="构建决策树的方法比较"></a>构建决策树的方法比较</h2><table>
+<h2 id="构建决策树的方法比较">构建决策树的方法比较</h2>
+<table>
+<colgroup>
+<col style="width: 42%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 19%">
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left">模型</th>
-<th style="text-align:center">特点</th>
-<th style="text-align:center">过程</th>
-<th style="text-align:center">缺点</th>
+<tr class="header">
+<th style="text-align: left;">模型</th>
+<th style="text-align: center;">特点</th>
+<th style="text-align: center;">过程</th>
+<th style="text-align: center;">缺点</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left">ID3</td>
-<td style="text-align:center">在决策树各个子节点上应用<strong>信息增益</strong>准则选择特征，递归的构建决策树。</td>
-<td style="text-align:center">从根节点开始，对节点计算所有可能的特征的信息增益，选择信息增益最大的特征（先筛选特征而不是穷举所有特征的可能值）作为节点的特征（然后把该特征的所有可能取值都做划分方向，各个方向选择数据子集最大的作为本节点 特征+属性值 ）；再对子节点递归调用以上方法，构建决策树。直到所有特征的信息增益均很小或没有特征可以选择为止。最后得到一个决策树。</td>
-<td style="text-align:center">用信息增益选择属性<strong>时偏向于选择分枝比较多的属性值</strong>，即取值多的属性（因为每个可能属性可能带来比较大的分类效果及信息增益，比如id）。<strong>不能处理连续属性</strong>。<strong>不能处理属性具有缺失值的样本</strong>。<strong>容易决策树很深，过拟合</strong>。</td>
+<tr class="odd">
+<td style="text-align: left;">ID3</td>
+<td style="text-align: center;">在决策树各个子节点上应用<strong>信息增益</strong>准则选择特征，递归的构建决策树。</td>
+<td style="text-align: center;">从根节点开始，对节点计算所有可能的特征的信息增益，选择信息增益最大的特征（先筛选特征而不是穷举所有特征的可能值）作为节点的特征（然后把该特征的所有可能取值都做划分方向，各个方向选择数据子集最大的作为本节点 特征+属性值 ）；再对子节点递归调用以上方法，构建决策树。直到所有特征的信息增益均很小或没有特征可以选择为止。最后得到一个决策树。</td>
+<td style="text-align: center;">用信息增益选择属性<strong>时偏向于选择分枝比较多的属性值</strong>，即取值多的属性（因为每个可能属性可能带来比较大的分类效果及信息增益，比如id）。<strong>不能处理连续属性</strong>。<strong>不能处理属性具有缺失值的样本</strong>。<strong>容易决策树很深，过拟合</strong>。</td>
 </tr>
-<tr>
-<td style="text-align:left">C4.5</td>
-<td style="text-align:center">对ID3算法的改进，（悲观剪枝法）</td>
-<td style="text-align:center">用<strong>信息增益率比</strong>来选择属性（具体流程完全和ID3一样只是判别标准不一样，这样对多取值特征没那么敏感了，会排除增益高且信息量也高的，如id这个特征），在决策树的构造过程中对树<strong>进行剪枝处理过拟合</strong>，<strong>对非离散数据也能处理</strong>（排序去重后用每个样本可能值做阈值转换成离散数据处理方式），<strong>能够对不完整数据进行处理</strong></td>
-<td style="text-align:center"></td>
+<tr class="even">
+<td style="text-align: left;">C4.5</td>
+<td style="text-align: center;">对ID3算法的改进，（悲观剪枝法）</td>
+<td style="text-align: center;">用<strong>信息增益率比</strong>来选择属性（具体流程完全和ID3一样只是判别标准不一样，这样对多取值特征没那么敏感了，会排除增益高且信息量也高的，如id这个特征），在决策树的构造过程中对树<strong>进行剪枝处理过拟合</strong>，<strong>对非离散数据也能处理</strong>（排序去重后用每个样本可能值做阈值转换成离散数据处理方式），<strong>能够对不完整数据进行处理</strong></td>
+<td style="text-align: center;"></td>
 </tr>
-<tr>
-<td style="text-align:left">CART</td>
-<td style="text-align:center">可用于<strong>回归、分类</strong>。<strong>二元切分法</strong>。<strong>（后剪枝）通过交叉验证递归地修剪决策树</strong>，减去使损失下降不够大的结点。从而使训练误差和测试误差达到一个很好地平衡点。支持离散、连续数据。</td>
-<td style="text-align:center"><strong>分类树</strong>：<strong>gini指数–纯度</strong>，生成树的时候计算数据集所有特征的所有可能类别的gini指数，找最小gini指数的特征及可能值作为“是”、“否”的切分点。<strong>回归树</strong>：<strong>最小平方差</strong>（启发式分割，选取所有样本的取值做分割点）生成树的时候尝试所有样本的所有特征下的取值作为切分点将数据集一分为二，将两类数据子集的平方误差和作为判定标准，找最小平方误差和的样本特征j及切分点s。</td>
+<tr class="odd">
+<td style="text-align: left;">CART</td>
+<td style="text-align: center;">可用于<strong>回归、分类</strong>。<strong>二元切分法</strong>。<strong>（后剪枝）通过交叉验证递归地修剪决策树</strong>，减去使损失下降不够大的结点。从而使训练误差和测试误差达到一个很好地平衡点。支持离散、连续数据。</td>
+<td style="text-align: center;"><strong>分类树</strong>：<strong>gini指数–纯度</strong>，生成树的时候计算数据集所有特征的所有可能类别的gini指数，找最小gini指数的特征及可能值作为“是”、“否”的切分点。<strong>回归树</strong>：<strong>最小平方差</strong>（启发式分割，选取所有样本的取值做分割点）生成树的时候尝试所有样本的所有特征下的取值作为切分点将数据集一分为二，将两类数据子集的平方误差和作为判定标准，找最小平方误差和的样本特征j及切分点s。</td>
+<td style="text-align: center;"></td>
 </tr>
 </tbody>
 </table>
-<h3 id="为什么多取值属性会包含更多的熵"><a href="#为什么多取值属性会包含更多的熵" class="headerlink" title="为什么多取值属性会包含更多的熵"></a>为什么多取值属性会包含更多的熵</h3><p>因为属性取值越多就代表分类越多，什么样的数据熵比较低，当然是有序的，也就是尽量全是同类属性的数据，那么取值越多分类越多所包含的熵就越多，从熵的计算形式上也可以总结出这一结论。</p>
-<h1 id="1-随机森林-Radam-Forest-与-AdaBoost"><a href="#1-随机森林-Radam-Forest-与-AdaBoost" class="headerlink" title="1. 随机森林-Radam Forest 与 AdaBoost"></a>1. 随机森林-Radam Forest 与 AdaBoost</h1><p>这里用到了<strong>集成方法ensemble method</strong>。<br>树太多也会拟合。</p>
-<h2 id="随机森林-bagging"><a href="#随机森林-bagging" class="headerlink" title="随机森林-bagging"></a>随机森林-bagging</h2><h3 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h3><p>借助<strong>数据随机化+特征选择随机化</strong>来构建不同的决策树，提升系统的多样性。<br>注意每个决策树的数据集是有放回的抽样（比无放回的准确率更高），这样一个决策树中可能有相同的数据。（<strong>过抽样</strong>，此外还有<strong>欠抽样</strong>删除部分样本）  不做剪枝尽情生长。</p>
-<p><strong>注意：特征的随机化，不是每个决策树随机选择了部分特征，而是决策树的每个结点在分裂的时候，随机选择m（m&lt;&lt;M）的属性来做分裂候选</strong></p>
-<h3 id="影响RF效果的参数"><a href="#影响RF效果的参数" class="headerlink" title="影响RF效果的参数"></a>影响RF效果的参数</h3><p>随机森林分类效果（错误率）与两个因素有关：<br>（1）森林中任意两棵树的相关性：相关性越大，错误率越大；<br>（2）森林中每棵树的分类能力：每棵树的分类能力越强，整个森林的错误率越低。<br>  减小特征选择个数m，树的相关性和分类能力也会相应的降低；增大m，两者也会随之增大。所以关键问题是如何选择最优的m（或者是范围），这也是随机森林唯一的一个参数。</p>
-<h3 id="流程-1"><a href="#流程-1" class="headerlink" title="流程"></a>流程</h3><p>构建时加入了数据随机化+特征选择随机化。</p>
-<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">优点：几乎不需要输入准备、可以隐式特征选择、训练速度非常快、下限很高、很多优秀开源的实现。  </span><br><span class="line">	能够处理高维度、离散、连续的数据。</span><br><span class="line">	可以生成一个proximite矩阵，度量样本之间的相似度。（样本落在相同叶子次数/总的树数）</span><br><span class="line">	容易并行化处理</span><br><span class="line">缺点：模型大小，是个很难解释的黑盒子。</span><br></pre></td></tr></table></figure>
-<h2 id="AdaBoost-boosting"><a href="#AdaBoost-boosting" class="headerlink" title="AdaBoost-boosting"></a>AdaBoost-boosting</h2><h3 id="原理-2"><a href="#原理-2" class="headerlink" title="原理"></a>原理</h3><p>包括<strong>样本的权值D和分类器的权值alpha</strong>。<br>提高每个分类器的分错样本的权值。减小投错票的分类器的权重。<br>过程是根据<strong>公式</strong>自发调节的。<br>代价函数使用true positive、fp、fn、tn来综合评估的。<br><strong>前向/加法模型，加法分步算法。</strong></p>
-<p><strong>损失函数：指数损失函数</strong><br>e的次幂。为什么：adaboost的迭代目的是寻找最小化loss的参数α、G，他是前向分步加法算法的特例，是一个加和模型，损失函数就是指数函数。</p>
-<p>N个样本，M维特征：<br><strong>时间复杂度</strong>：排序O(M*N*logN）+ 每次迭代O(M*N)。<br><strong>空间复杂度</strong>：O(M*N)。<br>具体需要的消耗，还要考察迭代步伐等。</p>
-<h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">优点：泛化错误率低。  </span><br><span class="line">	对弱分类器的要求很低，比随机好一点就行，（比随机差的，反过来用其实也是可以用的。）</span><br><span class="line">缺点：对异常点敏感。</span><br><span class="line">	数据不平衡导致分类精度下降。</span><br></pre></td></tr></table></figure>
-<h3 id="公式推导"><a href="#公式推导" class="headerlink" title="公式推导"></a>公式推导</h3><p><img src="AdaBoost.jpeg" alt="avatar"></p>
-<h1 id="2-回归树"><a href="#2-回归树" class="headerlink" title="2. 回归树"></a>2. 回归树</h1><p>CART（Classification and Regression Trees，分类回归树），既可以分类也可以回归。<br>将数据不断切分成易建模的块，分别建模线性回归。</p>
-<h3 id="原理-3"><a href="#原理-3" class="headerlink" title="原理"></a>原理</h3><p>用总方差来衡量数据的混乱程度。<br>以前采用ID3来切分数据。将数据按某种特征所有取值每个取值各自一份。（还有一种是按照一个拟定标准，不足和超过的分成两份）。再将连续型数据离散化。<br>CART使用二元切分，修改信息熵用总方差来度量集合无组织程度，来用数结构处理回归问题。  </p>
-<p><strong>决策树如何做回归：</strong><br>将每个节点通过阈值区分出的两个数据组，取平均值求loss。</p>
-<h3 id="流程-2"><a href="#流程-2" class="headerlink" title="流程"></a>流程</h3><p>数据需要都是连续型，离散型数据需要映射为二值型。<br>不断切分到不能再切分，指定为叶节点。叶节点的值大小代表训练数据当前类的标签均值。</p>
-<h3 id="特点-2"><a href="#特点-2" class="headerlink" title="特点"></a>特点</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">优点：可以对复杂的非线性数据建模。  </span><br><span class="line">缺点：结果很难理解。</span><br></pre></td></tr></table></figure>
-<h2 id="树剪枝-pruning"><a href="#树剪枝-pruning" class="headerlink" title="树剪枝-pruning"></a>树剪枝-pruning</h2><p>一棵树的节点过多，容易过拟合。剪枝可以剪叶结点，也可以剪子树。</p>
-<h3 id="预剪枝-prepruning"><a href="#预剪枝-prepruning" class="headerlink" title="预剪枝-prepruning"></a>预剪枝-prepruning</h3><p>提前停止树的增长。设定一二熵的停止阈值。节省了时间开销。<br>先验实际效果不好。原理是贪心的，所以可能带来欠拟合。</p>
-<h3 id="后剪枝-postpruning"><a href="#后剪枝-postpruning" class="headerlink" title="后剪枝-postpruning"></a>后剪枝-postpruning</h3><p>决策树构造完成后，对拥有同样父节点的节点进行检查，判断合并后熵的增加是否小于一个阈值，那么就合并（塌陷处理）。目前是普遍做法。<br>一般会比预剪枝保留更多的分支，不容易出现欠拟合，但是需要自底向上检查，有很大的时间开销。<br>判断误差是在测试数据上判断的。</p>
-<h2 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h2><p>定义：缺失值是指某个样本中某个属性取值的缺失，不是样本失衡、样本丢失的意思，是指样本中缺少了一个、多个值。 </p>
+<h3 id="为什么多取值属性会包含更多的熵">为什么多取值属性会包含更多的熵</h3>
+<p>因为属性取值越多就代表分类越多，什么样的数据熵比较低，当然是有序的，也就是尽量全是同类属性的数据，那么取值越多分类越多所包含的熵就越多，从熵的计算形式上也可以总结出这一结论。 # 1. 随机森林-Radam Forest 与 AdaBoost 这里用到了<strong>集成方法ensemble method</strong>。<br>
+树太多也会拟合。 ## 随机森林-bagging ### 原理 借助<strong>数据随机化+特征选择随机化</strong>来构建不同的决策树，提升系统的多样性。<br>
+注意每个决策树的数据集是有放回的抽样（比无放回的准确率更高），这样一个决策树中可能有相同的数据。（<strong>过抽样</strong>，此外还有<strong>欠抽样</strong>删除部分样本） 不做剪枝尽情生长。</p>
+<p><strong>注意：特征的随机化，不是每个决策树随机选择了部分特征，而是决策树的每个结点在分裂的时候，随机选择m（m&lt;&lt;M）的属性来做分裂候选</strong> ### 影响RF效果的参数<br>
+随机森林分类效果（错误率）与两个因素有关：<br>
+（1）森林中任意两棵树的相关性：相关性越大，错误率越大；<br>
+（2）森林中每棵树的分类能力：每棵树的分类能力越强，整个森林的错误率越低。<br>
+减小特征选择个数m，树的相关性和分类能力也会相应的降低；增大m，两者也会随之增大。所以关键问题是如何选择最优的m（或者是范围），这也是随机森林唯一的一个参数。 ### 流程 构建时加入了数据随机化+特征选择随机化。 ### 特点 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">优点：几乎不需要输入准备、可以隐式特征选择、训练速度非常快、下限很高、很多优秀开源的实现。  </span><br><span class="line">	能够处理高维度、离散、连续的数据。</span><br><span class="line">	可以生成一个proximite矩阵，度量样本之间的相似度。（样本落在相同叶子次数/总的树数）</span><br><span class="line">	容易并行化处理</span><br><span class="line">缺点：模型大小，是个很难解释的黑盒子。</span><br></pre></td></tr></table></figure></p>
+<h2 id="adaboost-boosting">AdaBoost-boosting</h2>
+<h3 id="原理">原理</h3>
+<p>包括<strong>样本的权值D和分类器的权值alpha</strong>。<br>
+提高每个分类器的分错样本的权值。减小投错票的分类器的权重。<br>
+过程是根据<strong>公式</strong>自发调节的。<br>
+代价函数使用true positive、fp、fn、tn来综合评估的。<br>
+<strong>前向/加法模型，加法分步算法。</strong></p>
+<p><strong>损失函数：指数损失函数</strong><br>
+e的次幂。为什么：adaboost的迭代目的是寻找最小化loss的参数α、G，他是前向分步加法算法的特例，是一个加和模型，损失函数就是指数函数。</p>
+<p>N个样本，M维特征：<br>
+<strong>时间复杂度</strong>：排序O(M*N*logN）+ 每次迭代O(M*N)。<br>
+<strong>空间复杂度</strong>：O(M*N)。<br>
+具体需要的消耗，还要考察迭代步伐等。 ### 特点 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">优点：泛化错误率低。  </span><br><span class="line">	对弱分类器的要求很低，比随机好一点就行，（比随机差的，反过来用其实也是可以用的。）</span><br><span class="line">缺点：对异常点敏感。</span><br><span class="line">	数据不平衡导致分类精度下降。</span><br></pre></td></tr></table></figure></p>
+<h3 id="公式推导">公式推导</h3>
+<p><img src="AdaBoost.jpeg" alt="avatar"> # 2. 回归树 CART（Classification and Regression Trees，分类回归树），既可以分类也可以回归。<br>
+将数据不断切分成易建模的块，分别建模线性回归。 ### 原理 用总方差来衡量数据的混乱程度。<br>
+以前采用ID3来切分数据。将数据按某种特征所有取值每个取值各自一份。（还有一种是按照一个拟定标准，不足和超过的分成两份）。再将连续型数据离散化。<br>
+CART使用二元切分，修改信息熵用总方差来度量集合无组织程度，来用数结构处理回归问题。</p>
+<p><strong>决策树如何做回归：</strong><br>
+将每个节点通过阈值区分出的两个数据组，取平均值求loss。 ### 流程 数据需要都是连续型，离散型数据需要映射为二值型。<br>
+不断切分到不能再切分，指定为叶节点。叶节点的值大小代表训练数据当前类的标签均值。 ### 特点 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">优点：可以对复杂的非线性数据建模。  </span><br><span class="line">缺点：结果很难理解。</span><br></pre></td></tr></table></figure></p>
+<h2 id="树剪枝-pruning">树剪枝-pruning</h2>
+<p>一棵树的节点过多，容易过拟合。剪枝可以剪叶结点，也可以剪子树。 ### 预剪枝-prepruning 提前停止树的增长。设定一二熵的停止阈值。节省了时间开销。<br>
+先验实际效果不好。原理是贪心的，所以可能带来欠拟合。 ### 后剪枝-postpruning 决策树构造完成后，对拥有同样父节点的节点进行检查，判断合并后熵的增加是否小于一个阈值，那么就合并（塌陷处理）。目前是普遍做法。<br>
+一般会比预剪枝保留更多的分支，不容易出现欠拟合，但是需要自底向上检查，有很大的时间开销。<br>
+判断误差是在测试数据上判断的。 ## 缺失值处理 定义：缺失值是指某个样本中某个属性取值的缺失，不是样本失衡、样本丢失的意思，是指样本中缺少了一个、多个值。</p>
 <p>常见处理方法：</p>
 <ul>
 <li>插值法（Imputation）： QUEST, CRUISE</li>
@@ -1681,59 +1648,64 @@ if(j+1 &lt; ylen) then;
 <li>缺失值单独分支（Missing value branch）：CHAID， GUIDE</li>
 <li>概率权重（Probability weights）： C4.5</li>
 </ul>
-<p>总的来说有两个问题：  </p>
+<p>总的来说有两个问题：</p>
 <table>
+<colgroup>
+<col style="width: 52%">
+<col style="width: 23%">
+<col style="width: 23%">
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left">模型</th>
-<th style="text-align:center">当存在属性值缺失，如何划分属性</th>
-<th style="text-align:center">已知属性划分，缺失属性值的样本如何划分</th>
+<tr class="header">
+<th style="text-align: left;">模型</th>
+<th style="text-align: center;">当存在属性值缺失，如何划分属性</th>
+<th style="text-align: center;">已知属性划分，缺失属性值的样本如何划分</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left">ID3</td>
-<td style="text-align:center">不计入该属性样本集中缺失属性值的样本训练，按剩下样本比例乘以信息增益。（相当于逃避不处理）</td>
-<td style="text-align:center">逃避</td>
+<tr class="odd">
+<td style="text-align: left;">ID3</td>
+<td style="text-align: center;">不计入该属性样本集中缺失属性值的样本训练，按剩下样本比例乘以信息增益。（相当于逃避不处理）</td>
+<td style="text-align: center;">逃避</td>
 </tr>
-<tr>
-<td style="text-align:left">C4.5</td>
-<td style="text-align:center">缺失属性值的样本进入所有可能分类分支，给所有样本加一个权重，（缺失属性值样本的权重变成各个分支中样本比例。）</td>
-<td style="text-align:center">以不同的权重比例进入所有可能分支。（其实就是给之后统计结果加入权重概念）</td>
+<tr class="even">
+<td style="text-align: left;">C4.5</td>
+<td style="text-align: center;">缺失属性值的样本进入所有可能分类分支，给所有样本加一个权重，（缺失属性值样本的权重变成各个分支中样本比例。）</td>
+<td style="text-align: center;">以不同的权重比例进入所有可能分支。（其实就是给之后统计结果加入权重概念）</td>
 </tr>
-<tr>
-<td style="text-align:left">xgb</td>
-<td style="text-align:center">训练的时候，将所有缺失属性值的数据全都导向到所有划分方向，假设他们属于所有属性值。然后比对各个方向哪个结果是最优的。</td>
-<td style="text-align:center">选择训练时缺失属性值的数据进入的分支结果最优的分支划分。</td>
+<tr class="odd">
+<td style="text-align: left;">xgb</td>
+<td style="text-align: center;">训练的时候，将所有缺失属性值的数据全都导向到所有划分方向，假设他们属于所有属性值。然后比对各个方向哪个结果是最优的。</td>
+<td style="text-align: center;">选择训练时缺失属性值的数据进入的分支结果最优的分支划分。</td>
 </tr>
 </tbody>
 </table>
-<h2 id="多变量决策树"><a href="#多变量决策树" class="headerlink" title="多变量决策树"></a>多变量决策树</h2><p>就是每一个划分节点中不止包含一个属性划分，还有其他属性划分结合在一起。<br>这样在样本空间的决策边界就不再是平行于坐标轴（属性），而是“斜”的决策边界了。<br>常用算法：OCI。</p>
-<h2 id="模型树"><a href="#模型树" class="headerlink" title="模型树"></a>模型树</h2><p>把叶节点设定成分段线性函数。<br>误差计算：先用模型拟合，然后计算真实目标与预测值之间的误差平方和。<br>在图像上表示由之前的线性回归变成了折线的线性回归。</p>
-<h1 id="3-GBDT-梯度提升决策树"><a href="#3-GBDT-梯度提升决策树" class="headerlink" title="3. GBDT-梯度提升决策树"></a>3. GBDT-梯度提升决策树</h1><p>GBDT (Gradient Boosting Decision Tree) 又叫 MART （Multiple Additive Regression Tree)，是一种迭代的决策树算法，该算法由多棵决策树组成，所有树的结论累加起来做最终答案。它在被提出之初就和SVM一起被认为是泛化能力（generalization)较强的算法。近些年更因为被用于搜索排序的机器学习模型而引起大家关注。  </p>
+<h2 id="多变量决策树">多变量决策树</h2>
+<p>就是每一个划分节点中不止包含一个属性划分，还有其他属性划分结合在一起。<br>
+这样在样本空间的决策边界就不再是平行于坐标轴（属性），而是“斜”的决策边界了。<br>
+常用算法：OCI。 ## 模型树 把叶节点设定成分段线性函数。<br>
+误差计算：先用模型拟合，然后计算真实目标与预测值之间的误差平方和。<br>
+在图像上表示由之前的线性回归变成了折线的线性回归。 # 3. GBDT-梯度提升决策树 GBDT (Gradient Boosting Decision Tree) 又叫 MART （Multiple Additive Regression Tree)，是一种迭代的决策树算法，该算法由多棵决策树组成，所有树的结论累加起来做最终答案。它在被提出之初就和SVM一起被认为是泛化能力（generalization)较强的算法。近些年更因为被用于搜索排序的机器学习模型而引起大家关注。</p>
 <p>首先知道<strong>GBDT中的树都是回归树，不是分类树</strong>， GBDT的核心在于累加所有树的结果作为最终结果。</p>
 <p>（<strong>GBM-gradient boosting machine</strong>）</p>
-<p><strong>GBDT的思想使其天然可以发现多种有区分性的特征及特征组合<br>，所以工业界常用于LR的上一层模型，如Facebook的CTR预估</strong></p>
-<h2 id="原理-4"><a href="#原理-4" class="headerlink" title="原理"></a>原理</h2><h3 id="Gradient-Boosting-梯度迭代"><a href="#Gradient-Boosting-梯度迭代" class="headerlink" title="Gradient Boosting-梯度迭代"></a>Gradient Boosting-梯度迭代</h3><p><strong>GBDT的核心就在于，每一棵树学的是之前所有树结论和的残差，这个残差就是一个加预测值后能得真实值的累加量</strong>。  </p>
-<p><strong>选择特征</strong>：用<strong>CART TREE</strong>选择特征。先遍历训练样本的所有的特征，对于特征 j，我们遍历特征 j 所有特征值的切分点 c。找到可以让下面这个式子最小的特征 j 以及切分点c. </p>
-<p><strong>残差</strong>： A的预测值 + A的残差 = A的实际值 </p>
+<p><strong>GBDT的思想使其天然可以发现多种有区分性的特征及特征组合，所以工业界常用于LR的上一层模型，如Facebook的CTR预估</strong> ## 原理 ### Gradient Boosting-梯度迭代 <strong>GBDT的核心就在于，每一棵树学的是之前所有树结论和的残差，这个残差就是一个加预测值后能得真实值的累加量</strong>。</p>
+<p><strong>选择特征</strong>：用<strong>CART TREE</strong>选择特征。先遍历训练样本的所有的特征，对于特征 j，我们遍历特征 j 所有特征值的切分点 c。找到可以让下面这个式子最小的特征 j 以及切分点c.</p>
+<p><strong>残差</strong>： A的预测值 + A的残差 = A的实际值</p>
 <p><strong>Gradient</strong>：所以这里把前一棵树的预测结果的残差，给下一棵树训练，让z整体结果向全局最优的方向进行就是所谓的Gradient。（但并不是求导那种Gradient）</p>
-<p><strong>损失函数</strong>：均方误差（回归）和LogLoss（分类）等。<br><img src="GBDT损失函数.png" alt="avatar"></p>
+<p><strong>损失函数</strong>：均方误差（回归）和LogLoss（分类）等。 <img src="GBDT损失函数.png" alt="avatar"></p>
 <p><strong>计算步长</strong>：用牛顿法计算步长，辅助shrinkage收缩步长防止过拟合。</p>
 <p>计算结果：将所有树的结果*缩放因子 相加即预测结果。</p>
 <p><strong>Boosting</strong>：每一步计算残差的过程也正是boosting对权重的修改。（虽然与AdaBoost不同）</p>
 <pre><code>举例说明：A的真实年龄是18岁，但第一棵树的预测年龄是12岁，差了6岁，即残差为6岁。  
 那么在第二棵树里我们把A的年龄设为6岁去学习，如果第二棵树真的能把A分到6岁的叶子节点，那累加两棵树的结论就是A的真实年龄；如果第二棵树的结论是5岁。
-则A仍然存在1岁的残差，第三棵树里A的年龄就变成1岁，继续学。
-</code></pre><h3 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h3><p><img src="GBDT算法流程.png" alt="avatar"></p>
-<ol>
-<li>rim为回归树m-1的负梯度，被当回归树m做残差的估计（也就是回归树m的yi）。</li>
-<li>对rim捏合一棵回归树，回归树的叶子结点区域为Rmj，</li>
-<li>线性搜索出来γjm使损失函数最小（也就是该区域对应取值，也就是落在该区域的样本本次迭代应该涨多少：γjm）</li>
-<li>更新总体模型fm(x)（加和）</li>
-</ol>
-<h4 id="为什么要用负梯度作为残差的估计（最速下降方法）？？"><a href="#为什么要用负梯度作为残差的估计（最速下降方法）？？" class="headerlink" title="为什么要用负梯度作为残差的估计（最速下降方法）？？"></a>为什么要用负梯度作为残差的估计（最速下降方法）？？</h4><p>用泰勒一阶展开式可证明：（<strong>泰勒二阶展开式可以证明xgb梯度下降的原理</strong>）<br><img src="DBDT优化目标及负梯度理论.jpeg" alt="avatar"></p>
-<h3 id="特点-3"><a href="#特点-3" class="headerlink" title="特点"></a>特点</h3><p>一般的回归树容易过拟合，只要叶子足够多，就能达到很高的训练数据准确度，但是泛化很差。  </p>
+则A仍然存在1岁的残差，第三棵树里A的年龄就变成1岁，继续学。</code></pre>
+<h3 id="算法流程">算法流程</h3>
+<p><img src="GBDT算法流程.png" alt="avatar"> 1. rim为回归树m-1的负梯度，被当回归树m做残差的估计（也就是回归树m的yi）。 2. 对rim捏合一棵回归树，回归树的叶子结点区域为Rmj， 3. 线性搜索出来γjm使损失函数最小（也就是该区域对应取值，也就是落在该区域的样本本次迭代应该涨多少：γjm） 4. 更新总体模型fm(x)（加和）</p>
+<h4 id="为什么要用负梯度作为残差的估计最速下降方法">为什么要用负梯度作为残差的估计（最速下降方法）？？</h4>
+<p>用泰勒一阶展开式可证明：（<strong>泰勒二阶展开式可以证明xgb梯度下降的原理</strong>）<br>
+<img src="DBDT优化目标及负梯度理论.jpeg" alt="avatar"></p>
+<h3 id="特点">特点</h3>
+<p>一般的回归树容易过拟合，只要叶子足够多，就能达到很高的训练数据准确度，但是泛化很差。</p>
 <pre><code>优点：  
 并且GBDT通过梯度迭代的方式，需要了更少的特征。  
 GBDT的适用范围非常广，几乎适用所有回归问题，还有二分类问题。  
@@ -1742,80 +1714,70 @@ GBDT的适用范围非常广，几乎适用所有回归问题，还有二分类�
 缺点：  
 串行过程。  
 计算复杂度高。  
-不适用高维稀疏数据。
-</code></pre><p>对弱分类器的要求比较简单，能达到低方差高偏差就行，因为迭代过程是针对偏差的。</p>
-<p>相比<strong>RF关注树的数量</strong>，<strong>GBDT关注每棵树的深度</strong>（一般是1）。</p>
-<h3 id="Shrinkage"><a href="#Shrinkage" class="headerlink" title="Shrinkage"></a>Shrinkage</h3><p>Shrinkage的思想是：类似于step。每次走一小步逐渐逼近结果的效果，要比每次迈一大步很快逼近结果的方式更容易<strong>避免过拟合</strong>。即它不完全信任每一个棵残差树，它认为每棵树只学到了真理的一小部分，累加的时候只累加一小部分，通过多学几棵树弥补不足。</p>
-<p>也就是把每次计算出的残差拿出一部分给下一棵树学习，只累加一小部分。将陡变变成渐变。</p>
-<h3 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h3><p>shrinkage（收缩步长）和采样比例可以理解为正则化的手段。</p>
-<h3 id="用GBDT构造特征"><a href="#用GBDT构造特征" class="headerlink" title="用GBDT构造特征"></a>用GBDT构造特征</h3><p>建GBDT的多棵决策树，每个叶子节点可以理解为一维特征，落在该叶节点就是1，未落在就是0.再加上原来的特征一起输入到如LR中，可以有显著的效果提升。<br>相当于用GBDT的训练结果作为特征组合的方式。</p>
-<h3 id="GBDT用于分类"><a href="#GBDT用于分类" class="headerlink" title="GBDT用于分类"></a>GBDT用于分类</h3><p><a href="https://zhuanlan.zhihu.com/p/25257856?refer=data-miner" target="_blank" rel="noopener">GBDT解决分类</a><br>解决回归问题的时候是计算残差得到最优，但是分类问题没办法计算残差，类别之间没办法比较。  </p>
+不适用高维稀疏数据。</code></pre>
+<p>对弱分类器的要求比较简单，能达到低方差高偏差就行，因为迭代过程是针对偏差的。</p>
+<p>相比<strong>RF关注树的数量</strong>，<strong>GBDT关注每棵树的深度</strong>（一般是1）。 ### Shrinkage Shrinkage的思想是：类似于step。每次走一小步逐渐逼近结果的效果，要比每次迈一大步很快逼近结果的方式更容易<strong>避免过拟合</strong>。即它不完全信任每一个棵残差树，它认为每棵树只学到了真理的一小部分，累加的时候只累加一小部分，通过多学几棵树弥补不足。</p>
+<p>也就是把每次计算出的残差拿出一部分给下一棵树学习，只累加一小部分。将陡变变成渐变。 ### 正则化 shrinkage（收缩步长）和采样比例可以理解为正则化的手段。 ### 用GBDT构造特征 建GBDT的多棵决策树，每个叶子节点可以理解为一维特征，落在该叶节点就是1，未落在就是0.再加上原来的特征一起输入到如LR中，可以有显著的效果提升。<br>
+相当于用GBDT的训练结果作为特征组合的方式。 ### GBDT用于分类 <a href="https://zhuanlan.zhihu.com/p/25257856?refer=data-miner" target="_blank" rel="noopener">GBDT解决分类</a><br>
+解决回归问题的时候是计算残差得到最优，但是分类问题没办法计算残差，类别之间没办法比较。</p>
 <p>分类的时候损失函数使用<strong>log损失函数</strong>，评估最大化预测值为真实值的概率，为什么：参考了最大似然估计的计算原理。</p>
 <p>有较多公式推导。</p>
-<h2 id="搜索引擎排序应用-RankNet"><a href="#搜索引擎排序应用-RankNet" class="headerlink" title="搜索引擎排序应用 RankNet"></a>搜索引擎排序应用 RankNet</h2><h1 id="4-XGBoost"><a href="#4-XGBoost" class="headerlink" title="4. XGBoost"></a>4. XGBoost</h1><p><a href="https://blog.csdn.net/han_xiaoyang/article/details/52665396" target="_blank" rel="noopener">整体知识</a><br>Gradient Boosting的一种高效系统实现，不是一种单一算法，xgboost里面的基学习器除了用tree(gbtree)（这里相当于对GBDT的优化），也可用线性分类器(gblinear)。<br>传统GBDT以CART作为基分类器，xgboost还支持线性分类器，加了剪枝。</p>
-<h2 id="原理-5"><a href="#原理-5" class="headerlink" title="原理"></a>原理</h2><h3 id="构造回归树"><a href="#构造回归树" class="headerlink" title="构造回归树"></a>构造回归树</h3><h4 id="（1）贪心算法"><a href="#（1）贪心算法" class="headerlink" title="（1）贪心算法"></a>（1）贪心算法</h4><p><img src="./贪婪算法.png" alt="avatar"></p>
-<h4 id="（2）近似算法-加速-减小内存消耗"><a href="#（2）近似算法-加速-减小内存消耗" class="headerlink" title="（2）近似算法 - 加速+减小内存消耗"></a>（2）近似算法 - 加速+减小内存消耗</h4><p><img src="./近似算法.png" alt="avatar"></p>
-<h3 id="特点-4"><a href="#特点-4" class="headerlink" title="特点"></a>特点</h3><ol>
-<li>显示的把树模型复杂度作为<strong>正则项</strong>加到了<strong>目标函数</strong>中。</li>
-<li>公式推导中用到了<strong>二阶导数</strong>，用了<strong>二阶泰勒展开</strong>。<ol start="3">
-<li>展开点是上一个树的结果。对权重w求导，令导数为0。</li>
-<li>在后面划分桶的时候，还将二阶导数h作为每个样本的权重。（代表划分通的间距）</li>
-</ol>
-</li>
-<li>残差：划分前后的误差增益。</li>
-<li><strong>并行化处理</strong>—系统设计模块,块结构设计等<ol start="7">
-<li>xgboost还设计了高速缓存压缩感知算法</li>
-<li>exact greedy algorithm采用缓存感知预取算法 </li>
-<li>approximate algorithms选择合适的块大小</li>
-</ol>
-</li>
-<li>CPU cache命中优化。</li>
-<li>灵活，支持多种分类器，适用多种场景。</li>
-<li><strong>行、列抽样</strong>。类似于RF的随机化处理，降低了反差（相关性），防止了过拟合。</li>
-<li>Built-in Cross-Validation（内置交叉验证)</li>
-<li>continue on Existing Model（接着已有模型学习）</li>
-</ol>
-<h3 id="创新点"><a href="#创新点" class="headerlink" title="创新点"></a>创新点</h3><ol>
-<li><strong>pre-sorted算法</strong>：数据事先排序并且以<strong>block</strong>形式存储。（有利于并行计算）<ol start="2">
+<h2 id="搜索引擎排序应用-ranknet">搜索引擎排序应用 RankNet</h2>
+<h1 id="xgboost">4. XGBoost</h1>
+<p><a href="https://blog.csdn.net/han_xiaoyang/article/details/52665396" target="_blank" rel="noopener">整体知识</a><br>
+Gradient Boosting的一种高效系统实现，不是一种单一算法，xgboost里面的基学习器除了用tree(gbtree)（这里相当于对GBDT的优化），也可用线性分类器(gblinear)。<br>
+传统GBDT以CART作为基分类器，xgboost还支持线性分类器，加了剪枝。 ## 原理 ### 构造回归树 #### （1）贪心算法 <img src="./贪婪算法.png" alt="avatar"> #### （2）近似算法 - 加速+减小内存消耗 <img src="./近似算法.png" alt="avatar"> ### 特点 1. 显示的把树模型复杂度作为<strong>正则项</strong>加到了<strong>目标函数</strong>中。 2. 公式推导中用到了<strong>二阶导数</strong>，用了<strong>二阶泰勒展开</strong>。 3. 展开点是上一个树的结果。对权重w求导，令导数为0。 4. 在后面划分桶的时候，还将二阶导数h作为每个样本的权重。（代表划分通的间距） 5. 残差：划分前后的误差增益。 6. <strong>并行化处理</strong>—系统设计模块,块结构设计等 7. xgboost还设计了高速缓存压缩感知算法 8. exact greedy algorithm采用缓存感知预取算法 9. approximate algorithms选择合适的块大小 8. CPU cache命中优化。 9. 灵活，支持多种分类器，适用多种场景。 10. <strong>行、列抽样</strong>。类似于RF的随机化处理，降低了反差（相关性），防止了过拟合。 11. Built-in Cross-Validation（内置交叉验证) 12. continue on Existing Model（接着已有模型学习）</p>
+<h3 id="创新点">创新点</h3>
+<ol type="1">
+<li><strong>pre-sorted算法</strong>：数据事先排序并且以<strong>block</strong>形式存储。（有利于并行计算）
+<ol start="2" type="1">
 <li><strong>column block for parallel learning</strong>：预排序（减少建树时间）+block（减少排序时间），block的排序相当于是对每个特征，用他们的值来排序，每个值是一个指针，指向那条数据。这样每个特征可以分开排序，不用去存储整条数据。</li>
-</ol>
-</li>
+</ol></li>
 <li><strong>exact greedy algorithm贪心算法</strong>（老版划分算法）：遍历所有特征及所有取值（<strong>已排序</strong>，两重循环），用分裂前后总loss（loss是当前这棵树所要拟合的loss）变化来做信息增益的计算。（非并行）</li>
 <li><strong>approximate algorithm可并行的近似直方图算法</strong>（最明显提升的优化措施）：近似算法，根据特征的分布来（密集的分布区域采样多，稀疏的地方采样少）<strong>分成桶</strong>，把所有样本放入对应的桶，用桶来计算增益。减少了计算量。</li>
 <li><strong>weighted quantile sketch</strong>：采样时，让候选点之间的距离不小于一个值。</li>
 <li><strong>sparsity-aware splict finding缺失值处理，稀疏性利用</strong>：针对特征稀疏的情况，针对这种情况，让所有缺失值尝试所有进入左、右分裂方向，哪个增益大进入哪个。（进入一个分裂方向会一直走到头，再去试另一个方向）</li>
 </ol>
-<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><h3 id="增加随机性"><a href="#增加随机性" class="headerlink" title="增加随机性"></a>增加随机性</h3><ul>
+<h2 id="参数">参数</h2>
+<h3 id="增加随机性">增加随机性</h3>
+<ul>
 <li><strong>eta</strong> 这个就是学习速度，也就是上面中的ϵ。</li>
 <li><strong>subsample</strong> 这个就是随机森林的方式，每次不是取出全部样本，而是有放回地取出部分样本。有人把这个称为行抽取，subsample就表示抽取比例。</li>
 <li><strong>colsample_bytree</strong> 和<strong>colsample_bylevel</strong> 这个是模仿随机森林的方式，这是列抽取。colsample_bytree是每次准备构造一棵新树时，选取部分特征来构造，colsample_bytree就是抽取比例。colsample_bylevel表示的是每次分割节点时，抽取特征的比例。（列抽样-防止过拟合）</li>
 <li><strong>max_delta_step</strong> 这个是构造树时，允许得到ft(x)的最大值。如果为0，表示无限制。就是每棵树权重改变的最大步长。</li>
 </ul>
-<h3 id="防止过拟合（正则化-剪枝）"><a href="#防止过拟合（正则化-剪枝）" class="headerlink" title="防止过拟合（正则化+剪枝）"></a>防止过拟合（正则化+剪枝）</h3><ul>
+<h3 id="防止过拟合正则化剪枝">防止过拟合（正则化+剪枝）</h3>
+<ul>
 <li><strong>max_depth</strong> 树的最大深度（剪枝）</li>
 <li><strong>min_child_weight</strong> 如果一个节点的权重和小于这玩意，那就不分了。（后剪枝？）</li>
 <li><strong>gamma</strong> 指定了节点分裂所需的最小损失函数下降值。这个参数值越大，算法越保守。（后剪枝？）</li>
 <li><strong>alpha</strong> 和<strong>lambda</strong> 就是目标函数里的表示模型复杂度中的L1范数和L2范数前面的系数。</li>
 </ul>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
+<h3 id="其他">其他</h3>
+<ul>
 <li><strong>booster</strong> 表示用哪种模型，一共有gbtree, gbline, dart三种选择。一般用gbtree。</li>
 <li><strong>nthread</strong> 并行线程数。如果不设置就是能采用的最大线程。</li>
 <li><strong>sketch_eps</strong> 这个就是近似算法里的ϵ。</li>
 <li><strong>scale_pos_weight</strong> 这个是针对二分类问题时，正负样例的数量差距过大。把这个参数设置为一个正数，可以使算法更快收敛。</li>
 <li><strong>objective</strong> 定义需要被最小化的损失函数。默认[reg：linear]。还包括[binary：logistic]二分类的逻辑回归，返回概率而非类别。[multi:softmax]使用softmax的多分类器，返回预测的类别。</li>
 </ul>
-<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><ul>
+<h3 id="常见问题">常见问题</h3>
+<ul>
 <li>xgb的损失函数是什么，这个是可以自定义的，针对不同问题有各自适用的，如log、平方等</li>
-<li><strong>xgb的目标函数</strong><ul>
+<li><strong>xgb的目标函数</strong>
+<ul>
 <li><img src="./xgb目标函数.png" alt="avatar"></li>
-<li><img src="./xgb目标函数正则项.png" alt="avatar"></li>
+<li><img src="./xgb目标函数正则项.png" title="fig:" alt="avatar"></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h1 id="5-lightGBM"><a href="#5-lightGBM" class="headerlink" title="5. lightGBM"></a>5. lightGBM</h1><p><a href="https://blog.csdn.net/xwd18280820053/article/details/68927422" target="_blank" rel="noopener">多种树形分类器比较</a><br>首先GBDT的缺陷在于不能mini batch，效率太差，所以需要分布式的GBDT。</p>
-<p>lightGBM使用了基于 histogram 的决策树算法。<br>xgboost（单机exact greedy算法/分布式dynamic histogram）选用了另一个主流决策树算法pre-sorted。</p>
+<h1 id="lightgbm">5. lightGBM</h1>
+<p><a href="https://blog.csdn.net/xwd18280820053/article/details/68927422" target="_blank" rel="noopener">多种树形分类器比较</a><br>
+首先GBDT的缺陷在于不能mini batch，效率太差，所以需要分布式的GBDT。</p>
+<p>lightGBM使用了基于 histogram 的决策树算法。<br>
+xgboost（单机exact greedy算法/分布式dynamic histogram）选用了另一个主流决策树算法pre-sorted。</p>
 <p>简单来说lgb比xgb的优点在于，使用histogram选择分割点的时候更加好，在构建决策树的计算过程有优化。</p>
-<h3 id="histogram-VS-pre-sorted"><a href="#histogram-VS-pre-sorted" class="headerlink" title="histogram VS pre-sorted"></a>histogram VS pre-sorted</h3><ul>
+<h3 id="histogram-vs-pre-sorted">histogram VS pre-sorted</h3>
+<ul>
 <li>使用histogram算法（直方图算法）降低了训练数据在内存中的存储空间。</li>
 <li>在构建决策树的时候，和pre-sorted算法一样需要O(data*feature)的时间复杂度来寻找分割点。但是histogram需要O(data)的时间复杂度来分割数据。pre-sorted需要O(data*feature)。因为他们的排序、索引方式不同。</li>
 <li>histogram大幅减少了计算分割点增益的次数。计算分割点所有可能值的方式不同（也源于存储方式的不同）。</li>
@@ -1824,18 +1786,20 @@ GBDT的适用范围非常广，几乎适用所有回归问题，还有二分类�
 <li>总的来说AUC和xgb差不多。</li>
 <li>训练速度更快，收敛贼快。</li>
 </ul>
-<h3 id="创新点-1"><a href="#创新点-1" class="headerlink" title="创新点"></a>创新点</h3><ul>
-<li><strong>GOSS：Gradient-based one-side sampling</strong>：完善增益定义。<ul>
+<h3 id="创新点-1">创新点</h3>
+<ul>
+<li><strong>GOSS：Gradient-based one-side sampling</strong>：完善增益定义。
+<ul>
 <li>令数据按梯度排序，选topk大梯度的数据作为子集A，剩下的随机选部分作为子集B。（因为梯度大的数据更有用，减少了切分的时候的候选数量）</li>
 <li>每次训练一个新树的时候选一次，相当于训练每棵树之前的抽样。</li>
-</ul>
-</li>
-<li><strong>EFB：exclusive feature bundling</strong>：互斥特征绑定，合并成一个特征。（因为互斥不为0，针对稀疏的特征很好用）<ul>
+</ul></li>
+<li><strong>EFB：exclusive feature bundling</strong>：互斥特征绑定，合并成一个特征。（因为互斥不为0，针对稀疏的特征很好用）
+<ul>
 <li>也对连续特征离散化。训练速度再次加强（相比xgb）。</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="lightGBM的其他优化（VS-xgboost）"><a href="#lightGBM的其他优化（VS-xgboost）" class="headerlink" title="lightGBM的其他优化（VS xgboost）"></a>lightGBM的其他优化（VS xgboost）</h3><ul>
+<h3 id="lightgbm的其他优化vs-xgboost">lightGBM的其他优化（VS xgboost）</h3>
+<ul>
 <li>不用大多数GBDT的按层生长，而用带有深度限制的按叶子生长 (leaf-wise) 算法。（level-wise容易多线程优化且不容易过拟合，但是效率过低。尽管leaf-wise容易树深度加深，过拟合，但是可以限制深度。且提高了效率。）</li>
 <li>（并行方面）在直方图上也省去了冗余计算。</li>
 </ul>
@@ -1983,7 +1947,7 @@ GBDT的适用范围非常广，几乎适用所有回归问题，还有二分类�
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  7,171 字
+                  7,172 字
                 </span>
               
 
@@ -2021,7 +1985,8 @@ GBDT的适用范围非常广，几乎适用所有回归问题，还有二分类�
 
       
         
-          <p><strong>注意：凡是面试官问到的开放性、比较性，需要多方面考察思考的问题，回答的标准答案里必须有NFL原理-没有一个确定的标准可以让一个模型在不同的问题中都表现的比别人好，尽管这些模型中的特性让它们适用于不同的问题，但是具体问题具体分析，还要经过理论考证、实验验证来保证适用最合适的解决方案。（没有最好，只有最合适）</strong><br>—-这才是最专业的答案。<br>
+          <p><strong>注意：凡是面试官问到的开放性、比较性，需要多方面考察思考的问题，回答的标准答案里必须有NFL原理-没有一个确定的标准可以让一个模型在不同的问题中都表现的比别人好，尽管这些模型中的特性让它们适用于不同的问题，但是具体问题具体分析，还要经过理论考证、实验验证来保证适用最合适的解决方案。（没有最好，只有最合适）</strong><br>
+—-这才是最专业的答案。
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/面经总结/4.ML-面试必考/#more" rel="contents">
@@ -2210,12 +2175,13 @@ GBDT的适用范围非常广，几乎适用所有回归问题，还有二分类�
       
         
           
-            <h2 id="博文密码"><a href="#博文密码" class="headerlink" title="博文密码"></a>博文密码</h2><p>在标题部分加password标识。就需要输入密码才能访问。但是还是可以在主页看到预览。</p>
+            <h2 id="博文密码">博文密码</h2>
+<p>在标题部分加password标识。就需要输入密码才能访问。但是还是可以在主页看到预览。</p>
 <pre><code>如：
 title: Hexo-Next博客须知
 date: 2018/5/28 00:00:00
-password: test
-</code></pre>
+password: test</code></pre>
+
           
         
       
@@ -2397,9 +2363,16 @@ password: test
 
       
         
-          <p><a name="1.0"></a></p>
-<h2 id="深度学习（神经网络）发展史"><a href="#深度学习（神经网络）发展史" class="headerlink" title="深度学习（神经网络）发展史"></a>深度学习（神经网络）发展史</h2><p>深度学习=预测问题</p>
-<p>1940s出现。1943 抽象的神经元模型MP。1949年心理学家Hebb提出了Hebb学习率，认为人脑神经细胞 上的连接强度上可以变化的。<br>1958-<strong>20世纪50年代 第一次兴起</strong> 感知机，单层神经元组成的神经网络。可以更改权重。（神经网络第一次浪潮）原理类似于svm的分类方式，当发现有分错的情况，调整权重。但是这是一个线性的分类器，只能分出简单的情况。<br>1969-<strong>20世纪60年代 第一次低谷</strong> Minsky 感知机被数学证明了局限性。OR/AND可以分类，但XOR异或决无法解决，除非将计算增加为两层，但是计算量过大，无法学习。进入了神经网络的寒冬。<br>1986-<strong>20世纪80年代 第二次兴起</strong> Rumelhar 和 Hintor等人提出了BP算法（链式法则），解决了两层神经网络所需要的复杂计算量。 1989年bell实验室用识别手写邮编在现实应用验证了BP的价值。但是BP慢、容易局部最优、太多参数、很难调参、难以得到稳定的结果。<br>1995年-<strong>20世纪90年代 第二次低谷</strong>，Vapnik等人提出了支持向量机(Support Vector Machines)算法，很快就在若干个方面体现出了对比神经网络的优势: 无需调参，高效，全局最优解。然后神经网络被吊打。1997年提出了LSTM，1998年提出LeNet网络。<br>2006，hinton提出深度信念网，通过预训练+微调使得在反向传播之前就有了一个很好的起点。且在许多比赛中有了巨大的进步成绩，解决了实际问题。后面还有各路大神提出了许多的优化方法。<br>2012-<strong>第三次兴起</strong>，有些饱和后，又出现了alexnet，有许多的trick技巧等，达到了许多提升。直接统治了深度学习。<br>2013，深度学习达到巨热，工业界超过学校成为最好的。<br>2020-<strong>第三次低谷？</strong><br>
+          <p><a name="1.0"></a> ## 深度学习（神经网络）发展史 深度学习=预测问题</p>
+<p>1940s出现。1943 抽象的神经元模型MP。1949年心理学家Hebb提出了Hebb学习率，认为人脑神经细胞 上的连接强度上可以变化的。<br>
+1958-<strong>20世纪50年代 第一次兴起</strong> 感知机，单层神经元组成的神经网络。可以更改权重。（神经网络第一次浪潮）原理类似于svm的分类方式，当发现有分错的情况，调整权重。但是这是一个线性的分类器，只能分出简单的情况。<br>
+1969-<strong>20世纪60年代 第一次低谷</strong> Minsky 感知机被数学证明了局限性。OR/AND可以分类，但XOR异或决无法解决，除非将计算增加为两层，但是计算量过大，无法学习。进入了神经网络的寒冬。<br>
+1986-<strong>20世纪80年代 第二次兴起</strong> Rumelhar 和 Hintor等人提出了BP算法（链式法则），解决了两层神经网络所需要的复杂计算量。 1989年bell实验室用识别手写邮编在现实应用验证了BP的价值。但是BP慢、容易局部最优、太多参数、很难调参、难以得到稳定的结果。<br>
+1995年-<strong>20世纪90年代 第二次低谷</strong>，Vapnik等人提出了支持向量机(Support Vector Machines)算法，很快就在若干个方面体现出了对比神经网络的优势: 无需调参，高效，全局最优解。然后神经网络被吊打。1997年提出了LSTM，1998年提出LeNet网络。<br>
+2006，hinton提出深度信念网，通过预训练+微调使得在反向传播之前就有了一个很好的起点。且在许多比赛中有了巨大的进步成绩，解决了实际问题。后面还有各路大神提出了许多的优化方法。<br>
+2012-<strong>第三次兴起</strong>，有些饱和后，又出现了alexnet，有许多的trick技巧等，达到了许多提升。直接统治了深度学习。<br>
+2013，深度学习达到巨热，工业界超过学校成为最好的。<br>
+2020-<strong>第三次低谷？</strong>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/面经总结/5.DL-面试必考/#more" rel="contents">
@@ -2598,7 +2571,10 @@ password: test
 
       
         
-          <h3 id="用m中颜色涂分成n个扇形的圆形，保证相邻扇形颜色不同，有多少种涂法"><a href="#用m中颜色涂分成n个扇形的圆形，保证相邻扇形颜色不同，有多少种涂法" class="headerlink" title="用m中颜色涂分成n个扇形的圆形，保证相邻扇形颜色不同，有多少种涂法"></a>用m中颜色涂分成n个扇形的圆形，保证相邻扇形颜色不同，有多少种涂法</h3><p>首先，这个问题用a(n)表示，那么第一个扇形可以有m种选择，以后每个相邻的扇形都有和前一个扇形不同颜色的m-1种选择。<br>但是有一种例外情况，就是最后一个扇形和第一个扇形是相同的颜色。<br>但是这个时候，如果想计算例外情况，就是第一个最后一个绑定成一个扇形，一共有n-1个扇形，m中颜色，有多少种涂法。也就是问题a(n-1)。<br>
+          <h3 id="用m中颜色涂分成n个扇形的圆形保证相邻扇形颜色不同有多少种涂法">用m中颜色涂分成n个扇形的圆形，保证相邻扇形颜色不同，有多少种涂法</h3>
+<p>首先，这个问题用a(n)表示，那么第一个扇形可以有m种选择，以后每个相邻的扇形都有和前一个扇形不同颜色的m-1种选择。<br>
+但是有一种例外情况，就是最后一个扇形和第一个扇形是相同的颜色。<br>
+但是这个时候，如果想计算例外情况，就是第一个最后一个绑定成一个扇形，一共有n-1个扇形，m中颜色，有多少种涂法。也就是问题a(n-1)。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/Algorithm/算法技巧/智力题/#more" rel="contents">
@@ -3486,11 +3462,50 @@ password: test
       
       new needShareButton('#needsharebutton-float', flOptions);
     
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
 
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
 
   
 

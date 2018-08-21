@@ -114,18 +114,18 @@
 
 
 
-<meta name="description" content="遇到场景类的题怎么办？最优先保证bug-free！可以做出来才行写不出来的标志：情况越分越细，越分越发现分不全面的时候，说明这个处理决策不好。基本写不出来的，一旦举出一个反例，连bugfree的结果都没写出来。所以一定要具有代表性全面性。千万别钻一些取巧、非要一步到位的方法来做，很可能到了死胡同。而且方向还不对。风险最大最严重的风险就是，就算你选择的方法不够优秀，你的思路可以解出来，但这也只是在纸">
+<meta name="description" content="遇到场景类的题怎么办？ 最优先保证bug-free！可以做出来才行 写不出来的标志：情况越分越细，越分越发现分不全面的时候，说明这个处理决策不好。基本写不出来的，一旦举出一个反例，连bugfree的结果都没写出来。所以一定要具有代表性全面性。 千万别钻一些取巧、非要一步到位的方法来做，很可能到了死胡同。而且方向还不对。 风险 最大最严重的风险就是，就算你选择的方法不够优秀，你的思路可以解出来，但这">
 <meta name="keywords" content="算法思想,Graph,Matrix">
 <meta property="og:type" content="article">
 <meta property="og:title" content="短板-场景类&#x2F;矩阵类&#x2F;遍历类&#x2F;图类-思路总结">
 <meta property="og:url" content="blog.lovelaolao.xin/Algorithm/Leetcode-Categories/短板-场景类:矩阵类:遍历类:图类/index.html">
 <meta property="og:site_name" content="Fall Out Boy">
-<meta property="og:description" content="遇到场景类的题怎么办？最优先保证bug-free！可以做出来才行写不出来的标志：情况越分越细，越分越发现分不全面的时候，说明这个处理决策不好。基本写不出来的，一旦举出一个反例，连bugfree的结果都没写出来。所以一定要具有代表性全面性。千万别钻一些取巧、非要一步到位的方法来做，很可能到了死胡同。而且方向还不对。风险最大最严重的风险就是，就算你选择的方法不够优秀，你的思路可以解出来，但这也只是在纸">
+<meta property="og:description" content="遇到场景类的题怎么办？ 最优先保证bug-free！可以做出来才行 写不出来的标志：情况越分越细，越分越发现分不全面的时候，说明这个处理决策不好。基本写不出来的，一旦举出一个反例，连bugfree的结果都没写出来。所以一定要具有代表性全面性。 千万别钻一些取巧、非要一步到位的方法来做，很可能到了死胡同。而且方向还不对。 风险 最大最严重的风险就是，就算你选择的方法不够优秀，你的思路可以解出来，但这">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-05-28T07:56:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="短板-场景类&#x2F;矩阵类&#x2F;遍历类&#x2F;图类-思路总结">
-<meta name="twitter:description" content="遇到场景类的题怎么办？最优先保证bug-free！可以做出来才行写不出来的标志：情况越分越细，越分越发现分不全面的时候，说明这个处理决策不好。基本写不出来的，一旦举出一个反例，连bugfree的结果都没写出来。所以一定要具有代表性全面性。千万别钻一些取巧、非要一步到位的方法来做，很可能到了死胡同。而且方向还不对。风险最大最严重的风险就是，就算你选择的方法不够优秀，你的思路可以解出来，但这也只是在纸">
+<meta name="twitter:description" content="遇到场景类的题怎么办？ 最优先保证bug-free！可以做出来才行 写不出来的标志：情况越分越细，越分越发现分不全面的时候，说明这个处理决策不好。基本写不出来的，一旦举出一个反例，连bugfree的结果都没写出来。所以一定要具有代表性全面性。 千万别钻一些取巧、非要一步到位的方法来做，很可能到了死胡同。而且方向还不对。 风险 最大最严重的风险就是，就算你选择的方法不够优秀，你的思路可以解出来，但这">
 
 
 
@@ -484,26 +484,24 @@
       
 
       
-        <h1 id="遇到场景类的题怎么办？"><a href="#遇到场景类的题怎么办？" class="headerlink" title="遇到场景类的题怎么办？"></a>遇到场景类的题怎么办？</h1><h3 id="最优先保证bug-free！可以做出来才行"><a href="#最优先保证bug-free！可以做出来才行" class="headerlink" title="最优先保证bug-free！可以做出来才行"></a>最优先保证bug-free！可以做出来才行</h3><h3 id="写不出来的标志：情况越分越细，越分越发现分不全面的时候，说明这个处理决策不好。基本写不出来的，一旦举出一个反例，连bugfree的结果都没写出来。所以一定要具有代表性全面性。"><a href="#写不出来的标志：情况越分越细，越分越发现分不全面的时候，说明这个处理决策不好。基本写不出来的，一旦举出一个反例，连bugfree的结果都没写出来。所以一定要具有代表性全面性。" class="headerlink" title="写不出来的标志：情况越分越细，越分越发现分不全面的时候，说明这个处理决策不好。基本写不出来的，一旦举出一个反例，连bugfree的结果都没写出来。所以一定要具有代表性全面性。"></a>写不出来的标志：情况越分越细，越分越发现分不全面的时候，说明这个处理决策不好。基本写不出来的，一旦举出一个反例，连bugfree的结果都没写出来。所以一定要具有代表性全面性。</h3><h3 id="千万别钻一些取巧、非要一步到位的方法来做，很可能到了死胡同。而且方向还不对。"><a href="#千万别钻一些取巧、非要一步到位的方法来做，很可能到了死胡同。而且方向还不对。" class="headerlink" title="千万别钻一些取巧、非要一步到位的方法来做，很可能到了死胡同。而且方向还不对。"></a>千万别钻一些取巧、非要一步到位的方法来做，很可能到了死胡同。而且方向还不对。</h3><h2 id="风险"><a href="#风险" class="headerlink" title="风险"></a>风险</h2><p><strong>最大最严重的风险就是，就算你选择的方法不够优秀，你的思路可以解出来，但这也只是在纸上画吧画吧的程度。</strong></p>
+        <h1 id="遇到场景类的题怎么办">遇到场景类的题怎么办？</h1>
+<h3 id="最优先保证bug-free可以做出来才行">最优先保证bug-free！可以做出来才行</h3>
+<h3 id="写不出来的标志情况越分越细越分越发现分不全面的时候说明这个处理决策不好基本写不出来的一旦举出一个反例连bugfree的结果都没写出来所以一定要具有代表性全面性">写不出来的标志：情况越分越细，越分越发现分不全面的时候，说明这个处理决策不好。基本写不出来的，一旦举出一个反例，连bugfree的结果都没写出来。所以一定要具有代表性全面性。</h3>
+<h3 id="千万别钻一些取巧非要一步到位的方法来做很可能到了死胡同而且方向还不对">千万别钻一些取巧、非要一步到位的方法来做，很可能到了死胡同。而且方向还不对。</h3>
+<h2 id="风险">风险</h2>
+<p><strong>最大最严重的风险就是，就算你选择的方法不够优秀，你的思路可以解出来，但这也只是在纸上画吧画吧的程度。</strong></p>
 <p><strong>一旦你用不是很好的方法实践到代码时，你会发现有的地方非常非常扭曲，写不出来的。甚至还有bug。白白浪费时间。然而面试时间一个面试官就一个多小时顶多，你要是代码没写完，基本上肯定gg。</strong></p>
-<p><strong>所以不如这样，如果觉得自己的思路明显就不是很优秀，或者有些扭曲，或者很不通顺，那还不如不写，干脆直说“我觉得我的方法不是很优化，写起来比较耗时间，面试时间有限，不如您给个提示”</strong><br><a id="more"></a></p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>遇到这样的题，最大的问题就是时间不够。</p>
+<p><strong>所以不如这样，如果觉得自己的思路明显就不是很优秀，或者有些扭曲，或者很不通顺，那还不如不写，干脆直说“我觉得我的方法不是很优化，写起来比较耗时间，面试时间有限，不如您给个提示”</strong> <a id="more"></a> ## 问题 遇到这样的题，最大的问题就是时间不够。</p>
 <p>因为加入了具体的场景和各种要求，就会让需要判断的逻辑异常复杂。</p>
-<p>在写的时候非常容易写到一部分发现前面有很多没考虑完整。需要回去改。但是又不是写在ide上，写在纸上你要是说从新写，那不是gg？</p>
-<h2 id="怎么思考"><a href="#怎么思考" class="headerlink" title="怎么思考"></a>怎么思考</h2><p>因为上面的问题存在，所以就算是花一些时间来设计代码结构、逻辑流程，也是完全不是浪费时间，应该是一种很好的投资。</p>
+<p>在写的时候非常容易写到一部分发现前面有很多没考虑完整。需要回去改。但是又不是写在ide上，写在纸上你要是说从新写，那不是gg？ ## 怎么思考 因为上面的问题存在，所以就算是花一些时间来设计代码结构、逻辑流程，也是完全不是浪费时间，应该是一种很好的投资。</p>
 <p><strong>而且实际上很多很多时候没必要使用什么看似光鲜的DP、排序算法等等，知识单纯的比较或者遍历就很有可能达到。所以还是先从简单的方式入手，尽管可能会有一些其他传统算法的思路，但是不要钻死胡同。越是具体的题，越不会让你设计出来太过复杂的方法来解答。</strong></p>
-<p>实际上矩阵类的问题，加上遍历的需求，除了<strong>BFS</strong>，就是<strong>DFS</strong>，注意转换不同的思考来得到不同的解法。另外矩阵的表示也可能转化为<strong>图</strong>来理解的。</p>
-<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><p>不要先太在意时间复杂度很优秀的想法。先从较蠢的方法，比如<strong>回溯</strong>、<strong>DFS</strong>这种开始考虑。</p>
-<p>先以可以解决问题为主。至于需不需要优化，再说咯。</p>
-<h2 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h2><h3 id="设计流程"><a href="#设计流程" class="headerlink" title="设计流程"></a>设计流程</h3><p>一般一定会区分主函数和递归执行函数。  </p>
+<p>实际上矩阵类的问题，加上遍历的需求，除了<strong>BFS</strong>，就是<strong>DFS</strong>，注意转换不同的思考来得到不同的解法。另外矩阵的表示也可能转化为<strong>图</strong>来理解的。 ## 特点 不要先太在意时间复杂度很优秀的想法。先从较蠢的方法，比如<strong>回溯</strong>、<strong>DFS</strong>这种开始考虑。</p>
+<p>先以可以解决问题为主。至于需不需要优化，再说咯。 ## 技巧 ### 设计流程 一般一定会区分主函数和递归执行函数。</p>
 <p>所以一定要事先想好每个函数的功能，以及传入什么参数来操作。</p>
 <p>然后再设计好需要哪些标记数据结构。会有很多。</p>
 <p>这样避免写到中间发现之前的东西不足或有错误。</p>
 <p>递归执行的函数要设计好退出递归的条件。</p>
-<p>把问题总结的比较精简，适用性高！</p>
-<h3 id="简化主操作"><a href="#简化主操作" class="headerlink" title="简化主操作"></a>简化主操作</h3><p>凡是和矩阵相关的数据结构类型，都可以考虑将问题的处理角度转化成其他的问题处理角度再多加处理。</p>
-<h3 id="足够的测试用例"><a href="#足够的测试用例" class="headerlink" title="足够的测试用例"></a>足够的测试用例</h3><p>这样的题，一个总结的很完备的规律是写出一个bug free，不出现思路走歪情况的最重要前提。一个完备的规律的前提就是做过足够的测试。</p>
-<h2 id="矩阵类"><a href="#矩阵类" class="headerlink" title="矩阵类"></a>矩阵类</h2><p>实际上矩阵类的<strong>BFS</strong>比<strong>DP</strong>用的要多。</p>
+<p>把问题总结的比较精简，适用性高！ ### 简化主操作 凡是和矩阵相关的数据结构类型，都可以考虑将问题的处理角度转化成其他的问题处理角度再多加处理。 ### 足够的测试用例 这样的题，一个总结的很完备的规律是写出一个bug free，不出现思路走歪情况的最重要前提。一个完备的规律的前提就是做过足够的测试。 ## 矩阵类 实际上矩阵类的<strong>BFS</strong>比<strong>DP</strong>用的要多。</p>
 
       
     </div>
@@ -585,8 +583,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/面经总结/6.实习:项目-面试必考/" rel="next" title="实习/项目-总结">
-                <i class="fa fa-chevron-left"></i> 实习/项目-总结
+              <a href="/面经总结/1.DM-面试必考/" rel="next" title="数据挖掘-思考题">
+                <i class="fa fa-chevron-left"></i> 数据挖掘-思考题
               </a>
             
           </div>
@@ -595,8 +593,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/面经总结/3.BigData-面试必考/" rel="prev" title="BigData-思考题">
-                BigData-思考题 <i class="fa fa-chevron-right"></i>
+              <a href="/面经总结/6.实习:项目-面试必考/" rel="prev" title="实习/项目-总结">
+                实习/项目-总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -784,7 +782,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#遇到场景类的题怎么办？"><span class="nav-number">1.</span> <span class="nav-text">遇到场景类的题怎么办？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最优先保证bug-free！可以做出来才行"><span class="nav-number">1.0.1.</span> <span class="nav-text">最优先保证bug-free！可以做出来才行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写不出来的标志：情况越分越细，越分越发现分不全面的时候，说明这个处理决策不好。基本写不出来的，一旦举出一个反例，连bugfree的结果都没写出来。所以一定要具有代表性全面性。"><span class="nav-number">1.0.2.</span> <span class="nav-text">写不出来的标志：情况越分越细，越分越发现分不全面的时候，说明这个处理决策不好。基本写不出来的，一旦举出一个反例，连bugfree的结果都没写出来。所以一定要具有代表性全面性。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#千万别钻一些取巧、非要一步到位的方法来做，很可能到了死胡同。而且方向还不对。"><span class="nav-number">1.0.3.</span> <span class="nav-text">千万别钻一些取巧、非要一步到位的方法来做，很可能到了死胡同。而且方向还不对。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#风险"><span class="nav-number">1.1.</span> <span class="nav-text">风险</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.2.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么思考"><span class="nav-number">1.3.</span> <span class="nav-text">怎么思考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">1.4.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技巧"><span class="nav-number">1.5.</span> <span class="nav-text">技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设计流程"><span class="nav-number">1.5.1.</span> <span class="nav-text">设计流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简化主操作"><span class="nav-number">1.5.2.</span> <span class="nav-text">简化主操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#足够的测试用例"><span class="nav-number">1.5.3.</span> <span class="nav-text">足够的测试用例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵类"><span class="nav-number">1.6.</span> <span class="nav-text">矩阵类</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#遇到场景类的题怎么办"><span class="nav-number">1.</span> <span class="nav-text">遇到场景类的题怎么办？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最优先保证bug-free可以做出来才行"><span class="nav-number">1.0.1.</span> <span class="nav-text">最优先保证bug-free！可以做出来才行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写不出来的标志情况越分越细越分越发现分不全面的时候说明这个处理决策不好基本写不出来的一旦举出一个反例连bugfree的结果都没写出来所以一定要具有代表性全面性"><span class="nav-number">1.0.2.</span> <span class="nav-text">写不出来的标志：情况越分越细，越分越发现分不全面的时候，说明这个处理决策不好。基本写不出来的，一旦举出一个反例，连bugfree的结果都没写出来。所以一定要具有代表性全面性。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#千万别钻一些取巧非要一步到位的方法来做很可能到了死胡同而且方向还不对"><span class="nav-number">1.0.3.</span> <span class="nav-text">千万别钻一些取巧、非要一步到位的方法来做，很可能到了死胡同。而且方向还不对。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#风险"><span class="nav-number">1.1.</span> <span class="nav-text">风险</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1527,11 +1525,50 @@
       
       new needShareButton('#needsharebutton-float', flOptions);
     
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
 
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
 
   
 

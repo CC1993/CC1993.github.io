@@ -114,19 +114,19 @@
 
 
 
-<meta name="description" content="一些专业词汇imbalance 不平衡 sparse 稀疏【即特征的向量表示的时候，0比特征维度小得多，一般表达出数据信息的缺失。     一般处理方式是降维、】 1.深度学习的三步：（thinner+deeper）（1）选择神经网络（2）评价方法的好坏loss/total loss，（3）选择最好的方法梯度下降、epoch（每个epoch后都打乱一次数据）-batch size-iteratio">
+<meta name="description" content="一些专业词汇 imbalance 不平衡 sparse 稀疏【即特征的向量表示的时候，0比特征维度小得多，一般表达出数据信息的缺失。     一般处理方式是降维、】 1.深度学习的三步： （thinner+deeper） （1）选择神经网络 （2）评价方法的好坏 loss/total loss， （3）选择最好的方法 梯度下降、epoch（每个epoch后都打乱一次数据）-batch size-i">
 <meta name="keywords" content="DL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DL领域知识">
 <meta property="og:url" content="blog.lovelaolao.xin/深度学习/DL领域知识/index.html">
 <meta property="og:site_name" content="Fall Out Boy">
-<meta property="og:description" content="一些专业词汇imbalance 不平衡 sparse 稀疏【即特征的向量表示的时候，0比特征维度小得多，一般表达出数据信息的缺失。     一般处理方式是降维、】 1.深度学习的三步：（thinner+deeper）（1）选择神经网络（2）评价方法的好坏loss/total loss，（3）选择最好的方法梯度下降、epoch（每个epoch后都打乱一次数据）-batch size-iteratio">
+<meta property="og:description" content="一些专业词汇 imbalance 不平衡 sparse 稀疏【即特征的向量表示的时候，0比特征维度小得多，一般表达出数据信息的缺失。     一般处理方式是降维、】 1.深度学习的三步： （thinner+deeper） （1）选择神经网络 （2）评价方法的好坏 loss/total loss， （3）选择最好的方法 梯度下降、epoch（每个epoch后都打乱一次数据）-batch size-i">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p9f9koofz.bkt.clouddn.com/inception.png">
 <meta property="og:updated_time" content="2018-05-28T08:19:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DL领域知识">
-<meta name="twitter:description" content="一些专业词汇imbalance 不平衡 sparse 稀疏【即特征的向量表示的时候，0比特征维度小得多，一般表达出数据信息的缺失。     一般处理方式是降维、】 1.深度学习的三步：（thinner+deeper）（1）选择神经网络（2）评价方法的好坏loss/total loss，（3）选择最好的方法梯度下降、epoch（每个epoch后都打乱一次数据）-batch size-iteratio">
+<meta name="twitter:description" content="一些专业词汇 imbalance 不平衡 sparse 稀疏【即特征的向量表示的时候，0比特征维度小得多，一般表达出数据信息的缺失。     一般处理方式是降维、】 1.深度学习的三步： （thinner+deeper） （1）选择神经网络 （2）评价方法的好坏 loss/total loss， （3）选择最好的方法 梯度下降、epoch（每个epoch后都打乱一次数据）-batch size-i">
 <meta name="twitter:image" content="http://p9f9koofz.bkt.clouddn.com/inception.png">
 
 
@@ -475,44 +475,84 @@
       
 
       
-        <h2 id="一些专业词汇"><a href="#一些专业词汇" class="headerlink" title="一些专业词汇"></a>一些专业词汇</h2><pre><code>imbalance 不平衡
+        <h2 id="一些专业词汇">一些专业词汇</h2>
+<pre><code>imbalance 不平衡
 sparse 稀疏【即特征的向量表示的时候，0比特征维度小得多，一般表达出数据信息的缺失。
-    一般处理方式是降维、】
-</code></pre><h1 id="1-深度学习的三步："><a href="#1-深度学习的三步：" class="headerlink" title="1.深度学习的三步："></a>1.深度学习的三步：</h1><p>（thinner+deeper）<br>（1）选择神经网络<br>（2）评价方法的好坏<br>loss/total loss，<br>（3）选择最好的方法<br>梯度下降、epoch（每个epoch后都打乱一次数据）-batch size-iteration（有的时候呀，层数太多也会过拟合呀）<br><a id="more"></a></p>
-<h1 id="2-深度："><a href="#2-深度：" class="headerlink" title="2.深度："></a>2.深度：</h1><p>不断地模型（分类器）构造，越深不一定越好  </p>
-<h1 id="4-调参步骤"><a href="#4-调参步骤" class="headerlink" title="4.调参步骤"></a>4.调参步骤</h1><p>选择合适的代价函数（交叉熵yes/方差）<br>-minibatch（梯度下降会表现的颤抖状）<br>-新的激活函数（Relu（可以处理梯度下降的问题）另外还有变形）<br>-自适应的学习率（Adagrad，学习速率会越来越小）<br>-加入动量（避免梯度下降停止在局部最优Adam）<br>为什么会过拟合：在测试集中的数据可能和训练集相比有一些噪音，影响了训练过程  </p>
-<h1 id="5-一些诀窍"><a href="#5-一些诀窍" class="headerlink" title="5.一些诀窍"></a>5.一些诀窍</h1><p><strong>early stopping</strong>（在训练集的训练过程提前停止，来拟合呈碗状的cv集的最优情况）<br><strong>-weight decay</strong>（权重衰减，给作用小的特征（如像素）做像regularization一样的处理，赋予一个λ=0.99，这样会越来越小）<br><strong>-drop out</strong>（每次更新参数，每个神经元有p%的几率不参加本次更新，然后最终结算的时候每个权重乘以（1-p）%）  </p>
-<h2 id="训练技巧-—-你需要一点魔法"><a href="#训练技巧-—-你需要一点魔法" class="headerlink" title="训练技巧 — 你需要一点魔法"></a>训练技巧 — 你需要一点魔法</h2><ul>
+    一般处理方式是降维、】</code></pre>
+<h1 id="深度学习的三步">1.深度学习的三步：</h1>
+<p>（thinner+deeper）<br>
+（1）选择神经网络<br>
+（2）评价方法的好坏<br>
+loss/total loss，<br>
+（3）选择最好的方法<br>
+梯度下降、epoch（每个epoch后都打乱一次数据）-batch size-iteration（有的时候呀，层数太多也会过拟合呀） <a id="more"></a> # 2.深度： 不断地模型（分类器）构造，越深不一定越好<br>
+# 4.调参步骤 选择合适的代价函数（交叉熵yes/方差）<br>
+-minibatch（梯度下降会表现的颤抖状）<br>
+-新的激活函数（Relu（可以处理梯度下降的问题）另外还有变形）<br>
+-自适应的学习率（Adagrad，学习速率会越来越小）<br>
+-加入动量（避免梯度下降停止在局部最优Adam）<br>
+为什么会过拟合：在测试集中的数据可能和训练集相比有一些噪音，影响了训练过程<br>
+# 5.一些诀窍 <strong>early stopping</strong>（在训练集的训练过程提前停止，来拟合呈碗状的cv集的最优情况）<br>
+<strong>-weight decay</strong>（权重衰减，给作用小的特征（如像素）做像regularization一样的处理，赋予一个λ=0.99，这样会越来越小）<br>
+<strong>-drop out</strong>（每次更新参数，每个神经元有p%的几率不参加本次更新，然后最终结算的时候每个权重乘以（1-p）%）</p>
+<h2 id="训练技巧-你需要一点魔法">训练技巧 — 你需要一点魔法</h2>
+<ul>
 <li><strong>Pre-Processing</strong>，数据预处理。如：-mean/std。</li>
 <li><strong>Data Augmentation</strong>，数据增强。为了增加训练集(training set)的资料量和提高模型的泛化能力，我们常常在训练的时候使用数据增强技术，旋转，翻转，平移，裁剪等等。</li>
 <li><strong>Weight Initialization</strong>，权值的初始化，这个是非常重要的，现在比较推荐的是凯明聚聚的He’s Weight Initial。</li>
 <li><strong>Regularization</strong>，我们可以使用一些正规化的方法，来防止模型过拟合，Weight Decay 和 Dropout。</li>
 <li><strong>Fine-tune</strong>，微调，我们可以使用已经训练好的weight，然后稍加修改最后一层的softmax，进行retrain，我们可以冻结网络的一层或者若干层，从而使得我们在很短的时间内就训练出一个能够适用于我们自己的 「资料集 - data set」 的模型。</li>
 </ul>
-<h1 id="6-网络结构"><a href="#6-网络结构" class="headerlink" title="6.网络结构"></a>6.网络结构</h1><p>（1）CNN：<br>因为图像相关的特征不需要将整个图片所有的像素都作为特征，而在部分特征块中就存在规律。<br>卷积层（可加zero padding，在特征矩阵里加一圈一层的0）小窗扫描<br>max pooling（单纯的取每？x?的小矩阵变成一个特征来代表来减少特征）<br>（2）RNN：<br>LSTM（long short-term memory） 4input 1output<br>更简单的GRU（Gated Recurrent Unit）<br>BPTT（backpropagation through time）RNN的学习  </p>
-<h1 id="7-预训练"><a href="#7-预训练" class="headerlink" title="7.预训练"></a>7.预训练</h1><h1 id="8-展望"><a href="#8-展望" class="headerlink" title="8.展望"></a>8.展望</h1><p>（1）监督学习<br>超级深度网络ultra deep network<br>注意力模型attention model<br>（2）加强学习<br>action-environment-reward+agent/observation<br>但是还要实现如何牺牲部分眼前利益获得更大的长远利益<br>（深度加强学习）<br>（3）非监督学习图像<br>文字<br>声音  </p>
-<h1 id="9-发展"><a href="#9-发展" class="headerlink" title="9.发展"></a>9.发展</h1><p>总的来说的发展方向：</p>
+<h1 id="网络结构">6.网络结构</h1>
+<p>（1）CNN：<br>
+因为图像相关的特征不需要将整个图片所有的像素都作为特征，而在部分特征块中就存在规律。<br>
+卷积层（可加zero padding，在特征矩阵里加一圈一层的0）小窗扫描 max pooling（单纯的取每？x?的小矩阵变成一个特征来代表来减少特征）<br>
+（2）RNN：<br>
+LSTM（long short-term memory） 4input 1output<br>
+更简单的GRU（Gated Recurrent Unit）<br>
+BPTT（backpropagation through time）RNN的学习<br>
+# 7.预训练 # 8.展望 （1）监督学习<br>
+超级深度网络ultra deep network<br>
+注意力模型attention model<br>
+（2）加强学习<br>
+action-environment-reward+agent/observation<br>
+但是还要实现如何牺牲部分眼前利益获得更大的长远利益<br>
+（深度加强学习）<br>
+（3）非监督学习图像<br>
+文字<br>
+声音<br>
+# 9.发展 总的来说的发展方向：</p>
 <ul>
 <li>使用small filter size的卷积层和pooling</li>
 <li>去掉parameters过多的全连接层</li>
 <li>Inception</li>
 <li>跳层连接</li>
 </ul>
-<h2 id="inception"><a href="#inception" class="headerlink" title="inception"></a>inception</h2><p>inception可以有很多的做法。但是原理都是：消除卷积尺寸对于识别结果的影响，一次性使用多个不同filter size来抓取多个范围不同的概念，并让网络自己选择需要的特征。用了Inception之后整个网络结构的宽度和深度都可扩大，能够带来2-3倍的性能提升。<br><img src="http://p9f9koofz.bkt.clouddn.com/inception.png" alt="avatar"><br>以上两种网络结构算是不同的inception方式。<br>目前已经有V2、V3、V4几种了。</p>
-<h2 id="1-1卷积核"><a href="#1-1卷积核" class="headerlink" title="1*1卷积核"></a>1*1卷积核</h2><p>上图中可以看到在选择不同的卷积尺寸中，还加入了1*1的卷积核来处理输入、输出。<br>1*1在扫描中是没有意义的，但是输入数据的depth/channel数和输出数据的depth/channel数无关，和本层的filter数有关。所以这样做可以调整数据的depth/channel数，从而达到<strong>升降维</strong>的作用。</p>
-<h2 id="跳层连接"><a href="#跳层连接" class="headerlink" title="跳层连接"></a>跳层连接</h2><p>允许不同层级之间的因素进行信息交互、综合判断。<br>因为可能根据残缺的特征就能判断出结果。比如第一层获得的部分特征+第二层获得的部分特征就能组合出结果。但是一般的前馈神经网络是不允许跨层交互的，这样就不得不在第二层用更多的filter保留第一层获得的特征。层数越深，越容易被pooling过滤。<br>从ResNet开始使用的跳层连接-shortcut connection/building block/bottleneck design，降低了参数数量，跨层做了连接。而且增加了梯度和信息的流动，减轻了梯度消散。<br>到了DenseNet就把底层的信息传给了之后的所有高层。  </p>
-<h3 id="LeNet"><a href="#LeNet" class="headerlink" title="LeNet"></a>LeNet</h3><p>1998年，用来识别手写数字。</p>
-<h3 id="AlexNet-8层"><a href="#AlexNet-8层" class="headerlink" title="AlexNet-8层"></a>AlexNet-8层</h3><p>首次使用Relu激活函数，Weight Decay、Dropout来防止过拟合。</p>
-<h3 id="Network-in-Network"><a href="#Network-in-Network" class="headerlink" title="Network in Network"></a>Network in Network</h3><p>新加坡国立大学提出，它提出了Mlpconv layer、Global average pooling的概念。</p>
-<h3 id="VGG-19层"><a href="#VGG-19层" class="headerlink" title="VGG-19层"></a>VGG-19层</h3><p>19层：2+1 + 2+1 + 4+1 + 4+1 + 2+1.<br>加深了很多。只使用了3*3的卷积核2*2的pooling。</p>
-<h3 id="GoogleNet-22层-网中网"><a href="#GoogleNet-22层-网中网" class="headerlink" title="GoogleNet-22层 网中网"></a>GoogleNet-22层 网中网</h3><p>网络架构中加了很多的inception。减少parameters数量，最后一层用average pooling层代替了全连接层。（但是实际网络结构中还是最后加了fc，方便fine tune）</p>
-<h3 id="ResidualNet-152层-残差网络"><a href="#ResidualNet-152层-残差网络" class="headerlink" title="ResidualNet-152层 残差网络"></a>ResidualNet-152层 残差网络</h3><p>当之无愧的里程碑，在2015年2016年比赛和论文分别横扫。</p>
-<p>它将神经网络的深度提高到了一个新的高度——1000层，而使用「<strong>残差模块 - Residual Block</strong>」，也有效地避免了「梯度消失 - Vanishing Gradient」 的问题。我们不拟合 H(x)，而是拟合 F(x) ，确实能够让网络更容易学习。<br><strong>Bottleneck</strong>，在网络不断加深的情况下，减小所要训练的参数量。<strong>引入了跨层连接</strong>。<br><strong>full pre-activation</strong>，尝试更改了激活函数的位置，再次提高了ResNet的精确度。    </p>
-<h3 id="Wide-Residual-Network"><a href="#Wide-Residual-Network" class="headerlink" title="Wide Residual Network"></a>Wide Residual Network</h3><p>宽残差网络，一般网络的发展是向着深发展而不是宽。  </p>
-<p>不一味地加深网络，而是在加深的同时也加宽，即在每一层使用更多的卷积核。超过了ResNet。  </p>
-<h3 id="DenseNet"><a href="#DenseNet" class="headerlink" title="DenseNet"></a>DenseNet</h3><p>CVPR2017最佳paper。<br>从Residual block升级为<strong>Dense block</strong>。在Dense block内部，每一层都将作为后面剩下的所有层的输入，梯度的传播方式，由线性变成树状反向，减少了梯度消失的可能，有利于更深层网络的训练。<br>将跨层连接从到连接到了尾。</p>
-<h3 id="Dual-Path-Networks"><a href="#Dual-Path-Networks" class="headerlink" title="Dual Path Networks"></a>Dual Path Networks</h3><p>Residual Network + DenseNet，目前的最佳网络。</p>
-<p><a href="https://zhuanlan.zhihu.com/p/28863709" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/28863709</a></p>
+<h2 id="inception">inception</h2>
+<p>inception可以有很多的做法。但是原理都是：消除卷积尺寸对于识别结果的影响，一次性使用多个不同filter size来抓取多个范围不同的概念，并让网络自己选择需要的特征。用了Inception之后整个网络结构的宽度和深度都可扩大，能够带来2-3倍的性能提升。<br>
+<img src="http://p9f9koofz.bkt.clouddn.com/inception.png" alt="avatar"><br>
+以上两种网络结构算是不同的inception方式。<br>
+目前已经有V2、V3、V4几种了。 ## 1*1卷积核 上图中可以看到在选择不同的卷积尺寸中，还加入了1*1的卷积核来处理输入、输出。<br>
+1*1在扫描中是没有意义的，但是输入数据的depth/channel数和输出数据的depth/channel数无关，和本层的filter数有关。所以这样做可以调整数据的depth/channel数，从而达到<strong>升降维</strong>的作用。 ## 跳层连接 允许不同层级之间的因素进行信息交互、综合判断。<br>
+因为可能根据残缺的特征就能判断出结果。比如第一层获得的部分特征+第二层获得的部分特征就能组合出结果。但是一般的前馈神经网络是不允许跨层交互的，这样就不得不在第二层用更多的filter保留第一层获得的特征。层数越深，越容易被pooling过滤。<br>
+从ResNet开始使用的跳层连接-shortcut connection/building block/bottleneck design，降低了参数数量，跨层做了连接。而且增加了梯度和信息的流动，减轻了梯度消散。<br>
+到了DenseNet就把底层的信息传给了之后的所有高层。</p>
+<h3 id="lenet">LeNet</h3>
+<p>1998年，用来识别手写数字。 ### AlexNet-8层<br>
+首次使用Relu激活函数，Weight Decay、Dropout来防止过拟合。 ### Network in Network 新加坡国立大学提出，它提出了Mlpconv layer、Global average pooling的概念。 ### VGG-19层<br>
+19层：2+1 + 2+1 + 4+1 + 4+1 + 2+1.<br>
+加深了很多。只使用了3*3的卷积核2*2的pooling。 ### GoogleNet-22层 网中网<br>
+网络架构中加了很多的inception。减少parameters数量，最后一层用average pooling层代替了全连接层。（但是实际网络结构中还是最后加了fc，方便fine tune） ### ResidualNet-152层 残差网络 当之无愧的里程碑，在2015年2016年比赛和论文分别横扫。</p>
+<p>它将神经网络的深度提高到了一个新的高度——1000层，而使用「<strong>残差模块 - Residual Block</strong>」，也有效地避免了「梯度消失 - Vanishing Gradient」 的问题。我们不拟合 H(x)，而是拟合 F(x) ，确实能够让网络更容易学习。<br>
+<strong>Bottleneck</strong>，在网络不断加深的情况下，减小所要训练的参数量。<strong>引入了跨层连接</strong>。<br>
+<strong>full pre-activation</strong>，尝试更改了激活函数的位置，再次提高了ResNet的精确度。</p>
+<h3 id="wide-residual-network">Wide Residual Network</h3>
+<p>宽残差网络，一般网络的发展是向着深发展而不是宽。</p>
+<p>不一味地加深网络，而是在加深的同时也加宽，即在每一层使用更多的卷积核。超过了ResNet。<br>
+### DenseNet CVPR2017最佳paper。<br>
+从Residual block升级为<strong>Dense block</strong>。在Dense block内部，每一层都将作为后面剩下的所有层的输入，梯度的传播方式，由线性变成树状反向，减少了梯度消失的可能，有利于更深层网络的训练。<br>
+将跨层连接从到连接到了尾。 ### Dual Path Networks Residual Network + DenseNet，目前的最佳网络。</p>
+<p><a href="https://zhuanlan.zhihu.com/p/28863709" class="uri" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/28863709</a></p>
 
       
     </div>
@@ -590,8 +630,8 @@ sparse 稀疏【即特征的向量表示的时候，0比特征维度小得多，
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/机器学习/领域知识/" rel="next" title="机器学习-领域知识">
-                <i class="fa fa-chevron-left"></i> 机器学习-领域知识
+              <a href="/Language/C/C++/" rel="next" title="C++面试必考">
+                <i class="fa fa-chevron-left"></i> C++面试必考
               </a>
             
           </div>
@@ -600,8 +640,8 @@ sparse 稀疏【即特征的向量表示的时候，0比特征维度小得多，
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/面经总结/4.ML-面试必考/" rel="prev" title="机器学习-思考题">
-                机器学习-思考题 <i class="fa fa-chevron-right"></i>
+              <a href="/机器学习/领域知识/" rel="prev" title="机器学习-领域知识">
+                机器学习-领域知识 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -789,7 +829,7 @@ sparse 稀疏【即特征的向量表示的时候，0比特征维度小得多，
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一些专业词汇"><span class="nav-number">1.</span> <span class="nav-text">一些专业词汇</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-深度学习的三步："><span class="nav-number"></span> <span class="nav-text">1.深度学习的三步：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-深度："><span class="nav-number"></span> <span class="nav-text">2.深度：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-调参步骤"><span class="nav-number"></span> <span class="nav-text">4.调参步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-一些诀窍"><span class="nav-number"></span> <span class="nav-text">5.一些诀窍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#训练技巧-—-你需要一点魔法"><span class="nav-number">1.</span> <span class="nav-text">训练技巧 — 你需要一点魔法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-网络结构"><span class="nav-number"></span> <span class="nav-text">6.网络结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-预训练"><span class="nav-number"></span> <span class="nav-text">7.预训练</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-展望"><span class="nav-number"></span> <span class="nav-text">8.展望</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-发展"><span class="nav-number"></span> <span class="nav-text">9.发展</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#inception"><span class="nav-number">1.</span> <span class="nav-text">inception</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1卷积核"><span class="nav-number">2.</span> <span class="nav-text">1*1卷积核</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跳层连接"><span class="nav-number">3.</span> <span class="nav-text">跳层连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LeNet"><span class="nav-number">3.1.</span> <span class="nav-text">LeNet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AlexNet-8层"><span class="nav-number">3.2.</span> <span class="nav-text">AlexNet-8层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Network-in-Network"><span class="nav-number">3.3.</span> <span class="nav-text">Network in Network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VGG-19层"><span class="nav-number">3.4.</span> <span class="nav-text">VGG-19层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GoogleNet-22层-网中网"><span class="nav-number">3.5.</span> <span class="nav-text">GoogleNet-22层 网中网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ResidualNet-152层-残差网络"><span class="nav-number">3.6.</span> <span class="nav-text">ResidualNet-152层 残差网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Wide-Residual-Network"><span class="nav-number">3.7.</span> <span class="nav-text">Wide Residual Network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DenseNet"><span class="nav-number">3.8.</span> <span class="nav-text">DenseNet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dual-Path-Networks"><span class="nav-number">3.9.</span> <span class="nav-text">Dual Path Networks</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一些专业词汇"><span class="nav-number">1.</span> <span class="nav-text">一些专业词汇</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#深度学习的三步"><span class="nav-number"></span> <span class="nav-text">1.深度学习的三步：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#训练技巧-你需要一点魔法"><span class="nav-number">1.</span> <span class="nav-text">训练技巧 — 你需要一点魔法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网络结构"><span class="nav-number"></span> <span class="nav-text">6.网络结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#inception"><span class="nav-number">1.</span> <span class="nav-text">inception</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lenet"><span class="nav-number">1.1.</span> <span class="nav-text">LeNet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wide-residual-network"><span class="nav-number">1.2.</span> <span class="nav-text">Wide Residual Network</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1532,11 +1572,50 @@ sparse 稀疏【即特征的向量表示的时候，0比特征维度小得多，
       
       new needShareButton('#needsharebutton-float', flOptions);
     
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
 
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
 
   
 

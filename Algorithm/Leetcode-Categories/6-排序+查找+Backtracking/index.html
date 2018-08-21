@@ -114,18 +114,18 @@
 
 
 
-<meta name="description" content="排序要知道不只是int可以sort，string当然也可以呀 非基于比较（分配排序）的排序O(N)计数排序-直接看教学吧（适合数的范围比较小的情况）桶排序（尽量增大桶的数量，但是不能有太多无效桶）（将所有的元素分到一定区间条件的桶里，在桶里执行其他排序方法）基数排序（也是桶排序的一种，将每一位可以取到的0~9作为10个桶，好处在于不需要桶内再排序）">
+<meta name="description" content="排序 要知道不只是int可以sort，string当然也可以呀 ## 非基于比较（分配排序）的排序O(N) 计数排序-直接看教学吧（适合数的范围比较小的情况） 桶排序（尽量增大桶的数量，但是不能有太多无效桶）（将所有的元素分到一定区间条件的桶里，在桶里执行其他排序方法） 基数排序（也是桶排序的一种，将每一位可以取到的0~9作为10个桶，好处在于不需要桶内再排序）">
 <meta name="keywords" content="leetcode总结,Sort,Search,Backtracking">
 <meta property="og:type" content="article">
 <meta property="og:title" content="6.排序+查找+Backtracking">
 <meta property="og:url" content="blog.lovelaolao.xin/Algorithm/Leetcode-Categories/6-排序+查找+Backtracking/index.html">
 <meta property="og:site_name" content="Fall Out Boy">
-<meta property="og:description" content="排序要知道不只是int可以sort，string当然也可以呀 非基于比较（分配排序）的排序O(N)计数排序-直接看教学吧（适合数的范围比较小的情况）桶排序（尽量增大桶的数量，但是不能有太多无效桶）（将所有的元素分到一定区间条件的桶里，在桶里执行其他排序方法）基数排序（也是桶排序的一种，将每一位可以取到的0~9作为10个桶，好处在于不需要桶内再排序）">
+<meta property="og:description" content="排序 要知道不只是int可以sort，string当然也可以呀 ## 非基于比较（分配排序）的排序O(N) 计数排序-直接看教学吧（适合数的范围比较小的情况） 桶排序（尽量增大桶的数量，但是不能有太多无效桶）（将所有的元素分到一定区间条件的桶里，在桶里执行其他排序方法） 基数排序（也是桶排序的一种，将每一位可以取到的0~9作为10个桶，好处在于不需要桶内再排序）">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-05-28T07:56:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="6.排序+查找+Backtracking">
-<meta name="twitter:description" content="排序要知道不只是int可以sort，string当然也可以呀 非基于比较（分配排序）的排序O(N)计数排序-直接看教学吧（适合数的范围比较小的情况）桶排序（尽量增大桶的数量，但是不能有太多无效桶）（将所有的元素分到一定区间条件的桶里，在桶里执行其他排序方法）基数排序（也是桶排序的一种，将每一位可以取到的0~9作为10个桶，好处在于不需要桶内再排序）">
+<meta name="twitter:description" content="排序 要知道不只是int可以sort，string当然也可以呀 ## 非基于比较（分配排序）的排序O(N) 计数排序-直接看教学吧（适合数的范围比较小的情况） 桶排序（尽量增大桶的数量，但是不能有太多无效桶）（将所有的元素分到一定区间条件的桶里，在桶里执行其他排序方法） 基数排序（也是桶排序的一种，将每一位可以取到的0~9作为10个桶，好处在于不需要桶内再排序）">
 
 
 
@@ -484,10 +484,15 @@
       
 
       
-        <h1 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h1><p>要知道不只是int可以sort，string当然也可以呀</p>
-<h2 id="非基于比较（分配排序）的排序O-N"><a href="#非基于比较（分配排序）的排序O-N" class="headerlink" title="非基于比较（分配排序）的排序O(N)"></a>非基于比较（分配排序）的排序O(N)</h2><p>计数排序-<a href="http://www.cs.usfca.edu/~galles/visualization/CountingSort.html" target="_blank" rel="noopener">直接看教学吧</a>（适合数的范围比较小的情况）<br>桶排序（尽量增大桶的数量，但是不能有太多无效桶）（将所有的元素分到一定区间条件的桶里，在桶里执行其他排序方法）<br><strong>基数排序（也是桶排序的一种，将每一位可以取到的0~9作为10个桶，好处在于不需要桶内再排序）</strong><br><a id="more"></a></p>
-<h3 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h3><p>准备若干的桶，桶本身就是具有排序好的属性，将符合不同箱子条件的数放到对应桶，桶内的数可以用插入排序等内部排序。最后将桶里的数收集起来。<br>桶排序的时间复杂度经过数学计算（假设N个数N个桶）是O(N) + N*O(2 - 1/N)。也就是O(N)。<br>但是存在最差O(N^2)，也就是所有数据都分到了一个桶里。（但是其实用更好的内部排序可以达到O(NlogN)）。<br>桶本身即空间复杂度。当桶越多，越可以达到线性时间复杂度，但是也会需要浪费越多的空间。<br>桶可以用链表实现比较方便。</p>
-<h2 id="必须掌握："><a href="#必须掌握：" class="headerlink" title="必须掌握："></a>必须掌握：</h2><h3 id="快排quick-sort"><a href="#快排quick-sort" class="headerlink" title="快排quick sort"></a>快排quick sort</h3><pre><code>int partition(int[] arr, int low, int high)
+        <h1 id="排序">排序</h1>
+<p>要知道不只是int可以sort，string当然也可以呀 ## 非基于比较（分配排序）的排序O(N) 计数排序-<a href="http://www.cs.usfca.edu/~galles/visualization/CountingSort.html" target="_blank" rel="noopener">直接看教学吧</a>（适合数的范围比较小的情况）<br>
+桶排序（尽量增大桶的数量，但是不能有太多无效桶）（将所有的元素分到一定区间条件的桶里，在桶里执行其他排序方法）<br>
+<strong>基数排序（也是桶排序的一种，将每一位可以取到的0~9作为10个桶，好处在于不需要桶内再排序）</strong> <a id="more"></a> ### 桶排序 准备若干的桶，桶本身就是具有排序好的属性，将符合不同箱子条件的数放到对应桶，桶内的数可以用插入排序等内部排序。最后将桶里的数收集起来。<br>
+桶排序的时间复杂度经过数学计算（假设N个数N个桶）是O(N) + N*O(2 - 1/N)。也就是O(N)。<br>
+但是存在最差O(N^2)，也就是所有数据都分到了一个桶里。（但是其实用更好的内部排序可以达到O(NlogN)）。<br>
+桶本身即空间复杂度。当桶越多，越可以达到线性时间复杂度，但是也会需要浪费越多的空间。<br>
+桶可以用链表实现比较方便。 ## 必须掌握： ### 快排quick sort</p>
+<pre><code>int partition(int[] arr, int low, int high)
 {
     int pivot = arr[high]; 
     int i = (low-1); 
@@ -516,15 +521,24 @@ void sort(int[] arr, int low, int high)
         sort(arr, low, pi-1);
         sort(arr, pi+1, high);
     }
-}
-</code></pre><h4 id="java8快排"><a href="#java8快排" class="headerlink" title="java8快排"></a>java8快排</h4><p>特别的，在java8的Arrays.sort() api中，快排实现：<br>使用dual-pivot快排算法<br>用两个枢轴来区分  </p>
-<p>排序长度大于286的时候：归并（可并行）<br>排序长度少于47的时候：插入（比较次数少）<br>其余：快排  </p>
-<p>当数组元素较少或者初始状态有序的时候，插入排序的效率高得多，而快排要每个元素都要比对  </p>
-<h4 id="快排的优化"><a href="#快排的优化" class="headerlink" title="快排的优化"></a>快排的优化</h4><ul>
-<li>选择pivot的时候，尽量划分均衡，可以优化为选择low、high、middle选择中间大小那个元素作为pivot。  </li>
-<li>当数组所有相等元素还是会做快排操作，做了许多无用功这种情况要修改partition和quicksort方法，对等于待排元素的部分不划分。相当于中间的pivot不是一个，而是一种（多个）。<br><a href="https://segmentfault.com/a/1190000002651247" target="_blank" rel="noopener">https://segmentfault.com/a/1190000002651247</a></li>
+}</code></pre>
+<h4 id="java8快排">java8快排</h4>
+<p>特别的，在java8的Arrays.sort() api中，快排实现：<br>
+使用dual-pivot快排算法<br>
+用两个枢轴来区分</p>
+<p>排序长度大于286的时候：归并（可并行）<br>
+排序长度少于47的时候：插入（比较次数少）<br>
+其余：快排</p>
+<p>当数组元素较少或者初始状态有序的时候，插入排序的效率高得多，而快排要每个元素都要比对</p>
+<h4 id="快排的优化">快排的优化</h4>
+<ul>
+<li>选择pivot的时候，尽量划分均衡，可以优化为选择low、high、middle选择中间大小那个元素作为pivot。<br>
+</li>
+<li>当数组所有相等元素还是会做快排操作，做了许多无用功这种情况要修改partition和quicksort方法，对等于待排元素的部分不划分。相当于中间的pivot不是一个，而是一种（多个）。<br>
+<a href="https://segmentfault.com/a/1190000002651247" class="uri" target="_blank" rel="noopener">https://segmentfault.com/a/1190000002651247</a></li>
 </ul>
-<h3 id="归并merge-sort"><a href="#归并merge-sort" class="headerlink" title="归并merge sort"></a>归并merge sort</h3><pre><code>void merge(int[] arr, int l, int m, int r)
+<h3 id="归并merge-sort">归并merge sort</h3>
+<pre><code>void merge(int[] arr, int l, int m, int r)
 {
     int n1 = m - l + 1;
     int n2 = r - m;
@@ -553,7 +567,7 @@ void sort(int[] arr, int low, int high)
         }
         k++;
     }
-
+    
     while (i &lt; n1)
     {
         arr[k] = L[i];
@@ -580,8 +594,10 @@ void sort(int arr[], int l, int r)
 
         merge(arr, l, m, r);
     }
-}
-</code></pre><h3 id="堆排序heap-sort"><a href="#堆排序heap-sort" class="headerlink" title="堆排序heap sort"></a>堆排序heap sort</h3><p>堆排序可以最快的找到第k大/小的数。<br>流程：</p>
+}</code></pre>
+<h3 id="堆排序heap-sort">堆排序heap sort</h3>
+<p>堆排序可以最快的找到第k大/小的数。<br>
+流程：</p>
 <pre><code>准备：heapify函数（下调整，保证当前结点为根结点的子树符合大/小顶堆）sort函数（上调整，然后不断出堆）
 1. 上调整，从第一个非叶结点开始，保证大/小结点不断上升
 2. 下调整，保证当前子树为大/小顶堆
@@ -631,15 +647,17 @@ public void sort(int[] arr)
     // 逆向哦，大的放到了数组后面
     // 输出堆顶并不断减小堆
     // 这里输出是把末尾元素和确定最大元素交换位置，而不是直接输出最大元素，然后从第二个元素做下调整，因为那样的话会破坏堆的结构。
-}
-</code></pre><h2 id="快排-amp-快速选择"><a href="#快排-amp-快速选择" class="headerlink" title="快排&amp;快速选择"></a>快排&amp;快速选择</h2><h1 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h1><p><strong>记住，二分查找并不一定得递归，用一个while(hight&gt;=low)也行。非递归二分查找的最佳形态，标记low、high，用mid+1、mid-1更新</strong><br>凡是查找，总能优化到<strong>bucket</strong>，记得用哦。并且还可以结合map等数据结构。</p>
-<h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><h3 id="查找有序数组某个数的出现位置（有重复）"><a href="#查找有序数组某个数的出现位置（有重复）" class="headerlink" title="查找有序数组某个数的出现位置（有重复）"></a>查找有序数组某个数的出现位置（有重复）</h3><pre><code>第一反应：二分查找找到了位置之后，就知道最起码是什么位置了，然后一个一个往前找就好了。
-    那这样的复杂度就存在最差情况O(N)。
-
-正答：应该就算是找到了最起码的位置，也要往前继续二分查找。但是要确定当前位置前面的值和现在的是一样的。
+}</code></pre>
+<h2 id="快排快速选择">快排&amp;快速选择</h2>
+<h1 id="查找">查找</h1>
+<p><strong>记住，二分查找并不一定得递归，用一个while(hight&gt;=low)也行。非递归二分查找的最佳形态，标记low、high，用mid+1、mid-1更新</strong><br>
+凡是查找，总能优化到<strong>bucket</strong>，记得用哦。并且还可以结合map等数据结构。 ## 二分查找 ### 查找有序数组某个数的出现位置（有重复） 第一反应：二分查找找到了位置之后，就知道最起码是什么位置了，然后一个一个往前找就好了。 那这样的复杂度就存在最差情况O(N)。</p>
+<pre><code>正答：应该就算是找到了最起码的位置，也要往前继续二分查找。但是要确定当前位置前面的值和现在的是一样的。
     这样就不存在最差O(N)而是O(logN)了。
-</code></pre><h3 id="Median-of-Two-Sorted-Arrays-Hard–👍"><a href="#Median-of-Two-Sorted-Arrays-Hard–👍" class="headerlink" title="Median of Two Sorted Arrays-Hard–👍"></a>Median of Two Sorted Arrays-Hard–👍</h3><blockquote>
-<p>提供两个升序数组a、b，返回两个数组的中位数。—&gt;一般化为返回两个数组合在一起时第k个元素。要求时间复杂度O(log(m+n))<br>如果是偶数长度的中位数，需要用中间位置两侧的数取平均数。</p>
+    </code></pre>
+<h3 id="median-of-two-sorted-arrays-hard">Median of Two Sorted Arrays-Hard–👍</h3>
+<blockquote>
+<p>提供两个升序数组a、b，返回两个数组的中位数。—&gt;一般化为返回两个数组合在一起时第k个元素。要求时间复杂度O(log(m+n)) 如果是偶数长度的中位数，需要用中间位置两侧的数取平均数。</p>
 </blockquote>
 <p>最简单的方式当然是遍历两个数组合成一个排序数组，但是这样的时间复杂度是O(m+n)。不符合条件。</p>
 <pre><code>当然是用二分查找，既然两个数组都是排序的，直接比较两个数组的中位数（第k个元素）。
@@ -650,21 +668,22 @@ public void sort(int[] arr)
 
 但是，你也太小看hard难度的题的难度了吧。最最简单的理解当然是这么写了，但是如果考虑细节的话。
 有一个最大的问题就是奇数、偶数长度的数组。首先求中位数的方式不同，如果取平均数也不好比较，而且二分之后、合一起之后都可能转换奇数、偶数长度的情况。
-所以远比上面的方案要复杂。虽然大方向没问题。
-</code></pre><p><strong>真正原理的理解方式：扩展到找第k个元素的情况，即需要找到两个数组中各一个位置，分别使a、b两个数组在这个位置之前的元素和为‘k-1’.然后就是以二分查找的方式调整位置。</strong></p>
-<ol>
-<li>转换问题思考方式，用虚拟插入#到每个数字两侧的方式，让所有数组都变成奇数长度。而且还可以用查找到的中间位置/2得到原数字所在位置。这样每个数组变成了2*n+1的长度。<ol start="2">
+所以远比上面的方案要复杂。虽然大方向没问题。</code></pre>
+<p><strong>真正原理的理解方式：扩展到找第k个元素的情况，即需要找到两个数组中各一个位置，分别使a、b两个数组在这个位置之前的元素和为‘k-1’.然后就是以二分查找的方式调整位置。</strong></p>
+<ol type="1">
+<li>转换问题思考方式，用虚拟插入#到每个数字两侧的方式，让所有数组都变成奇数长度。而且还可以用查找到的中间位置/2得到原数字所在位置。这样每个数组变成了2*n+1的长度。
+<ol start="2" type="1">
 <li>不管长度是偶数还是奇数，都用k/2，k-1/2来找到候选位置的数，只有在偶数长度的数组里这两个值不是一个数，也就代表应该去均值的那两个中位数。当然如果是奇数长度的这两个数，一定是同一个数。</li>
-</ol>
-</li>
-<li>上面得到的目前数组a、b的在中间位置k/2、k-1/2的两个值分别是L1、R1、L2、R2。<ol start="4">
+</ol></li>
+<li>上面得到的目前数组a、b的在中间位置k/2、k-1/2的两个值分别是L1、R1、L2、R2。
+<ol start="4" type="1">
 <li>如果他们满足L1&lt;=R2 &amp;&amp; L2&lt;=R1，说明这四个数可以凑齐中位数条件。(max(L1, L2) + min(R1, R2)) / 2即为中位数。（至于为什么，可以用数量证明，这两个筛选出来的数，前后分别各有总长度的一半-1个元素）</li>
 <li>如果不满足也就是L1&gt;R2 || L2&gt;R2，较大那一侧向左折半，较小那一侧向右折半，递归进行。</li>
-</ol>
-</li>
+</ol></li>
 <li>如果a、b其中一个数组已经二分查找完全了，那代表那个数组所有的数都小于、大于整体中位数。所以直接找另一个数组按数量结果位置就完了。</li>
 </ol>
-<p>说实话正答代码有点fancy了🤦‍♀️。。。。<br><strong>不要用递归！直接非递归用一对起终点作为while循环条件就行了。</strong>（由于有数量关系，另一个数组的mid或起终点可以有这个数组的起终点得到）</p>
+<p>说实话正答代码有点fancy了🤦‍♀️。。。。<br>
+<strong>不要用递归！直接非递归用一对起终点作为while循环条件就行了。</strong>（由于有数量关系，另一个数组的mid或起终点可以有这个数组的起终点得到）</p>
 <pre><code>int m = nums1.length;
 int n = nums2.length;
 
@@ -676,43 +695,48 @@ int low = 0, high = m*2;
 while(low &lt;= high){
     int mid1 = (low + high) / 2;
     int mid2 = m + n - mid1;
-
+    
     double L1 = (mid1 == 0) ? Integer.MIN_VALUE : nums1[(mid1 - 1)/2];
     double R1 = (mid1 == m*2) ? Integer.MAX_VALUE : nums1[mid1/2];
     double L2 = (mid2 == 0) ? Integer.MIN_VALUE : nums2[(mid2 - 1)/2];
     double R2 = (mid2 == n*2) ? Integer.MAX_VALUE : nums2[mid2/2];
-
+    
     if(L1 &gt; R2) low = mid1 - 1;
     else if(L2 &gt; R1) high = mid1 + 1;
     else return (Math.max(L1, L2) + Math.min(R1, R2)) / 2;
 }
-return -1;
-</code></pre><h3 id="二分查找寻找如果插入一个元素应该插在哪"><a href="#二分查找寻找如果插入一个元素应该插在哪" class="headerlink" title="二分查找寻找如果插入一个元素应该插在哪"></a>二分查找寻找如果插入一个元素应该插在哪</h3><p>这种时候要插入元素不一定存在在数组里，就必须按区间查询。<br>寻找<code>a[i] &gt;= x &amp;&amp; a[i-1] &lt; x</code>的位置，i就是插入位置。</p>
-<h2 id="快速选择查找"><a href="#快速选择查找" class="headerlink" title="快速选择查找"></a>快速选择查找</h2><p>借助快排的partition方法来寻找无序数组第k小元素，会改变数组内部顺序，但是可以用O(logN)的时间找到。比用堆排序排序部分再查找的O(klogN)。    </p>
-<h2 id="trie树（字典树）"><a href="#trie树（字典树）" class="headerlink" title="trie树（字典树）"></a>trie树（字典树）</h2><p>一种用于查找的树，常常和hash做对比。<br>树里面每一个结点的值都是一个char，根结点没有内容，这样从一个根结点到叶结点经过的路径就是一个单词。<br>其思想就是空间换时间，用单词的公共前缀来节省搜索时间。<br>一般使用上被hash完虐。除非一些特别情况。</p>
+return -1;</code></pre>
+<h3 id="二分查找寻找如果插入一个元素应该插在哪">二分查找寻找如果插入一个元素应该插在哪</h3>
+<p>这种时候要插入元素不一定存在在数组里，就必须按区间查询。<br>
+寻找<code>a[i] &gt;= x &amp;&amp; a[i-1] &lt; x</code>的位置，i就是插入位置。 ## 快速选择查找 借助快排的partition方法来寻找无序数组第k小元素，会改变数组内部顺序，但是可以用O(logN)的时间找到。比用堆排序排序部分再查找的O(klogN)。 ## trie树（字典树） 一种用于查找的树，常常和hash做对比。<br>
+树里面每一个结点的值都是一个char，根结点没有内容，这样从一个根结点到叶结点经过的路径就是一个单词。<br>
+其思想就是空间换时间，用单词的公共前缀来节省搜索时间。<br>
+一般使用上被hash完虐。除非一些特别情况。</p>
 <p>相比hash的方式：</p>
 <ul>
-<li>优点：<ul>
+<li>优点：
+<ul>
 <li>插入和查询的效率很高，均是O（m），其中 m 是待插入/查询的 字符串长度 。（虽然慢于hash的平局O(1)，但是快于hash的冲突情况）</li>
 <li>不会发生冲突，碰撞。（除非引入桶）</li>
 <li>不需要求hash值。</li>
 <li>可以对关键字按照字典排序。</li>
-</ul>
-</li>
-<li>缺点：<ul>
+</ul></li>
+<li>缺点：
+<ul>
 <li>查找效率低于hash。</li>
 <li>空间消耗大。</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="应用："><a href="#应用：" class="headerlink" title="应用："></a>应用：</h3><ol>
+<h3 id="应用">应用：</h3>
+<ol type="1">
 <li>字符串检索。</li>
 <li>字频统计。</li>
 <li>字符串排序。</li>
 <li>前缀匹配。</li>
 <li>作为辅助结构。</li>
 </ol>
-<h1 id="Back-Tracking"><a href="#Back-Tracking" class="headerlink" title="Back Tracking"></a>Back Tracking</h1>
+<h1 id="back-tracking">Back Tracking</h1>
+
       
     </div>
     
@@ -994,7 +1018,7 @@ return -1;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#排序"><span class="nav-number">1.</span> <span class="nav-text">排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#非基于比较（分配排序）的排序O-N"><span class="nav-number">1.1.</span> <span class="nav-text">非基于比较（分配排序）的排序O(N)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#桶排序"><span class="nav-number">1.1.1.</span> <span class="nav-text">桶排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#必须掌握："><span class="nav-number">1.2.</span> <span class="nav-text">必须掌握：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#快排quick-sort"><span class="nav-number">1.2.1.</span> <span class="nav-text">快排quick sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#java8快排"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">java8快排</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快排的优化"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">快排的优化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并merge-sort"><span class="nav-number">1.2.2.</span> <span class="nav-text">归并merge sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆排序heap-sort"><span class="nav-number">1.2.3.</span> <span class="nav-text">堆排序heap sort</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快排-amp-快速选择"><span class="nav-number">1.3.</span> <span class="nav-text">快排&amp;快速选择</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查找"><span class="nav-number">2.</span> <span class="nav-text">查找</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二分查找"><span class="nav-number">2.1.</span> <span class="nav-text">二分查找</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查找有序数组某个数的出现位置（有重复）"><span class="nav-number">2.1.1.</span> <span class="nav-text">查找有序数组某个数的出现位置（有重复）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Median-of-Two-Sorted-Arrays-Hard–👍"><span class="nav-number">2.1.2.</span> <span class="nav-text">Median of Two Sorted Arrays-Hard–👍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二分查找寻找如果插入一个元素应该插在哪"><span class="nav-number">2.1.3.</span> <span class="nav-text">二分查找寻找如果插入一个元素应该插在哪</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速选择查找"><span class="nav-number">2.2.</span> <span class="nav-text">快速选择查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#trie树（字典树）"><span class="nav-number">2.3.</span> <span class="nav-text">trie树（字典树）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用："><span class="nav-number">2.3.1.</span> <span class="nav-text">应用：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Back-Tracking"><span class="nav-number">3.</span> <span class="nav-text">Back Tracking</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#排序"><span class="nav-number">1.</span> <span class="nav-text">排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#java8快排"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">java8快排</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快排的优化"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">快排的优化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并merge-sort"><span class="nav-number">1.0.1.</span> <span class="nav-text">归并merge sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆排序heap-sort"><span class="nav-number">1.0.2.</span> <span class="nav-text">堆排序heap sort</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快排快速选择"><span class="nav-number">1.1.</span> <span class="nav-text">快排&amp;快速选择</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查找"><span class="nav-number">2.</span> <span class="nav-text">查找</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#median-of-two-sorted-arrays-hard"><span class="nav-number">2.0.1.</span> <span class="nav-text">Median of Two Sorted Arrays-Hard–👍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二分查找寻找如果插入一个元素应该插在哪"><span class="nav-number">2.0.2.</span> <span class="nav-text">二分查找寻找如果插入一个元素应该插在哪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用"><span class="nav-number">2.0.3.</span> <span class="nav-text">应用：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#back-tracking"><span class="nav-number">3.</span> <span class="nav-text">Back Tracking</span></a></li></ol></div>
             
 
           </div>
@@ -1737,11 +1761,50 @@ return -1;
       
       new needShareButton('#needsharebutton-float', flOptions);
     
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
 
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
 
   
 

@@ -114,19 +114,19 @@
 
 
 
-<meta name="description" content="二叉树只要是遍历了，空间复杂度都自带O(logn)的。 Traversalpre-order/in-order/post-order 层次遍历如果要一层层输出的话，用两个int标记，统计本层结点数和下一层结点数。将本层的pop出去，将下一层的push进来。用一个数组的数组保存每一层的输出。">
+<meta name="description" content="二叉树 只要是遍历了，空间复杂度都自带O(logn)的。 ## Traversal pre-order/in-order/post-order ### 层次遍历 如果要一层层输出的话，用两个int标记，统计本层结点数和下一层结点数。将本层的pop出去，将下一层的push进来。 用一个数组的数组保存每一层的输出。">
 <meta name="keywords" content="leetcode总结,二叉树,树,BFS,DFS,Graph">
 <meta property="og:type" content="article">
 <meta property="og:title" content="5.二叉树+树+BFS+DFS+图">
 <meta property="og:url" content="blog.lovelaolao.xin/Algorithm/Leetcode-Categories/5-二叉树+树+BFS+DFS+图/index.html">
 <meta property="og:site_name" content="Fall Out Boy">
-<meta property="og:description" content="二叉树只要是遍历了，空间复杂度都自带O(logn)的。 Traversalpre-order/in-order/post-order 层次遍历如果要一层层输出的话，用两个int标记，统计本层结点数和下一层结点数。将本层的pop出去，将下一层的push进来。用一个数组的数组保存每一层的输出。">
+<meta property="og:description" content="二叉树 只要是遍历了，空间复杂度都自带O(logn)的。 ## Traversal pre-order/in-order/post-order ### 层次遍历 如果要一层层输出的话，用两个int标记，统计本层结点数和下一层结点数。将本层的pop出去，将下一层的push进来。 用一个数组的数组保存每一层的输出。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p9f9koofz.bkt.clouddn.com/graphDFS.png">
 <meta property="og:updated_time" content="2018-05-28T07:56:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="5.二叉树+树+BFS+DFS+图">
-<meta name="twitter:description" content="二叉树只要是遍历了，空间复杂度都自带O(logn)的。 Traversalpre-order/in-order/post-order 层次遍历如果要一层层输出的话，用两个int标记，统计本层结点数和下一层结点数。将本层的pop出去，将下一层的push进来。用一个数组的数组保存每一层的输出。">
+<meta name="twitter:description" content="二叉树 只要是遍历了，空间复杂度都自带O(logn)的。 ## Traversal pre-order/in-order/post-order ### 层次遍历 如果要一层层输出的话，用两个int标记，统计本层结点数和下一层结点数。将本层的pop出去，将下一层的push进来。 用一个数组的数组保存每一层的输出。">
 <meta name="twitter:image" content="http://p9f9koofz.bkt.clouddn.com/graphDFS.png">
 
 
@@ -486,12 +486,13 @@
       
 
       
-        <h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><p>只要是遍历了，空间复杂度都自带O(logn)的。</p>
-<h2 id="Traversal"><a href="#Traversal" class="headerlink" title="Traversal"></a>Traversal</h2><p>pre-order/in-order/post-order</p>
-<h3 id="层次遍历"><a href="#层次遍历" class="headerlink" title="层次遍历"></a>层次遍历</h3><p>如果要一层层输出的话，<strong>用两个int标记</strong>，统计本层结点数和下一层结点数。将本层的pop出去，将下一层的push进来。<br>用一个数组的数组保存每一层的输出。</p>
+        <h1 id="二叉树">二叉树</h1>
+<p>只要是遍历了，空间复杂度都自带O(logn)的。 ## Traversal pre-order/in-order/post-order ### 层次遍历 如果要一层层输出的话，<strong>用两个int标记</strong>，统计本层结点数和下一层结点数。将本层的pop出去，将下一层的push进来。<br>
+用一个数组的数组保存每一层的输出。</p>
 <a id="more"></a>
-<h3 id="Construct-Binary-Tree-from-Inorder-and-Preorder-Postorder"><a href="#Construct-Binary-Tree-from-Inorder-and-Preorder-Postorder" class="headerlink" title="Construct Binary Tree from Inorder and Preorder/Postorder"></a>Construct Binary Tree from Inorder and Preorder/Postorder</h3><p>分治递归+寻找规律</p>
-<h2 id="Recursion（非常常见的题型）"><a href="#Recursion（非常常见的题型）" class="headerlink" title="Recursion（非常常见的题型）"></a>Recursion（非常常见的题型）</h2><h3 id="Lowest-Common-Ancestor-of-a-Binary-Tree"><a href="#Lowest-Common-Ancestor-of-a-Binary-Tree" class="headerlink" title="Lowest Common Ancestor of a Binary Tree"></a>Lowest Common Ancestor of a Binary Tree</h3><p>（1）结点信息不带父结点：<br><strong>如果一个结点是p、q的最早公共父，那p、q一定分别在左右子树。所以递归寻找每个结点，如果这个结点的左右子树里分别找到了p、q，那么一定为所求。</strong>  </p>
+<h3 id="construct-binary-tree-from-inorder-and-preorderpostorder">Construct Binary Tree from Inorder and Preorder/Postorder</h3>
+<p>分治递归+寻找规律 ## Recursion（非常常见的题型） ### Lowest Common Ancestor of a Binary Tree （1）结点信息不带父结点：<br>
+<strong>如果一个结点是p、q的最早公共父，那p、q一定分别在左右子树。所以递归寻找每个结点，如果这个结点的左右子树里分别找到了p、q，那么一定为所求。</strong></p>
 <pre><code>public class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if(root == null || root == p || root == q)  return root;
@@ -500,12 +501,13 @@
         if(left != null &amp;&amp; right != null)   return root;
         return left != null ? left : right;
     }
-}
-</code></pre><p>（2）结点信息带父结点：<br>当找到p、q，那一定可以获得路径。那就相当于比对两个链表的最早公共结点了。</p>
-<h3 id="Count-Complete-Tree-Nodes"><a href="#Count-Complete-Tree-Nodes" class="headerlink" title="Count Complete Tree Nodes"></a>Count Complete Tree Nodes</h3><p>第一反应：题很简单，用层次遍历挺好的，而且当遍历到倒数第二层的时候，根据到哪个结点变成了叶节点就能知道最后一层的结点数，这样的话就直接知道了所有的结点数。节省了一些复杂度，但还是O(N)。</p>
+}</code></pre>
+<p>（2）结点信息带父结点：<br>
+当找到p、q，那一定可以获得路径。那就相当于比对两个链表的最早公共结点了。 ### Count Complete Tree Nodes 第一反应：题很简单，用层次遍历挺好的，而且当遍历到倒数第二层的时候，根据到哪个结点变成了叶节点就能知道最后一层的结点数，这样的话就直接知道了所有的结点数。节省了一些复杂度，但还是O(N)。</p>
 <p>（问题：但是这样的话并没有很好的利用完全二叉树这一已知特性）</p>
-<p>（正答：什么样的完全二叉树是可以直接获得结点数的呢？满二叉树。也就是左右子树高度一样的。子树的高度怎么得到？因为是完全二叉树，所以一直向左走得到的就是左子树高度，一直向右走就是右子树的高度。（这里的高度指最低高度，区分是否满二叉树））<br>（由此出发，不断判断当前结点是否左右子树高度相等，如果相当就已知了结点数。如果不相等，就递归向左右子树求结点数，直到到了叶子结点。高度的求法是一直向左、右遍历到叶子。这里极端情况要遍历到叶子结点结束即O(logn)，每个结点求高度也需要O(logn)，所以总体是O((logn)^2)）</p>
-<p>（特别的，O(N) VS O((logn)^2)谁的时间复杂度更优呢？看起来O(N) 不是平方项比较好呢，通过求导发现后者增长率是低于1的故而更低，其实例证一下，发现n比较小的时候还是(logn)^2更大，当到更大的n，必然是n更大。<strong>所以虽然看起来(logn)^2是个平方项，但是O(N)&gt;O((logn)^2)</strong>）</p>
+<p>（正答：什么样的完全二叉树是可以直接获得结点数的呢？满二叉树。也就是左右子树高度一样的。子树的高度怎么得到？因为是完全二叉树，所以一直向左走得到的就是左子树高度，一直向右走就是右子树的高度。（这里的高度指最低高度，区分是否满二叉树））<br>
+（由此出发，不断判断当前结点是否左右子树高度相等，如果相当就已知了结点数。如果不相等，就递归向左右子树求结点数，直到到了叶子结点。高度的求法是一直向左、右遍历到叶子。这里极端情况要遍历到叶子结点结束即O(logn)，每个结点求高度也需要O(logn)，所以总体是O((logn)^2)）</p>
+<p>（特别的，O(N) VS O((logn)^2)谁的时间复杂度更优呢？看起来O(N) 不是平方项比较好呢，通过求导发现后者增长率是低于1的故而更低，其实例证一下，发现n比较小的时候还是(logn)^2更大，当到更大的n，必然是n更大。<strong>所以虽然看起来(logn)<sup>2是个平方项，但是O(N)&gt;O((logn)</sup>2)</strong>）</p>
 <pre><code>//大神的代码简直艺术
 int height(TreeNode root) {
     return root == null ? -1 : 1 + height(root.left);
@@ -515,20 +517,23 @@ public int countNodes(TreeNode root) {
     return h &lt; 0 ? 0 :
            height(root.right) == h-1 ? (1 &lt;&lt; h) + countNodes(root.right)
                                      : (1 &lt;&lt; h-1) + countNodes(root.left);
-}
-</code></pre><h2 id="Moris"><a href="#Moris" class="headerlink" title="Moris"></a>Moris</h2><p>一般的遍历速度都是O(n)空间是O(logn)递归栈。而最优的算法是Moris算法。可以达到O(1)的空间复杂度。<br>简单来说原理是线索二叉树。</p>
-<h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><h1 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h1><h3 id="Remove-Invalid-Parentheses"><a href="#Remove-Invalid-Parentheses" class="headerlink" title="Remove Invalid Parentheses"></a>Remove Invalid Parentheses</h3><p>返回一个有不成对圆括号的字符串经过删减最少单圆括号达到成对的新字符串。</p>
-<p>第一印象：根据经验总结，每当遇到一个需要删掉的括号，把后面的substr做这个操作，同时从这个括号往前看有没有其他解法。然后递归执行后面的子串。<br>（问题：道理是这样看起来没问题，但是往前看有没有其他解法的时候，会有很多种解法。如‘()()())’ -&gt; ‘()(())‘、’(()())’、‘()()()’ )</p>
-<p>解决这一问题：比较直接蠢的方式，保留递归处理的方式，但是每当遇到无法凑对的括号的时候，那说明一定多了半个括号，将正在做检查的子串里每一个这样的半个括号删掉试试。<br>（实验说明，其实前面的每一个这样的括号删掉都成立）</p>
+}</code></pre>
+<h2 id="moris">Moris</h2>
+<p>一般的遍历速度都是O(n)空间是O(logn)递归栈。而最优的算法是Moris算法。可以达到O(1)的空间复杂度。<br>
+简单来说原理是线索二叉树。 # 树 # BFS ### Remove Invalid Parentheses 返回一个有不成对圆括号的字符串经过删减最少单圆括号达到成对的新字符串。</p>
+<p>第一印象：根据经验总结，每当遇到一个需要删掉的括号，把后面的substr做这个操作，同时从这个括号往前看有没有其他解法。然后递归执行后面的子串。<br>
+（问题：道理是这样看起来没问题，但是往前看有没有其他解法的时候，会有很多种解法。如‘()()())’ -&gt; ‘()(())‘、’(()())’、‘()()()’ )</p>
+<p>解决这一问题：比较直接蠢的方式，保留递归处理的方式，但是每当遇到无法凑对的括号的时候，那说明一定多了半个括号，将正在做检查的子串里每一个这样的半个括号删掉试试。<br>
+（实验说明，其实前面的每一个这样的括号删掉都成立）</p>
 <p>（新问题：这样删的话，会出现重复的情况，重复的都是在连续的这样的半个括号在一起的时候发生，所以在删掉这样的括号的时候，可以判断前一个括号是否一样，一样的话就跳过。）</p>
 <p>（新问题：以上的方法可以解决删除‘)’，但是左括号不能简单的和右括号共享一种删除方法，因为一旦是左括号多余，一般是到最后才能知道的，所以必须左括号不是多余在最后的地方，才可以正常删除，但是最后一个又可能是字母）</p>
-<p>（解决：其实想到了，但是有点嫌麻烦，如果存在删除’(‘的情况，就把这段字符串反向删一遍即可。这里的反向是双重逆置，把左、右括号，从左到右的顺序全都逆置再来一遍就对了）</p>
+<p>（解决：其实想到了，但是有点嫌麻烦，如果存在删除’(’的情况，就把这段字符串反向删一遍即可。这里的反向是双重逆置，把左、右括号，从左到右的顺序全都逆置再来一遍就对了）</p>
 <p>(特别的，尽管正常情况下配对需求使用栈实现的，但是这里的题目只需要储存一种左括号，所以用int记录有多少个左括号就行了)</p>
 <p>（到此问题就可以解决了，但是问题里存在太多细节，很难把程序写的完美以及简洁。很蛋疼的。反正我写了70行。。。正答里有人写了20行，将整个寻找、合并、总结、逆置的过程总结成一块，膜拜）</p>
 <p>（再扯一句感想，代码就是应该写成人家这样，把精华浓缩到一起，把所有无谓冗余的部分全都舍弃，膜拜一下）</p>
 <pre><code>public List&lt;String&gt; removeInvalidParentheses(String s) {
     List&lt;String&gt; ans = new ArrayList&lt;&gt;();
-    remove(s, ans, 0, 0, new char[]{&apos;(&apos;, &apos;)&apos;});
+    remove(s, ans, 0, 0, new char[]{&#39;(&#39;, &#39;)&#39;});
     return ans;
 }
 
@@ -543,26 +548,27 @@ public void remove(String s, List&lt;String&gt; ans, int last_i, int last_j,  ch
         return;
     }
     String reversed = new StringBuilder(s).reverse().toString();
-    if (par[0] == &apos;(&apos;) // finished left to right
-        remove(reversed, ans, 0, 0, new char[]{&apos;)&apos;, &apos;(&apos;});
+    if (par[0] == &#39;(&#39;) // finished left to right
+        remove(reversed, ans, 0, 0, new char[]{&#39;)&#39;, &#39;(&#39;});
     else // finished right to left
         ans.add(reversed);
-}
-</code></pre><h3 id="Binary-Tree-Right-Side-View"><a href="#Binary-Tree-Right-Side-View" class="headerlink" title="Binary Tree Right Side View"></a>Binary Tree Right Side View</h3><p>很简单，但是注意并不需要多余的int、队列标记。只需要在每层遍历时用一个新的list保存下一层的元素，然后替换这一层的元素即可。</p>
-<h3 id="two-array-kth-min-sum"><a href="#two-array-kth-min-sum" class="headerlink" title="two array kth min sum"></a>two array kth min sum</h3><p>题目：两个排序数组，求两个数组分别随意的两个元素和的最小的第k个。—-tricky</p>
+}</code></pre>
+<h3 id="binary-tree-right-side-view">Binary Tree Right Side View</h3>
+<p>很简单，但是注意并不需要多余的int、队列标记。只需要在每层遍历时用一个新的list保存下一层的元素，然后替换这一层的元素即可。 ### two array kth min sum 题目：两个排序数组，求两个数组分别随意的两个元素和的最小的第k个。—-tricky</p>
 <p>既然有最小的前k个这种要求，那基本必然用到堆排序了。</p>
-<p> 这里比较tricky的地方是，并不是一个数组里的前很小一部分才用得到，而是每个数组前k个元素都有可能用到。所以加入堆排序的是a(1) + b(i) i&lt;=k，推出最小的比如是a(1) + b(x)，再加入a(2) + b(x)，这里以b数组为轴，用k个b数组的元素来记录每个轴元素加a里自己没用过的最小值与所有其他b数组元素比较。</p>
-<p> （特别的：这里是不用建堆的，因为最一开始加入的a(1) + b(i)是已排序的，所以只需要不断的提出第一个元素然后下调整一遍即可。）</p>
-<p> 这里属于BFS因为是吧a、b数组中的一个前k个元素每次选一个最小的候选项一起比较。然后更新其中的一个。</p>
-<h3 id="Pacific-Atlantic-Water-Flow"><a href="#Pacific-Atlantic-Water-Flow" class="headerlink" title="Pacific Atlantic Water Flow"></a>Pacific Atlantic Water Flow</h3><p> 矩阵每个元素代表这个格子的水有多高，水只能流向低于或等于自己的方向（水可以传导），选出既能到达Pacific也能到达Atlantic的格子。</p>
+<p>这里比较tricky的地方是，并不是一个数组里的前很小一部分才用得到，而是每个数组前k个元素都有可能用到。所以加入堆排序的是a(1) + b(i) i&lt;=k，推出最小的比如是a(1) + b(x)，再加入a(2) + b(x)，这里以b数组为轴，用k个b数组的元素来记录每个轴元素加a里自己没用过的最小值与所有其他b数组元素比较。</p>
+<p>（特别的：这里是不用建堆的，因为最一开始加入的a(1) + b(i)是已排序的，所以只需要不断的提出第一个元素然后下调整一遍即可。）</p>
+<p>这里属于BFS因为是吧a、b数组中的一个前k个元素每次选一个最小的候选项一起比较。然后更新其中的一个。</p>
+<h3 id="pacific-atlantic-water-flow">Pacific Atlantic Water Flow</h3>
+<p>矩阵每个元素代表这个格子的水有多高，水只能流向低于或等于自己的方向（水可以传导），选出既能到达Pacific也能到达Atlantic的格子。</p>
 <pre><code>Pacific ~   ~   ~   ~   ~ 
-  ~  1   2   2   3  (5) *
-  ~  3   2   3  (4) (4) *
-  ~  2   4  (5)  3   1  *
-  ~ (6) (7)  1   4   5  *
-  ~ (5)  1   1   2   4  *
-     *   *   *   *   * Atlantic
-</code></pre><p>用两个数组保存要遍历的别用矩阵，分别保存大西洋和太平洋的边界就好了。  </p>
+   ~  1   2   2   3  (5) *
+   ~  3   2   3  (4) (4) *
+   ~  2   4  (5)  3   1  *
+   ~ (6) (7)  1   4   5  *
+   ~ (5)  1   1   2   4  *
+      *   *   *   *   * Atlantic</code></pre>
+<p>用两个数组保存要遍历的别用矩阵，分别保存大西洋和太平洋的边界就好了。</p>
 <p>分别BFS、DFS的做法。（需要两个bool矩阵判断每个点两个大洋能否到）</p>
 <ul>
 <li>BFS：不断把周围的四个格子加入到队列尾部。</li>
@@ -570,69 +576,72 @@ public void remove(String s, List&lt;String&gt; ans, int last_i, int last_j,  ch
 <li>这里所有边界点相当于是已知结果的点。</li>
 <li>实际上两者都有重复。</li>
 </ul>
-<h2 id="矩阵最大连接块问题（向右向下顺序遍历）"><a href="#矩阵最大连接块问题（向右向下顺序遍历）" class="headerlink" title="矩阵最大连接块问题（向右向下顺序遍历）"></a>矩阵最大连接块问题（向右向下顺序遍历）</h2><h3 id="Number-of-Islands"><a href="#Number-of-Islands" class="headerlink" title="Number of Islands"></a>Number of Islands</h3><p>根据工程院面试挂掉的经历，这道题顺序只需要判断向右向下的遍历即可。用一个新的矩阵flag储存每个点属于哪个island。一个count记录当前多少个island了。</p>
-<p>特别的就是需要判断多种情况。  </p>
-<blockquote>
-<p>arr[][] = 1 flag[][] = 0 新的island<br>arr[][] = 0 flag[][] = 0 water<br>arr[][] = 1 flag[][] = ？属于某个island的land   </p>
-</blockquote>
-<p>但是要注意情况划分。<br>（问题：然而存在反例，如工字型的情况。左下角的点就会判断为新的island，因为仅仅向右向下判断的话，如果自己仅仅是下侧、右侧有连接周围的话不就gg？）<br>（不不不，这里存在一个island合并的做法，工字型的情况那第二行的中间元素时可以和上面那些确定为一个island的，这样的话左下角的元素合成的新island会和这个island交汇，这时判断下谁的flag小旧合并一下就好了。）</p>
+<h2 id="矩阵最大连接块问题向右向下顺序遍历">矩阵最大连接块问题（向右向下顺序遍历）</h2>
+<h3 id="number-of-islands">Number of Islands</h3>
+<p>根据工程院面试挂掉的经历，这道题顺序只需要判断向右向下的遍历即可。用一个新的矩阵flag储存每个点属于哪个island。一个count记录当前多少个island了。</p>
+<p>特别的就是需要判断多种情况。<br>
+&gt;arr[][] = 1 flag[][] = 0 新的island<br>
+&gt;arr[][] = 0 flag[][] = 0 water<br>
+&gt;arr[][] = 1 flag[][] = ？属于某个island的land</p>
+<p>但是要注意情况划分。<br>
+（问题：然而存在反例，如工字型的情况。左下角的点就会判断为新的island，因为仅仅向右向下判断的话，如果自己仅仅是下侧、右侧有连接周围的话不就gg？）<br>
+（不不不，这里存在一个island合并的做法，工字型的情况那第二行的中间元素时可以和上面那些确定为一个island的，这样的话左下角的元素合成的新island会和这个island交汇，这时判断下谁的flag小旧合并一下就好了。）</p>
 <p>（完善：每个点都判断四个方向。 问题：并没卵用，比之前只判断两次还烂，因为多余，而且因为是一行一行的判断的，所以没一行第一个点这种点还是可能漏掉。）</p>
-<p>（完善：既然发现问题出在一行一行判断了，是否可以换成BFS呢？）<br>（BFS正答，大体顺序判断是否是island，如果一个点flag是0，grid是1，就顺序查找这个点的四个方向相邻的点是否也是这样的情况，如果是继续向外延展，递归进行即可。用一个visit判断是否遍历过即可。）</p>
-<h1 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h1><h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><pre><code>typedef struct    
-{  
-    VertexType vexs[MAX_VEX]; //顶点数组  
-    EdgeType   arc[MAX_VEX][MAX_VEX]; //邻接矩阵  
-    int vexNum, arcNum; //图中当前定点数和弧数  
-}Graph; 
-</code></pre><h2 id="图的DFS"><a href="#图的DFS" class="headerlink" title="图的DFS"></a>图的DFS</h2><p>用一个visited数组标记这个结点是否访问过，然后随深度递归遍历即可。</p>
-<h2 id="判断是否有环"><a href="#判断是否有环" class="headerlink" title="判断是否有环"></a>判断是否有环</h2><h3 id="0-前情提要"><a href="#0-前情提要" class="headerlink" title="0. 前情提要"></a>0. 前情提要</h3><ul>
-<li>一个图边数m，点数n。</li>
-<li>可以用矩阵存储这个图。</li>
-<li>邻接表（点的数组+点-&gt;边的二维数组）表示图。</li>
-<li>DFS！</li>
-<li>总结来看：DFS、拓扑（类似BFS）、点边数量关系的方法时间复杂度都差不多，都可以用，但是DFS可以用在更多的场景。</li>
-</ul>
-<h3 id="1-无向图"><a href="#1-无向图" class="headerlink" title="1. 无向图"></a>1. 无向图</h3><p>注：法一最明晰，法二最标答，法三最特色。</p>
-<p>####（1）法一：排除法<br>标志：若存在环路，那存在一个环路上所有点的度大于等于2.</p>
-<blockquote>
-<ol>
-<li>删除所有度&lt;=1的顶点及相关的边，并将另外与这些边相关的其它顶点的度-1。</li>
-<li>将度数变为1的顶点排入<strong>队列</strong>，并从该队列中取出一个顶点重复步骤一。    </li>
-<li>如果最后还有未删除顶点，则存在环，否则没有环。    </li>
-</ol>
-</blockquote>
-<p>说明：类似于拓扑排序的过程，无向图不断的排除一定不构成环的那些点，也就是度&lt;=1的点。如果最后还剩下点，说明一定有环。<br>时间复杂度（矩阵表示）：由于要判断每某个点出发能到达的所有点，需要遍历（矩阵的一列），所以最差的时间复杂度是O(MN)。<br>时间复杂度（邻接表表示）：每个边在删的过程中最多删一次，每删一个边会去修改相关点的度，满足下一次删的点会直接入队，所以是O(M+N)。</p>
-<h4 id="（2）法二：DFS"><a href="#（2）法二：DFS" class="headerlink" title="（2）法二：DFS"></a>（2）法二：<strong>DFS</strong></h4><p>参考有向图的DFS判断方法，但是无向图里只存在树边、后向边，所以用一个简单的visit数组来辅助即可。只需要对所有联通分量做DFS操作，遇到后向边就代表有环。递归的dfs方法需要传入边的起点、终点，才能判断。<br>时间复杂度：O(V)</p>
-<h4 id="（3）法三：性质判断（此法只满足无向图）"><a href="#（3）法三：性质判断（此法只满足无向图）" class="headerlink" title="（3）法三：性质判断（此法只满足无向图）"></a>（3）法三：性质判断（此法只满足无向图）</h4><p>m &gt; n - k，一定有环。（k为连通分量的个数）  如果不满足一定没环。</p>
-<pre><code>因为一个有k &gt;= 1棵树的森林，一定有n - k个边。
-</code></pre><p>所以可以直接遍历一遍图像，看边数、结点数、连通分量数是否满足。</p>
-<pre><code>为什么：一个二叉树森林一定是：m = n - k 
-</code></pre><h3 id="2-有向图"><a href="#2-有向图" class="headerlink" title="2. 有向图"></a>2. 有向图</h3><h4 id="（1）法一：拓扑排序（类似于BFS）"><a href="#（1）法一：拓扑排序（类似于BFS）" class="headerlink" title="（1）法一：拓扑排序（类似于BFS）"></a>（1）法一：拓扑排序（类似于BFS）</h4><p>对一个有向图做拓扑排序的操作之后，如果还有节点剩余，有环。<br>最差应该也是O(M+N)</p>
-<h4 id="（2）法二：DFS-1"><a href="#（2）法二：DFS-1" class="headerlink" title="（2）法二：DFS"></a>（2）法二：DFS</h4><p>具体做法：</p>
-<ol>
+<p>（完善：既然发现问题出在一行一行判断了，是否可以换成BFS呢？）<br>
+（BFS正答，大体顺序判断是否是island，如果一个点flag是0，grid是1，就顺序查找这个点的四个方向相邻的点是否也是这样的情况，如果是继续向外延展，递归进行即可。用一个visit判断是否遍历过即可。） # DFS # 图 typedef struct<br>
+{<br>
+VertexType vexs[MAX_VEX]; //顶点数组<br>
+EdgeType arc[MAX_VEX][MAX_VEX]; //邻接矩阵<br>
+int vexNum, arcNum; //图中当前定点数和弧数<br>
+}Graph;</p>
+<h2 id="图的dfs">图的DFS</h2>
+<p>用一个visited数组标记这个结点是否访问过，然后随深度递归遍历即可。 ## 判断是否有环 ### 0. 前情提要 * 一个图边数m，点数n。 * 可以用矩阵存储这个图。 * 邻接表（点的数组+点-&gt;边的二维数组）表示图。 * DFS！ * 总结来看：DFS、拓扑（类似BFS）、点边数量关系的方法时间复杂度都差不多，都可以用，但是DFS可以用在更多的场景。</p>
+<h3 id="无向图">1. 无向图</h3>
+<p>注：法一最明晰，法二最标答，法三最特色。 ####（1）法一：排除法 标志：若存在环路，那存在一个环路上所有点的度大于等于2. &gt; &gt;1. 删除所有度&lt;=1的顶点及相关的边，并将另外与这些边相关的其它顶点的度-1。 &gt;2. 将度数变为1的顶点排入<strong>队列</strong>，并从该队列中取出一个顶点重复步骤一。<br>
+3. 如果最后还有未删除顶点，则存在环，否则没有环。</p>
+<p>说明：类似于拓扑排序的过程，无向图不断的排除一定不构成环的那些点，也就是度&lt;=1的点。如果最后还剩下点，说明一定有环。<br>
+时间复杂度（矩阵表示）：由于要判断每某个点出发能到达的所有点，需要遍历（矩阵的一列），所以最差的时间复杂度是O(MN)。 时间复杂度（邻接表表示）：每个边在删的过程中最多删一次，每删一个边会去修改相关点的度，满足下一次删的点会直接入队，所以是O(M+N)。</p>
+<h4 id="法二dfs">（2）法二：<strong>DFS</strong></h4>
+<p>参考有向图的DFS判断方法，但是无向图里只存在树边、后向边，所以用一个简单的visit数组来辅助即可。只需要对所有联通分量做DFS操作，遇到后向边就代表有环。递归的dfs方法需要传入边的起点、终点，才能判断。<br>
+时间复杂度：O(V)</p>
+<h4 id="法三性质判断此法只满足无向图">（3）法三：性质判断（此法只满足无向图）</h4>
+<p>m &gt; n - k，一定有环。（k为连通分量的个数） 如果不满足一定没环。</p>
+<pre><code>    因为一个有k &gt;= 1棵树的森林，一定有n - k个边。</code></pre>
+<p>所以可以直接遍历一遍图像，看边数、结点数、连通分量数是否满足。</p>
+<pre><code>为什么：一个二叉树森林一定是：m = n - k </code></pre>
+<h3 id="有向图">2. 有向图</h3>
+<h4 id="法一拓扑排序类似于bfs">（1）法一：拓扑排序（类似于BFS）</h4>
+<p>对一个有向图做拓扑排序的操作之后，如果还有节点剩余，有环。<br>
+最差应该也是O(M+N)</p>
+<h4 id="法二dfs-1">（2）法二：DFS</h4>
+<p>具体做法：</p>
+<ol type="1">
 <li>一个visited数组，用[0、1、2]代表[未访问过、未访问全、访问完全]三种状态。</li>
 <li>一个数组保存dfs正在访问的路径，方便递归返回。</li>
 <li>在dfs入口用一个循环判断所有节点是否是访问完全的状态，否则进入dfs，保证所有连通分量是遍历过的。</li>
 <li>在遍历中每个节点都要访问能到的所有节点的visited数组来看是否访问完全，所以会有一定冗余性能，不过也只是判断一下而已。</li>
 </ol>
-<p><strong>DFS</strong>：用一个visit标志标记这个边是否被访问过。<br>原理：对图的DFS遍历会产生一棵树（森林），也叫做深度优先搜索树，树里共有4种边：<br>（边的区分存在一个时间线，图中结点被遍历到的时间，low还是high）</p>
+<p><strong>DFS</strong>：用一个visit标志标记这个边是否被访问过。<br>
+原理：对图的DFS遍历会产生一棵树（森林），也叫做深度优先搜索树，树里共有4种边：<br>
+（边的区分存在一个时间线，图中结点被遍历到的时间，low还是high）</p>
 <ul>
 <li>树边 tree edge–white：当这条边到达的点是还未到达过的点。low结点到high结点。</li>
 <li>前向边 forward edge：非树边的从low结点到high结点的边。</li>
 <li>后向边/回退边 back edge–gray：high结点到low结点的反向边。</li>
-<li>横叉边 cross edge–black：其余所有边，  </li>
+<li>横叉边 cross edge–black：其余所有边，</li>
 </ul>
 <p><strong>特别的：</strong>这里的四种边，在遍历的时候实际上只会遇到<strong>树边</strong>和<strong>后向边</strong>两种，因为<strong>横叉边</strong>可以通过判断直接排除，不会真正去遍历，<strong>前向边</strong>在探索的过程中不存在。</p>
-<p><strong>技巧：</strong>图的DFS需要一个标记数组，但是单纯的标记这个结点是否访问过是不足的，<strong>需要三种标志：未访问到white、访问到过但未结束遍历grey、访问到且结束了遍历black</strong>。<br><strong>结束标志：</strong>DFS需要保证从一个结点出发所有能到达的点都被遍历过才算遍历结束。 <strong>一旦一条边的终点是灰色（后向边），说明有环。</strong>  </p>
-<pre><code>为什么：一条边的终点是灰色点，说明这个点正在遍历中，就能被遍历回到这个点，说明必然存在通路，如果终点是黑色，说明这个点不存在通路回来。
-</code></pre><p><strong>时间复杂度：</strong>每个结点都标记为whiteO(N)，结束的时候每条边都被经过两次，也就是O(M).最终是O(M+N)</p>
-<p><img src="http://p9f9koofz.bkt.clouddn.com/graphDFS.png" alt="avatar"></p>
-<h2 id="BFS-1"><a href="#BFS-1" class="headerlink" title="BFS"></a>BFS</h2><h3 id="Course-Schedule"><a href="#Course-Schedule" class="headerlink" title="Course Schedule"></a>Course Schedule</h3><p>有编号0到n-1的课程，给出课程数和分前后顺序的两两一组的课程序列，判断能不能正常上完课。（因为存在上完1上2，但是又要上完2上1是不可能的。）</p>
+<p><strong>技巧：</strong>图的DFS需要一个标记数组，但是单纯的标记这个结点是否访问过是不足的，<strong>需要三种标志：未访问到white、访问到过但未结束遍历grey、访问到且结束了遍历black</strong>。<br>
+<strong>结束标志：</strong>DFS需要保证从一个结点出发所有能到达的点都被遍历过才算遍历结束。 <strong>一旦一条边的终点是灰色（后向边），说明有环。</strong></p>
+<pre><code>为什么：一条边的终点是灰色点，说明这个点正在遍历中，就能被遍历回到这个点，说明必然存在通路，如果终点是黑色，说明这个点不存在通路回来。</code></pre>
+<p><strong>时间复杂度：</strong>每个结点都标记为whiteO(N)，结束的时候每条边都被经过两次，也就是O(M).最终是O(M+N)</p>
+<p><img src="http://p9f9koofz.bkt.clouddn.com/graphDFS.png" alt="avatar"> ## BFS ### Course Schedule 有编号0到n-1的课程，给出课程数和分前后顺序的两两一组的课程序列，判断能不能正常上完课。（因为存在上完1上2，但是又要上完2上1是不可能的。）</p>
 <p>第一印象：图嘛，判断能不能上课就判断是否有环就好了。（用一个visited数组判断之前的课是否判断有环过）（然而visited并不行，因为走完这个点所有可以到达的地方才算visited，但是走完之后算visited有啥意义呢）（最蠢的方法BFS、DFS，双循环。）</p>
-<p>不就是上面有向图是否有环的判断咯。直接用拓扑排序（BFS）的方法就行。</p>
-<h2 id="最短路径（有向图）"><a href="#最短路径（有向图）" class="headerlink" title="最短路径（有向图）"></a>最短路径（有向图）</h2><h3 id="Dijkstra（单源最短距离）"><a href="#Dijkstra（单源最短距离）" class="headerlink" title="Dijkstra（单源最短距离）"></a>Dijkstra（单源最短距离）</h3><p>从点集S只包括起点开始，i=1到n（点数）开始算起。<br>第i次：在i步内，只经过点集内的点，能到达不在S内的点的最短距离，将这个路径记入路径集合，将这个点记入S。这样就已知了从起点到S内所有其他点的最短距离。</p>
-<h3 id="Floyd（所有点间最短距离）"><a href="#Floyd（所有点间最短距离）" class="headerlink" title="Floyd（所有点间最短距离）"></a>Floyd（所有点间最短距离）</h3><p>flody算法属于DP。<br>根据图的矩阵表示，a[i][j]代表i到j的距离。  </p>
-<p>思想：path[i,j]:=min{path[i,k]+path[k,j],path[i,j]} （k从1到n。）<br>直观理解为：在第k次的时候，除第k行第k列自身及主对角线都是0不用考虑，其他点都允许（必须）借助k点一步转折到目标点。而实际上path[i,j]代表的是从i到j的最短距离。</p>
+<p>不就是上面有向图是否有环的判断咯。直接用拓扑排序（BFS）的方法就行。 ## 最短路径（有向图） ### Dijkstra（单源最短距离） 从点集S只包括起点开始，i=1到n（点数）开始算起。<br>
+第i次：在i步内，只经过点集内的点，能到达不在S内的点的最短距离，将这个路径记入路径集合，将这个点记入S。这样就已知了从起点到S内所有其他点的最短距离。 ### Floyd（所有点间最短距离） flody算法属于DP。<br>
+根据图的矩阵表示，a[i][j]代表i到j的距离。</p>
+<p>思想：path[i,j]:=min{path[i,k]+path[k,j],path[i,j]} （k从1到n。）<br>
+直观理解为：在第k次的时候，除第k行第k列自身及主对角线都是0不用考虑，其他点都允许（必须）借助k点一步转折到目标点。而实际上path[i,j]代表的是从i到j的最短距离。</p>
 
       
     </div>
@@ -919,7 +928,7 @@ public void remove(String s, List&lt;String&gt; ans, int last_i, int last_j,  ch
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#二叉树"><span class="nav-number">1.</span> <span class="nav-text">二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Traversal"><span class="nav-number">1.1.</span> <span class="nav-text">Traversal</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#层次遍历"><span class="nav-number">1.1.1.</span> <span class="nav-text">层次遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Construct-Binary-Tree-from-Inorder-and-Preorder-Postorder"><span class="nav-number">1.1.2.</span> <span class="nav-text">Construct Binary Tree from Inorder and Preorder/Postorder</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Recursion（非常常见的题型）"><span class="nav-number">1.2.</span> <span class="nav-text">Recursion（非常常见的题型）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Lowest-Common-Ancestor-of-a-Binary-Tree"><span class="nav-number">1.2.1.</span> <span class="nav-text">Lowest Common Ancestor of a Binary Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Count-Complete-Tree-Nodes"><span class="nav-number">1.2.2.</span> <span class="nav-text">Count Complete Tree Nodes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Moris"><span class="nav-number">1.3.</span> <span class="nav-text">Moris</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#树"><span class="nav-number">2.</span> <span class="nav-text">树</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BFS"><span class="nav-number">3.</span> <span class="nav-text">BFS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Remove-Invalid-Parentheses"><span class="nav-number">3.0.1.</span> <span class="nav-text">Remove Invalid Parentheses</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Binary-Tree-Right-Side-View"><span class="nav-number">3.0.2.</span> <span class="nav-text">Binary Tree Right Side View</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#two-array-kth-min-sum"><span class="nav-number">3.0.3.</span> <span class="nav-text">two array kth min sum</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pacific-Atlantic-Water-Flow"><span class="nav-number">3.0.4.</span> <span class="nav-text">Pacific Atlantic Water Flow</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵最大连接块问题（向右向下顺序遍历）"><span class="nav-number">3.1.</span> <span class="nav-text">矩阵最大连接块问题（向右向下顺序遍历）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Number-of-Islands"><span class="nav-number">3.1.1.</span> <span class="nav-text">Number of Islands</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DFS"><span class="nav-number">4.</span> <span class="nav-text">DFS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图"><span class="nav-number">5.</span> <span class="nav-text">图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#图的DFS"><span class="nav-number">5.1.</span> <span class="nav-text">图的DFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断是否有环"><span class="nav-number">5.2.</span> <span class="nav-text">判断是否有环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-前情提要"><span class="nav-number">5.2.1.</span> <span class="nav-text">0. 前情提要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-无向图"><span class="nav-number">5.2.2.</span> <span class="nav-text">1. 无向图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#（2）法二：DFS"><span class="nav-number">5.2.2.1.</span> <span class="nav-text">（2）法二：DFS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（3）法三：性质判断（此法只满足无向图）"><span class="nav-number">5.2.2.2.</span> <span class="nav-text">（3）法三：性质判断（此法只满足无向图）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-有向图"><span class="nav-number">5.2.3.</span> <span class="nav-text">2. 有向图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#（1）法一：拓扑排序（类似于BFS）"><span class="nav-number">5.2.3.1.</span> <span class="nav-text">（1）法一：拓扑排序（类似于BFS）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（2）法二：DFS-1"><span class="nav-number">5.2.3.2.</span> <span class="nav-text">（2）法二：DFS</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFS-1"><span class="nav-number">5.3.</span> <span class="nav-text">BFS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Course-Schedule"><span class="nav-number">5.3.1.</span> <span class="nav-text">Course Schedule</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最短路径（有向图）"><span class="nav-number">5.4.</span> <span class="nav-text">最短路径（有向图）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dijkstra（单源最短距离）"><span class="nav-number">5.4.1.</span> <span class="nav-text">Dijkstra（单源最短距离）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Floyd（所有点间最短距离）"><span class="nav-number">5.4.2.</span> <span class="nav-text">Floyd（所有点间最短距离）</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#二叉树"><span class="nav-number">1.</span> <span class="nav-text">二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#construct-binary-tree-from-inorder-and-preorderpostorder"><span class="nav-number">1.0.1.</span> <span class="nav-text">Construct Binary Tree from Inorder and Preorder/Postorder</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#moris"><span class="nav-number">1.1.</span> <span class="nav-text">Moris</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#binary-tree-right-side-view"><span class="nav-number">1.1.1.</span> <span class="nav-text">Binary Tree Right Side View</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pacific-atlantic-water-flow"><span class="nav-number">1.1.2.</span> <span class="nav-text">Pacific Atlantic Water Flow</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵最大连接块问题向右向下顺序遍历"><span class="nav-number">1.2.</span> <span class="nav-text">矩阵最大连接块问题（向右向下顺序遍历）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#number-of-islands"><span class="nav-number">1.2.1.</span> <span class="nav-text">Number of Islands</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图的dfs"><span class="nav-number">1.3.</span> <span class="nav-text">图的DFS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#无向图"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. 无向图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#法二dfs"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">（2）法二：DFS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#法三性质判断此法只满足无向图"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">（3）法三：性质判断（此法只满足无向图）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有向图"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. 有向图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#法一拓扑排序类似于bfs"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">（1）法一：拓扑排序（类似于BFS）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#法二dfs-1"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">（2）法二：DFS</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1662,11 +1671,50 @@ public void remove(String s, List&lt;String&gt; ans, int last_i, int last_j,  ch
       
       new needShareButton('#needsharebutton-float', flOptions);
     
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
 
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
 
   
 

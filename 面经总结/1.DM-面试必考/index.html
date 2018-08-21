@@ -114,13 +114,13 @@
 
 
 
-<meta name="description" content="1.2 偏向数据挖掘部分信息论：信息熵 条件熵 互信息/信息增益 交叉熵">
+<meta name="description" content="1.2 偏向数据挖掘部分 信息论：信息熵 条件熵 互信息/信息增益 交叉熵">
 <meta name="keywords" content="思考题,数据挖掘">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据挖掘-思考题">
 <meta property="og:url" content="blog.lovelaolao.xin/面经总结/1.DM-面试必考/index.html">
 <meta property="og:site_name" content="Fall Out Boy">
-<meta property="og:description" content="1.2 偏向数据挖掘部分信息论：信息熵 条件熵 互信息/信息增益 交叉熵">
+<meta property="og:description" content="1.2 偏向数据挖掘部分 信息论：信息熵 条件熵 互信息/信息增益 交叉熵">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p9f9koofz.bkt.clouddn.com/各种熵.png">
 <meta property="og:image" content="http://p9f9koofz.bkt.clouddn.com/特征选择方法.png">
@@ -128,7 +128,7 @@
 <meta property="og:updated_time" content="2018-07-25T13:41:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据挖掘-思考题">
-<meta name="twitter:description" content="1.2 偏向数据挖掘部分信息论：信息熵 条件熵 互信息/信息增益 交叉熵">
+<meta name="twitter:description" content="1.2 偏向数据挖掘部分 信息论：信息熵 条件熵 互信息/信息增益 交叉熵">
 <meta name="twitter:image" content="http://p9f9koofz.bkt.clouddn.com/各种熵.png">
 
 
@@ -477,9 +477,13 @@
       
 
       
-        <h2 id="1-2-偏向数据挖掘部分"><a href="#1-2-偏向数据挖掘部分" class="headerlink" title="1.2 偏向数据挖掘部分"></a>1.2 偏向数据挖掘部分</h2><h3 id="信息论：信息熵-条件熵-互信息-信息增益-交叉熵"><a href="#信息论：信息熵-条件熵-互信息-信息增益-交叉熵" class="headerlink" title="信息论：信息熵 条件熵 互信息/信息增益 交叉熵"></a>信息论：信息熵 条件熵 互信息/信息增益 交叉熵</h3><p><img src="http://p9f9koofz.bkt.clouddn.com/各种熵.png" alt="avatar"><br><a id="more"></a><br>1.<strong>信息熵 H /bit</strong></p>
+        <h2 id="偏向数据挖掘部分">1.2 偏向数据挖掘部分</h2>
+<h3 id="信息论信息熵-条件熵-互信息信息增益-交叉熵">信息论：信息熵 条件熵 互信息/信息增益 交叉熵</h3>
+<p><img src="http://p9f9koofz.bkt.clouddn.com/各种熵.png" alt="avatar"> <a id="more"></a> 1.<strong>信息熵 H /bit</strong></p>
 <blockquote>
-<p>信息熵可以理解为一个变量、特征等所包含的信息量。<br>H(X) = -∑P(x)logP(x)<br>信息熵越大，代表变量信息量越多，代表想搞清楚这个变量需要的信息就越多，代表<strong>X的不确定性</strong>越大。</p>
+<p>信息熵可以理解为一个变量、特征等所包含的信息量。<br>
+H(X) = -∑P(x)logP(x)<br>
+信息熵越大，代表变量信息量越多，代表想搞清楚这个变量需要的信息就越多，代表<strong>X的不确定性</strong>越大。</p>
 </blockquote>
 <p>2.<strong>联合熵</strong></p>
 <blockquote>
@@ -487,67 +491,81 @@
 </blockquote>
 <p>3.<strong>条件熵</strong></p>
 <blockquote>
-<p>事物中存在信息熵（不确定性），为了消除不确定性U，需要引入新的相关信息I，如果I比U小，那就不能消除所有不确定性。<br>U’ = U - I  （I即联合熵）<br>条件熵用于证明引入的信息可以消除不确定性。所以Y条件下的条件熵为：H(X|Y) = -∑P(x,y)logP(x|y)<br>也就是知道了与X相关的信息Y的条件下，X的信息熵是多少。<br>由此可以判断知道了Y的情况下，X的信息熵下降了多少。</p>
+<p>事物中存在信息熵（不确定性），为了消除不确定性U，需要引入新的相关信息I，如果I比U小，那就不能消除所有不确定性。<br>
+U’ = U - I （I即联合熵）<br>
+条件熵用于证明引入的信息可以消除不确定性。所以Y条件下的条件熵为：H(X|Y) = -∑P(x,y)logP(x|y)<br>
+也就是知道了与X相关的信息Y的条件下，X的信息熵是多少。<br>
+由此可以判断知道了Y的情况下，X的信息熵下降了多少。</p>
 </blockquote>
 <p>4.<strong>互信息/信息增益</strong></p>
 <blockquote>
-<p>两个事件相关性的量化度量。<br>I(X;Y) = ∑P(x,y)log(p(x,y)/(P(x)P(y)))<br>即I(X;Y) = H(X) - H(X|Y)<br>也就是信息熵 - 条件熵，也就是X的不确定性 - 知道Y之后X仍旧存在的不确定性 = X与Y的相关性。<br>I(X;Y)为1代表完全相关。为0代表完全不相关。</p>
+<p>两个事件相关性的量化度量。<br>
+I(X;Y) = ∑P(x,y)log(p(x,y)/(P(x)P(y)))<br>
+即I(X;Y) = H(X) - H(X|Y)<br>
+也就是信息熵 - 条件熵，也就是X的不确定性 - 知道Y之后X仍旧存在的不确定性 = X与Y的相关性。<br>
+I(X;Y)为1代表完全相关。为0代表完全不相关。</p>
 </blockquote>
 <p>5.<strong>相对熵/KL散度</strong></p>
 <blockquote>
-<p>两个取值为正数的函数的相似性。<br>KL(f(x)||g(x)) = ∑f(x)·log(f(x)/g(x))<br>对于两个完全相同的函数，它们的交叉熵等于0.<br>交叉熵越大，两个函数差异越大；交叉熵越小，两个函数差异越小。<br>对于概率分布或概率密度函数，如果取值均大于0，交叉熵可以度量两个随机分布的差异性。</p>
+<p>两个取值为正数的函数的相似性。<br>
+KL(f(x)||g(x)) = ∑f(x)·log(f(x)/g(x))<br>
+对于两个完全相同的函数，它们的交叉熵等于0.<br>
+交叉熵越大，两个函数差异越大；交叉熵越小，两个函数差异越小。<br>
+对于概率分布或概率密度函数，如果取值均大于0，交叉熵可以度量两个随机分布的差异性。</p>
 </blockquote>
-<h3 id="各种模型评估方式有哪些，如MAE适用于哪些情况，这个情况为什么用MAE。"><a href="#各种模型评估方式有哪些，如MAE适用于哪些情况，这个情况为什么用MAE。" class="headerlink" title="各种模型评估方式有哪些，如MAE适用于哪些情况，这个情况为什么用MAE。"></a>各种模型评估方式有哪些，如MAE适用于哪些情况，这个情况为什么用MAE。</h3><p><strong>1.分类问题：</strong>  </p>
+<h3 id="各种模型评估方式有哪些如mae适用于哪些情况这个情况为什么用mae">各种模型评估方式有哪些，如MAE适用于哪些情况，这个情况为什么用MAE。</h3>
+<p><strong>1.分类问题：</strong></p>
 <pre><code>精确率与召回率  
 准确率  
 log loss  
 hinge loss  
-...  
-</code></pre><p><strong>2.拟合问题：</strong>  </p>
+...  </code></pre>
+<p><strong>2.拟合问题：</strong></p>
 <pre><code>MAE（平均绝对误差）-L1范数  
 MSE（平均平方误差）-L2范数  
-解释变异  
-</code></pre><p><strong>3.聚类问题：</strong>  </p>
+解释变异  </code></pre>
+<p><strong>3.聚类问题：</strong></p>
 <pre><code>兰德指数  
 互信息  
-轮廓指数  
-</code></pre><blockquote>
+轮廓指数  </code></pre>
+<blockquote>
 <p>如allstate保险公司预测一个车祸的赔偿，用的评估是MAE。那么滴滴打车的预测打车费的评估使用MAE还是MSE呢（简单讲，从价钱上考虑，因为涉及到了钱，MSE比MAE会放大误差的大小，就不能公平比对误差了）</p>
 </blockquote>
-<h3 id="做了哪些数据预处理，然后干嘛用的。"><a href="#做了哪些数据预处理，然后干嘛用的。" class="headerlink" title="做了哪些数据预处理，然后干嘛用的。"></a>做了哪些数据预处理，然后干嘛用的。</h3><h3 id="特征选择"><a href="#特征选择" class="headerlink" title="特征选择"></a>特征选择</h3><p>通常而言，特征选择是指选择获得相应模型和算法最好性能的特征集。</p>
-<h5 id="1-为什么要特征选择"><a href="#1-为什么要特征选择" class="headerlink" title="1. 为什么要特征选择"></a>1. 为什么要特征选择</h5><ol>
+<h3 id="做了哪些数据预处理然后干嘛用的">做了哪些数据预处理，然后干嘛用的。</h3>
+<h3 id="特征选择">特征选择</h3>
+<p>通常而言，特征选择是指选择获得相应模型和算法最好性能的特征集。 ##### 1. 为什么要特征选择</p>
+<ol type="1">
 <li>降低维度，选择重要的特征，降低计算成本。</li>
 <li>去除不相关的冗余特征，降低训练难度，提高精度。</li>
 </ol>
-<h5 id="2-如何做特征选择"><a href="#2-如何做特征选择" class="headerlink" title="2. 如何做特征选择"></a>2. 如何做特征选择</h5><p><img src="http://p9f9koofz.bkt.clouddn.com/特征选择方法.png" alt="avatar"></p>
-<h5 id="3-不同模型对应特征"><a href="#3-不同模型对应特征" class="headerlink" title="3. 不同模型对应特征"></a>3. 不同模型对应特征</h5><ol>
+<h5 id="如何做特征选择">2. 如何做特征选择</h5>
+<figure>
+<img src="http://p9f9koofz.bkt.clouddn.com/特征选择方法.png" alt="avatar"><figcaption>avatar</figcaption>
+</figure>
+<h5 id="不同模型对应特征">3. 不同模型对应特征</h5>
+<ol type="1">
 <li>lr模型适用于拟合离散特征(见附录)</li>
 <li>gbdt模型适用于拟合连续数值特征</li>
 <li>一般说来，特征具有较大的方差说明蕴含较多信息，也是比较有价值的特征</li>
 </ol>
-<h3 id="连续型特征-离散型特征"><a href="#连续型特征-离散型特征" class="headerlink" title="连续型特征 离散型特征"></a>连续型特征 离散型特征</h3><p>连续型可以理解为取值很多，在一定范围内的值都可能达到。对应于Regression问题。<br>离散型是一共只有离散的多个取值可以取到。对应于Classification问题。</p>
-<h5 id="特别的：一个问题里同时存在连续型、离散型的特征"><a href="#特别的：一个问题里同时存在连续型、离散型的特征" class="headerlink" title="特别的：一个问题里同时存在连续型、离散型的特征"></a>特别的：一个问题里同时存在连续型、离散型的特征</h5><p>此时如果不做其他处理，必须准备好两个loss来分别统计。</p>
-<h3 id="连续特征离散化好处"><a href="#连续特征离散化好处" class="headerlink" title="连续特征离散化好处"></a>连续特征离散化好处</h3><ol>
-<li>稀疏向量内积乘法运算速度快，计算结果方便存储，容易扩展。</li>
-<li>离散化后的特征对异常数据有很强的鲁棒性：比如一个特征是年龄&gt;30是1，否则0。如果特征没有离散化，一个异常数据“年龄300岁”会给模型造成很大的干扰。</li>
-<li>逻辑回归属于广义线性模型，表达能力受限；单变量离散化为N个后，每个变量有单独的权重，相当于为模型引入了非线性，能够提升模型表达能力，加大拟合。</li>
-<li>离散化后可以进行特征交叉，由M+N个变量变为M*N个变量，进一步引入非线性，提升表达能力。</li>
-<li>特征离散化后，模型会更稳定，比如如果对用户年龄离散化，20-30作为一个区间，不会因为一个用户年龄长了一岁就变成一个完全不同的人。当然处于区间相邻处的样本会刚好相反，所以怎么划分区间是门学问。</li>
-<li>李沐少帅指出，模型是使用离散特征还是连续特征，其实是一个“海量离散特征+简单模型” 同 “少量连续特征+复杂模型”的权衡。既可以离散化用线性模型，也可以用连续特征加深度学习。</li>
-</ol>
-<h3 id="特征相关性"><a href="#特征相关性" class="headerlink" title="特征相关性"></a>特征相关性</h3><p>指特征与目标（结果）的相关性。  </p>
-<p>1.连续型特征的相关性计算：  </p>
+<h3 id="连续型特征-离散型特征">连续型特征 离散型特征</h3>
+<p>连续型可以理解为取值很多，在一定范围内的值都可能达到。对应于Regression问题。<br>
+离散型是一共只有离散的多个取值可以取到。对应于Classification问题。 ##### 特别的：一个问题里同时存在连续型、离散型的特征 此时如果不做其他处理，必须准备好两个loss来分别统计。 ### 连续特征离散化好处 1. 稀疏向量内积乘法运算速度快，计算结果方便存储，容易扩展。 2. 离散化后的特征对异常数据有很强的鲁棒性：比如一个特征是年龄&gt;30是1，否则0。如果特征没有离散化，一个异常数据“年龄300岁”会给模型造成很大的干扰。 3. 逻辑回归属于广义线性模型，表达能力受限；单变量离散化为N个后，每个变量有单独的权重，相当于为模型引入了非线性，能够提升模型表达能力，加大拟合。 4. 离散化后可以进行特征交叉，由M+N个变量变为M*N个变量，进一步引入非线性，提升表达能力。 5. 特征离散化后，模型会更稳定，比如如果对用户年龄离散化，20-30作为一个区间，不会因为一个用户年龄长了一岁就变成一个完全不同的人。当然处于区间相邻处的样本会刚好相反，所以怎么划分区间是门学问。 6. 李沐少帅指出，模型是使用离散特征还是连续特征，其实是一个“海量离散特征+简单模型” 同 “少量连续特征+复杂模型”的权衡。既可以离散化用线性模型，也可以用连续特征加深度学习。</p>
+<h3 id="特征相关性">特征相关性</h3>
+<p>指特征与目标（结果）的相关性。</p>
+<p>1.连续型特征的相关性计算：</p>
 <blockquote>
-<p>皮尔逊指数：<br>简单来说，就是比较两组数据之间的是否具有强烈的关联性，如果数据A在增大的同时，数据B也在增大，那么数据A和数据B增大的比例关系<br><img src="http://p9f9koofz.bkt.clouddn.com/皮尔逊指数.png" alt="avatar"></p>
+<p>皮尔逊指数：<br>
+简单来说，就是比较两组数据之间的是否具有强烈的关联性，如果数据A在增大的同时，数据B也在增大，那么数据A和数据B增大的比例关系<br>
+<img src="http://p9f9koofz.bkt.clouddn.com/皮尔逊指数.png" alt="avatar"></p>
 </blockquote>
 <p>2.离散型特征的相关性计算：</p>
 <blockquote>
 <p>互信息</p>
 </blockquote>
-<h3 id="特征数字化处理的原理是什么。"><a href="#特征数字化处理的原理是什么。" class="headerlink" title="特征数字化处理的原理是什么。"></a>特征数字化处理的原理是什么。</h3><p>one-hot?<br>将数据中的字母表示的部分转化成数字，方便加入模型训练。转化手段可以理解为将所有可能值对应一个二进制表示。</p>
-<h3 id="如XGBoost是如何分析特征重要程度的，还有什么分析特征重要程度的方式。"><a href="#如XGBoost是如何分析特征重要程度的，还有什么分析特征重要程度的方式。" class="headerlink" title="如XGBoost是如何分析特征重要程度的，还有什么分析特征重要程度的方式。"></a>如XGBoost是如何分析特征重要程度的，还有什么分析特征重要程度的方式。</h3><p>简单来说：特征评分可以看成是被用来分到决策树的次数</p>
-<h3 id="XGBoost是怎样的原理。在训练过程中调了哪些参数。分别什么作用。"><a href="#XGBoost是怎样的原理。在训练过程中调了哪些参数。分别什么作用。" class="headerlink" title="XGBoost是怎样的原理。在训练过程中调了哪些参数。分别什么作用。"></a>XGBoost是怎样的原理。在训练过程中调了哪些参数。分别什么作用。</h3><p>GBDT+boosting</p>
-<h3 id="有关GBDT说一下原理。"><a href="#有关GBDT说一下原理。" class="headerlink" title="有关GBDT说一下原理。"></a>有关GBDT说一下原理。</h3><p>迭代的决策树+回归树算法，GBDT的思想使其具有天然优势可以发现多种有区分性的特征以及特征组合，可以用来发现特征作为LR中的特征提高CTR的准确率。</p>
+<h3 id="特征数字化处理的原理是什么">特征数字化处理的原理是什么。</h3>
+<p>one-hot?<br>
+将数据中的字母表示的部分转化成数字，方便加入模型训练。转化手段可以理解为将所有可能值对应一个二进制表示。 ### 如XGBoost是如何分析特征重要程度的，还有什么分析特征重要程度的方式。 简单来说：特征评分可以看成是被用来分到决策树的次数 ### XGBoost是怎样的原理。在训练过程中调了哪些参数。分别什么作用。 GBDT+boosting ### 有关GBDT说一下原理。 迭代的决策树+回归树算法，GBDT的思想使其具有天然优势可以发现多种有区分性的特征以及特征组合，可以用来发现特征作为LR中的特征提高CTR的准确率。</p>
 
       
     </div>
@@ -637,8 +655,8 @@ MSE（平均平方误差）-L2范数
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/面经总结/6.实习:项目-面试必考/" rel="prev" title="实习/项目-总结">
-                实习/项目-总结 <i class="fa fa-chevron-right"></i>
+              <a href="/Algorithm/Leetcode-Categories/短板-场景类:矩阵类:遍历类:图类/" rel="prev" title="短板-场景类/矩阵类/遍历类/图类-思路总结">
+                短板-场景类/矩阵类/遍历类/图类-思路总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -826,7 +844,7 @@ MSE（平均平方误差）-L2范数
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-偏向数据挖掘部分"><span class="nav-number">1.</span> <span class="nav-text">1.2 偏向数据挖掘部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#信息论：信息熵-条件熵-互信息-信息增益-交叉熵"><span class="nav-number">1.1.</span> <span class="nav-text">信息论：信息熵 条件熵 互信息/信息增益 交叉熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#各种模型评估方式有哪些，如MAE适用于哪些情况，这个情况为什么用MAE。"><span class="nav-number">1.2.</span> <span class="nav-text">各种模型评估方式有哪些，如MAE适用于哪些情况，这个情况为什么用MAE。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#做了哪些数据预处理，然后干嘛用的。"><span class="nav-number">1.3.</span> <span class="nav-text">做了哪些数据预处理，然后干嘛用的。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征选择"><span class="nav-number">1.4.</span> <span class="nav-text">特征选择</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-为什么要特征选择"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">1. 为什么要特征选择</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-如何做特征选择"><span class="nav-number">1.4.0.2.</span> <span class="nav-text">2. 如何做特征选择</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-不同模型对应特征"><span class="nav-number">1.4.0.3.</span> <span class="nav-text">3. 不同模型对应特征</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连续型特征-离散型特征"><span class="nav-number">1.5.</span> <span class="nav-text">连续型特征 离散型特征</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#特别的：一个问题里同时存在连续型、离散型的特征"><span class="nav-number">1.5.0.1.</span> <span class="nav-text">特别的：一个问题里同时存在连续型、离散型的特征</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连续特征离散化好处"><span class="nav-number">1.6.</span> <span class="nav-text">连续特征离散化好处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征相关性"><span class="nav-number">1.7.</span> <span class="nav-text">特征相关性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征数字化处理的原理是什么。"><span class="nav-number">1.8.</span> <span class="nav-text">特征数字化处理的原理是什么。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如XGBoost是如何分析特征重要程度的，还有什么分析特征重要程度的方式。"><span class="nav-number">1.9.</span> <span class="nav-text">如XGBoost是如何分析特征重要程度的，还有什么分析特征重要程度的方式。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XGBoost是怎样的原理。在训练过程中调了哪些参数。分别什么作用。"><span class="nav-number">1.10.</span> <span class="nav-text">XGBoost是怎样的原理。在训练过程中调了哪些参数。分别什么作用。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有关GBDT说一下原理。"><span class="nav-number">1.11.</span> <span class="nav-text">有关GBDT说一下原理。</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#偏向数据挖掘部分"><span class="nav-number">1.</span> <span class="nav-text">1.2 偏向数据挖掘部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#信息论信息熵-条件熵-互信息信息增益-交叉熵"><span class="nav-number">1.1.</span> <span class="nav-text">信息论：信息熵 条件熵 互信息/信息增益 交叉熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#各种模型评估方式有哪些如mae适用于哪些情况这个情况为什么用mae"><span class="nav-number">1.2.</span> <span class="nav-text">各种模型评估方式有哪些，如MAE适用于哪些情况，这个情况为什么用MAE。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#做了哪些数据预处理然后干嘛用的"><span class="nav-number">1.3.</span> <span class="nav-text">做了哪些数据预处理，然后干嘛用的。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征选择"><span class="nav-number">1.4.</span> <span class="nav-text">特征选择</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#如何做特征选择"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">2. 如何做特征选择</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#不同模型对应特征"><span class="nav-number">1.4.0.2.</span> <span class="nav-text">3. 不同模型对应特征</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连续型特征-离散型特征"><span class="nav-number">1.5.</span> <span class="nav-text">连续型特征 离散型特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征相关性"><span class="nav-number">1.6.</span> <span class="nav-text">特征相关性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征数字化处理的原理是什么"><span class="nav-number">1.7.</span> <span class="nav-text">特征数字化处理的原理是什么。</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1569,11 +1587,50 @@ MSE（平均平方误差）-L2范数
       
       new needShareButton('#needsharebutton-float', flOptions);
     
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
 
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
 
   
 

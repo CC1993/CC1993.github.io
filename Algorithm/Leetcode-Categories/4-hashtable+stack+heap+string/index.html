@@ -114,20 +114,20 @@
 
 
 
-<meta name="description" content="Hash TableWindow移动法（常用方法）Contains Duplicate I/II/III（还挺难的）I：判断数组中有无相同数。（辅以不同的准则）II：I + 且这两个数的下标相差小于k。III：II + 且这两个数相差小于k。 II中用到了windowIII中用到了桶排序">
+<meta name="description" content="Hash Table Window移动法（常用方法） Contains Duplicate I/II/III（还挺难的） I：判断数组中有无相同数。（辅以不同的准则） II：I + 且这两个数的下标相差小于k。 III：II + 且这两个数相差小于k。 II中用到了window III中用到了桶排序">
 <meta name="keywords" content="leetcode总结,HashMap,Stack,Heap,String">
 <meta property="og:type" content="article">
 <meta property="og:title" content="4.hashtable+stack+heap+string">
 <meta property="og:url" content="blog.lovelaolao.xin/Algorithm/Leetcode-Categories/4-hashtable+stack+heap+string/index.html">
 <meta property="og:site_name" content="Fall Out Boy">
-<meta property="og:description" content="Hash TableWindow移动法（常用方法）Contains Duplicate I/II/III（还挺难的）I：判断数组中有无相同数。（辅以不同的准则）II：I + 且这两个数的下标相差小于k。III：II + 且这两个数相差小于k。 II中用到了windowIII中用到了桶排序">
+<meta property="og:description" content="Hash Table Window移动法（常用方法） Contains Duplicate I/II/III（还挺难的） I：判断数组中有无相同数。（辅以不同的准则） II：I + 且这两个数的下标相差小于k。 III：II + 且这两个数相差小于k。 II中用到了window III中用到了桶排序">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="blog.lovelaolao.xin/Algorithm/Leetcode-Categories/4-hashtable+stack+heap+string/栈最小.png">
 <meta property="og:image" content="http://oi0fekpsr.bkt.clouddn.com/Manacher.png">
 <meta property="og:updated_time" content="2018-05-28T07:56:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="4.hashtable+stack+heap+string">
-<meta name="twitter:description" content="Hash TableWindow移动法（常用方法）Contains Duplicate I/II/III（还挺难的）I：判断数组中有无相同数。（辅以不同的准则）II：I + 且这两个数的下标相差小于k。III：II + 且这两个数相差小于k。 II中用到了windowIII中用到了桶排序">
+<meta name="twitter:description" content="Hash Table Window移动法（常用方法） Contains Duplicate I/II/III（还挺难的） I：判断数组中有无相同数。（辅以不同的准则） II：I + 且这两个数的下标相差小于k。 III：II + 且这两个数相差小于k。 II中用到了window III中用到了桶排序">
 <meta name="twitter:image" content="blog.lovelaolao.xin/Algorithm/Leetcode-Categories/4-hashtable+stack+heap+string/栈最小.png">
 
 
@@ -487,13 +487,18 @@
       
 
       
-        <h1 id="Hash-Table"><a href="#Hash-Table" class="headerlink" title="Hash Table"></a>Hash Table</h1><h2 id="Window移动法（常用方法）"><a href="#Window移动法（常用方法）" class="headerlink" title="Window移动法（常用方法）"></a>Window移动法（常用方法）</h2><h3 id="Contains-Duplicate-I-II-III（还挺难的）"><a href="#Contains-Duplicate-I-II-III（还挺难的）" class="headerlink" title="Contains Duplicate I/II/III（还挺难的）"></a>Contains Duplicate I/II/III（还挺难的）</h3><p>I：判断数组中有无相同数。（辅以不同的准则）<br>II：I + 且这两个数的下标相差小于k。<br>III：II + 且这两个数相差小于k。</p>
-<p>II中用到了window<br>III中用到了桶排序    </p>
+        <h1 id="hash-table">Hash Table</h1>
+<h2 id="window移动法常用方法">Window移动法（常用方法）</h2>
+<h3 id="contains-duplicate-iiiiii还挺难的">Contains Duplicate I/II/III（还挺难的）</h3>
+<p>I：判断数组中有无相同数。（辅以不同的准则）<br>
+II：I + 且这两个数的下标相差小于k。 III：II + 且这两个数相差小于k。</p>
+<p>II中用到了window<br>
+III中用到了桶排序</p>
 <a id="more"></a>
-<h3 id="Longest-Substring-without-Repeating-Characters"><a href="#Longest-Substring-without-Repeating-Characters" class="headerlink" title="Longest Substring without Repeating Characters"></a>Longest Substring without Repeating Characters</h3><p>（1）DP<br>（2）hashtable记录已经存入的字符们。two pointer从第一个字符开始，先p1向右移动，直到遇到了一已存在的。p2也开始向右移动，删除1个map里的值。然后直到p1到头为止。</p>
-<h3 id="Longest-Substring-with-At-Most-Two-Distinct-Characters"><a href="#Longest-Substring-with-At-Most-Two-Distinct-Characters" class="headerlink" title="Longest Substring with At Most Two Distinct Characters"></a>Longest Substring with At Most Two Distinct Characters</h3><p>原理同上，但是加一些限制条件。</p>
-<h3 id="Minimum-Window-Substring"><a href="#Minimum-Window-Substring" class="headerlink" title="Minimum Window Substring"></a>Minimum Window Substring</h3><p>原理同上</p>
-<h1 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h1><h3 id="用栈实现一个可以返回O-N-最小元素的功能-👍"><a href="#用栈实现一个可以返回O-N-最小元素的功能-👍" class="headerlink" title="用栈实现一个可以返回O(N)最小元素的功能-👍"></a>用栈实现一个可以返回O(N)最小元素的功能-👍</h3><p>非常棒的一道题。原理很简单，但是需要思考清楚为什么可以。原理可以参考下图：<br><img src="./栈最小.png" alt="avatar">  </p>
+<h3 id="longest-substring-without-repeating-characters">Longest Substring without Repeating Characters</h3>
+<p>（1）DP<br>
+（2）hashtable记录已经存入的字符们。two pointer从第一个字符开始，先p1向右移动，直到遇到了一已存在的。p2也开始向右移动，删除1个map里的值。然后直到p1到头为止。 ### Longest Substring with At Most Two Distinct Characters 原理同上，但是加一些限制条件。 ### Minimum Window Substring 原理同上 # Stack ### 用栈实现一个可以返回O(N)最小元素的功能-👍 非常棒的一道题。原理很简单，但是需要思考清楚为什么可以。原理可以参考下图：<br>
+<img src="./栈最小.png" alt="avatar"></p>
 <pre><code>我是没想到怎么做。
 正答：
 1. 准备两个栈，一个正常栈，一个辅助栈，正常栈做pop和push。辅助栈push更新最小值，pop出正常栈的最小值。
@@ -501,17 +506,23 @@
 3. 当正常栈做pop，查看辅助栈栈顶是否相等，相等的话一起pop，否则不动。
 3. PS：注意当做push的时候，辅助栈栈顶元素和新元素相等，还是要入栈，因为再做pop把元素出栈后，正常栈其实后面还是有这个元素。
 
-原理：其实就是类似动态规划的原理，辅助栈里的元素，全是到正常栈该元素位置的最小值是谁。所以除非正常栈做出栈弹出到这个值，否则辅助栈的栈顶就是当前的最小值。
-</code></pre><h1 id="Heap"><a href="#Heap" class="headerlink" title="Heap"></a>Heap</h1><h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><h2 id="Palindrome（还挺难的）"><a href="#Palindrome（还挺难的）" class="headerlink" title="Palindrome（还挺难的）"></a>Palindrome（还挺难的）</h2><h3 id="Longest-Palindrome-Substring（最佳：法三优化版，法四未理解）"><a href="#Longest-Palindrome-Substring（最佳：法三优化版，法四未理解）" class="headerlink" title="Longest Palindrome Substring（最佳：法三优化版，法四未理解）"></a>Longest Palindrome Substring（最佳：法三优化版，法四未理解）</h3><p>寻找一个字符串中最大的回文段。    </p>
-<p>我的想法：<br>（1）DP法，dp[i]代表从i开始必须包括i的最大回文长度。其实就是dp[i-1]加上s[i]、s[i-dp[i-1]-2]看是不是回文，是的话就dp[i] = dp[i-1]+2，不是的话说明dp[i]&lt;1+dp[i-1]，检查下这段字符串有没有回文就好了。  （此法错误，无法保证当前元素不借助上一个元素的全部回文串就能变成新的回文的问题）   </p>
-<p><strong>真正解法：</strong></p>
-<h4 id="1-暴力解法-O-N-3"><a href="#1-暴力解法-O-N-3" class="headerlink" title="1. 暴力解法 - O(N^3)"></a>1. 暴力解法 - O(N^3)</h4><p>遍历所有可能的子串，看是否是回文。</p>
-<h4 id="2-二维DP-时间O-N-2-空间O-N-2"><a href="#2-二维DP-时间O-N-2-空间O-N-2" class="headerlink" title="2. 二维DP - 时间O(N^2) + 空间O(N^2)"></a>2. 二维DP - 时间O(N^2) + 空间O(N^2)</h4><p>state：dp[i][j]表示从i到j的字符串时是否是回文。<br>function：</p>
+原理：其实就是类似动态规划的原理，辅助栈里的元素，全是到正常栈该元素位置的最小值是谁。所以除非正常栈做出栈弹出到这个值，否则辅助栈的栈顶就是当前的最小值。</code></pre>
+<h1 id="heap">Heap</h1>
+<h1 id="string-palindrome还挺难的">String## Palindrome（还挺难的）</h1>
+<h3 id="longest-palindrome-substring最佳法三优化版法四未理解">Longest Palindrome Substring（最佳：法三优化版，法四未理解）</h3>
+<p>寻找一个字符串中最大的回文段。</p>
+<p>我的想法：<br>
+（1）DP法，dp[i]代表从i开始必须包括i的最大回文长度。其实就是dp[i-1]加上s[i]、s[i-dp[i-1]-2]看是不是回文，是的话就dp[i] = dp[i-1]+2，不是的话说明dp[i]&lt;1+dp[i-1]，检查下这段字符串有没有回文就好了。 （此法错误，无法保证当前元素不借助上一个元素的全部回文串就能变成新的回文的问题）</p>
+<p><strong>真正解法：</strong> #### 1. 暴力解法 - O(N^3) 遍历所有可能的子串，看是否是回文。 #### 2. 二维DP - 时间O(N^2) + 空间O(N^2) state：dp[i][j]表示从i到j的字符串时是否是回文。<br>
+function：</p>
 <pre><code>if dp[j+1][i-1] == True and s[i] == s[j]:
     dp[i][j] = True
-</code></pre><p>要求j&lt;i，i从0到n遍历，j从0到i遍历。只有j=i-1的时候需要特殊处理。<br>注意：这种方法是不存在没考虑到单单加入当前元素组成新的回文的情况，因为那是另一个dp[][]元素了。</p>
-<h4 id="3-中心向外扩散（比较好理解）-O-N-2"><a href="#3-中心向外扩散（比较好理解）-O-N-2" class="headerlink" title="3. 中心向外扩散（比较好理解）- O(N^2)"></a>3. 中心向外扩散（比较好理解）- O(N^2)</h4><p>遍历所有元素，以 <strong>当前元素作为中心</strong>、<strong>当前元素及下一个元素（如果相等）作为中心</strong>向两侧遍历回文。</p>
-<pre><code>   public class Solution {
+    </code></pre>
+<p>要求j&lt;i，i从0到n遍历，j从0到i遍历。只有j=i-1的时候需要特殊处理。<br>
+注意：这种方法是不存在没考虑到单单加入当前元素组成新的回文的情况，因为那是另一个dp[][]元素了。</p>
+<h4 id="中心向外扩散比较好理解--on2">3. 中心向外扩散（比较好理解）- O(N^2)</h4>
+<p>遍历所有元素，以 <strong>当前元素作为中心</strong>、<strong>当前元素及下一个元素（如果相等）作为中心</strong>向两侧遍历回文。</p>
+<pre><code>public class Solution {
     private int lo, maxLen;
 
     public String longestPalindrome(String s) {
@@ -520,10 +531,10 @@
             return s;
         for (int i = 0; i &lt; len-1;) {
             //此处tricky！
-             //extendPalindrome(s, i, i);  //assume odd length, try to extend Palindrome as possible
-             //extendPalindrome(s, i, i+1); //assume even length.
-             int j = i + 1;
-             while (j &lt; s.length() &amp;&amp; s.charAt(j) == s.charAt(i))
+            //extendPalindrome(s, i, i);  //assume odd length, try to extend Palindrome as possible
+            //extendPalindrome(s, i, i+1); //assume even length.
+            int j = i + 1;
+            while (j &lt; s.length() &amp;&amp; s.charAt(j) == s.charAt(i))
                     j ++;
             extendPalindrome(s, i, j - 1);
             i = j;
@@ -541,19 +552,23 @@
             maxLen = k - j - 1;
         }
     }
-}
-</code></pre><h5 id="trick："><a href="#trick：" class="headerlink" title="trick："></a>trick：</h5><p>在以上代码里用到了同时传递两个元素到判断是否回文的方法里的trick，来泛化处理奇数长度、偶数长度的回文不同的判断情况。  </p>
-<p><strong>但是有更优秀的做法，不需要考虑是奇数长度的回文还是偶数长度的回文，只需要在当前元素不断向后遍历（如果下一个元素等于当前元素），然后从最后一个一样的元素作为结尾j，和开头i做向外扩散即可。而且之后的外部循环从j继续就能省去非常多冗余。而且结果也保证是对的。</strong></p>
-<h4 id="4-Manacher（有点复杂）-O-N"><a href="#4-Manacher（有点复杂）-O-N" class="headerlink" title="4. Manacher（有点复杂）-O(N)"></a>4. Manacher（有点复杂）-O(N)</h4><p>因为方法3中还是存在了重复判断。所以还是可以优化。<br>先借助方法5处理字符串为s_new，得到所有回文都是奇数长度的回文。  </p>
+}</code></pre>
+<h5 id="trick">trick：</h5>
+<p>在以上代码里用到了同时传递两个元素到判断是否回文的方法里的trick，来泛化处理奇数长度、偶数长度的回文不同的判断情况。</p>
+<p><strong>但是有更优秀的做法，不需要考虑是奇数长度的回文还是偶数长度的回文，只需要在当前元素不断向后遍历（如果下一个元素等于当前元素），然后从最后一个一样的元素作为结尾j，和开头i做向外扩散即可。而且之后的外部循环从j继续就能省去非常多冗余。而且结果也保证是对的。</strong> #### 4. Manacher（有点复杂）-O(N) 因为方法3中还是存在了重复判断。所以还是可以优化。<br>
+先借助方法5处理字符串为s_new，得到所有回文都是奇数长度的回文。</p>
 <p>定义数组p[i]为以i为中心的最长回文的半径长（包括i本身），那么<strong>p[i]-1</strong>就是该最大回文原字符串的长度。</p>
 <p>Manacher的快速在于求取p[i]的方法。设置遍历<strong>id</strong>、<strong>mx</strong>。</p>
-<pre><code>mx：代表以s_new[id]为中心的最长回文最右边界，也就是mx=id+p[id]。
-</code></pre><p>假设我们现在求p[i]，也就是以s_new[i]为中心的最长回文半径，如果i&lt;mx，如上图，那么：</p>
-<pre><code>if (i &lt; mx)  
-       p[i] = min(p[2 * id - i], mx - i);
-</code></pre><p>2 * id -i其实就是等于 j ，p[j]表示以s_new[j]为中心的最长回文半径，见上图，因为 i 和 j 关于 id 对称，我们利用p[j]来加快查找。<br>看图会比较清楚：<br><img src="http://oi0fekpsr.bkt.clouddn.com/Manacher.png" alt="avatar"><br><a href="https://segmentfault.com/a/1190000008484167" target="_blank" rel="noopener">….</a>    </p>
-<h4 id="5-特殊操作手段（针对manacher）"><a href="#5-特殊操作手段（针对manacher）" class="headerlink" title="5. 特殊操作手段（针对manacher）"></a>5. 特殊操作手段（针对manacher）</h4><p>这道题有一个难点在于如果以每个元素作为回文的中心，无法确定这个回文是奇数还是偶数类型的回文。但是有一种骚操作：<br><strong>在所有的元素的两侧加入#</strong>，如123-&gt;#1#2#3#，这样就可以全部以奇数长度的情况寻找回文串了。另外在头部加一个\$处理越界问题。即\$#1#2#3#.  </p>
-<h3 id="Shortest-Palindrome-Substring"><a href="#Shortest-Palindrome-Substring" class="headerlink" title="Shortest Palindrome Substring"></a>Shortest Palindrome Substring</h3>
+<pre><code>mx：代表以s_new[id]为中心的最长回文最右边界，也就是mx=id+p[id]。</code></pre>
+<p>假设我们现在求p[i]，也就是以s_new[i]为中心的最长回文半径，如果i&lt;mx，如上图，那么：</p>
+<pre><code> if (i &lt; mx)  
+        p[i] = min(p[2 * id - i], mx - i);</code></pre>
+<p>2 * id -i其实就是等于 j ，p[j]表示以s_new[j]为中心的最长回文半径，见上图，因为 i 和 j 关于 id 对称，我们利用p[j]来加快查找。<br>
+看图会比较清楚：<br>
+<img src="http://oi0fekpsr.bkt.clouddn.com/Manacher.png" alt="avatar"> <a href="https://segmentfault.com/a/1190000008484167" target="_blank" rel="noopener">….</a> #### 5. 特殊操作手段（针对manacher） 这道题有一个难点在于如果以每个元素作为回文的中心，无法确定这个回文是奇数还是偶数类型的回文。但是有一种骚操作：<br>
+<strong>在所有的元素的两侧加入#</strong>，如123-&gt;#1#2#3#，这样就可以全部以奇数长度的情况寻找回文串了。另外在头部加一个$处理越界问题。即$#1#2#3#.<br>
+### Shortest Palindrome Substring</p>
+
       
     </div>
     
@@ -837,7 +852,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hash-Table"><span class="nav-number">1.</span> <span class="nav-text">Hash Table</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Window移动法（常用方法）"><span class="nav-number">1.1.</span> <span class="nav-text">Window移动法（常用方法）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Contains-Duplicate-I-II-III（还挺难的）"><span class="nav-number">1.1.1.</span> <span class="nav-text">Contains Duplicate I/II/III（还挺难的）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Longest-Substring-without-Repeating-Characters"><span class="nav-number">1.1.2.</span> <span class="nav-text">Longest Substring without Repeating Characters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Longest-Substring-with-At-Most-Two-Distinct-Characters"><span class="nav-number">1.1.3.</span> <span class="nav-text">Longest Substring with At Most Two Distinct Characters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Minimum-Window-Substring"><span class="nav-number">1.1.4.</span> <span class="nav-text">Minimum Window Substring</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Stack"><span class="nav-number">2.</span> <span class="nav-text">Stack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用栈实现一个可以返回O-N-最小元素的功能-👍"><span class="nav-number">2.0.1.</span> <span class="nav-text">用栈实现一个可以返回O(N)最小元素的功能-👍</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Heap"><span class="nav-number">3.</span> <span class="nav-text">Heap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#String"><span class="nav-number">4.</span> <span class="nav-text">String</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Palindrome（还挺难的）"><span class="nav-number">4.1.</span> <span class="nav-text">Palindrome（还挺难的）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Longest-Palindrome-Substring（最佳：法三优化版，法四未理解）"><span class="nav-number">4.1.1.</span> <span class="nav-text">Longest Palindrome Substring（最佳：法三优化版，法四未理解）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-暴力解法-O-N-3"><span class="nav-number">4.1.1.1.</span> <span class="nav-text">1. 暴力解法 - O(N^3)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-二维DP-时间O-N-2-空间O-N-2"><span class="nav-number">4.1.1.2.</span> <span class="nav-text">2. 二维DP - 时间O(N^2) + 空间O(N^2)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-中心向外扩散（比较好理解）-O-N-2"><span class="nav-number">4.1.1.3.</span> <span class="nav-text">3. 中心向外扩散（比较好理解）- O(N^2)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#trick："><span class="nav-number">4.1.1.3.1.</span> <span class="nav-text">trick：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Manacher（有点复杂）-O-N"><span class="nav-number">4.1.1.4.</span> <span class="nav-text">4. Manacher（有点复杂）-O(N)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-特殊操作手段（针对manacher）"><span class="nav-number">4.1.1.5.</span> <span class="nav-text">5. 特殊操作手段（针对manacher）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shortest-Palindrome-Substring"><span class="nav-number">4.1.2.</span> <span class="nav-text">Shortest Palindrome Substring</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hash-table"><span class="nav-number">1.</span> <span class="nav-text">Hash Table</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#window移动法常用方法"><span class="nav-number">1.1.</span> <span class="nav-text">Window移动法（常用方法）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#contains-duplicate-iiiiii还挺难的"><span class="nav-number">1.1.1.</span> <span class="nav-text">Contains Duplicate I/II/III（还挺难的）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#longest-substring-without-repeating-characters"><span class="nav-number">1.1.2.</span> <span class="nav-text">Longest Substring without Repeating Characters</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#heap"><span class="nav-number">2.</span> <span class="nav-text">Heap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#string-palindrome还挺难的"><span class="nav-number">3.</span> <span class="nav-text">String## Palindrome（还挺难的）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#longest-palindrome-substring最佳法三优化版法四未理解"><span class="nav-number">3.0.1.</span> <span class="nav-text">Longest Palindrome Substring（最佳：法三优化版，法四未理解）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#中心向外扩散比较好理解--on2"><span class="nav-number">3.0.1.1.</span> <span class="nav-text">3. 中心向外扩散（比较好理解）- O(N^2)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#trick"><span class="nav-number">3.0.1.1.1.</span> <span class="nav-text">trick：</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1580,11 +1595,50 @@
       
       new needShareButton('#needsharebutton-float', flOptions);
     
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
 
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
 
   
 

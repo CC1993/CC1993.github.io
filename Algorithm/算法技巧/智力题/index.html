@@ -114,19 +114,19 @@
 
 
 
-<meta name="description" content="用m中颜色涂分成n个扇形的圆形，保证相邻扇形颜色不同，有多少种涂法首先，这个问题用a(n)表示，那么第一个扇形可以有m种选择，以后每个相邻的扇形都有和前一个扇形不同颜色的m-1种选择。但是有一种例外情况，就是最后一个扇形和第一个扇形是相同的颜色。但是这个时候，如果想计算例外情况，就是第一个最后一个绑定成一个扇形，一共有n-1个扇形，m中颜色，有多少种涂法。也就是问题a(n-1)。">
+<meta name="description" content="用m中颜色涂分成n个扇形的圆形，保证相邻扇形颜色不同，有多少种涂法 首先，这个问题用a(n)表示，那么第一个扇形可以有m种选择，以后每个相邻的扇形都有和前一个扇形不同颜色的m-1种选择。 但是有一种例外情况，就是最后一个扇形和第一个扇形是相同的颜色。 但是这个时候，如果想计算例外情况，就是第一个最后一个绑定成一个扇形，一共有n-1个扇形，m中颜色，有多少种涂法。也就是问题a(n-1)。">
 <meta name="keywords" content="技巧,算法,高级技巧,智力题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="智力题">
 <meta property="og:url" content="blog.lovelaolao.xin/Algorithm/算法技巧/智力题/index.html">
 <meta property="og:site_name" content="Fall Out Boy">
-<meta property="og:description" content="用m中颜色涂分成n个扇形的圆形，保证相邻扇形颜色不同，有多少种涂法首先，这个问题用a(n)表示，那么第一个扇形可以有m种选择，以后每个相邻的扇形都有和前一个扇形不同颜色的m-1种选择。但是有一种例外情况，就是最后一个扇形和第一个扇形是相同的颜色。但是这个时候，如果想计算例外情况，就是第一个最后一个绑定成一个扇形，一共有n-1个扇形，m中颜色，有多少种涂法。也就是问题a(n-1)。">
+<meta property="og:description" content="用m中颜色涂分成n个扇形的圆形，保证相邻扇形颜色不同，有多少种涂法 首先，这个问题用a(n)表示，那么第一个扇形可以有m种选择，以后每个相邻的扇形都有和前一个扇形不同颜色的m-1种选择。 但是有一种例外情况，就是最后一个扇形和第一个扇形是相同的颜色。 但是这个时候，如果想计算例外情况，就是第一个最后一个绑定成一个扇形，一共有n-1个扇形，m中颜色，有多少种涂法。也就是问题a(n-1)。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p9f9koofz.bkt.clouddn.com//扇形涂色问题推到.jpeg">
 <meta property="og:updated_time" content="2018-05-28T08:39:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="智力题">
-<meta name="twitter:description" content="用m中颜色涂分成n个扇形的圆形，保证相邻扇形颜色不同，有多少种涂法首先，这个问题用a(n)表示，那么第一个扇形可以有m种选择，以后每个相邻的扇形都有和前一个扇形不同颜色的m-1种选择。但是有一种例外情况，就是最后一个扇形和第一个扇形是相同的颜色。但是这个时候，如果想计算例外情况，就是第一个最后一个绑定成一个扇形，一共有n-1个扇形，m中颜色，有多少种涂法。也就是问题a(n-1)。">
+<meta name="twitter:description" content="用m中颜色涂分成n个扇形的圆形，保证相邻扇形颜色不同，有多少种涂法 首先，这个问题用a(n)表示，那么第一个扇形可以有m种选择，以后每个相邻的扇形都有和前一个扇形不同颜色的m-1种选择。 但是有一种例外情况，就是最后一个扇形和第一个扇形是相同的颜色。 但是这个时候，如果想计算例外情况，就是第一个最后一个绑定成一个扇形，一共有n-1个扇形，m中颜色，有多少种涂法。也就是问题a(n-1)。">
 <meta name="twitter:image" content="http://p9f9koofz.bkt.clouddn.com//扇形涂色问题推到.jpeg">
 
 
@@ -486,13 +486,20 @@
       
 
       
-        <h3 id="用m中颜色涂分成n个扇形的圆形，保证相邻扇形颜色不同，有多少种涂法"><a href="#用m中颜色涂分成n个扇形的圆形，保证相邻扇形颜色不同，有多少种涂法" class="headerlink" title="用m中颜色涂分成n个扇形的圆形，保证相邻扇形颜色不同，有多少种涂法"></a>用m中颜色涂分成n个扇形的圆形，保证相邻扇形颜色不同，有多少种涂法</h3><p>首先，这个问题用a(n)表示，那么第一个扇形可以有m种选择，以后每个相邻的扇形都有和前一个扇形不同颜色的m-1种选择。<br>但是有一种例外情况，就是最后一个扇形和第一个扇形是相同的颜色。<br>但是这个时候，如果想计算例外情况，就是第一个最后一个绑定成一个扇形，一共有n-1个扇形，m中颜色，有多少种涂法。也就是问题a(n-1)。<br><a id="more"></a><br>也就可以变成一个数学问题：<br><img src="http://p9f9koofz.bkt.clouddn.com//扇形涂色问题推到.jpeg" alt="avatar"></p>
-<h3 id="1000瓶水，10只老鼠，1瓶是有毒的，喝了毒水一周后死掉，如何找出这瓶水"><a href="#1000瓶水，10只老鼠，1瓶是有毒的，喝了毒水一周后死掉，如何找出这瓶水" class="headerlink" title="1000瓶水，10只老鼠，1瓶是有毒的，喝了毒水一周后死掉，如何找出这瓶水"></a>1000瓶水，10只老鼠，1瓶是有毒的，喝了毒水一周后死掉，如何找出这瓶水</h3><pre><code>很巧妙，10个老鼠可以理解为10bit，而2^10=1024 &gt; 1000，所以每个老鼠代表二进制的一位时，1000瓶水可以唯一的用10位二进制来表示，每当一只老鼠所代表的bit为1，那这只老鼠就喝这瓶水。
-一周之后，根据10只老鼠中死掉的几只，组成一个10位二进制数得到是第几瓶水。
-</code></pre><h3 id="100颗糖果，两个人轮流可以拿1-8颗糖果，我先拿，如何保证最后一颗是我拿到。"><a href="#100颗糖果，两个人轮流可以拿1-8颗糖果，我先拿，如何保证最后一颗是我拿到。" class="headerlink" title="100颗糖果，两个人轮流可以拿1~8颗糖果，我先拿，如何保证最后一颗是我拿到。"></a>100颗糖果，两个人轮流可以拿1~8颗糖果，我先拿，如何保证最后一颗是我拿到。</h3><p>这道题的关键在于，最后一颗糖的理解，我要拿到最后一颗糖，也就意味着除了这一颗的99颗两个人两个人拿正好拿完（或者剩下7颗以内）。  </p>
+        <h3 id="用m中颜色涂分成n个扇形的圆形保证相邻扇形颜色不同有多少种涂法">用m中颜色涂分成n个扇形的圆形，保证相邻扇形颜色不同，有多少种涂法</h3>
+<p>首先，这个问题用a(n)表示，那么第一个扇形可以有m种选择，以后每个相邻的扇形都有和前一个扇形不同颜色的m-1种选择。<br>
+但是有一种例外情况，就是最后一个扇形和第一个扇形是相同的颜色。<br>
+但是这个时候，如果想计算例外情况，就是第一个最后一个绑定成一个扇形，一共有n-1个扇形，m中颜色，有多少种涂法。也就是问题a(n-1)。<br>
+<a id="more"></a> 也就可以变成一个数学问题：<br>
+<img src="http://p9f9koofz.bkt.clouddn.com//扇形涂色问题推到.jpeg" alt="avatar"></p>
+<h3 id="瓶水10只老鼠1瓶是有毒的喝了毒水一周后死掉如何找出这瓶水">1000瓶水，10只老鼠，1瓶是有毒的，喝了毒水一周后死掉，如何找出这瓶水</h3>
+<pre><code>很巧妙，10个老鼠可以理解为10bit，而2^10=1024 &gt; 1000，所以每个老鼠代表二进制的一位时，1000瓶水可以唯一的用10位二进制来表示，每当一只老鼠所代表的bit为1，那这只老鼠就喝这瓶水。
+一周之后，根据10只老鼠中死掉的几只，组成一个10位二进制数得到是第几瓶水。</code></pre>
+<h3 id="颗糖果两个人轮流可以拿18颗糖果我先拿如何保证最后一颗是我拿到">100颗糖果，两个人轮流可以拿1~8颗糖果，我先拿，如何保证最后一颗是我拿到。</h3>
+<p>这道题的关键在于，最后一颗糖的理解，我要拿到最后一颗糖，也就意味着除了这一颗的99颗两个人两个人拿正好拿完（或者剩下7颗以内）。</p>
 <pre><code>其实不考虑括号内的可能，理解起来更加单纯。既然每个人能拿1~8颗，那么99的因数里有3、9、11，9正好是1+8，两个人作为一组拿糖，最起码要拿9颗。  
-所以如果我保证不管另一个人怎么拿，我一定要拿加上他所拿的糖数位9的糖数。这样经过11轮，一定剩下一颗。  
-</code></pre><p>同理每个人拿1~k颗也是可以实现的。</p>
+所以如果我保证不管另一个人怎么拿，我一定要拿加上他所拿的糖数位9的糖数。这样经过11轮，一定剩下一颗。  </code></pre>
+<p>同理每个人拿1~k颗也是可以实现的。</p>
 
       
     </div>
@@ -775,7 +782,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#用m中颜色涂分成n个扇形的圆形，保证相邻扇形颜色不同，有多少种涂法"><span class="nav-number">1.</span> <span class="nav-text">用m中颜色涂分成n个扇形的圆形，保证相邻扇形颜色不同，有多少种涂法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1000瓶水，10只老鼠，1瓶是有毒的，喝了毒水一周后死掉，如何找出这瓶水"><span class="nav-number">2.</span> <span class="nav-text">1000瓶水，10只老鼠，1瓶是有毒的，喝了毒水一周后死掉，如何找出这瓶水</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#100颗糖果，两个人轮流可以拿1-8颗糖果，我先拿，如何保证最后一颗是我拿到。"><span class="nav-number">3.</span> <span class="nav-text">100颗糖果，两个人轮流可以拿1~8颗糖果，我先拿，如何保证最后一颗是我拿到。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#用m中颜色涂分成n个扇形的圆形保证相邻扇形颜色不同有多少种涂法"><span class="nav-number">1.</span> <span class="nav-text">用m中颜色涂分成n个扇形的圆形，保证相邻扇形颜色不同，有多少种涂法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#瓶水10只老鼠1瓶是有毒的喝了毒水一周后死掉如何找出这瓶水"><span class="nav-number">2.</span> <span class="nav-text">1000瓶水，10只老鼠，1瓶是有毒的，喝了毒水一周后死掉，如何找出这瓶水</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#颗糖果两个人轮流可以拿18颗糖果我先拿如何保证最后一颗是我拿到"><span class="nav-number">3.</span> <span class="nav-text">100颗糖果，两个人轮流可以拿1~8颗糖果，我先拿，如何保证最后一颗是我拿到。</span></a></li></ol></div>
             
 
           </div>
@@ -1518,11 +1525,50 @@
       
       new needShareButton('#needsharebutton-float', flOptions);
     
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
 
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
 
   
 

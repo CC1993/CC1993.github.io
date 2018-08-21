@@ -114,18 +114,18 @@
 
 
 
-<meta name="description" content="greedy贪心Meeting Rooms II-👍 Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],…] (si &amp;lt; ei), find the minimum number of conference rooms required.找到最小的会议室数来">
+<meta name="description" content="greedy贪心 Meeting Rooms II-👍  Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],…] (si &amp;lt; ei), find the minimum number of conference rooms required. 找到最小的会议">
 <meta name="keywords" content="leetcode总结,贪心,DP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="7.贪心+动态规划">
 <meta property="og:url" content="blog.lovelaolao.xin/Algorithm/Leetcode-Categories/7-贪心+动态规划/index.html">
 <meta property="og:site_name" content="Fall Out Boy">
-<meta property="og:description" content="greedy贪心Meeting Rooms II-👍 Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],…] (si &amp;lt; ei), find the minimum number of conference rooms required.找到最小的会议室数来">
+<meta property="og:description" content="greedy贪心 Meeting Rooms II-👍  Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],…] (si &amp;lt; ei), find the minimum number of conference rooms required. 找到最小的会议">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-05-28T07:56:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="7.贪心+动态规划">
-<meta name="twitter:description" content="greedy贪心Meeting Rooms II-👍 Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],…] (si &amp;lt; ei), find the minimum number of conference rooms required.找到最小的会议室数来">
+<meta name="twitter:description" content="greedy贪心 Meeting Rooms II-👍  Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],…] (si &amp;lt; ei), find the minimum number of conference rooms required. 找到最小的会议">
 
 
 
@@ -484,8 +484,10 @@
       
 
       
-        <h1 id="greedy贪心"><a href="#greedy贪心" class="headerlink" title="greedy贪心"></a>greedy贪心</h1><h3 id="Meeting-Rooms-II-👍"><a href="#Meeting-Rooms-II-👍" class="headerlink" title="Meeting Rooms II-👍"></a>Meeting Rooms II-👍</h3><blockquote>
-<p>Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],…] (si &lt; ei), find the minimum number of conference rooms required.<br>找到最小的会议室数来满足所有的会议</p>
+        <h1 id="greedy贪心">greedy贪心</h1>
+<h3 id="meeting-rooms-ii-">Meeting Rooms II-👍</h3>
+<blockquote>
+<p>Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],…] (si &lt; ei), find the minimum number of conference rooms required. 找到最小的会议室数来满足所有的会议</p>
 </blockquote>
 <a id="more"></a>
 <pre><code>我的解法：
@@ -511,75 +513,68 @@ public int minMeetingRooms(Interval[] intervals) {
 
     PriorityQueue&lt;Integer&gt; minHeap = new PriorityQueue&lt;&gt;();
     minHeap.offer(intervals[0].end);
-
+    
     for(int i = 1; i &lt; intervals.length; i++) {
         if(minHeap.peek() &lt;= intervals[i].start) minHeap.poll();
         minHeap.offer(intervals[i].end);
     }
-
+    
     return minHeap.size();
-}
-</code></pre><h1 id="DP动态规划"><a href="#DP动态规划" class="headerlink" title="DP动态规划"></a>DP动态规划</h1><p>动态规划的算法正确性保证在所有输入元素至少都会遍历一遍，如果算法设计没有全部遍历一遍，多半是无法保证正确的。<br>动态规划往往思想复杂，代码简单。要想清楚逻辑。<br><strong>most important &amp; tricky：寻找子问题父问题之间的推演关系</strong>，必须能寻找到子问题，才能化身DP。</p>
-<h2 id="题型！"><a href="#题型！" class="headerlink" title="题型！"></a>题型！</h2><ul>
-<li>求到第N个情况。每个情况会有多种选择。</li>
-<li>求max/min</li>
-<li>y/n到达</li>
-<li>count数量</li>
-<li><strong>当要求给方案而不是数量，当输入集合不是序列。</strong></li>
-<li>DP可以 从前到后/从后到前。</li>
-<li>时间复杂度一定是o(n).</li>
-<li>二维DP</li>
-</ul>
-<h2 id="DP四要素"><a href="#DP四要素" class="headerlink" title="DP四要素"></a>DP四要素</h2><ul>
+}</code></pre>
+<h1 id="dp动态规划">DP动态规划</h1>
+<p>动态规划的算法正确性保证在所有输入元素至少都会遍历一遍，如果算法设计没有全部遍历一遍，多半是无法保证正确的。<br>
+动态规划往往思想复杂，代码简单。要想清楚逻辑。<br>
+<strong>most important &amp; tricky：寻找子问题父问题之间的推演关系</strong>，必须能寻找到子问题，才能化身DP。 ## 题型！ * 求到第N个情况。每个情况会有多种选择。 * 求max/min * y/n到达 * count数量 * <strong>当要求给方案而不是数量，当输入集合不是序列。</strong> * DP可以 从前到后/从后到前。 * 时间复杂度一定是o(n). * 二维DP</p>
+<h2 id="dp四要素">DP四要素</h2>
+<ul>
 <li><strong>function</strong> 方程，如何从子问题到父问题</li>
-<li><strong>state</strong>    状态，存储子问题的结果</li>
-<li><strong>init</strong>        初始化，最小问题</li>
-<li><strong>result</strong>    结果，最大问题</li>
+<li><strong>state</strong> 状态，存储子问题的结果</li>
+<li><strong>init</strong> 初始化，最小问题</li>
+<li><strong>result</strong> 结果，最大问题</li>
 </ul>
-<p>设计动态规划要凑齐这四样东西。然后<strong>递归（逆向结果出发bottom-up）/迭代（正向初始化出发folow-up）</strong>。<br>动态规划的推进方向由已知的状态决定。</p>
-<h2 id="标记函数"><a href="#标记函数" class="headerlink" title="标记函数"></a>标记函数</h2><p>要先想好标记数组到底标记的是什么。<br>最标准的：问的什么就标记什么。</p>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>多空一位0.</p>
-<h2 id="常见题型1：general递推"><a href="#常见题型1：general递推" class="headerlink" title="常见题型1：general递推"></a>常见题型1：general递推</h2><h3 id="Best-Time-to-Buy-and-Sell-Stock-I-II-III-IV-With-Cool-Down"><a href="#Best-Time-to-Buy-and-Sell-Stock-I-II-III-IV-With-Cool-Down" class="headerlink" title="Best Time to Buy and Sell Stock I/II/III/IV/With Cool Down"></a>Best Time to Buy and Sell Stock I/II/III/IV/With Cool Down</h3><p>原理I（一次买卖最大收益）：需要三个标记，buy、sell、max，同时进行更新，用一个标记记录过程中的最大值。<br>动态规划：dp[i]表示i卖的时候最大赚多少，localmin保存i之前的所有股票价格的最小值，随遍历更新即可。<br>（<strong>也可以递归，寻找一个最小值买，然后在最小值后面寻找一个最大值卖，然后在最小值前面部分递归进行。</strong>）<br>（也可以用一个数组b保存a[i]-a[i-1]，将每个a[i]遍历，local为当前i顺序向后加b[i]能到的最大，global是总体最大）</p>
-<p>原理II（可以多次但不处于多个交易，可同时买卖）：easy，并不需要动态规划。  </p>
+<p>设计动态规划要凑齐这四样东西。然后<strong>递归（逆向结果出发bottom-up）/迭代（正向初始化出发folow-up）</strong>。<br>
+动态规划的推进方向由已知的状态决定。 ## 标记函数 要先想好标记数组到底标记的是什么。<br>
+最标准的：问的什么就标记什么。 ## 注意事项 多空一位0. ## 常见题型1：general递推 ### Best Time to Buy and Sell Stock I/II/III/IV/With Cool Down 原理I（一次买卖最大收益）：需要三个标记，buy、sell、max，同时进行更新，用一个标记记录过程中的最大值。<br>
+动态规划：dp[i]表示i卖的时候最大赚多少，localmin保存i之前的所有股票价格的最小值，随遍历更新即可。<br>
+（<strong>也可以递归，寻找一个最小值买，然后在最小值后面寻找一个最大值卖，然后在最小值前面部分递归进行。</strong>）<br>
+（也可以用一个数组b保存a[i]-a[i-1]，将每个a[i]遍历，local为当前i顺序向后加b[i]能到的最大，global是总体最大）</p>
+<p>原理II（可以多次但不处于多个交易，可同时买卖）：easy，并不需要动态规划。</p>
 <p>原理IV：local+global</p>
-<p>原理with cool down：</p>
-<h3 id="Word-Break"><a href="#Word-Break" class="headerlink" title="Word Break"></a>Word Break</h3><p>一个字符串能否由字符串字典完全组成。  </p>
-<p>原理：标记第i个字符以前的字符串能否做成wordbreak=第j个字符以前的字符串能否做成wordbreak且string[j:i]在字符串字典里。</p>
-<h3 id="Maximal-Square"><a href="#Maximal-Square" class="headerlink" title="Maximal Square"></a>Maximal Square</h3><p>一个只有0，1组成的矩阵，如何找到最大1正方形。<br>先设标记数组m[][]为：以i，j为右下角的正方形的最大边长。<br>难点是寻找子问题组成DP问题，因为要是正方形，那么</p>
-<pre><code>m[i][j] = min { m[i-1][j-1] , m[i-1][j] , m[i][j-1] } + 1.
-</code></pre><p>看图就知道了。</p>
-<h3 id="Maximal-Rectangle"><a href="#Maximal-Rectangle" class="headerlink" title="Maximal Rectangle"></a>Maximal Rectangle</h3><p>情况比上一题复杂一些</p>
-<h3 id="Edit-Distance"><a href="#Edit-Distance" class="headerlink" title="Edit Distance"></a>Edit Distance</h3><p>经过多少次+/-/更换 操作可以将word1变成word2.<br>二维dp。<br>dp[i][j]表示word[:i]到word[:j]的minimum edit distance<br>解的时候画个矩阵就好了。</p>
-<pre><code>dp[i][0] = i
-dp[0][j] = j
+<p>原理with cool down： ### Word Break 一个字符串能否由字符串字典完全组成。</p>
+<p>原理：标记第i个字符以前的字符串能否做成wordbreak=第j个字符以前的字符串能否做成wordbreak且string[j:i]在字符串字典里。 ### Maximal Square 一个只有0，1组成的矩阵，如何找到最大1正方形。<br>
+先设标记数组m[][]为：以i，j为右下角的正方形的最大边长。<br>
+难点是寻找子问题组成DP问题，因为要是正方形，那么</p>
+<pre><code>m[i][j] = min { m[i-1][j-1] , m[i-1][j] , m[i][j-1] } + 1.</code></pre>
+<p>看图就知道了。 ### Maximal Rectangle 情况比上一题复杂一些 ### Edit Distance 经过多少次+/-/更换 操作可以将word1变成word2.<br>
+二维dp。<br>
+dp[i][j]表示word[:i]到word[:j]的minimum edit distance<br>
+解的时候画个矩阵就好了。</p>
+<pre><code>dp[i][0] = i    dp[0][j] = j
 
 1. d[0, j] = j;
 2. d[i, 0] = i;
 3. d[i, j] = d[i-1, j - 1] if A[i] == B[j]
 4. d[i, j] = min(d[i-1,j-1], d[i,j-1], d[i-1,j]) + 1  
-         if A[i] != B[j]
-</code></pre><p>因为dp[i][j]已经在表示前i个单词到前j个单词的最短编辑距离了，所以只需要考虑两个单词新加的那一个字符是否有影响就好了。<br>但是要注意到，下标是从0开始的，从一个单词没有字符开始计算的。<br>不要在意具体是怎么变过来的，只需要在意从最近变化如何变化到目标。</p>
-<h3 id="Regular-Expression-Matching"><a href="#Regular-Expression-Matching" class="headerlink" title="Regular Expression Matching"></a>Regular Expression Matching</h3><p>没看懂。</p>
-<h3 id="Unique-Binary-Search-Tree"><a href="#Unique-Binary-Search-Tree" class="headerlink" title="Unique Binary Search Tree"></a>Unique Binary Search Tree</h3><p>给n个数，那么能构造成多少不同的二叉搜索树。（二叉搜索树 = 二叉排序树（可以不平衡））<br>这里用动态规划来记录当子树里有i个数的情况下，有多少种情况。<br>因为情况是会重复的嘛。<br>而且每种情况时左边情况数*右边情况数的计算和。<br>因为每种情况都是左边x个数，右边y各数。而两边各有x、y种情况。</p>
-<pre><code>class Solution(object):
-def numTrees(self, n):
-    if n == 0:
-        return 1
-    count = [0 for i in range(n+1)]
-    count[0] = 1
-    for i in range(1, n+1):
-        for j in range(0, i): //两个for循坏哦
-            count[i] += count[j] * count[i-j-1]
-    return count[n]
-</code></pre><p>这里用动态规划统计以前计算过的当总结点数为i能有多少种情况。<br>所以整个过程是不断积累计算结点数位i能有多少种不同的二叉搜索树，知道i=n。</p>
-<h2 id="常见题型2：global、local局部和全局最优（nothing-special）"><a href="#常见题型2：global、local局部和全局最优（nothing-special）" class="headerlink" title="常见题型2：global、local局部和全局最优（nothing special）"></a>常见题型2：global、local局部和全局最优（nothing special）</h2><p>当问题需要从二维的可能性上考虑情况时。<br>（额这并不算是二维的情况吧，global只是一个遍历获得最大localDP的临时变量而已。顶多特别在可以保存所有到第i步的最大dp。）</p>
-<pre><code>localDP[i] = max(localDP[i-1] + nums[i], nums[i])
-globalDP[i] = max(localDP[i], globalDP[i-1])
-</code></pre><h3 id="Maximum-Subarray-Sum"><a href="#Maximum-Subarray-Sum" class="headerlink" title="Maximum Subarray Sum"></a>Maximum Subarray Sum</h3><p>寻找数组中构成最大和的子数组。</p>
-<h3 id="Maximum-Product-Subarray"><a href="#Maximum-Product-Subarray" class="headerlink" title="Maximum Product Subarray"></a>Maximum Product Subarray</h3><p>寻找数组中构成最大积的子数组。</p>
-<h2 id="题型3：无法定义子问题的DP题型"><a href="#题型3：无法定义子问题的DP题型" class="headerlink" title="题型3：无法定义子问题的DP题型"></a>题型3：无法定义子问题的DP题型</h2><p>这种类型的题，会有一些限制条件和场景，因为可以想到是类似于回溯的解法，所以能想到是动态规划的题型，但是又没办法定义好子问题，一旦问题定义无法利用到所有外部信息，就没办法完成递归，也就没办法解决问题。<br>所以关键在于：<strong>如何定义子问题</strong>。</p>
-<p><strong>技巧：定义问题的时候，加上必须的外部信息。</strong></p>
-<h3 id="546-Remove-Boxes"><a href="#546-Remove-Boxes" class="headerlink" title="546. Remove Boxes"></a>546. Remove Boxes</h3><p>这个题可以说是非常破了= = ，先记下了</p>
+        if A[i] != B[j]</code></pre>
+<p>因为dp[i][j]已经在表示前i个单词到前j个单词的最短编辑距离了，所以只需要考虑两个单词新加的那一个字符是否有影响就好了。<br>
+但是要注意到，下标是从0开始的，从一个单词没有字符开始计算的。<br>
+不要在意具体是怎么变过来的，只需要在意从最近变化如何变化到目标。 ### Regular Expression Matching 没看懂。 ### Unique Binary Search Tree 给n个数，那么能构造成多少不同的二叉搜索树。（二叉搜索树 = 二叉排序树（可以不平衡））<br>
+这里用动态规划来记录当子树里有i个数的情况下，有多少种情况。<br>
+因为情况是会重复的嘛。<br>
+而且每种情况时左边情况数*右边情况数的计算和。<br>
+因为每种情况都是左边x个数，右边y各数。而两边各有x、y种情况。</p>
+<pre><code>class Solution(object):    def numTrees(self, n):        if n == 0:            return 1        count = [0 for i in range(n+1)]        count[0] = 1        for i in range(1, n+1):            for j in range(0, i): //两个for循坏哦                count[i] += count[j] * count[i-j-1]        return count[n]
+    </code></pre>
+<p>这里用动态规划统计以前计算过的当总结点数为i能有多少种情况。<br>
+所以整个过程是不断积累计算结点数位i能有多少种不同的二叉搜索树，知道i=n。 ## 常见题型2：global、local局部和全局最优（nothing special） 当问题需要从二维的可能性上考虑情况时。<br>
+（额这并不算是二维的情况吧，global只是一个遍历获得最大localDP的临时变量而已。顶多特别在可以保存所有到第i步的最大dp。）</p>
+<pre><code>localDP[i] = max(localDP[i-1] + nums[i], nums[i])   globalDP[i] = max(localDP[i], globalDP[i-1])</code></pre>
+<h3 id="maximum-subarray-sum">Maximum Subarray Sum</h3>
+<p>寻找数组中构成最大和的子数组。 ### Maximum Product Subarray 寻找数组中构成最大积的子数组。</p>
+<h2 id="题型3无法定义子问题的dp题型">题型3：无法定义子问题的DP题型</h2>
+<p>这种类型的题，会有一些限制条件和场景，因为可以想到是类似于回溯的解法，所以能想到是动态规划的题型，但是又没办法定义好子问题，一旦问题定义无法利用到所有外部信息，就没办法完成递归，也就没办法解决问题。<br>
+所以关键在于：<strong>如何定义子问题</strong>。</p>
+<p><strong>技巧：定义问题的时候，加上必须的外部信息。</strong> ### 546. Remove Boxes 这个题可以说是非常破了= = ，先记下了</p>
 
       
     </div>
@@ -860,7 +855,7 @@ globalDP[i] = max(localDP[i], globalDP[i-1])
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#greedy贪心"><span class="nav-number">1.</span> <span class="nav-text">greedy贪心</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Meeting-Rooms-II-👍"><span class="nav-number">1.0.1.</span> <span class="nav-text">Meeting Rooms II-👍</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DP动态规划"><span class="nav-number">2.</span> <span class="nav-text">DP动态规划</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题型！"><span class="nav-number">2.1.</span> <span class="nav-text">题型！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DP四要素"><span class="nav-number">2.2.</span> <span class="nav-text">DP四要素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标记函数"><span class="nav-number">2.3.</span> <span class="nav-text">标记函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">2.4.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见题型1：general递推"><span class="nav-number">2.5.</span> <span class="nav-text">常见题型1：general递推</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Best-Time-to-Buy-and-Sell-Stock-I-II-III-IV-With-Cool-Down"><span class="nav-number">2.5.1.</span> <span class="nav-text">Best Time to Buy and Sell Stock I/II/III/IV/With Cool Down</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Word-Break"><span class="nav-number">2.5.2.</span> <span class="nav-text">Word Break</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maximal-Square"><span class="nav-number">2.5.3.</span> <span class="nav-text">Maximal Square</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maximal-Rectangle"><span class="nav-number">2.5.4.</span> <span class="nav-text">Maximal Rectangle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Edit-Distance"><span class="nav-number">2.5.5.</span> <span class="nav-text">Edit Distance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Regular-Expression-Matching"><span class="nav-number">2.5.6.</span> <span class="nav-text">Regular Expression Matching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unique-Binary-Search-Tree"><span class="nav-number">2.5.7.</span> <span class="nav-text">Unique Binary Search Tree</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见题型2：global、local局部和全局最优（nothing-special）"><span class="nav-number">2.6.</span> <span class="nav-text">常见题型2：global、local局部和全局最优（nothing special）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Maximum-Subarray-Sum"><span class="nav-number">2.6.1.</span> <span class="nav-text">Maximum Subarray Sum</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maximum-Product-Subarray"><span class="nav-number">2.6.2.</span> <span class="nav-text">Maximum Product Subarray</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题型3：无法定义子问题的DP题型"><span class="nav-number">2.7.</span> <span class="nav-text">题型3：无法定义子问题的DP题型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#546-Remove-Boxes"><span class="nav-number">2.7.1.</span> <span class="nav-text">546. Remove Boxes</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#greedy贪心"><span class="nav-number">1.</span> <span class="nav-text">greedy贪心</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#meeting-rooms-ii-"><span class="nav-number">1.0.1.</span> <span class="nav-text">Meeting Rooms II-👍</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dp动态规划"><span class="nav-number">2.</span> <span class="nav-text">DP动态规划</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#dp四要素"><span class="nav-number">2.1.</span> <span class="nav-text">DP四要素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#maximum-subarray-sum"><span class="nav-number">2.1.1.</span> <span class="nav-text">Maximum Subarray Sum</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题型3无法定义子问题的dp题型"><span class="nav-number">2.2.</span> <span class="nav-text">题型3：无法定义子问题的DP题型</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1603,11 +1598,50 @@ globalDP[i] = max(localDP[i], globalDP[i-1])
       
       new needShareButton('#needsharebutton-float', flOptions);
     
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
 
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
 
   
 
